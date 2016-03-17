@@ -8,6 +8,7 @@ namespace ICT4Participation.Classes.Database
     public static class DatabaseManager
     {
         private static OracleConnection _connection;
+
         public static OracleConnection Connection
         {
             get

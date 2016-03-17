@@ -57,11 +57,23 @@
     </Compile>
     <Compile Include="Classes\Database\DatabaseManager.cs" />
     <Compile Include="Classes\Database\DatabaseQuerys.cs" />
+    <Compile Include="Forms\HulpbehoevendeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HulpbehoevendeForm.Designer.cs">
+      <DependentUpon>HulpbehoevendeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LogInForm.Designer.cs">
       <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VrijwilligersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VrijwilligersForm.Designer.cs">
+      <DependentUpon>VrijwilligersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\Intelligence\" />
+    <Folder Include="Forms\SubForms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
