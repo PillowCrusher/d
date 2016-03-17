@@ -1,4 +1,4 @@
-﻿namespace ICT4Participation
+﻿namespace ICT4Participation.Forms
 {
     partial class LogInForm
     {
