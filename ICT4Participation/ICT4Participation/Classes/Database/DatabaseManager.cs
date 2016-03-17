@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Configuration;
-using System.Windows.Forms;
 
 namespace ICT4Participation.Classes.Database
 {
@@ -25,8 +20,7 @@ namespace ICT4Participation.Classes.Database
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("De applicatie kan geen verbinding maken met de database.Neem contact op met een systeembeheerder." + Environment.NewLine + Environment.NewLine + ex.Message);
-                    Environment.Exit(0);
+                    //TODO: implementeer functie voor als de database geen connectie kan maken.
                 }
                 return null;
             }
@@ -41,12 +35,12 @@ namespace ICT4Participation.Classes.Database
                 {
                     command.Parameters.AddRange(parameters);
                 }
-                DataTable DT = new DataTable();
+                DataTable dt = new DataTable();
                 using (OracleDataReader reader = command.ExecuteReader())
                 {
-                    DT.Load(reader);
+                    dt.Load(reader);
                 }
-                return DT;
+                return dt;
             }
         }
 
@@ -66,9 +60,9 @@ namespace ICT4Participation.Classes.Database
                 command.ExecuteNonQuery();
                 transaction.Commit();
             }
-            catch (OracleException OE)
+            catch (OracleException oe)
             {
-                Console.WriteLine(OE.Message);
+                Console.WriteLine(oe.Message);
             }
             connection.Close();
         }
@@ -76,7 +70,7 @@ namespace ICT4Participation.Classes.Database
         public static void ExecuteDeleteQuery(string sqlquery, OracleParameter[] parameters)
         {
             using (Connection)
-            using (OracleTransaction OT = Connection.BeginTransaction())
+            using (OracleTransaction ot = Connection.BeginTransaction())
             {
                 OracleCommand command = new OracleCommand(sqlquery, _connection);
                 if (parameters != null)
@@ -87,11 +81,11 @@ namespace ICT4Participation.Classes.Database
                 try
                 {
                     command.ExecuteNonQuery();
-                    OT.Commit();
+                    ot.Commit();
                 }
-                catch (OracleException OE)
+                catch (OracleException oe)
                 {
-                    Console.WriteLine(OE.Message);
+                    Console.WriteLine(oe.Message);
                 }
             }
         }
