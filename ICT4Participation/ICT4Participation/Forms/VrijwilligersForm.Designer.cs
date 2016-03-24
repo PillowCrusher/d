@@ -55,6 +55,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.gbFilter.SuspendLayout();
             this.tlpProperties.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -83,11 +84,13 @@
             this.tlpProperties.Controls.Add(this.checkBox3, 0, 2);
             this.tlpProperties.Controls.Add(this.checkBox2, 0, 1);
             this.tlpProperties.Controls.Add(this.checkBox1, 0, 0);
-            this.tlpProperties.Controls.Add(this.dateTimePicker1, 0, 4);
+            this.tlpProperties.Controls.Add(this.dateTimePicker1, 0, 5);
+            this.tlpProperties.Controls.Add(this.checkBox5, 0, 4);
             this.tlpProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpProperties.Location = new System.Drawing.Point(3, 16);
             this.tlpProperties.Name = "tlpProperties";
-            this.tlpProperties.RowCount = 5;
+            this.tlpProperties.RowCount = 6;
+            this.tlpProperties.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProperties.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProperties.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProperties.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -131,9 +134,9 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(3, 72);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(93, 17);
+            this.checkBox4.Size = new System.Drawing.Size(58, 17);
             this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Kennis maken";
+            this.checkBox4.Text = "Urgent";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -341,10 +344,20 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 95);
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 118);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(122, 20);
             this.dateTimePicker1.TabIndex = 4;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(3, 95);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(93, 17);
+            this.checkBox5.TabIndex = 5;
+            this.checkBox5.Text = "Kennis maken";
+            this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // VrijwilligersForm
             // 
@@ -405,5 +418,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkBox5;
     }
 }
