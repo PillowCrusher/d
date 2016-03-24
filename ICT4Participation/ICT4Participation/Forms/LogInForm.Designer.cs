@@ -36,6 +36,7 @@
             this.btLogIn = new System.Windows.Forms.Button();
             this.llblRegister = new System.Windows.Forms.LinkLabel();
             this.tlpRegister = new System.Windows.Forms.TableLayoutPanel();
+            this.lblGeenAccount = new System.Windows.Forms.Label();
             this.tlpRegister.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,28 +99,37 @@
             // llblRegister
             // 
             this.llblRegister.AutoSize = true;
-            this.llblRegister.Location = new System.Drawing.Point(3, 0);
+            this.llblRegister.Location = new System.Drawing.Point(3, 19);
             this.llblRegister.Name = "llblRegister";
-            this.llblRegister.Size = new System.Drawing.Size(141, 26);
+            this.llblRegister.Size = new System.Drawing.Size(87, 13);
             this.llblRegister.TabIndex = 5;
             this.llblRegister.TabStop = true;
-            this.llblRegister.Text = "Heeft u nog geen account? Registreer u hier.";
+            this.llblRegister.Text = "Registreer u hier.";
             // 
             // tlpRegister
             // 
             this.tlpRegister.ColumnCount = 1;
             this.tlpRegister.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpRegister.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpRegister.Controls.Add(this.llblRegister, 0, 0);
+            this.tlpRegister.Controls.Add(this.llblRegister, 0, 1);
+            this.tlpRegister.Controls.Add(this.lblGeenAccount, 0, 0);
             this.tlpRegister.Location = new System.Drawing.Point(65, 178);
             this.tlpRegister.Name = "tlpRegister";
-            this.tlpRegister.RowCount = 1;
-            this.tlpRegister.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpRegister.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpRegister.RowCount = 2;
+            this.tlpRegister.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpRegister.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpRegister.Size = new System.Drawing.Size(167, 39);
             this.tlpRegister.TabIndex = 6;
             // 
-            // Form1
+            // lblGeenAccount
+            // 
+            this.lblGeenAccount.AutoSize = true;
+            this.lblGeenAccount.Location = new System.Drawing.Point(3, 0);
+            this.lblGeenAccount.Name = "lblGeenAccount";
+            this.lblGeenAccount.Size = new System.Drawing.Size(138, 13);
+            this.lblGeenAccount.TabIndex = 6;
+            this.lblGeenAccount.Text = "Heeft u nog geen account?";
+            // 
+            // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,7 +141,7 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblICT4P);
-            this.Name = "Form1";
+            this.Name = "LogInForm";
             this.Text = "Log In";
             this.tlpRegister.ResumeLayout(false);
             this.tlpRegister.PerformLayout();
@@ -150,6 +160,7 @@
         private System.Windows.Forms.Button btLogIn;
         private System.Windows.Forms.LinkLabel llblRegister;
         private System.Windows.Forms.TableLayoutPanel tlpRegister;
+        private System.Windows.Forms.Label lblGeenAccount;
     }
 }
 
