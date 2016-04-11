@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
-using System.Configuration;
+//using System.Configuration;
 
 namespace ICT4Participation.Classes.Database
 {
@@ -9,7 +9,7 @@ namespace ICT4Participation.Classes.Database
     {
         private static OracleConnection _connection;
 
-        public static OracleConnection Connection
+        private static OracleConnection Connection
         {
             get
             {
