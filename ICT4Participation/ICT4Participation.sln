@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICT4Participation", "ICT4Participation\ICT4Participation.csproj", "{58B7C77A-2A2F-44D3-9FBB-39C891C91865}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTS37UnitTest", "PTS37UnitTest\PTS37UnitTest.csproj", "{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{58B7C77A-2A2F-44D3-9FBB-39C891C91865}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58B7C77A-2A2F-44D3-9FBB-39C891C91865}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58B7C77A-2A2F-44D3-9FBB-39C891C91865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

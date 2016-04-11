@@ -15,7 +15,8 @@ namespace ICT4Participation.Classes.Database
             {
                 try
                 {
-                    _connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
+                    // _connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
+                    _connection = new OracleConnection("Data Source = 192.168.20.37; Persist Security Info = true; User Id = PTS37; Password = PTS37;");
                     _connection.Open();
                     return _connection;
                 }

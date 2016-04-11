@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using ICT4Participation.Classes.Database;
 
 namespace ICT4Participation.Forms
 {
