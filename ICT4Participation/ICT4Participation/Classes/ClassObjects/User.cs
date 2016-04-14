@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
-    public class User
+    public abstract class User
     {
         public string Name { get; protected set; }
         public string Address { get; protected set; }
@@ -28,6 +28,11 @@ namespace ICT4Participation.Classes.ClassObjects
             this.Phonenumber = phonenumber;
             this.HasDrivingLincense = hasDrivingLincense;
             this.HasCar = hasCar;
+        }
+
+        public void UpdateProfiel(User user)
+        {
+
         }
     }
 }
