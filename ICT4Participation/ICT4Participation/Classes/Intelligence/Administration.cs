@@ -9,6 +9,7 @@ namespace ICT4Participation.Classes.Intelligence
 {
     public class Administration
     {
+         
         public List<User> Users { get; private set; }
 
         public Administration()
@@ -38,7 +39,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public void Unsubscribe(User user)
         {
-            
+            user.UnSubscribe();
         }
 
         public void AddVolunteer(string name, string address, string city, string phonenumber, bool hasdrivinglicence, bool hascar, DateTime birthdate, string photo, string vog)

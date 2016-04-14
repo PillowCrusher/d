@@ -25,7 +25,7 @@ namespace ICT4Participation.Classes.Database
                 {
                     //TODO: implementeer functie voor als de database geen connectie kan maken.
                     //Update: Schrijft nu wat weg naar de debug output. - Kevin Sorée
-                    Debug.WriteLine("Couldn't establish a secure connection.");
+                    Debug.WriteLine(ex.Message);
                 }
                 return null;
             }
