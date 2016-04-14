@@ -12,16 +12,16 @@ namespace ICT4Participation.Classes.ClassObjects
         public List<Volunteer> Declined = new List<Volunteer>();
         public List<Volunteer> Pending = new List<Volunteer>();
 
-        public string NeedyName { get; set; }
-        public string Titel { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime DeadLine { get; set; }
-        public bool Urgent { get; set; }
-        public bool RequestIntroduction { get; set; }
-        public TransportationType Transportation { get; set; }
-        public bool Completed { get; set; }
+        public string NeedyName { get; private set; }
+        public string Titel { get; private set; }
+        public string Description { get; private set; }
+        public string Location { get; private set; }
+        public DateTime StartDate { get; private set; }
+        public DateTime DeadLine { get; private set; }
+        public bool Urgent { get; private set; }
+        public bool RequestIntroduction { get; private set; }
+        public TransportationType Transportation { get; private set; }
+        public bool Completed { get; private set; }
 
         public HelpRequest(string needyName, string titel, string description, string location, DateTime startDate, DateTime deadLine, bool urgent, bool requestintroduction, TransportationType transportation, bool completed)
         {

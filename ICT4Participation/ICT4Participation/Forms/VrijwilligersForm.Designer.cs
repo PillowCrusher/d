@@ -37,15 +37,15 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.gbHelpRequest = new System.Windows.Forms.GroupBox();
+            this.pnlHulpVragen = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblPersonalInfo = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.pnlHulpVragen = new System.Windows.Forms.Panel();
+            this.tbMessage = new System.Windows.Forms.TextBox();
+            this.lbChats = new System.Windows.Forms.ListBox();
+            this.lbHelpRequests = new System.Windows.Forms.ListBox();
             this.gbFilter.SuspendLayout();
             this.tlpProperties.SuspendLayout();
             this.gbHelpRequest.SuspendLayout();
@@ -156,10 +156,19 @@
             this.gbHelpRequest.TabStop = false;
             this.gbHelpRequest.Text = "Hulp Vragen:";
             // 
+            // pnlHulpVragen
+            // 
+            this.pnlHulpVragen.AutoScroll = true;
+            this.pnlHulpVragen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHulpVragen.Location = new System.Drawing.Point(3, 16);
+            this.pnlHulpVragen.Name = "pnlHulpVragen";
+            this.pnlHulpVragen.Size = new System.Drawing.Size(724, 638);
+            this.pnlHulpVragen.TabIndex = 0;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.pictureBox1);
-            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.lblPersonalInfo);
             this.groupBox4.Location = new System.Drawing.Point(748, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(364, 132);
@@ -177,22 +186,21 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
+            // lblPersonalInfo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(111, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 52);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Naam: vrij williger\r\nRijbewijs: Ja/Nee\r\nAuto beschikbaar: Ja/Nee\r\nOpenbaar vervoe" +
-    "r: Ja/Nee";
+            this.lblPersonalInfo.AutoSize = true;
+            this.lblPersonalInfo.Location = new System.Drawing.Point(111, 16);
+            this.lblPersonalInfo.Name = "lblPersonalInfo";
+            this.lblPersonalInfo.Size = new System.Drawing.Size(154, 13);
+            this.lblPersonalInfo.TabIndex = 0;
+            this.lblPersonalInfo.Text = "Error while getting personal info";
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.listBox2);
-            this.groupBox5.Controls.Add(this.listBox1);
+            this.groupBox5.Controls.Add(this.tbMessage);
+            this.groupBox5.Controls.Add(this.lbChats);
+            this.groupBox5.Controls.Add(this.lbHelpRequests);
             this.groupBox5.Location = new System.Drawing.Point(748, 221);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(504, 445);
@@ -209,45 +217,30 @@
             this.button3.Text = "Verstuur";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // tbMessage
             // 
-            this.textBox3.Location = new System.Drawing.Point(132, 393);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(267, 46);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = "tekst om te verzenden";
+            this.tbMessage.Location = new System.Drawing.Point(132, 393);
+            this.tbMessage.Multiline = true;
+            this.tbMessage.Name = "tbMessage";
+            this.tbMessage.Size = new System.Drawing.Size(267, 46);
+            this.tbMessage.TabIndex = 2;
+            this.tbMessage.Text = "tekst om te verzenden";
             // 
-            // listBox2
+            // lbChats
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Items.AddRange(new object[] {
-            "13:59 Ik: Hallo mevrouw",
-            "14:15 Mevrouw: Hallo"});
-            this.listBox2.Location = new System.Drawing.Point(132, 19);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(366, 368);
-            this.listBox2.TabIndex = 1;
+            this.lbChats.FormattingEnabled = true;
+            this.lbChats.Location = new System.Drawing.Point(132, 19);
+            this.lbChats.Name = "lbChats";
+            this.lbChats.Size = new System.Drawing.Size(366, 368);
+            this.lbChats.TabIndex = 1;
             // 
-            // listBox1
+            // lbHelpRequests
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Hulpvraag titel 1",
-            "Hulpvraag titel 2"});
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 420);
-            this.listBox1.TabIndex = 0;
-            // 
-            // pnlHulpVragen
-            // 
-            this.pnlHulpVragen.AutoScroll = true;
-            this.pnlHulpVragen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHulpVragen.Location = new System.Drawing.Point(3, 16);
-            this.pnlHulpVragen.Name = "pnlHulpVragen";
-            this.pnlHulpVragen.Size = new System.Drawing.Size(724, 638);
-            this.pnlHulpVragen.TabIndex = 0;
+            this.lbHelpRequests.FormattingEnabled = true;
+            this.lbHelpRequests.Location = new System.Drawing.Point(6, 19);
+            this.lbHelpRequests.Name = "lbHelpRequests";
+            this.lbHelpRequests.Size = new System.Drawing.Size(120, 420);
+            this.lbHelpRequests.TabIndex = 0;
             // 
             // VrijwilligersForm
             // 
@@ -286,12 +279,12 @@
         private System.Windows.Forms.GroupBox gbHelpRequest;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblPersonalInfo;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox tbMessage;
+        private System.Windows.Forms.ListBox lbChats;
+        private System.Windows.Forms.ListBox lbHelpRequests;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Panel pnlHulpVragen;
