@@ -1,11 +1,11 @@
-Oracle.ManagedDataAccess Nuget Package Version 12.1.022 README
-==============================================================
+Oracle.ManagedDataAccess Nuget Package Version 12.1.2400 README
+===============================================================
 
-Release 12.1.0.2.2 for RDBMS 12.1.0.2 Bundle Patch 6 Production
+Release 12.1.2400 for ODAC 12c Release 4
 
 Release Notes: Oracle Data Provider for .NET, Managed Driver
 
-June 2015
+October 2015
 
 Copyright (c) Oracle Corporation 2015
 
@@ -28,17 +28,33 @@ This version of ODP.NET supports Oracle Database version 10.2 and higher.
 
 
 
- New Features since Oracle.ManagedDataAccess Nuget Package Version 12.1.021
-===========================================================================
-1. ODP.NET, Managed Driver - Microsoft Local Security Authority (MSLSA)
-ODP.NET, Managed Driver now supports the Kerberos credential cache type, MSLSA. MSLSA is used to access the 
-Microsoft Kerberos Logon Session credentials cache.
+New Features since Oracle.ManagedDataAccess Nuget Package Version 12.1.022
+==========================================================================
+1. .NET Framework 4.6 Certification
+ODP.NET, Managed Driver is certified for .NET Framework 4.6.
 
-2. ODP.NET, Managed Driver - SSL/TLS Connections Use a Single Port
-An ODP.NET, Managed Driver SSL/TLS connection will now continue on the original connection to the database 
-listener instead of the previous SSL/TLS client redirection to a database server created new listening 
-endpoint on a dynamic (ephemeral) port. Hence, firewalls will only need to allow access to the TNS listener's 
-port. For example, 1521.
+2. Network Data Encryption
+ODP.NET, Managed Driver supports database security network data encryption using Advanced Encryption Standard 
+(AES), RC4, or Triple-DES to enable more secure database communication over intranet and cloud access.
+
+3. Secure External Password Store
+ODP.NET, Managed Driver supports connection establishment by retrieving password credentials from a client-side 
+Oracle wallet.
+
+4. Service Relocation Connection Timeout
+Whenever a database service becomes unavailable, an application can encounter numerous connectivity errors. 
+To avoid connection attempts to an unavailable service, ODP.NET, Managed Driver blocks any connection attempts 
+until the service is up or until the configured time limit expires from the time when the service DOWN event 
+was received. This feature is useful for planned outages and service relocations. It works with Oracle RAC and 
+Oracle Data Guard.
+
+5. Transaction Guard
+ODP.NET, Managed Driver now supports Transaction Guard. Its API and architecture are the same as ODP.NET, 
+Unmanaged Driver's in ODAC 12c Release 4 to provide improved developer productivity.
+
+6. Tracing Enhancements
+ODP.NET improves and unifies tracing features between managed and unmanaged ODP.NET. Key features include traces 
+now output to a Windows temporary files directory and both providers use the same tracing parameters.
 
 
 
@@ -47,10 +63,11 @@ Installation and Configuration Steps
 The downloads are NuGet packages that can be installed with the NuGet Package Manager. These instructions apply 
 to install ODP.NET, Managed Driver.
 
-1. Un-GAC any existing ODP.NET 12.1.0.2 versions you have installed. For example, if you plan to use only the 
-ODP.NET, Managed Driver, only un-GAC existing managed ODP.NET 12.1.0.2 versions then.
+1. Un-GAC and un-configure any existing assembly (i.e. Oracle.ManagedDataAccess.dll) and policy DLL 
+(i.e. Policy.4.121.Oracle.ManagedDataAccess.dll) for the ODP.NET, Managed Driver, version 12.1.0.2
+that exist in the GAC.
 
-2. In Visual Studio 2010, 2012, or 2013, open NuGet Package Manager from an existing Visual Studio project. 
+2. In Visual Studio 2010, 2012, 2013, or 2015 open NuGet Package Manager from an existing Visual Studio project. 
 
 3. Install the NuGet package from an OTN-downloaded local package source or from nuget.org.
 
@@ -107,9 +124,9 @@ to download MIT Kerberos for Windows 4.0.1 or higher from
 to utilize ODP.NET, Managed Driver's support of Kerberos.
 
 These asssemblies are located under
-      packages\Oracle.ManagedDataAccess.12.1.022\bin\x64
+      packages\Oracle.ManagedDataAccess.<version>\bin\x64
 and
-      packages\Oracle.ManagedDataAccess.12.1.022\bin\x86
+      packages\Oracle.ManagedDataAccess.<version>\bin\x86
 depending on the platform.
 
 If these assemblies are required by your application, your Visual Studio project requires additional changes.
@@ -121,14 +138,14 @@ Use the following steps for your application to use the 64-bit version of Oracle
 3. Name the folder x64.
 4. Right click on the newly created x64 folder
 5. Select Add -> Existing Item
-6. Browse to packages\Oracle.ManagedDataAccess.12.1.022\bin\x64 under your project solution directory.
+6. Browse to packages\Oracle.ManagedDataAccess.<version>\bin\x64 under your project solution directory.
 7. Choose Oracle.ManagedDataAccessDTC.dll
 8. Click the 'Add' button
 9. Left click the newly added Oracle.ManagedDataAccessDTC.dll in the x64 folder
 10. In the properties window, set 'Copy To Output Directory' to 'Copy Always'.
 
 For x86 targeted applications, name the folder x86 and add assemblies from the 
-packages\Oracle.ManagedDataAccess.12.1.022\bin\x86 folder.
+packages\Oracle.ManagedDataAccess.<version>\bin\x86 folder.
 
 Use the same steps for adding Oracle.ManagedDataAccessIOP.dll.
 
@@ -218,58 +235,22 @@ your connection string when connecting to an Oracle Database through ODP.NET, Ma
 Documentation Corrections and Additions
 =======================================
 This section contains information that corrects or adds to existing ODP.NET documentation, which can be found here:
-http://docs.oracle.com/cd/E56485_01/index.htm
+http://www.oracle.com/technetwork/topics/dotnet/tech-info/index.html
 
+1. ODP.NET Entity Framework Database First and Model First applications using Entity Framework 6 requires .NET 
+Framework 4.5 or higher.
 
-ODP.NET, Managed Driver Support for Oracle Database 12c Implicit Ref Cursor 
----
-ODP.NET, Managed Driver introduces support for the new Oracle Database 12c Implicit Ref Cursor. Configuration occurs 
-using the <implicitrefcursor> .NET configuration section. When using database implicit ref cursors, the bindInfo element 
-should be specified with a mode of "Implicit": 
-
-<bindinfo mode="Implicit" /> 
-
-For additional information refer to the implicitRefCursor section in Chapter 2 of the Oracle Data Provider for .NET 
-Developer's Guide. 
-
-
-Session Time Zone Hour Offset in ODP.NET Managed and Unmanaged Drivers 
----
-ODP.NET managed and unmanaged drivers set the default session time zone differently. While the session time zone for 
-unmanaged ODP.NET uses an hour offset, managed ODP.NET uses the region identifier for setting its session time zone. 
-As a result, managed ODP.NET is sensitive to daylight savings in scenarios where the timestamp LTZ values have to be 
-converted from/to the session time zone.
-
-There are two methods to resolve this difference if needed. For ODP.NET, Unmanaged Driver, the application explicitly 
-sets the region identifier with the environment variable 'ORA_SDTZ' (e.g. 'set ORA_SDTZ = <Region ID>'). If ORA_SDTZ 
-variable is set, Oracle Client considers this value as the session time zone. The second method is to execute an alter 
-session command to set the session time zone property to the region identifier. 
-
-
-ODP.NET, Managed Driver with NTS Authentication 
----
-ODP.NET, Managed Driver supports NTS authentication to the database, except when the Windows domain is constrained to 
-only support Kerberos-based domain authentication. 
-
-
-ODP.NET, Managed Driver SSL Connections with Firewalls 
----
-ODP.NET, Managed Driver SSL connections require a redirect to a dynamic port on the database server side. If a firewall 
-exists between the database client and server, then all firewall ports must be enabled or the dynamic firewall port 
-Oracle chooses must be enabled at run-time.
-
- 
-
-Fixed Bugs Since Last ODP.NET NuGet Release
-===========================================
-This section list bugs that have been fixed since the last ODP.NET NuGet release.
-
-BUG 20361140 - ORA-01461: CAN BIND A LONG VALUE ONLY FOR INSERT INTO A LONG COLUMN
-BUG 20401862 - ODP MANAGED DRIVER APPLICATION FAILS TO CONNECT TO RAC DB USING OID 
-BUG 20460558 - BINDBYNAME CAUSES QUERY TO HANG 
-BUG 19261209 - FILE WALLET WITH MANAGED ODP.NET PROVIDER FAILS WITH ORA-01017 
-BUG 20419677 - SLOW OPENING CONNECTION WHEN EZCONNECT AND "WORLD" SETTINGS USED TOGETHER 
-BUG 20206306 - ORA-01483 WHEN BINDING NUMBER AND NCLOB > 4K CHARACTERS 
+2. All Oracle database clients support interrupting database query execution, such as through an ODP.NET command 
+timeout. The database server can be interrupted via either TCP/IP urgent data or normal TCP/IP data, called out of band 
+(OOB) or in band data, respectively. Windows-based database servers only support in band breaks, whereas all other 
+(predominantly UNIX-based) database servers can support OOB or in band breaks. ODP.NET, Managed Driver uses OOB breaks 
+by default with database servers that support it. For certain network topologies, the routers or firewalls involved in 
+the route to the database may have been configured to drop urgent data or in band the data. If the routers or firewalls 
+can not be changed to handle urgent data appropriately, then the ODP.NET, Managed Driver can be configured to utilize 
+in band breaks by setting the .NET configuration parameter disable_oob to "on". The default value for disable_oob is 
+"off". disable_oob can be set in the <settings> of the .NET config file for <oracle.manageddataaccess.client>. As with 
+all ODP.NET, Managed Driver settings, disable_oob can be set in either the .NET config or sqlnet.ora files, whereas it 
+can only be set for ODP.NET, Unmanaged Driver in the sqlnet.ora file.
 
 
 
