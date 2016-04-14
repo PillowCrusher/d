@@ -14,6 +14,16 @@ namespace ICT4Participation.Classes.ClassObjects
         public Needy(string name, string address, string city, string phonenumber, bool hasDrivingLincense, bool hasCar, bool publicTransport, string rfid)
             : base(name, address, city, phonenumber, hasDrivingLincense, hasCar)
         {
+            
+        }
+
+        public void AddHelpRequest(string titel, string description, string location, DateTime travelTime, DateTime startDate, DateTime endDate, bool urgent, bool requestintroduction)
+        {
+
+        }
+
+        public void DeleteHelpRequest(HelpRequest helprequest)
+        {
 
         }
     }
