@@ -22,7 +22,20 @@ namespace ICT4Participation.Classes.ClassObjects
         private static TransportationType _transportation;
         private static int _position;
 
-
+        /// <summary>
+        /// Voor het aanmaken van een hulpRequest voor de Volunteer
+        /// </summary>
+        /// <param name="needyName"></param>
+        /// <param name="title"></param>
+        /// <param name="description"></param>
+        /// <param name="location"></param>
+        /// <param name="startDate"></param>
+        /// <param name="deadLine"></param>
+        /// <param name="urgent"></param>
+        /// <param name="meeting"></param>
+        /// <param name="transportation"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static GroupBox NewHelpRequest(
             string needyName,
             string title,
@@ -57,6 +70,19 @@ namespace ICT4Participation.Classes.ClassObjects
             return NewGroupbox(220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
         }
 
+        /// <summary>
+        /// Voor het aanmaken van een helpRequest lijst voor Needy
+        /// </summary>
+        /// <param name="needyName"></param>
+        /// <param name="title"></param>
+        /// <param name="description"></param>
+        /// <param name="location"></param>
+        /// <param name="deadLine"></param>
+        /// <param name="urgent"></param>
+        /// <param name="meeting"></param>
+        /// <param name="transportation"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static GroupBox NewHelpRequest(
             string needyName,
             string title,

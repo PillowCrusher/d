@@ -8,19 +8,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ICT4Participation.Classes.Intelligence;
 
 namespace ICT4Participation.Forms
 {
     public partial class HulpbehoevendeForm : Form
     {
-        private Admin _admin;
+        private Administration _administration;
         private readonly List<HelpRequest> _helpRequests;
 
         public HulpbehoevendeForm()
         {
             InitializeComponent();
-            _admin = new Admin();
+            _administration = new Administration();
             _helpRequests = new List<HelpRequest>();
+
+            GetPersonalHelpRequests();
+
+            UpdateHelpListGui();
+        }
+
+        private void GetPersonalHelpRequests()
+        {
+            
+        }
+
+        private void UpdateHelpListGui()
+        {
+            int position = 0;
+
+            pnlHulpVragen.Controls.Clear();
+
+            foreach (HelpRequest h in _helpRequests)
+            {
+                if (!h.Completed)
+                {
+                    pnlHulpVragen.Controls.Add(
+                        FormTools.NewHelpRequest(
+                            h.NeedyName,
+                            h.Titel,
+                            h.Description,
+                            h.Location,
+                            h.DeadLine,
+                            h.Urgent,
+                            h.RequestIntroduction,
+                            h.Transportation,
+                            position
+                            )
+                        );
+                    position++;
+                }
+            }
         }
     }
 }
