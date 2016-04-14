@@ -47,66 +47,73 @@ namespace ICT4Participation.Forms
         {
             bool car = false;
             bool driving = false;
-            if (tbName.Text != "")
+            if (tbUsername.Text != "")
             {
-                if (tbAddress.Text != "")
+                if (tbName.Text != "")
                 {
-                    if (tbCity.Text != "")
+                    if (tbAddress.Text != "")
                     {
-                        if (tbPhonenumber.Text != "")
+                        if (tbCity.Text != "")
                         {
-                            if (rbtCarYes.Checked == true)
+                            if (tbPhonenumber.Text != "")
                             {
-                                car = true;
-                            }
-                            else if (rbtCarNo.Checked == false)
-                            {
-                                car = false;
-                            }
-                            if (rbtDrivingYes.Checked == true)
-                            {
-                                driving = true;
-                            }
-                            else if (rbtDrivingNo.Checked == false)
-                            {
-                                driving = false;
-                            }
-                            if (photoFile != null)
-                            {
-                                if(VOGFile != null)
+                                if (rbtCarYes.Checked == true)
                                 {
-                                    DateTime birthday = dtpBirthDate.Value.Date;
-                                    administration.AddVolunteer(tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, driving, car, birthday, photoFile, VOGFile);
-                                    this.DialogResult = DialogResult.OK;
+                                    car = true;
+                                }
+                                else if (rbtCarNo.Checked == false)
+                                {
+                                    car = false;
+                                }
+                                if (rbtDrivingYes.Checked == true)
+                                {
+                                    driving = true;
+                                }
+                                else if (rbtDrivingNo.Checked == false)
+                                {
+                                    driving = false;
+                                }
+                                if (photoFile != null)
+                                {
+                                    if (VOGFile != null)
+                                    {
+                                        DateTime birthday = dtpBirthDate.Value.Date;
+                                        administration.AddVolunteer(tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, driving, car, birthday, photoFile, VOGFile);
+                                        this.DialogResult = DialogResult.OK;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Voeg alsjeblieft een VOG toe");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Voeg alsjeblieft een VOG toe");
+                                    MessageBox.Show("Voeg alsjeblieft een Foto toe");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Voeg alsjeblieft een Foto toe");
+                                MessageBox.Show("Vul alsjeblieft een naam in");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Vul alsjeblieft een naam in");
+                            MessageBox.Show("Vul alsjeblieft een woonplaats in");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Vul alsjeblieft een woonplaats in");
+                        MessageBox.Show("Vul alsjeblieft een adres in");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vul alsjeblieft een adres in");
+                    MessageBox.Show("Vul alsjeblieft een naam in");
                 }
             }
             else
             {
-                MessageBox.Show("Vul alsjeblieft een naam in");
+                MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
             }
         }
 

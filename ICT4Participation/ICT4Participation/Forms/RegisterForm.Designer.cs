@@ -51,15 +51,25 @@
             this.lbFilePhoto = new System.Windows.Forms.Label();
             this.lbFileVOG = new System.Windows.Forms.Label();
             this.btRegister = new System.Windows.Forms.Button();
+            this.lbGebruikersnaam = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbWachtwoord = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.grbxPublicTransport = new System.Windows.Forms.GroupBox();
+            this.rbtTransportNo = new System.Windows.Forms.RadioButton();
+            this.rbtTransportYes = new System.Windows.Forms.RadioButton();
             this.grpbxCar.SuspendLayout();
             this.grbxDrivingLincense.SuspendLayout();
+            this.grbxPublicTransport.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblName.Location = new System.Drawing.Point(19, 17);
+            this.lblName.Location = new System.Drawing.Point(21, 129);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(94, 31);
             this.lblName.TabIndex = 0;
@@ -69,7 +79,7 @@
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblAddress.Location = new System.Drawing.Point(19, 54);
+            this.lblAddress.Location = new System.Drawing.Point(21, 166);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(93, 31);
             this.lblAddress.TabIndex = 1;
@@ -79,7 +89,7 @@
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCity.Location = new System.Drawing.Point(19, 95);
+            this.lblCity.Location = new System.Drawing.Point(21, 207);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(165, 31);
             this.lblCity.TabIndex = 2;
@@ -89,7 +99,7 @@
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPhoneNumber.Location = new System.Drawing.Point(19, 132);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(21, 244);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(226, 31);
             this.lblPhoneNumber.TabIndex = 3;
@@ -99,7 +109,7 @@
             // 
             this.lblBirthdate.AutoSize = true;
             this.lblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBirthdate.Location = new System.Drawing.Point(19, 351);
+            this.lblBirthdate.Location = new System.Drawing.Point(21, 530);
             this.lblBirthdate.Name = "lblBirthdate";
             this.lblBirthdate.Size = new System.Drawing.Size(154, 31);
             this.lblBirthdate.TabIndex = 6;
@@ -109,7 +119,7 @@
             // 
             this.lblPhoto.AutoSize = true;
             this.lblPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPhoto.Location = new System.Drawing.Point(19, 401);
+            this.lblPhoto.Location = new System.Drawing.Point(21, 580);
             this.lblPhoto.Name = "lblPhoto";
             this.lblPhoto.Size = new System.Drawing.Size(77, 31);
             this.lblPhoto.TabIndex = 7;
@@ -119,7 +129,7 @@
             // 
             this.lblVOG.AutoSize = true;
             this.lblVOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblVOG.Location = new System.Drawing.Point(19, 448);
+            this.lblVOG.Location = new System.Drawing.Point(21, 627);
             this.lblVOG.Name = "lblVOG";
             this.lblVOG.Size = new System.Drawing.Size(82, 31);
             this.lblVOG.TabIndex = 8;
@@ -130,7 +140,7 @@
             this.grpbxCar.Controls.Add(this.rbtCarNo);
             this.grpbxCar.Controls.Add(this.rbtCarYes);
             this.grpbxCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grpbxCar.Location = new System.Drawing.Point(13, 261);
+            this.grpbxCar.Location = new System.Drawing.Point(15, 440);
             this.grpbxCar.Name = "grpbxCar";
             this.grpbxCar.Size = new System.Drawing.Size(272, 72);
             this.grpbxCar.TabIndex = 9;
@@ -164,7 +174,7 @@
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingNo);
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingYes);
             this.grbxDrivingLincense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbxDrivingLincense.Location = new System.Drawing.Point(13, 183);
+            this.grbxDrivingLincense.Location = new System.Drawing.Point(15, 362);
             this.grbxDrivingLincense.Name = "grbxDrivingLincense";
             this.grbxDrivingLincense.Size = new System.Drawing.Size(272, 72);
             this.grbxDrivingLincense.TabIndex = 10;
@@ -195,28 +205,28 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(245, 20);
+            this.tbName.Location = new System.Drawing.Point(249, 130);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(300, 31);
             this.tbName.TabIndex = 11;
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(245, 57);
+            this.tbAddress.Location = new System.Drawing.Point(249, 169);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(300, 31);
             this.tbAddress.TabIndex = 12;
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(245, 98);
+            this.tbCity.Location = new System.Drawing.Point(249, 210);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(300, 31);
             this.tbCity.TabIndex = 13;
             // 
             // tbPhonenumber
             // 
-            this.tbPhonenumber.Location = new System.Drawing.Point(245, 135);
+            this.tbPhonenumber.Location = new System.Drawing.Point(249, 247);
             this.tbPhonenumber.Name = "tbPhonenumber";
             this.tbPhonenumber.Size = new System.Drawing.Size(300, 31);
             this.tbPhonenumber.TabIndex = 14;
@@ -224,7 +234,7 @@
             // dtpBirthDate
             // 
             this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtpBirthDate.Location = new System.Drawing.Point(179, 345);
+            this.dtpBirthDate.Location = new System.Drawing.Point(181, 524);
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.Size = new System.Drawing.Size(366, 38);
             this.dtpBirthDate.TabIndex = 15;
@@ -232,7 +242,7 @@
             // btPhoto
             // 
             this.btPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btPhoto.Location = new System.Drawing.Point(143, 394);
+            this.btPhoto.Location = new System.Drawing.Point(145, 573);
             this.btPhoto.Name = "btPhoto";
             this.btPhoto.Size = new System.Drawing.Size(210, 38);
             this.btPhoto.TabIndex = 16;
@@ -243,7 +253,7 @@
             // btVOG
             // 
             this.btVOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btVOG.Location = new System.Drawing.Point(143, 448);
+            this.btVOG.Location = new System.Drawing.Point(145, 627);
             this.btVOG.Name = "btVOG";
             this.btVOG.Size = new System.Drawing.Size(210, 39);
             this.btVOG.TabIndex = 17;
@@ -255,7 +265,7 @@
             // 
             this.lbFilePhoto.AutoSize = true;
             this.lbFilePhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbFilePhoto.Location = new System.Drawing.Point(359, 398);
+            this.lbFilePhoto.Location = new System.Drawing.Point(361, 577);
             this.lbFilePhoto.Name = "lbFilePhoto";
             this.lbFilePhoto.Size = new System.Drawing.Size(0, 31);
             this.lbFilePhoto.TabIndex = 18;
@@ -264,7 +274,7 @@
             // 
             this.lbFileVOG.AutoSize = true;
             this.lbFileVOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbFileVOG.Location = new System.Drawing.Point(359, 448);
+            this.lbFileVOG.Location = new System.Drawing.Point(361, 627);
             this.lbFileVOG.Name = "lbFileVOG";
             this.lbFileVOG.Size = new System.Drawing.Size(0, 31);
             this.lbFileVOG.TabIndex = 19;
@@ -272,7 +282,7 @@
             // btRegister
             // 
             this.btRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRegister.Location = new System.Drawing.Point(25, 497);
+            this.btRegister.Location = new System.Drawing.Point(27, 676);
             this.btRegister.Name = "btRegister";
             this.btRegister.Size = new System.Drawing.Size(520, 90);
             this.btRegister.TabIndex = 20;
@@ -280,11 +290,103 @@
             this.btRegister.UseVisualStyleBackColor = true;
             this.btRegister.Click += new System.EventHandler(this.btRegister_Click);
             // 
+            // lbGebruikersnaam
+            // 
+            this.lbGebruikersnaam.AutoSize = true;
+            this.lbGebruikersnaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbGebruikersnaam.Location = new System.Drawing.Point(21, 14);
+            this.lbGebruikersnaam.Name = "lbGebruikersnaam";
+            this.lbGebruikersnaam.Size = new System.Drawing.Size(222, 31);
+            this.lbGebruikersnaam.TabIndex = 21;
+            this.lbGebruikersnaam.Text = "Gebruikersnaam:";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbEmail.Location = new System.Drawing.Point(21, 52);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(89, 31);
+            this.lbEmail.TabIndex = 22;
+            this.lbEmail.Text = "Email:";
+            // 
+            // lbWachtwoord
+            // 
+            this.lbWachtwoord.AutoSize = true;
+            this.lbWachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbWachtwoord.Location = new System.Drawing.Point(21, 89);
+            this.lbWachtwoord.Name = "lbWachtwoord";
+            this.lbWachtwoord.Size = new System.Drawing.Size(173, 31);
+            this.lbWachtwoord.TabIndex = 23;
+            this.lbWachtwoord.Text = "Wachtwoord:";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(249, 89);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(300, 31);
+            this.tbPassword.TabIndex = 24;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(249, 53);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(300, 31);
+            this.tbEmail.TabIndex = 25;
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(249, 17);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(300, 31);
+            this.tbUsername.TabIndex = 26;
+            // 
+            // grbxPublicTransport
+            // 
+            this.grbxPublicTransport.Controls.Add(this.rbtTransportNo);
+            this.grbxPublicTransport.Controls.Add(this.rbtTransportYes);
+            this.grbxPublicTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.grbxPublicTransport.Location = new System.Drawing.Point(15, 284);
+            this.grbxPublicTransport.Name = "grbxPublicTransport";
+            this.grbxPublicTransport.Size = new System.Drawing.Size(272, 72);
+            this.grbxPublicTransport.TabIndex = 27;
+            this.grbxPublicTransport.TabStop = false;
+            this.grbxPublicTransport.Text = "Openbaar vervoer:";
+            // 
+            // rbtTransportNo
+            // 
+            this.rbtTransportNo.AutoSize = true;
+            this.rbtTransportNo.Location = new System.Drawing.Point(127, 30);
+            this.rbtTransportNo.Name = "rbtTransportNo";
+            this.rbtTransportNo.Size = new System.Drawing.Size(90, 35);
+            this.rbtTransportNo.TabIndex = 1;
+            this.rbtTransportNo.TabStop = true;
+            this.rbtTransportNo.Text = "nee";
+            this.rbtTransportNo.UseVisualStyleBackColor = true;
+            // 
+            // rbtTransportYes
+            // 
+            this.rbtTransportYes.AutoSize = true;
+            this.rbtTransportYes.Location = new System.Drawing.Point(43, 30);
+            this.rbtTransportYes.Name = "rbtTransportYes";
+            this.rbtTransportYes.Size = new System.Drawing.Size(66, 35);
+            this.rbtTransportYes.TabIndex = 0;
+            this.rbtTransportYes.TabStop = true;
+            this.rbtTransportYes.Text = "ja";
+            this.rbtTransportYes.UseVisualStyleBackColor = true;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 599);
+            this.ClientSize = new System.Drawing.Size(558, 778);
+            this.Controls.Add(this.grbxPublicTransport);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.lbWachtwoord);
+            this.Controls.Add(this.lbEmail);
+            this.Controls.Add(this.lbGebruikersnaam);
             this.Controls.Add(this.btRegister);
             this.Controls.Add(this.lbFileVOG);
             this.Controls.Add(this.lbFilePhoto);
@@ -311,6 +413,8 @@
             this.grpbxCar.PerformLayout();
             this.grbxDrivingLincense.ResumeLayout(false);
             this.grbxDrivingLincense.PerformLayout();
+            this.grbxPublicTransport.ResumeLayout(false);
+            this.grbxPublicTransport.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +445,14 @@
         private System.Windows.Forms.Label lbFilePhoto;
         private System.Windows.Forms.Label lbFileVOG;
         private System.Windows.Forms.Button btRegister;
+        private System.Windows.Forms.Label lbGebruikersnaam;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Label lbWachtwoord;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.GroupBox grbxPublicTransport;
+        private System.Windows.Forms.RadioButton rbtTransportNo;
+        private System.Windows.Forms.RadioButton rbtTransportYes;
     }
 }
