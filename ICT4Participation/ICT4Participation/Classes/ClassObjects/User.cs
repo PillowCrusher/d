@@ -28,7 +28,18 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void UpdateProfiel(User user)
         {
+           // Name = user.Name;
+            Address = user.Address;
+            City = user.City;
+            Phonenumber = user.Phonenumber;
+            HasDrivingLincense = user.HasDrivingLincense;
+            HasCar = HasCar;
+            //Wat willen we toestaan dat de user kan veranderen?
+        }
 
+        public void UnSubscribe()
+        {
+            DeRegistrationDate = DateTime.Now;
         }
     }
 }
