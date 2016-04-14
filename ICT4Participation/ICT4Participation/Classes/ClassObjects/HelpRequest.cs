@@ -23,31 +23,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public bool Completed { get; set; }
 
         public HelpRequest(string titel, string description, string location, DateTime travelTime, DateTime startDate, DateTime endDate, bool urgent, bool requestintroduction, bool completed)
-        {
-            if (titel == null)
-            {
-                throw new ArgumentNullException("titel", "titel is empty");
-            }
-            if (description == null)
-            {
-                throw new ArgumentNullException("descrption","description is emtpy");
-            }
-            if (location == null)
-            {
-                throw new ArgumentNullException("location", "location is empty");
-            }
-            if(travelTime == null)
-            {
-                throw new ArgumentNullException("traveltime","traveltime is empty");
-            }
-            if (startDate == null)
-            {
-                throw new ArgumentNullException("startDate", "startDate is empty");
-            }
-            if (endDate == null)
-            {
-                throw new ArgumentNullException("endDate", "endDate is empty");
-            }
+        {         
             this.Titel = titel;
             this.Description = description;
             this.Location = location;

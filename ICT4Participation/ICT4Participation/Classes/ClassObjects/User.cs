@@ -18,10 +18,6 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public User(string name, string address, string city, string phonenumber, bool hasDrivingLincense, bool hasCar)
         {
-            if (name == null || address == null || city == null || phonenumber == null)
-            {
-                throw new ArgumentNullException("user", "please fill in all fields for the user");
-            }
             this.Name = name;
             this.Address = address;
             this.City = city;
