@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics;
 using Oracle.ManagedDataAccess.Client;
 //using System.Configuration;
 
@@ -23,6 +24,8 @@ namespace ICT4Participation.Classes.Database
                 catch (Exception ex)
                 {
                     //TODO: implementeer functie voor als de database geen connectie kan maken.
+                    //Update: Schrijft nu wat weg naar de debug output. - Kevin Sorée
+                    Debug.WriteLine("Couldn't establish a secure connection.");
                 }
                 return null;
             }
