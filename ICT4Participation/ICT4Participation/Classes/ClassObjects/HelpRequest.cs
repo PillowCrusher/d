@@ -12,26 +12,48 @@ namespace ICT4Participation.Classes.ClassObjects
         public List<Volunteer> Declined = new List<Volunteer>();
         public List<Volunteer> Pending = new List<Volunteer>();
 
+        public string NeedyName { get; set; }
         public string Titel { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
-        public DateTime TravelTime { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime DeadLine { get; set; }
         public bool Urgent { get; set; }
         public bool RequestIntroduction { get; set; }
+        public TransportationType Transportation { get; set; }
         public bool Completed { get; set; }
 
-        public HelpRequest(string titel, string description, string location, DateTime travelTime, DateTime startDate, DateTime endDate, bool urgent, bool requestintroduction, bool completed)
-        {         
+        public HelpRequest(string needyName, string titel, string description, string location, DateTime startDate, DateTime deadLine, bool urgent, bool requestintroduction, TransportationType transportation, bool completed)
+        {
+            if (titel == null)
+            {
+                throw new ArgumentNullException("titel", "titel is empty");
+            }
+            if (description == null)
+            {
+                throw new ArgumentNullException("descrptions","description is emtpy");
+            }
+            if (location == null)
+            {
+                throw new ArgumentNullException("location", "location is empty");
+            }
+            if (startDate == null)
+            {
+                throw new ArgumentNullException("startDate", "startDate is empty");
+            }
+            if (deadLine == null)
+            {
+                throw new ArgumentNullException("endDate", "endDate is empty");
+            }
+            this.NeedyName = needyName;
             this.Titel = titel;
             this.Description = description;
             this.Location = location;
-            this.TravelTime = travelTime;
             this.StartDate = startDate;
-            this.EndDate = endDate;
+            this.DeadLine = deadLine;
             this.Urgent = urgent;
             this.RequestIntroduction = requestintroduction;
+            this.Transportation = transportation;
             this.Completed = completed;
         }
 
