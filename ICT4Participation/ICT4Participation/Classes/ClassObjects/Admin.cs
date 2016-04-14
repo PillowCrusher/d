@@ -8,11 +8,13 @@ namespace ICT4Participation.Classes.ClassObjects
 {
     public class Admin
     {
-        string RFID { get; set; }
+        public string RFID { get; set; }
+        public Account Account { get; set; }
 
-        public Admin()
+        public Admin(Account account, string rfid)
         {
-
+            this.Account = account;
+            this.RFID = rfid;
         }
 
         public void BlockAccount(Account account)

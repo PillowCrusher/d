@@ -8,20 +8,31 @@ namespace ICT4Participation.Classes.ClassObjects
 {
     public abstract class User
     {
+        public Account Account { get; protected set; }
         public string Name { get; protected set; }
         public string Address { get; protected set; }
         public string City { get; protected set; }
         public string Phonenumber { get; protected set; }
+        public bool PublicTransport { get; protected set; }
         public bool HasDrivingLincense { get; protected set; }
         public bool HasCar { get; protected set; }
         public DateTime DeRegistrationDate { get; protected set; }
 
-        public User(string name, string address, string city, string phonenumber, bool hasDrivingLincense, bool hasCar)
+        public User(Account account, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar)
         {
+<<<<<<< HEAD
+            if (name == null || address == null || city == null || phonenumber == null)
+            {
+                throw new ArgumentNullException("user", "please fill in all fields for the user");
+            }
+            this.Account = account;
+=======
+>>>>>>> ff83b871b29ddf9f3dc88a634e25b601c43a7445
             this.Name = name;
             this.Address = address;
             this.City = city;
             this.Phonenumber = phonenumber;
+            this.PublicTransport = publicTransport;
             this.HasDrivingLincense = hasDrivingLincense;
             this.HasCar = hasCar;
         }

@@ -8,7 +8,12 @@ namespace ICT4Participation.Classes.Database
 
         static DatabaseQuerys()
         {
-            Query["GetAllLogins"] = "SELECT * FROM EMPLOYEELOGINS";
+            Query["InsertAccount"] = "INSERT INTO \"Account\" (ID, Username, Password, Email) values (ACCOUNT_SEQ.nextval, :harry, :password, :email);";
+            Query["InsertVolunteer"] = "INSERT INTO \"Account\" (ID, Username, Password, Email) values (ACCOUNT_SEQ.nextval, :harry, :password, :email);";
+            Query["GetUserLogin"] = "SELECT Username, Password FROM \"ACCOUNT\" WHERE USERNAME = :username AND PASSWORD = :password";
+            Query["GetAllHelpRequests"] = "SELECT * FROM \"HELPREQUEST\"";
+            Query["GetUserHelpRequests"] = "SELECT * FROM \"HELPREQUEST\" WHERE NEEDYID = :needyid";
+            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"CHATMESSAGE\" WHERE HELPREQUEST_ID = :helprequest_id";
             
         }
     }
