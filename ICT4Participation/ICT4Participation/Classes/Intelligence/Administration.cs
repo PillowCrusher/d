@@ -7,7 +7,7 @@ using ICT4Participation.Classes.ClassObjects;
 
 namespace ICT4Participation.Classes.Intelligence
 {
-    class Administration
+    public class Administration
     {
         public List<User> Users { get; private set; }
 
@@ -16,14 +16,19 @@ namespace ICT4Participation.Classes.Intelligence
             Users = new List<User>();
         }
 
-        public void Login(string username, string password)
+        public User Login(string username, string password)
         {
-            
+            return null;
         }
 
-        public void LoginWithRfid()
+        public Admin Login(string username, string password, string RFID)
         {
-            
+            return null;
+        }
+
+        public User LoginWithRfid(string rfid)
+        {
+            return null;
         }
 
         public void Logout(string username)
