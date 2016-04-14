@@ -13,18 +13,6 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public ChatMessage(User sender, string message, DateTime time)
         {
-            if (sender == null)
-            {
-                throw new ArgumentNullException("sender", "sender is empty");
-            }
-            if (message == null)
-            {
-                throw new ArgumentNullException("message", "message is empty");
-            }
-            if (time == null)
-            {
-                throw new ArgumentNullException("time", "time is empty");
-            }
             this.Message = message;
             this.Time = time;
         }

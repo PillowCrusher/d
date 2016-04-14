@@ -55,6 +55,7 @@
     <Compile Include="Classes\ClassObjects\HelpRequest.cs" />
     <Compile Include="Classes\ClassObjects\Needy.cs" />
     <Compile Include="Classes\ClassObjects\Review.cs" />
+    <Compile Include="Classes\ClassObjects\TransportationType.cs" />
     <Compile Include="Classes\ClassObjects\User.cs" />
     <Compile Include="Classes\ClassObjects\Volunteer.cs" />
     <Compile Include="Classes\Intelligence\Administration.cs" />
