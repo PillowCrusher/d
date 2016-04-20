@@ -56,6 +56,7 @@
     <Compile Include="Classes\ClassObjects\Account.cs" />
     <Compile Include="Classes\ClassObjects\Admin.cs" />
     <Compile Include="Classes\ClassObjects\ChatMessage.cs" />
+    <Compile Include="Classes\ClassObjects\FormTools.cs" />
     <Compile Include="Classes\ClassObjects\HelpRequest.cs" />
     <Compile Include="Classes\ClassObjects\Needy.cs" />
     <Compile Include="Classes\ClassObjects\Review.cs" />

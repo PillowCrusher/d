@@ -47,22 +47,13 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.gbHulpVragen = new System.Windows.Forms.GroupBox();
+            this.pnlHulpVragen = new System.Windows.Forms.Panel();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.gbHulpVragen.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -281,104 +272,32 @@
             this.checkBox5.Text = "Kennis maken";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gbHulpVragen
             // 
-            this.groupBox2.Controls.Add(this.vScrollBar1);
-            this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 228);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(730, 441);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Hulp Vragen:";
+            this.gbHulpVragen.Controls.Add(this.pnlHulpVragen);
+            this.gbHulpVragen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbHulpVragen.Location = new System.Drawing.Point(12, 228);
+            this.gbHulpVragen.Name = "gbHulpVragen";
+            this.gbHulpVragen.Size = new System.Drawing.Size(730, 441);
+            this.gbHulpVragen.TabIndex = 6;
+            this.gbHulpVragen.TabStop = false;
+            this.gbHulpVragen.Text = "Hulp Vragen:";
             // 
-            // vScrollBar1
+            // pnlHulpVragen
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(710, 16);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(20, 638);
-            this.vScrollBar1.TabIndex = 6;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.tableLayoutPanel3);
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(6, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(685, 261);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Mevrouw \"..\" - \"Hulpvraag\"";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 125);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(532, 130);
-            this.tableLayoutPanel3.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(208, 120);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Locatie: \"...\"\r\nUrgent: Ja/Nee\r\nKennis maken: Ja/Nee\r\nTransport Type: \"...\"\r\nDatu" +
-    "m geplaatst: 24-3-2016\r\nDeadline: 25-03-2016\r\n";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(269, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(241, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "2 nieuwe vrijwilliger(s) aangemeld";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(550, 195);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 60);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Bekijk vrijwilligers";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 119);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 20);
-            this.label5.TabIndex = 2;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(7, 25);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(673, 94);
-            this.textBox5.TabIndex = 0;
+            this.pnlHulpVragen.AutoScroll = true;
+            this.pnlHulpVragen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHulpVragen.Location = new System.Drawing.Point(3, 22);
+            this.pnlHulpVragen.Name = "pnlHulpVragen";
+            this.pnlHulpVragen.Size = new System.Drawing.Size(724, 416);
+            this.pnlHulpVragen.TabIndex = 1;
             // 
             // HulpbehoevendeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 682);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.gbHulpVragen);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.MaximumSize = new System.Drawing.Size(1280, 720);
@@ -392,11 +311,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.gbHulpVragen.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -422,14 +337,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.GroupBox gbHulpVragen;
+        private System.Windows.Forms.Panel pnlHulpVragen;
     }
 }

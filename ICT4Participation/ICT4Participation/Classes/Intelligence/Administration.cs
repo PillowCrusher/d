@@ -9,6 +9,7 @@ namespace ICT4Participation.Classes.Intelligence
 {
     public class Administration
     {
+        private static User _currentUser;
          
         public List<User> Users { get; private set; }
 
@@ -21,13 +22,18 @@ namespace ICT4Participation.Classes.Intelligence
         {
             return null;
         }
-
+            
         public Admin Login(string username, string password, string RFID)
         {
             return null;
         }
 
-        public User LoginWithRfid(string rfid)
+        public User GetCurrentUser()
+        {
+            return _currentUser;
+        }
+
+        public void LoginWithRfid()
         {
             return null;
         }
