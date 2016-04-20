@@ -45,6 +45,7 @@ namespace ICT4Participation.Forms
         }
         private void btRegister_Click(object sender, EventArgs e)
         {
+            bool publicTransport = false;
             bool car = false;
             bool driving = false;
             if (tbUsername.Text != "")
@@ -57,6 +58,14 @@ namespace ICT4Participation.Forms
                         {
                             if (tbPhonenumber.Text != "")
                             {
+                                if (rbtTransportNo.Checked == true)
+                                {
+                                    publicTransport = true;
+                                }
+                                else if (rbtTransportNo.Checked == false)
+                                {
+                                    publicTransport = false;
+                                }
                                 if (rbtCarYes.Checked == true)
                                 {
                                     car = true;
@@ -78,8 +87,15 @@ namespace ICT4Participation.Forms
                                     if (VOGFile != null)
                                     {
                                         DateTime birthday = dtpBirthDate.Value.Date;
-                                        administration.AddVolunteer(tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, driving, car, birthday, photoFile, VOGFile);
-                                        this.DialogResult = DialogResult.OK;
+                                        try
+                                        {
+                                            administration.AddVolunteer(tbUsername.Text, tbPassword.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text,publicTransport, driving, car, birthday, photoFile, VOGFile);
+                                            this.DialogResult = DialogResult.OK;
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
                                     }
                                     else
                                     {

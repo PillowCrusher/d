@@ -42,15 +42,18 @@ namespace ICT4Participation.Classes.Intelligence
             user.UnSubscribe();
         }
 
-        public void AddVolunteer(string name, string address, string city, string phonenumber, bool hasdrivinglicence, bool hascar, DateTime birthdate, string photo, string vog)
+        public void AddVolunteer(string username, string password, string email, string name, string address, 
+            string city, string phonenumber, bool publicTransport, bool hasdrivinglicence, bool hascar, 
+            DateTime birthdate, string photo, string vog)
         {
-            Users.Add(new Volunteer(name, address, city, phonenumber, hasdrivinglicence, hascar, birthdate, photo, vog));
+            Users.Add(new Volunteer(new Account(username,password, email), name, address, city, phonenumber,publicTransport, hasdrivinglicence, hascar, birthdate, photo, vog));
         }
 
-        public void AddNeedy(string name, string address, string city, string phonenumber, bool hasdrivinglicence,
-            bool hascar, bool publictransport, string rfid)
+        public void AddNeedy(string username, string password, string email,string name, string address,
+            string city, string phonenumber, bool publictransport, bool hasdrivinglicence,
+            bool hascar, string rfid)
         {
-            Users.Add(new Needy(name, address, city, phonenumber, hasdrivinglicence, hascar,  publictransport, rfid));
+            Users.Add(new Needy(new Account(username, password, email), name, address, city, phonenumber, publictransport, hasdrivinglicence, hascar, rfid));
         }
     }
 }
