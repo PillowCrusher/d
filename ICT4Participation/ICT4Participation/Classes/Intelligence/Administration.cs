@@ -193,6 +193,7 @@ namespace ICT4Participation.Classes.Intelligence
 
                 helpRequests.Add(
                     new HelpRequest(
+                        Convert.ToInt32(dr["ID"]),
                         dr["Name"].ToString(),
                         dr["Title"].ToString(),
                         dr["Description"].ToString(),
@@ -201,8 +202,7 @@ namespace ICT4Participation.Classes.Intelligence
                         (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
                         DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
                         DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
-                        Convert.ToBoolean(dr["Interview"]),
-                        Convert.ToBoolean(dr["Completed"])
+                        Convert.ToBoolean(dr["Interview"])
                         )
                     );
             }

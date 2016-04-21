@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
+using ICT4Participation.Classes.Database;
 
 namespace ICT4Participation.Forms
 {
