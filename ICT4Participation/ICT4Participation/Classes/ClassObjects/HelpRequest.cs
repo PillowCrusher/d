@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ICT4Participation.Classes.Database;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -59,12 +60,34 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void Decline(Volunteer volunteer)
         {
+            Volunteer _volunteer = null;
+            foreach(Volunteer volunteerPending in Pending)
+            {
+                if (volunteerPending.Phonenumber==volunteer.Phonenumber)
+                {
+                    _volunteer = volunteerPending;
+                }
+            }
+            Pending.Remove(_volunteer);
+            Declined.Add(_volunteer);
 
+            
         }
 
         public void Accept(Volunteer volunteer)
         {
+            Volunteer _volunteer = null;
+            foreach (Volunteer volunteerPending in Pending)
+            {
+                if (volunteerPending.Phonenumber == volunteer.Phonenumber)
+                {
+                    _volunteer = volunteerPending;
+                }
+            }
+            Pending.Remove(_volunteer);
+            Accepted.Add(_volunteer);
 
+            //DatabaseManager.ExecuteInsertQuery();
         }
 
         public void AddReview(Review review)

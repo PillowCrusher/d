@@ -10,14 +10,15 @@ namespace ICT4Participation.Classes.Database
         {
             Query["GetAccountID"] = "SELECT ACCOUNT_SEQ.nextval from dual;";
             Query["InsertAccount"] = "INSERT INTO \"Account\" (ID, Username, Password, Email) values (:id, :username, :password, :email);";
-            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, DEREGISTRATIONDATE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :deregistrationdate);";
+            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, DEREGISTRATIONDATE, OVPOSSIBLE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :deregistrationdate, :ovpossible,);";
             Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog);";
-            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, OVPOSSIBLE, RFID) values (:id, :ovpossible, :rfid);";
+            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, RFID) values (:id, :rfid);";
             Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, RFID) values (:id, :rfid);";
-            Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (ID, Description, Location, TravelTime, StartDate, EndDate) values (:id, :description, :location, :traveltime, :startdate, :enddate);";
-            Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message, Comments) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message, :comments);";
+            Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (ID, Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:id, :title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview);";
+            Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message);";
             Query["InsertChatMessage"] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:userid, :helprequestid, :time, :message);";
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid);";
+            Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason);";
 
             Query["GetUserLogin"] = "SELECT Username, Password FROM \"ACCOUNT\" WHERE USERNAME = :username AND PASSWORD = :password";
             
