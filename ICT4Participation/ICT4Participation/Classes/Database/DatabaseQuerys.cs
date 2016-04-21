@@ -10,9 +10,9 @@ namespace ICT4Participation.Classes.Database
         {
             Query["GetAccountID"] = "SELECT ACCOUNT_SEQ.nextval from dual;";
             Query["InsertAccount"] = "INSERT INTO \"Account\" (ID, Username, Password, Email) values (:id, :username, :password, :email);";
-            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, DEREGISTRATIONDATE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :deregistrationdate);";
+            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, DEREGISTRATIONDATE, OVPOSSIBLE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :deregistrationdate, :ovpossible,);";
             Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog);";
-            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, OVPOSSIBLE, RFID) values (:id, :ovpossible, :rfid);";
+            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, RFID) values (:id, :rfid);";
             Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, RFID) values (:id, :rfid);";
             Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (ID, Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:id, :title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview);";
             Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message);";
@@ -20,13 +20,29 @@ namespace ICT4Participation.Classes.Database
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid);";
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason);";
 
-            Query["GetUserLogin"] = "SELECT Username, Password FROM \"Account\" WHERE USERNAME = :username AND PASSWORD = :password";
-            Query["GetAllHelpRequests"] = "SELECT * FROM \"Helprequest\"";
-            Query["GetUserHelpRequests"] = "SELECT * FROM \"Helprequest\" WHERE NEEDYID = :needyid";
-            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
+            Query["GetUserLogin"] = "SELECT Username, Password FROM \"ACCOUNT\" WHERE USERNAME = :username AND PASSWORD = :password";
+            
+            
+            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"CHATMESSAGE\" WHERE HELPREQUEST_ID = :helprequest_id";
 
-            Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
+            //VrijwilligersForm
+            Query["GetAllHelpRequests"] =
+                "SELECT u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
+                "FROM \"Needy\" n " +
+                " JOIN \"Helprequest\" h" +
+                " ON h.NeedyID = n.ID" +
+                " JOIN \"User\" u" +
+                " ON u.ID = n.ID";
+            Query["GetUserHelpRequests"] =
+                "SELECT u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
+                "FROM \"Needy\" n " +
+                " JOIN \"Helprequest\" h" +
+                " ON h.NeedyID = n.ID" +
+                " JOIN \"User\" u" +
+                " ON u.ID = n.ID " +
+                " WHERE n.NAME = :needyid";
 
+            Query[""] = "";
         }
     }
 }
