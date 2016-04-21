@@ -33,7 +33,7 @@ namespace ICT4Participation.Classes.Intelligence
             return _currentUser;
         }
 
-        public User LoginWithRfid()
+        public User LoginWithRfid(string rfid)
         {
             return null;
         }
