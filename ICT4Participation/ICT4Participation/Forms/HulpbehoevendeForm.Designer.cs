@@ -37,16 +37,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbTitle = new System.Windows.Forms.TextBox();
+            this.btnSendRequest = new System.Windows.Forms.Button();
+            this.tbDescription = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.cbDriverLicense = new System.Windows.Forms.CheckBox();
+            this.cbHasCar = new System.Windows.Forms.CheckBox();
+            this.cbOV = new System.Windows.Forms.CheckBox();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.cbUrgent = new System.Windows.Forms.CheckBox();
+            this.cbMeeting = new System.Windows.Forms.CheckBox();
             this.gbHulpVragen = new System.Windows.Forms.GroupBox();
             this.pnlHulpVragen = new System.Windows.Forms.Panel();
             this.groupBox5.SuspendLayout();
@@ -128,9 +128,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tbTitle, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSendRequest, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tbDescription, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 25);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -159,32 +159,33 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Beschrijving:";
             // 
-            // textBox1
+            // tbTitle
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(110, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(605, 26);
-            this.textBox1.TabIndex = 3;
+            this.tbTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbTitle.Location = new System.Drawing.Point(110, 3);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(605, 26);
+            this.tbTitle.TabIndex = 3;
             // 
-            // button1
+            // btnSendRequest
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 145);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Verstuur";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSendRequest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSendRequest.Location = new System.Drawing.Point(3, 145);
+            this.btnSendRequest.Name = "btnSendRequest";
+            this.btnSendRequest.Size = new System.Drawing.Size(101, 31);
+            this.btnSendRequest.TabIndex = 2;
+            this.btnSendRequest.Text = "Verstuur";
+            this.btnSendRequest.UseVisualStyleBackColor = true;
+            this.btnSendRequest.Click += new System.EventHandler(this.btnSendRequest_Click);
             // 
-            // textBox2
+            // tbDescription
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(110, 38);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(605, 101);
-            this.textBox2.TabIndex = 4;
+            this.tbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbDescription.Location = new System.Drawing.Point(110, 38);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(605, 101);
+            this.tbDescription.TabIndex = 4;
             // 
             // tableLayoutPanel2
             // 
@@ -195,12 +196,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.checkBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox3, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox4, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox5, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbDriverLicense, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbHasCar, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbOV, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpEndDate, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbUrgent, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbMeeting, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(110, 145);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -209,63 +210,63 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(605, 31);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // checkBox1
+            // cbDriverLicense
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(89, 24);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Rijbewijs";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbDriverLicense.AutoSize = true;
+            this.cbDriverLicense.Location = new System.Drawing.Point(3, 3);
+            this.cbDriverLicense.Name = "cbDriverLicense";
+            this.cbDriverLicense.Size = new System.Drawing.Size(89, 24);
+            this.cbDriverLicense.TabIndex = 0;
+            this.cbDriverLicense.Text = "Rijbewijs";
+            this.cbDriverLicense.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbHasCar
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(98, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(62, 24);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Auto";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbHasCar.AutoSize = true;
+            this.cbHasCar.Location = new System.Drawing.Point(98, 3);
+            this.cbHasCar.Name = "cbHasCar";
+            this.cbHasCar.Size = new System.Drawing.Size(62, 24);
+            this.cbHasCar.TabIndex = 1;
+            this.cbHasCar.Text = "Auto";
+            this.cbHasCar.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // cbOV
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(166, 3);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(51, 24);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "OV";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbOV.AutoSize = true;
+            this.cbOV.Location = new System.Drawing.Point(166, 3);
+            this.cbOV.Name = "cbOV";
+            this.cbOV.Size = new System.Drawing.Size(51, 24);
+            this.cbOV.TabIndex = 2;
+            this.cbOV.Text = "OV";
+            this.cbOV.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dtpEndDate
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Location = new System.Drawing.Point(440, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(165, 26);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpEndDate.Location = new System.Drawing.Point(440, 3);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(165, 26);
+            this.dtpEndDate.TabIndex = 3;
             // 
-            // checkBox4
+            // cbUrgent
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(223, 3);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(77, 24);
-            this.checkBox4.TabIndex = 4;
-            this.checkBox4.Text = "Urgent";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.cbUrgent.AutoSize = true;
+            this.cbUrgent.Location = new System.Drawing.Point(223, 3);
+            this.cbUrgent.Name = "cbUrgent";
+            this.cbUrgent.Size = new System.Drawing.Size(77, 24);
+            this.cbUrgent.TabIndex = 4;
+            this.cbUrgent.Text = "Urgent";
+            this.cbUrgent.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // cbMeeting
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(306, 3);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(128, 24);
-            this.checkBox5.TabIndex = 5;
-            this.checkBox5.Text = "Kennis maken";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.cbMeeting.AutoSize = true;
+            this.cbMeeting.Location = new System.Drawing.Point(306, 3);
+            this.cbMeeting.Name = "cbMeeting";
+            this.cbMeeting.Size = new System.Drawing.Size(128, 24);
+            this.cbMeeting.TabIndex = 5;
+            this.cbMeeting.Text = "Kennis maken";
+            this.cbMeeting.UseVisualStyleBackColor = true;
             // 
             // gbHulpVragen
             // 
@@ -291,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 682);
             this.Controls.Add(this.gbHulpVragen);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
@@ -322,16 +323,16 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbTitle;
+        private System.Windows.Forms.Button btnSendRequest;
+        private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox cbDriverLicense;
+        private System.Windows.Forms.CheckBox cbHasCar;
+        private System.Windows.Forms.CheckBox cbOV;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.CheckBox cbUrgent;
+        private System.Windows.Forms.CheckBox cbMeeting;
         private System.Windows.Forms.GroupBox gbHulpVragen;
         private System.Windows.Forms.Panel pnlHulpVragen;
     }
