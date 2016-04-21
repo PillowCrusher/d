@@ -23,9 +23,8 @@ namespace ICT4Participation.Classes.ClassObjects
         public bool Urgent { get; private set; }
         public bool Interview { get; private set; }
         public TransportationType Transportation { get; private set; }
-        public bool Completed { get; private set; }
 
-        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool Interview,  bool completed)
+        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool Interview)
         {
             if (titel == null)
             {
@@ -57,7 +56,6 @@ namespace ICT4Participation.Classes.ClassObjects
             this.Urgent = urgent;
             this.Interview = Interview;
             this.Transportation = transportation;
-            this.Completed = completed;
         }
 
         public void Decline(Volunteer volunteer)
