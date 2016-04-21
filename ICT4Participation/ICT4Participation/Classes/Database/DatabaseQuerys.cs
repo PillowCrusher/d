@@ -14,10 +14,11 @@ namespace ICT4Participation.Classes.Database
             Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog);";
             Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, OVPOSSIBLE, RFID) values (:id, :ovpossible, :rfid);";
             Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, RFID) values (:id, :rfid);";
-            Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (ID, Description, Location, TravelTime, StartDate, EndDate) values (:id, :description, :location, :traveltime, :startdate, :enddate);";
-            Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message, Comments) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message, :comments);";
+            Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (ID, Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:id, :title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview);";
+            Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message);";
             Query["InsertChatMessage"] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:userid, :helprequestid, :time, :message);";
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid);";
+            Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason);";
 
             Query["GetUserLogin"] = "SELECT Username, Password FROM \"ACCOUNT\" WHERE USERNAME = :username AND PASSWORD = :password";
             Query["GetAllHelpRequests"] = "SELECT * FROM \"HELPREQUEST\"";
