@@ -77,7 +77,7 @@ namespace ICT4Participation.Forms
 
             Needy currentNeedy = (Needy) _administration.GetCurrentUser();
 
-            currentNeedy.AddHelpRequest(title, description, );
+            currentNeedy.AddHelpRequest(title, description, urgent, TransportationType.Auto, DateTime.Now, dt, meeting);
         }
     }
 }
