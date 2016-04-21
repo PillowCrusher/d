@@ -86,7 +86,6 @@ namespace ICT4Participation.Classes.ClassObjects
             }
             Pending.Remove(_volunteer);
             Accepted.Add(_volunteer);
-
             //DatabaseManager.ExecuteInsertQuery();
         }
 

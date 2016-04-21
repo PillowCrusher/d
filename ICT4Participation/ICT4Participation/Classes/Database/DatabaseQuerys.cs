@@ -24,7 +24,9 @@ namespace ICT4Participation.Classes.Database
             Query["GetAllHelpRequests"] = "SELECT * FROM \"Helprequest\"";
             Query["GetUserHelpRequests"] = "SELECT * FROM \"Helprequest\" WHERE NEEDYID = :needyid";
             Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
-            
+
+            Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
+
         }
     }
 }
