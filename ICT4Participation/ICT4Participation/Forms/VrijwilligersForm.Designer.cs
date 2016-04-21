@@ -46,6 +46,7 @@
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.lbChats = new System.Windows.Forms.ListBox();
             this.lbHelpRequests = new System.Windows.Forms.ListBox();
+            this.btnChangeInfo = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             this.tlpProperties.SuspendLayout();
             this.gbHelpRequest.SuspendLayout();
@@ -57,6 +58,7 @@
             // gbFilter
             // 
             this.gbFilter.Controls.Add(this.tlpProperties);
+            this.gbFilter.Enabled = false;
             this.gbFilter.Location = new System.Drawing.Point(1118, 12);
             this.gbFilter.Name = "gbFilter";
             this.gbFilter.Size = new System.Drawing.Size(134, 203);
@@ -167,11 +169,12 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnChangeInfo);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Controls.Add(this.lblPersonalInfo);
             this.groupBox4.Location = new System.Drawing.Point(748, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(364, 132);
+            this.groupBox4.Size = new System.Drawing.Size(364, 203);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Profiel gegevens";
@@ -242,6 +245,15 @@
             this.lbHelpRequests.Size = new System.Drawing.Size(120, 420);
             this.lbHelpRequests.TabIndex = 0;
             // 
+            // btnChangeInfo
+            // 
+            this.btnChangeInfo.Location = new System.Drawing.Point(240, 162);
+            this.btnChangeInfo.Name = "btnChangeInfo";
+            this.btnChangeInfo.Size = new System.Drawing.Size(118, 35);
+            this.btnChangeInfo.TabIndex = 2;
+            this.btnChangeInfo.Text = "Informatie aanpassen";
+            this.btnChangeInfo.UseVisualStyleBackColor = true;
+            // 
             // VrijwilligersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +300,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Panel pnlHulpVragen;
+        private System.Windows.Forms.Button btnChangeInfo;
     }
 }
