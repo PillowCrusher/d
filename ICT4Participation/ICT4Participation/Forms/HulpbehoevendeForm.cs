@@ -1,4 +1,5 @@
-﻿using ICT4Participation.Classes.ClassObjects;
+﻿using System;
+using ICT4Participation.Classes.ClassObjects;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using ICT4Participation.Classes.Intelligence;
@@ -56,6 +57,27 @@ namespace ICT4Participation.Forms
                     position++;
 
             }
+        }
+
+        private void btnSendRequest_Click(object sender, System.EventArgs e)
+        {
+            string title = tbTitle.Text;
+            string description = tbDescription.Text;
+            bool driverLicense = cbDriverLicense.Checked;
+            bool hasCar = cbHasCar.Checked;
+            bool ov = cbOV.Checked;
+            bool urgent = cbUrgent.Checked;
+            bool meeting = cbMeeting.Checked;
+            DateTime dt = dtpEndDate.Value;
+
+            if (title == "" || description == "")
+            {
+                MessageBox.Show("Vul alstublieft een titel of beschrijving in om door te gaan!");
+            }
+
+            Needy currentNeedy = (Needy) _administration.GetCurrentUser();
+
+            currentNeedy.AddHelpRequest(title, description, urgent, ,DateTime.Now, dt, meeting);
         }
     }
 }
