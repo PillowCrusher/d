@@ -14,9 +14,9 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public Review(string rating, string comment, Volunteer volunteer)
         {
-            this.Volunteer = volunteer;
-            this.Rating = rating;
-            this.Comment = comment;
+            Volunteer = volunteer;
+            Rating = rating;
+            Comment = comment;
         }
     }
 }

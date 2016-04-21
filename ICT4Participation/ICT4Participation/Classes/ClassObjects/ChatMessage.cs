@@ -14,9 +14,9 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public ChatMessage(User sender, string message, DateTime time)
         {
-            this.Sender = sender;
-            this.Message = message;
-            this.Time = time;
+            Sender = sender;
+            Message = message;
+            Time = time;
         }
     }
 }

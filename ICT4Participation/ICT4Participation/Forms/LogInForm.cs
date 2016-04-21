@@ -53,7 +53,7 @@ namespace ICT4Participation.Forms
         void rfid_TagLost(object sender, TagEventArgs e)
         {
             // if tag is lost
-            // rfidTag = null;
+             rfidTag = null;
         }
 
         void rfid_Attach(object sender, AttachEventArgs e)

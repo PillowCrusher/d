@@ -36,9 +36,9 @@
       <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Phidget21.NET, Version=2.1.8.222, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL">
+    <Reference Include="Phidget21.NET1.1, Version=2.1.8.0, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Phidget21.NET.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Phidgets\Phidget21.NET1.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -84,6 +84,12 @@
     <Compile Include="Forms\LogInForm.Designer.cs">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Needy_Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Needy_Profile.Designer.cs">
+      <DependentUpon>Needy_Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Needy_RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Volunteer_Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Volunteer_Profile.Designer.cs">
+      <DependentUpon>Volunteer_Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\VrijwilligersForm.cs">
       <SubType>Form</SubType>
@@ -113,11 +125,17 @@
     <EmbeddedResource Include="Forms\LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Needy_Profile.resx">
+      <DependentUpon>Needy_Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Needy_RegisterForm.resx">
       <DependentUpon>Needy_RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Volunteer_Profile.resx">
+      <DependentUpon>Volunteer_Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VrijwilligersForm.resx">
       <DependentUpon>VrijwilligersForm.cs</DependentUpon>
