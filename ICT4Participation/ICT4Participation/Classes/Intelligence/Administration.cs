@@ -80,9 +80,55 @@ namespace ICT4Participation.Classes.Intelligence
             //return _currentUser;
         }
 
-        public User LoginWithRfid(string rfid)
+        public void LoginWithRfid(string rfid)
         {
-            return null;
+            try
+            {
+                OracleParameter[] loginParameter =
+                {
+                    new OracleParameter("rfid", rfid),
+                };
+                DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetUserLoginByRFID"],
+                    loginParameter);
+                Account account = null;
+
+                foreach (DataRow dr in dt.Rows)
+                {
+
+                    int id = Convert.ToInt32(dr["ID"]);
+                    string userName = dr["USERNAME"].ToString();
+                    string email = dr["EMAIL"].ToString();
+                    string name = dr["NAME"].ToString();
+                    string phonenumber = dr["PHONENUMBER"].ToString();
+                    bool drivingLicence = Convert.ToBoolean(dr["HASDRIVINGLICENCE"]);
+                    bool car = Convert.ToBoolean(dr["HASCAR"]);
+                    bool ovPossible = Convert.ToBoolean(dr["OVPOSSIBLE"]);
+
+                    if (dr["DATEOFBIRTH"] != DBNull.Value && dr["PHOTO"] != DBNull.Value && dr["VOG"] != DBNull.Value && dr["ADRESS"] != DBNull.Value && dr["CITY"] != DBNull.Value)
+                    {
+                        DateTime birthdate = Convert.ToDateTime(dr["DATEOFBIRTH"]);
+                        string photo = dr["PHOTO"].ToString();
+                        string vog = dr["VOG"].ToString();
+                        string adres = dr["ADRESS"].ToString();
+                        string city = dr["CITY"].ToString();
+                        account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
+                            ovPossible, drivingLicence, car, birthdate, photo, vog);
+                    }
+                    else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
+                    {
+                        string RFID = dr["RFID"].ToString();
+                        string location = dr["LOCATION"].ToString();
+
+                        account = new Needy(id, userName, email, name, location, phonenumber,
+                            ovPossible, drivingLicence, car, RFID);
+                    }
+                }
+                User = account;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void Logout(string username)
@@ -105,6 +151,7 @@ namespace ICT4Participation.Classes.Intelligence
                 InsertAccount(username, password, email);
 
                 int volunteerId = 0;
+                DataTable d = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetLastNumber"], null);
                 DataTable id = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAccountID"], null);
                 foreach (DataRow dr in id.Rows)
                 {
