@@ -30,7 +30,7 @@ namespace ICT4Participation.Forms
 
         private void GetPersonalHelpRequests()
         {
-            
+
         }
 
         private void UpdateHelpListGui()
@@ -41,23 +41,21 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                if (!h.Completed)
-                {
-                    pnlHulpVragen.Controls.Add(
-                        FormTools.NewHelpRequest(
-                            h.NeedyName,
-                            h.Titel,
-                            h.Description,
-                            h.Location,
-                            h.Urgent,
-                            h.Transportation,
-                            h.DeadLine,
-                            h.Interview,
-                            position
-                            )
-                        );
-                    position++;
-                }
+                pnlHulpVragen.Controls.Add(
+                    FormTools.NewHelpRequest(
+                        h.NeedyName,
+                        h.Titel,
+                        h.Description,
+                        h.Location,
+                        h.Urgent,
+                        h.Transportation,
+                        h.DeadLine,
+                        h.Interview,
+                        position
+                        )
+                    );
+                position++;
+
             }
         }
     }

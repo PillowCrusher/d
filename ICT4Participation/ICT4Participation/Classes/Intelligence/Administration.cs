@@ -70,7 +70,7 @@ namespace ICT4Participation.Classes.Intelligence
                 {
                     needyID = Convert.ToInt32(dr["ACCOUNT_SEQ.nextval"]);
                 }
-                Needy needy = new Needy(new Account(needyID, username, password, email), name, address, city, phonenumber, publictransport, hasdrivinglicence, hascar, rfid);
+                Needy needy = new Needy(new Account(username, password, email), name, address, city, phonenumber, publictransport, hasdrivinglicence, hascar, rfid);
 
                 OracleParameter[] accountParameter = 
             {
@@ -135,8 +135,7 @@ namespace ICT4Participation.Classes.Intelligence
                         (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
                         DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
                         DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
-                        Convert.ToBoolean(dr["Interview"]),
-                        Convert.ToBoolean(dr["Completed"])
+                        Convert.ToBoolean(dr["Interview"])
                         )
                     );
             }

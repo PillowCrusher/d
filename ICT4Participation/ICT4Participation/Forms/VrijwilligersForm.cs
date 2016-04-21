@@ -47,16 +47,16 @@ namespace ICT4Participation.Forms
 
                 _helpRequests.Add(
                     new HelpRequest(
-                        "",
+                        Convert.ToInt32(dr["ID"]),
+                        dr["Name"].ToString(),
                         dr["Title"].ToString(),
                         dr["Description"].ToString(),
                         dr["Location"].ToString(),
                         Convert.ToBoolean(dr["Urgent"]),
                         (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
-                        Convert.ToDateTime(dr["StartDate"]),
-                        Convert.ToDateTime(dr["EndDate"]),
-                        Convert.ToBoolean(dr["Interview"]),
-                        Convert.ToBoolean(dr["Completed"])
+                        DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
+                        DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
+                        Convert.ToBoolean(dr["Interview"])
                         )
                     );
             }
@@ -70,24 +70,22 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                if (!h.Completed)
-                {
-                    pnlHulpVragen.Controls.Add(
-                        FormTools.NewHelpRequest(
-                            h.NeedyName,
-                            h.Titel,
-                            h.Description,
-                            h.Location,
-                            h.StartDate,
-                            h.DeadLine,
-                            h.Urgent,
-                            h.Interview,
-                            h.Transportation,
-                            position
-                            )
-                        );
-                    position++;
-                }
+                pnlHulpVragen.Controls.Add(
+                    FormTools.NewHelpRequest(
+                        h.NeedyName,
+                        h.Titel,
+                        h.Description,
+                        h.Location,
+                        h.StartDate,
+                        h.DeadLine,
+                        h.Urgent,
+                        h.Interview,
+                        h.Transportation,
+                        position
+                        )
+                    );
+                position++;
+
             }
         }
 
