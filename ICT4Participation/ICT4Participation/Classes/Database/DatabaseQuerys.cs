@@ -20,10 +20,10 @@ namespace ICT4Participation.Classes.Database
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid);";
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason);";
 
-            Query["GetUserLogin"] = "SELECT Username, Password FROM \"ACCOUNT\" WHERE USERNAME = :username AND PASSWORD = :password";
-            Query["GetAllHelpRequests"] = "SELECT * FROM \"HELPREQUEST\"";
-            Query["GetUserHelpRequests"] = "SELECT * FROM \"HELPREQUEST\" WHERE NEEDYID = :needyid";
-            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"CHATMESSAGE\" WHERE HELPREQUEST_ID = :helprequest_id";
+            Query["GetUserLogin"] = "SELECT Username, Password FROM \"Account\" WHERE USERNAME = :username AND PASSWORD = :password";
+            Query["GetAllHelpRequests"] = "SELECT * FROM \"Helprequest\"";
+            Query["GetUserHelpRequests"] = "SELECT * FROM \"Helprequest\" WHERE NEEDYID = :needyid";
+            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
             
         }
     }
