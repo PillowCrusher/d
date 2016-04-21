@@ -70,7 +70,7 @@ namespace ICT4Participation.Classes.Intelligence
                 {
                     needyID = Convert.ToInt32(dr["ACCOUNT_SEQ.nextval"]);
                 }
-                Needy needy = new Needy(new Account(needyID, username, password, email), name, address, city, phonenumber, publictransport, hasdrivinglicence, hascar, rfid);
+                Needy needy = new Needy(new Account(username, password, email), name, address, city, phonenumber, publictransport, hasdrivinglicence, hascar, rfid);
 
                 OracleParameter[] accountParameter = 
             {
