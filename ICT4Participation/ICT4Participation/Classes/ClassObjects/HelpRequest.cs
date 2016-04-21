@@ -74,8 +74,8 @@ namespace ICT4Participation.Classes.ClassObjects
 
             OracleParameter[] Parameter =
    {
-                new OracleParameter(":HelprequestID", ID),
-                new OracleParameter(":UserID", volunteer.Account.ID)
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.Account.ID)
             };
 
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
