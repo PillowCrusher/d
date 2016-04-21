@@ -19,7 +19,7 @@ namespace ICT4Participation.Classes.Database
             Query["InsertChatMessage"] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:userid, :helprequestid, :time, :message)";
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid)";
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason)";
-            
+
             Query["GetUserLogin"] =
                 "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password";
             Query["GetUserLoginByRFID"] =
@@ -51,6 +51,9 @@ namespace ICT4Participation.Classes.Database
                 " ON u.ID = n.ID " +
                 " WHERE n.NAME = :needyid" +
                 " AND h.COMPLETED = 0";
+
+            Query["HelpRequestAccept"] = "UPDATE \"UserHelprequest\" SET Accepted = 1 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
+            Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Accepted = 2 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
         }
     }
 }
