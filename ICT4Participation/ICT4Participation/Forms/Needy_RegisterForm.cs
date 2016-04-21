@@ -62,7 +62,7 @@ namespace ICT4Participation.Forms
                                 {
                                     try
                                     {
-                                        administration.AddNeedy(tbUsername.Text, tbPassword.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, txtRFID.Text);
+                                        //administration.AddNeedy(tbUsername.Text, tbPassword.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, txtRFID.Text);
                                     }
                                     catch (Exception ex)
                                     {
