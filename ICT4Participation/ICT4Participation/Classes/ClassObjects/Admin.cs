@@ -19,7 +19,7 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void BlockAccount(Account account)
         {
-
+            
         }
 
         public void SendWarning(string message, Volunteer volunteer)
