@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using ICT4Participation.Classes.Database;
 using Phidgets;
 using Phidgets.Events;
-using System.Threading;
-using System.Threading.Tasks;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Intelligence;
 
@@ -44,18 +35,11 @@ namespace ICT4Participation.Forms
         {
             //scanned rfid ID
             rfidTag = e.Tag;
-            try
-            {
-                administration.LoginWithRfid(rfidTag);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            User user = administration.LoginWithRfid(rfidTag);
             Form form = null;
-            if (administration.user != null)
+            if (user != null)
             {
-                if (administration.user.GetType() == typeof(Needy))
+                if (user.GetType() == typeof(Needy))
                 {
                      form = new HulpbehoevendeForm();
                      using (form)
@@ -100,15 +84,8 @@ namespace ICT4Participation.Forms
                 {
                     if (rfidTag != null)
                     {
-                        try
-                        {
-                            administration.Login(tbUsername.Text, tbPassword.Text, rfidTag);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                        if (administration.user != null)
+                        Admin user = administration.Login(tbUsername.Text, tbPassword.Text, rfidTag);
+                        if(user != null)
                         {
                             AdminForm form = new AdminForm();
                             using (form)
@@ -123,17 +100,10 @@ namespace ICT4Participation.Forms
                     }
                     else
                     {
-                        try
+                        User user = administration.Login(tbUsername.Text, tbPassword.Text);
+                        if (user != null)
                         {
-                            administration.Login(tbUsername.Text, tbPassword.Text);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                        if (administration.user != null)
-                        {
-                            if (administration.user.GetType() == typeof(Needy))
+                            if (user.GetType() == typeof(Needy))
                             {
                                 HulpbehoevendeForm form = new HulpbehoevendeForm();
                                 using (form)

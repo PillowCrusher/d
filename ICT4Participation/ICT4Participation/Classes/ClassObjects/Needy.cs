@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICT4Participation.Classes.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,12 +14,12 @@ namespace ICT4Participation.Classes.ClassObjects
         public Needy(Account account, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string rfid)
             : base(account, name, address, city, phonenumber, publicTransport, hasDrivingLincense, hasCar)
         {
-            
+            RFID = rfid;
         }
 
         public void AddHelpRequest(string titel, string description, string location, DateTime travelTime, DateTime startDate, DateTime endDate, bool urgent, bool requestintroduction)
         {
-
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query[]);
         }
 
         public void DeleteHelpRequest(HelpRequest helprequest)

@@ -1,20 +1,27 @@
 ﻿using ICT4Participation.Classes.ClassObjects;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICT4Participation.Classes.Intelligence;
-using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Participation.Forms
 {
     public partial class HulpbehoevendeForm : Form
     {
         private Administration _administration;
-        private List<HelpRequest> _helpRequests;
+        private readonly List<HelpRequest> _helpRequests;
 
         public HulpbehoevendeForm()
         {
             InitializeComponent();
             _administration = new Administration();
+            _helpRequests = new List<HelpRequest>();
 
             GetPersonalHelpRequests();
 
@@ -24,12 +31,6 @@ namespace ICT4Participation.Forms
         private void GetPersonalHelpRequests()
         {
             
-            OracleParameter[] parameters =
-            {
-                new OracleParameter("needyid", _administration.GetCurrentUser().Account.ID)
-            };
-
-            _helpRequests = _administration.GetHelpRequests(parameters);
         }
 
         private void UpdateHelpListGui()
