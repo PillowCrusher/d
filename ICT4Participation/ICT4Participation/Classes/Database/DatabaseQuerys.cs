@@ -9,7 +9,7 @@ namespace ICT4Participation.Classes.Database
         static DatabaseQuerys()
         {
             Query["GetAccountID"] = "SELECT ACCOUNT_SEQ.nextval from dual;";
-            Query["InsertAccount"] = "INSERT INTO \"Account\" (ID, Username, Password, Email) values (:id, :username, :password, :email);";
+            Query["InsertAccount"] = "INSERT INTO \"Account\" (Username, Password, Email) values (:username, :password, :email);";
             Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, DEREGISTRATIONDATE, OVPOSSIBLE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :deregistrationdate, :ovpossible,);";
             Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog);";
             Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, RFID) values (:id, :rfid);";
@@ -27,14 +27,14 @@ namespace ICT4Participation.Classes.Database
 
             //VrijwilligersForm
             Query["GetAllHelpRequests"] =
-                "SELECT u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
+                "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
                 "FROM \"Needy\" n " +
                 " JOIN \"Helprequest\" h" +
                 " ON h.NeedyID = n.ID" +
                 " JOIN \"User\" u" +
                 " ON u.ID = n.ID";
             Query["GetUserHelpRequests"] =
-                "SELECT u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
+                "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
                 "FROM \"Needy\" n " +
                 " JOIN \"Helprequest\" h" +
                 " ON h.NeedyID = n.ID" +

@@ -13,6 +13,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public List<Volunteer> Declined = new List<Volunteer>();
         public List<Volunteer> Pending = new List<Volunteer>();
 
+        public int ID { get; private set; }
         public string NeedyName { get; private set; }
         public string Titel { get; private set; }
         public string Description { get; private set; }
@@ -24,7 +25,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public TransportationType Transportation { get; private set; }
         public bool Completed { get; private set; }
 
-        public HelpRequest(string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool Interview,  bool completed)
+        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool Interview,  bool completed)
         {
             if (titel == null)
             {
@@ -46,6 +47,7 @@ namespace ICT4Participation.Classes.ClassObjects
             {
                 throw new ArgumentNullException("endDate", "endDate is empty");
             }
+            this.ID = id;
             this.NeedyName = needyName;
             this.Titel = titel;
             this.Description = description;
