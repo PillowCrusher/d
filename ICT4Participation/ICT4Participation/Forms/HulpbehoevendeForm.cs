@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICT4Participation.Classes.Intelligence;
+using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Participation.Forms
 {
@@ -31,6 +32,12 @@ namespace ICT4Participation.Forms
         private void GetPersonalHelpRequests()
         {
             
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("needyid", 1)
+            };
+
+            _administration.GetAllHelpRequests(parameters);
         }
 
         private void UpdateHelpListGui()

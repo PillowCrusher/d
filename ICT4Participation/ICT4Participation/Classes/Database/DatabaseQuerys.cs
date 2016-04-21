@@ -20,10 +20,26 @@ namespace ICT4Participation.Classes.Database
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid);";
 
             Query["GetUserLogin"] = "SELECT Username, Password FROM \"ACCOUNT\" WHERE USERNAME = :username AND PASSWORD = :password";
-            Query["GetAllHelpRequests"] = "SELECT * FROM \"HELPREQUEST\"";
-            Query["GetUserHelpRequests"] = "SELECT * FROM \"HELPREQUEST\" WHERE NEEDYID = :needyid";
-            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"CHATMESSAGE\" WHERE HELPREQUEST_ID = :helprequest_id";
             
+            
+            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"CHATMESSAGE\" WHERE HELPREQUEST_ID = :helprequest_id";
+
+            //VrijwilligersForm
+            Query["GetAllHelpRequests"] =
+                "SELECT u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
+                "FROM \"Needy\" n " +
+                " JOIN \"Helprequest\" h" +
+                " ON h.NeedyID = n.ID" +
+                " JOIN \"User\" u" +
+                " ON u.ID = n.ID";
+            Query["GetUserHelpRequests"] =
+                "SELECT u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
+                "FROM \"Needy\" n " +
+                " JOIN \"Helprequest\" h" +
+                " ON h.NeedyID = n.ID" +
+                " JOIN \"User\" u" +
+                " ON u.ID = n.ID " +
+                " WHERE n.NAME = :needyid";
         }
     }
 }

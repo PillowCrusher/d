@@ -36,6 +36,10 @@
       <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Phidget21.NET, Version=2.1.8.222, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Phidget21.NET.dll</HintPath>
+    </Reference>
     <Reference Include="Phidget21.NET1.1, Version=2.1.8.0, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Phidgets\Phidget21.NET1.1.dll</HintPath>
