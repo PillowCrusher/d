@@ -1,12 +1,5 @@
 ﻿using ICT4Participation.Classes.ClassObjects;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
@@ -33,10 +26,10 @@ namespace ICT4Participation.Forms
             
             OracleParameter[] parameters =
             {
-                new OracleParameter("needyid", 1)
+                new OracleParameter("needyid", _administration.GetCurrentUser().Account.ID)
             };
 
-            _helpRequests = _administration.GetAllHelpRequests(parameters);
+            _helpRequests = _administration.GetHelpRequests(parameters);
         }
 
         private void UpdateHelpListGui()

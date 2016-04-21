@@ -31,7 +31,7 @@ namespace ICT4Participation.Forms
 
         private void GetAllHelpRequests()
         {
-            _helpRequests = _administration.GetAllHelpRequests(null);
+            _helpRequests = _administration.GetHelpRequests(null);
         }
 
         private void UpdateHelpListGui()
