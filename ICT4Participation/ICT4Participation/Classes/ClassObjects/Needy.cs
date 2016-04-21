@@ -19,7 +19,7 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void AddHelpRequest(string titel, string description, string location, DateTime travelTime, DateTime startDate, DateTime endDate, bool urgent, bool requestintroduction)
         {
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query[]);
+            //DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query[]);
         }
 
         public void DeleteHelpRequest(HelpRequest helprequest)
