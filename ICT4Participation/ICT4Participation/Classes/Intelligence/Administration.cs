@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
 using Oracle.ManagedDataAccess.Client;
-using System.Data;
-using ICT4Participation.Classes.Database;
-using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Types;
 

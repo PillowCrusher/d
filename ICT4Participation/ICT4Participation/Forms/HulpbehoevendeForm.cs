@@ -16,13 +16,12 @@ namespace ICT4Participation.Forms
     public partial class HulpbehoevendeForm : Form
     {
         private Administration _administration;
-        private readonly List<HelpRequest> _helpRequests;
+        private List<HelpRequest> _helpRequests;
 
         public HulpbehoevendeForm()
         {
             InitializeComponent();
             _administration = new Administration();
-            _helpRequests = new List<HelpRequest>();
 
             GetPersonalHelpRequests();
 
@@ -37,7 +36,7 @@ namespace ICT4Participation.Forms
                 new OracleParameter("needyid", 1)
             };
 
-            _administration.GetAllHelpRequests(parameters);
+            _helpRequests = _administration.GetAllHelpRequests(parameters);
         }
 
         private void UpdateHelpListGui()
