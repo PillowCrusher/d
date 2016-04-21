@@ -25,7 +25,26 @@ namespace ICT4Participation.Classes.Intelligence
 
         public User Login(string username, string password)
         {
-            return null;
+            try
+            {
+                User user = null;
+                OracleParameter[] loginParameter = 
+            {
+                new OracleParameter(":username", username),
+                new OracleParameter(":password", password)
+            };
+
+                DataTable id = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetUserLogin"], null);
+                foreach (DataRow dr in id.Rows)
+                {
+                  // user = new User(new Account())
+                }
+                return user;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Admin Login(string username, string password, string RFID)
@@ -99,8 +118,6 @@ namespace ICT4Participation.Classes.Intelligence
                 new OracleParameter(":vog", vog)
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertVolunteer"], volunteerParameter);
-
-                //insert Volunteer
             }
             catch (Exception)
             {

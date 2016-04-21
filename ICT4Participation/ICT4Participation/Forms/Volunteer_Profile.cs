@@ -88,7 +88,7 @@ namespace ICT4Participation.Forms
                                         DateTime birthday = dtpBirthDate.Value.Date;
                                         try
                                         {
-                                            administration.user.UpdateProfiel(new Volunteer(new Account(tbUsername.Text, tbPassword.Text, tbEmail.Text), tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, birthday, photoFile, VOGFile));
+                                            administration.user.UpdateProfiel(new Volunteer(new Account(administration.user.Account.ID, tbUsername.Text, tbPassword.Text, tbEmail.Text), tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, birthday, photoFile, VOGFile));
                                             this.DialogResult = DialogResult.OK;
                                         }
                                         catch (Exception ex)
