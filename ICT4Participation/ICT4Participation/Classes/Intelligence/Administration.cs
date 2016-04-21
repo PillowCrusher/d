@@ -54,6 +54,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public User GetCurrentUser()
         {
+            return new Needy(new Account(1, "henk", "password", "email@email.com"), "Henk", "address", "city", "+316 12345678", true, false, false, "1234");
             return _currentUser;
         }
 
@@ -174,5 +175,40 @@ namespace ICT4Participation.Classes.Intelligence
                 throw;
             }
         }
+
+        public List<HelpRequest> GetHelpRequests(OracleParameter[] parameters)
+        {
+            List<HelpRequest> helpRequests = new List<HelpRequest>();
+
+            /*
+            OracleParameter[] parameter =
+            {
+                new OracleParameter("USERID", Convert.ToInt32(row[3]))
+            };
+            */
+
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllHelpRequests"], parameters);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                helpRequests.Add(
+                    new HelpRequest(
+                        dr["Name"].ToString(),
+                        dr["Title"].ToString(),
+                        dr["Description"].ToString(),
+                        dr["Location"].ToString(),
+                        Convert.ToBoolean(dr["Urgent"]),
+                        (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
+                        DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
+                        DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
+                        Convert.ToBoolean(dr["Interview"]),
+                        Convert.ToBoolean(dr["Completed"])
+                        )
+                    );
+            }
+
+            return helpRequests;
+        } 
     }
 }
