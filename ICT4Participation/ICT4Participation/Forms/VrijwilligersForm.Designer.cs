@@ -39,6 +39,7 @@
             this.gbHelpRequest = new System.Windows.Forms.GroupBox();
             this.pnlHulpVragen = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnChangeInfo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPersonalInfo = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -46,7 +47,6 @@
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.lbChats = new System.Windows.Forms.ListBox();
             this.lbHelpRequests = new System.Windows.Forms.ListBox();
-            this.btnChangeInfo = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             this.tlpProperties.SuspendLayout();
             this.gbHelpRequest.SuspendLayout();
@@ -179,6 +179,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Profiel gegevens";
             // 
+            // btnChangeInfo
+            // 
+            this.btnChangeInfo.Location = new System.Drawing.Point(240, 162);
+            this.btnChangeInfo.Name = "btnChangeInfo";
+            this.btnChangeInfo.Size = new System.Drawing.Size(118, 35);
+            this.btnChangeInfo.TabIndex = 2;
+            this.btnChangeInfo.Text = "Informatie aanpassen";
+            this.btnChangeInfo.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ICT4Participation.Properties.Resources.user_male_silhouette_318_55563;
@@ -245,20 +254,11 @@
             this.lbHelpRequests.Size = new System.Drawing.Size(120, 420);
             this.lbHelpRequests.TabIndex = 0;
             // 
-            // btnChangeInfo
-            // 
-            this.btnChangeInfo.Location = new System.Drawing.Point(240, 162);
-            this.btnChangeInfo.Name = "btnChangeInfo";
-            this.btnChangeInfo.Size = new System.Drawing.Size(118, 35);
-            this.btnChangeInfo.TabIndex = 2;
-            this.btnChangeInfo.Text = "Informatie aanpassen";
-            this.btnChangeInfo.UseVisualStyleBackColor = true;
-            // 
             // VrijwilligersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 682);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbHelpRequest);
