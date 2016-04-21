@@ -31,7 +31,6 @@ namespace ICT4Participation.Classes.Database
             Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, City = :vog;";
             Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
 
-            Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
 
             //VrijwilligersForm
             Query["GetAllHelpRequests"] =
@@ -51,6 +50,9 @@ namespace ICT4Participation.Classes.Database
                 " ON u.ID = n.ID " +
                 " WHERE n.NAME = :needyid" +
                 " AND h.COMPLETED = 0";
+
+            Query["HelpRequestAccept"] = "UPDATE \"UserHelprequest\" SET Accepted = 1 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
+            Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Accepted = 2 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
         }
     }
 }
