@@ -10,7 +10,7 @@ namespace ICT4Participation.Classes.Database
         {
             Query["GetAccountID"] = "SELECT ACCOUNT_SEQ.nextval from dual;";
             Query["InsertAccount"] = "INSERT INTO \"Account\" (ID, Username, Password, Email) values (:id, :username, :password, :email);";
-            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, DEREGISTRATIONDATE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :deregistrationdate);";
+            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, OVPOSSIBLE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :ovpossible,);";
             Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog);";
             Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, OVPOSSIBLE, RFID) values (:id, :ovpossible, :rfid);";
             Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, RFID) values (:id, :rfid);";
