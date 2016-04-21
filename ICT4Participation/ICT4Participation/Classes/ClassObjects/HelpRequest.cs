@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ICT4Participation.Classes.Database;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -69,6 +70,8 @@ namespace ICT4Participation.Classes.ClassObjects
             }
             Pending.Remove(_volunteer);
             Declined.Add(_volunteer);
+
+            
         }
 
         public void Accept(Volunteer volunteer)
