@@ -53,7 +53,7 @@ namespace ICT4Participation.Classes.Intelligence
         public User GetCurrentUser()
         {
             return new Needy(new Account(1, "henk", "password", "email@email.com"), "Henk", "address", "city", "+316 12345678", true, false, false, "1234");
-            return _currentUser;
+            //return _currentUser;
         }
 
         public User LoginWithRfid(string rfid)

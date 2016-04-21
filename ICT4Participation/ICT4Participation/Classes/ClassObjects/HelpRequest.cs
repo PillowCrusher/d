@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ICT4Participation.Classes.Database;
+using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -71,7 +72,13 @@ namespace ICT4Participation.Classes.ClassObjects
             Pending.Remove(_volunteer);
             Declined.Add(_volunteer);
 
-            
+            OracleParameter[] Parameter =
+   {
+                new OracleParameter(":HelprequestID", ID),
+                new OracleParameter(":UserID", volunteer.Account.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
         }
 
         public void Accept(Volunteer volunteer)
@@ -87,8 +94,13 @@ namespace ICT4Participation.Classes.ClassObjects
             Pending.Remove(_volunteer);
             Accepted.Add(_volunteer);
 
-            Needy a = null;
-            //DatabaseManager.ExecuteInsertQuery();
+            OracleParameter[] Parameter =
+        {
+                new OracleParameter(":HelprequestID", ID),
+                new OracleParameter(":UserID", volunteer.Account.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"],Parameter);
         }
 
         public void AddReview(Review review)
