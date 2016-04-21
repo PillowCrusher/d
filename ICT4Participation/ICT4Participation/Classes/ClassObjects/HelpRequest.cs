@@ -20,11 +20,11 @@ namespace ICT4Participation.Classes.ClassObjects
         public DateTime StartDate { get; private set; }
         public DateTime DeadLine { get; private set; }
         public bool Urgent { get; private set; }
-        public bool RequestIntroduction { get; private set; }
+        public bool Interview { get; private set; }
         public TransportationType Transportation { get; private set; }
         public bool Completed { get; private set; }
 
-        public HelpRequest(string needyName, string titel, string description, string location, DateTime startDate, DateTime deadLine, bool urgent, bool requestintroduction, TransportationType transportation, bool completed)
+        public HelpRequest(string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool Interview,  bool completed)
         {
             if (titel == null)
             {
@@ -53,7 +53,7 @@ namespace ICT4Participation.Classes.ClassObjects
             this.StartDate = startDate;
             this.DeadLine = deadLine;
             this.Urgent = urgent;
-            this.RequestIntroduction = requestintroduction;
+            this.Interview = Interview;
             this.Transportation = transportation;
             this.Completed = completed;
         }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Intelligence;
+using Oracle.ManagedDataAccess.Client;
+using ICT4Participation.Classes.Database;
 
 namespace ICT4Participation.Forms
 {
@@ -31,7 +33,33 @@ namespace ICT4Participation.Forms
 
         private void GetAllHelpRequests()
         {
-            
+            /*
+            OracleParameter[] parameter =
+            {
+                new OracleParameter("USERID", Convert.ToInt32(row[3]))
+            };
+            */
+
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllHelpRequests"], null);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                _helpRequests.Add(
+                    new HelpRequest(
+                        "",
+                        dr["Title"].ToString(),
+                        dr["Description"].ToString(),
+                        dr["Location"].ToString(),
+                        Convert.ToBoolean(dr["Urgent"]),
+                        (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
+                        Convert.ToDateTime(dr["StartDate"]),
+                        Convert.ToDateTime(dr["EndDate"]),
+                        Convert.ToBoolean(dr["Interview"]),
+                        Convert.ToBoolean(dr["Completed"])
+                        )
+                    );
+            }
         }
 
         private void UpdateHelpListGui()
@@ -53,7 +81,7 @@ namespace ICT4Participation.Forms
                             h.StartDate,
                             h.DeadLine,
                             h.Urgent,
-                            h.RequestIntroduction,
+                            h.Interview,
                             h.Transportation,
                             position
                             )

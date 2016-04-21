@@ -49,10 +49,10 @@ namespace ICT4Participation.Forms
                             h.Titel,
                             h.Description,
                             h.Location,
-                            h.DeadLine,
                             h.Urgent,
-                            h.RequestIntroduction,
                             h.Transportation,
+                            h.DeadLine,
+                            h.Interview,
                             position
                             )
                         );

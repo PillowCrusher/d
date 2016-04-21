@@ -79,7 +79,7 @@ namespace ICT4Participation.Classes.ClassObjects
         /// <param name="location"></param>
         /// <param name="deadLine"></param>
         /// <param name="urgent"></param>
-        /// <param name="meeting"></param>
+        /// <param name="interview"></param>
         /// <param name="transportation"></param>
         /// <param name="position"></param>
         /// <returns></returns>
@@ -88,10 +88,10 @@ namespace ICT4Participation.Classes.ClassObjects
             string title,
             string description,
             string location,
-            DateTime deadLine,
             bool urgent,
-            bool meeting,
             TransportationType transportation,
+            DateTime deadLine,
+            bool interview,
             int position
             )
         {
@@ -101,14 +101,14 @@ namespace ICT4Participation.Classes.ClassObjects
             _location = location;
             _deadLine = deadLine;
             _urgent = urgent;
-            _meeting = meeting;
+            _meeting = interview;
             _transportation = transportation;
             _position = position;
 
             var extraInfo =
                 "Locatie: " + location + Environment.NewLine +
                 "Urgent: " + ConvertBoolToString(urgent) + Environment.NewLine +
-                "Kennis maken: " + ConvertBoolToString(meeting) + Environment.NewLine +
+                "Kennis maken: " + ConvertBoolToString(interview) + Environment.NewLine +
                 "Transport type: " + transportation + Environment.NewLine +
                 "Deadline: " + deadLine.ToString("d");
 
