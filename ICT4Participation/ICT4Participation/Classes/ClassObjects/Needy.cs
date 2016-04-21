@@ -13,6 +13,7 @@ namespace ICT4Participation.Classes.ClassObjects
         private string _location;
 
         public string RFID { get; set; }
+        public string Location { get; private set; }
 
         public Needy(int id, string username, string email, string name, string location, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string rfid)
             : base(id, username, email, name, phonenumber, publicTransport, hasDrivingLincense, hasCar)

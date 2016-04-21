@@ -160,8 +160,8 @@ namespace ICT4Participation.Classes.Intelligence
 
                 OracleParameter[] needyParameter = 
             {
-                new OracleParameter(":id", needyID),
-                new OracleParameter(":rfid", rfid)
+                new OracleParameter("id", needyID),
+                new OracleParameter("rfid", rfid)
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertNeedy"], needyParameter);
             }

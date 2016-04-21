@@ -57,6 +57,8 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
+
+
         }
 
         public void Decline(Volunteer volunteer)
@@ -69,16 +71,23 @@ namespace ICT4Participation.Classes.ClassObjects
                     _volunteer = volunteerPending;
                 }
             }
-            Pending.Remove(_volunteer);
-            Declined.Add(_volunteer);
+            if (_volunteer != null)
+            {
+                Pending.Remove(_volunteer);
+                Declined.Add(_volunteer);
 
-            OracleParameter[] Parameter =
-   {
-                new OracleParameter(":HelprequestID", ID),
-                new OracleParameter(":UserID", volunteer.ID)
-            };
+                OracleParameter[] Parameter =
+                {
+                    new OracleParameter("HelprequestID", ID),
+                    new OracleParameter("UserID", volunteer.Account.ID)
+                };
 
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
+            }
+            else
+            {
+                throw new Exception("Volunteer zit niet in Pending.");
+            }
         }
 
         public void Accept(Volunteer volunteer)
@@ -91,16 +100,23 @@ namespace ICT4Participation.Classes.ClassObjects
                     _volunteer = volunteerPending;
                 }
             }
-            Pending.Remove(_volunteer);
-            Accepted.Add(_volunteer);
+            if (_volunteer != null)
+            {
+                Pending.Remove(_volunteer);
+                Accepted.Add(_volunteer);
 
-            OracleParameter[] Parameter =
-        {
-                new OracleParameter(":HelprequestID", ID),
-                new OracleParameter(":UserID", volunteer.ID)
-            };
+                OracleParameter[] Parameter =
+                {
+                    new OracleParameter(":HelprequestID", ID),
+                    new OracleParameter(":UserID", volunteer.Account.ID)
+                };
 
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"],Parameter);
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
+            }
+            else
+            {
+                throw new Exception("Volunteer zit niet in Pending.");
+            }
         }
 
         public void AddReview(Review review)
@@ -116,6 +132,18 @@ namespace ICT4Participation.Classes.ClassObjects
         public void DeleteReview(Review review)
         {
 
+        }
+
+        public void AddVolunteer(Volunteer volunteer)
+        {
+            Pending.Add(volunteer);
+
+            OracleParameter[] Parameter =
+               {
+                    new OracleParameter(":HelprequestID", ID),
+                    new OracleParameter(":UserID", volunteer.Account.ID)
+                };
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],Parameter);
         }
     }
 }
