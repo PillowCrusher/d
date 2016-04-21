@@ -189,6 +189,7 @@
             this.btVOG.TabIndex = 43;
             this.btVOG.Text = "Voeg VOG toe";
             this.btVOG.UseVisualStyleBackColor = true;
+            this.btVOG.Click += new System.EventHandler(this.btVOG_Click);
             // 
             // btPhoto
             // 
@@ -199,6 +200,7 @@
             this.btPhoto.TabIndex = 42;
             this.btPhoto.Text = "Voeg foto toe";
             this.btPhoto.UseVisualStyleBackColor = true;
+            this.btPhoto.Click += new System.EventHandler(this.btPhoto_Click);
             // 
             // dtpBirthDate
             // 

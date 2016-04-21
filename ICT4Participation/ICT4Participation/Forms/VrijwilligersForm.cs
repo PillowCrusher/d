@@ -10,20 +10,18 @@ using System.Windows.Forms;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
-using ICT4Participation.Classes.Database;
 
 namespace ICT4Participation.Forms
 {
     public partial class VrijwilligersForm : Form
     {
         private readonly Administration _administration;
-        private readonly List<HelpRequest> _helpRequests;
+        private List<HelpRequest> _helpRequests;
 
         public VrijwilligersForm()
         {
             InitializeComponent();
             _administration = new Administration();
-            _helpRequests = new List<HelpRequest>();
 
             GetAllHelpRequests();
 
@@ -70,21 +68,21 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                pnlHulpVragen.Controls.Add(
-                    FormTools.NewHelpRequest(
-                        h.NeedyName,
-                        h.Titel,
-                        h.Description,
-                        h.Location,
-                        h.StartDate,
-                        h.DeadLine,
-                        h.Urgent,
-                        h.Interview,
-                        h.Transportation,
-                        position
-                        )
-                    );
-                position++;
+                    pnlHulpVragen.Controls.Add(
+                        FormTools.NewHelpRequest(
+                            h.NeedyName,
+                            h.Titel,
+                            h.Description,
+                            h.Location,
+                            h.StartDate,
+                            h.DeadLine,
+                            h.Urgent,
+                            h.Interview,
+                            h.Transportation,
+                            position
+                            )
+                        );
+                    position++;
 
             }
         }

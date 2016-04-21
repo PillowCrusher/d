@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.tbMessage = new System.Windows.Forms.TextBox();
+            this.lbChats = new System.Windows.Forms.ListBox();
+            this.lbHelpRequests = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,10 +58,10 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.listBox2);
-            this.groupBox5.Controls.Add(this.listBox1);
+            this.groupBox5.Controls.Add(this.btnSend);
+            this.groupBox5.Controls.Add(this.tbMessage);
+            this.groupBox5.Controls.Add(this.lbChats);
+            this.groupBox5.Controls.Add(this.lbHelpRequests);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(748, 12);
             this.groupBox5.Name = "groupBox5";
@@ -70,50 +70,45 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chats";
             // 
-            // button3
+            // btnSend
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(405, 597);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 46);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Verstuur";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(405, 597);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(93, 46);
+            this.btnSend.TabIndex = 3;
+            this.btnSend.Text = "Verstuur";
+            this.btnSend.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // tbMessage
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(132, 597);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(267, 46);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = "tekst om te verzenden";
+            this.tbMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMessage.Location = new System.Drawing.Point(132, 597);
+            this.tbMessage.Multiline = true;
+            this.tbMessage.Name = "tbMessage";
+            this.tbMessage.Size = new System.Drawing.Size(267, 46);
+            this.tbMessage.TabIndex = 2;
+            this.tbMessage.Text = "tekst om te verzenden";
             // 
-            // listBox2
+            // lbChats
             // 
-            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Items.AddRange(new object[] {
-            "13:59 Vrij Williger: Hallo mevrouw",
-            "14:15 Ik: Hallo"});
-            this.listBox2.Location = new System.Drawing.Point(132, 19);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(366, 564);
-            this.listBox2.TabIndex = 1;
+            this.lbChats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChats.FormattingEnabled = true;
+            this.lbChats.ItemHeight = 20;
+            this.lbChats.Location = new System.Drawing.Point(132, 19);
+            this.lbChats.Name = "lbChats";
+            this.lbChats.Size = new System.Drawing.Size(366, 564);
+            this.lbChats.TabIndex = 1;
             // 
-            // listBox1
+            // lbHelpRequests
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Items.AddRange(new object[] {
-            "Vrij Williger"});
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 624);
-            this.listBox1.TabIndex = 0;
+            this.lbHelpRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHelpRequests.FormattingEnabled = true;
+            this.lbHelpRequests.ItemHeight = 20;
+            this.lbHelpRequests.Location = new System.Drawing.Point(6, 19);
+            this.lbHelpRequests.Name = "lbHelpRequests";
+            this.lbHelpRequests.Size = new System.Drawing.Size(120, 624);
+            this.lbHelpRequests.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -319,10 +314,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.TextBox tbMessage;
+        private System.Windows.Forms.ListBox lbChats;
+        private System.Windows.Forms.ListBox lbHelpRequests;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
