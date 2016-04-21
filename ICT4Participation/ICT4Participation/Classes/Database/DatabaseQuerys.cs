@@ -8,7 +8,7 @@ namespace ICT4Participation.Classes.Database
 
         static DatabaseQuerys()
         {
-            Query["GetAccountID"] = "SELECT ACCOUNT_SEQ.nextval from dual;";
+            Query["GetAccountID"] = "SELECT ACCOUNT_SEQ.CURRVAL AS ID from dual";
             Query["InsertAccount"] = "INSERT INTO \"Account\" (Username, Password, Email) values (:username, :password, :email);";
             Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, OVPOSSIBLE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :ovpossible,);";
             Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog);";
