@@ -10,7 +10,7 @@ namespace ICT4Participation.Classes.Intelligence
     public class Administration
     {
         private static User _currentUser;
-         
+
         public List<User> Users { get; private set; }
 
         public Administration()
@@ -22,7 +22,7 @@ namespace ICT4Participation.Classes.Intelligence
         {
             return null;
         }
-            
+
         public Admin Login(string username, string password, string RFID)
         {
             return null;
@@ -33,14 +33,14 @@ namespace ICT4Participation.Classes.Intelligence
             return _currentUser;
         }
 
-        public void LoginWithRfid()
+        public User LoginWithRfid()
         {
             return null;
         }
 
         public void Logout(string username)
         {
-            
+
         }
 
         public void Unsubscribe(User user)
@@ -55,7 +55,7 @@ namespace ICT4Participation.Classes.Intelligence
             Users.Add(new Volunteer(new Account(username,password, email), name, address, city, phonenumber,publicTransport, hasdrivinglicence, hascar, birthdate, photo, vog));
         }
 
-        public void AddNeedy(string username, string password, string email,string name, string address,
+        public void AddNeedy(string username, string password, string email, string name, string address,
             string city, string phonenumber, bool publictransport, bool hasdrivinglicence,
             bool hascar, string rfid)
         {

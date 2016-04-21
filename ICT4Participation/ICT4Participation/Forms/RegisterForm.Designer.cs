@@ -286,7 +286,7 @@
             this.btRegister.Name = "btRegister";
             this.btRegister.Size = new System.Drawing.Size(520, 90);
             this.btRegister.TabIndex = 20;
-            this.btRegister.Text = "Registeer";
+            this.btRegister.Text = "Registeer Vrijwilliger";
             this.btRegister.UseVisualStyleBackColor = true;
             this.btRegister.Click += new System.EventHandler(this.btRegister_Click);
             // 

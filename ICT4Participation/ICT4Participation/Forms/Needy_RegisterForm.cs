@@ -11,38 +11,14 @@ using ICT4Participation.Classes.Intelligence;
 
 namespace ICT4Participation.Forms
 {
-    public partial class RegisterForm : Form
+    public partial class Needy_RegisterForm : Form
     {
         public Administration administration = new Administration();
-        private string photoFile = null;
-        private string VOGFile = null;
-
-        public RegisterForm()
+        public Needy_RegisterForm()
         {
             InitializeComponent();
-            rbtCarNo.Checked = true;
-            rbtDrivingNo.Checked = true;
         }
 
-        private void btPhoto_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog photoLog = new OpenFileDialog();
-            if (photoLog.ShowDialog() == DialogResult.OK)
-            {
-                photoFile = photoLog.FileName;
-                lbFilePhoto.Text = photoFile.Split('\\').Last();
-            }
-        }
-
-        private void btVOG_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog VOGLog = new OpenFileDialog();
-            if (VOGLog.ShowDialog() == DialogResult.OK)
-            {
-                VOGFile = VOGLog.FileName;
-                lbFileVOG.Text = VOGFile.Split('\\').Last();
-            }
-        }
         private void btRegister_Click(object sender, EventArgs e)
         {
             bool publicTransport = false;
@@ -59,7 +35,7 @@ namespace ICT4Participation.Forms
                             if (tbPhonenumber.Text != "")
                             {
                                 if (rbtTransportNo.Checked == true)
-                                {   
+                                {
                                     publicTransport = true;
                                 }
                                 else if (rbtTransportNo.Checked == false)
@@ -82,29 +58,20 @@ namespace ICT4Participation.Forms
                                 {
                                     driving = false;
                                 }
-                                if (photoFile != null)
+                                if (txtRFID.Text != "")
                                 {
-                                    if (VOGFile != null)
+                                    try
                                     {
-                                        DateTime birthday = dtpBirthDate.Value.Date;
-                                        try
-                                        {
-                                            administration.AddVolunteer(tbUsername.Text, tbPassword.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text,publicTransport, driving, car, birthday, photoFile, VOGFile);
-                                            this.DialogResult = DialogResult.OK;
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            MessageBox.Show(ex.Message);
-                                        }
+                                        administration.AddNeedy(tbUsername.Text, tbPassword.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, txtRFID.Text);
                                     }
-                                    else
+                                    catch (Exception ex)
                                     {
-                                        MessageBox.Show("Voeg alsjeblieft een VOG toe");
+                                        MessageBox.Show(ex.Message);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Voeg alsjeblieft een Foto toe");
+                                    MessageBox.Show("Vul alsjeblieft een RFID code in");
                                 }
                             }
                             else
@@ -132,12 +99,5 @@ namespace ICT4Participation.Forms
                 MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
             }
         }
-
-        private void RegisterForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
-
-
     }
 }
