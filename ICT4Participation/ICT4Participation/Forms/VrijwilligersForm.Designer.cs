@@ -43,7 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPersonalInfo = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnSend = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.lbChats = new System.Windows.Forms.ListBox();
             this.lbHelpRequests = new System.Windows.Forms.ListBox();
@@ -209,7 +209,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.btnSend);
+            this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Controls.Add(this.tbMessage);
             this.groupBox5.Controls.Add(this.lbChats);
             this.groupBox5.Controls.Add(this.lbHelpRequests);
@@ -220,14 +220,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chats";
             // 
-            // btnSend
+            // button3
             // 
-            this.btnSend.Location = new System.Drawing.Point(405, 393);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(93, 46);
-            this.btnSend.TabIndex = 3;
-            this.btnSend.Text = "Verstuur";
-            this.btnSend.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(405, 393);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 46);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Verstuur";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // tbMessage
             // 
@@ -258,13 +258,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 666);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbHelpRequest);
             this.Controls.Add(this.gbFilter);
-            this.MaximumSize = new System.Drawing.Size(1275, 705);
-            this.MinimumSize = new System.Drawing.Size(1275, 705);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "VrijwilligersForm";
             this.Text = "VrijwilligersForm";
             this.gbFilter.ResumeLayout(false);
@@ -293,7 +293,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblPersonalInfo;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox tbMessage;
         private System.Windows.Forms.ListBox lbChats;
         private System.Windows.Forms.ListBox lbHelpRequests;
