@@ -31,7 +31,33 @@ namespace ICT4Participation.Forms
 
         private void GetAllHelpRequests()
         {
-            _helpRequests = _administration.GetHelpRequests(null);
+            /*
+            OracleParameter[] parameter =
+            {
+                new OracleParameter("USERID", Convert.ToInt32(row[3]))
+            };
+            */
+
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllHelpRequests"], null);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                _helpRequests.Add(
+                    new HelpRequest(
+                        Convert.ToInt32(dr["ID"]),
+                        dr["Name"].ToString(),
+                        dr["Title"].ToString(),
+                        dr["Description"].ToString(),
+                        dr["Location"].ToString(),
+                        Convert.ToBoolean(dr["Urgent"]),
+                        (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
+                        DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
+                        DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
+                        Convert.ToBoolean(dr["Interview"])
+                        )
+                    );
+            }
         }
 
         private void UpdateHelpListGui()
@@ -42,8 +68,6 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                if (!h.Completed)
-                {
                     pnlHulpVragen.Controls.Add(
                         FormTools.NewHelpRequest(
                             h.NeedyName,
@@ -59,7 +83,7 @@ namespace ICT4Participation.Forms
                             )
                         );
                     position++;
-                }
+
             }
         }
 

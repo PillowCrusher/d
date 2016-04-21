@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using Oracle.ManagedDataAccess.Client;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
-using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess;
-using Oracle.ManagedDataAccess.Types;
 
 namespace ICT4Participation.Classes.Intelligence
 {
@@ -38,7 +37,7 @@ namespace ICT4Participation.Classes.Intelligence
                 foreach (DataRow dr in id.Rows)
                 {
                   // user = new User(new Account())
-                }
+        }
                 return user;
             }
             catch (Exception)
@@ -209,6 +208,6 @@ namespace ICT4Participation.Classes.Intelligence
             }
 
             return helpRequests;
-        } 
+        }
     }
 }

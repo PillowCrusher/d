@@ -28,7 +28,7 @@ namespace ICT4Participation.Forms
             {
                 new OracleParameter("needyid", _administration.GetCurrentUser().Account.ID)
             };
-
+            
             _helpRequests = _administration.GetHelpRequests(parameters);
         }
 
@@ -40,8 +40,6 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                if (!h.Completed)
-                {
                     pnlHulpVragen.Controls.Add(
                         FormTools.NewHelpRequest(
                             h.NeedyName,
@@ -56,7 +54,7 @@ namespace ICT4Participation.Forms
                             )
                         );
                     position++;
-                }
+
             }
         }
     }
