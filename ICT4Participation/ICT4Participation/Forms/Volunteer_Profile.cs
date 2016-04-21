@@ -88,7 +88,7 @@ namespace ICT4Participation.Forms
                                         DateTime birthday = dtpBirthDate.Value.Date;
                                         try
                                         {
-                                            administration.user.UpdateProfiel(new Volunteer(new Account(administration.user.Account.ID, tbUsername.Text, tbPassword.Text, tbEmail.Text), tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, birthday, photoFile, VOGFile));
+                                            //administration.User.UpdateProfiel(new Volunteer(administration.User.ID, tbUsername.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, birthday, photoFile, VOGFile));
                                             this.DialogResult = DialogResult.OK;
                                         }
                                         catch (Exception ex)
@@ -136,7 +136,15 @@ namespace ICT4Participation.Forms
         {
             if (MessageBox.Show("Weet je het zeker?", "Bevestig", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                administration.user.UnSubscribe();
+                try
+                {
+                    Volunteer v = administration.User as Volunteer;
+                    v.UnSubscribe();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 

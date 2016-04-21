@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
-    public class Admin
+    public class Admin : Account
     {
         public string RFID { get; set; }
-        public Account Account { get; set; }
 
-        public Admin(Account account, string rfid)
+        public Admin(int id, string username, string email,string rfid)
+            :base(id, username, email)
         {
-            this.Account = account;
-            this.RFID = rfid;
+            RFID = rfid;
         }
 
-        public void BlockAccount(Account account)
+        public void BlockAccount(User user)
         {
             
         }

@@ -19,11 +19,11 @@ namespace ICT4Participation.Classes.ClassObjects
         public string Titel { get; private set; }
         public string Description { get; private set; }
         public string Location { get; private set; }
+        public bool Urgent { get; private set; }
+        public TransportationType Transportation { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime DeadLine { get; private set; }
-        public bool Urgent { get; private set; }
         public bool Interview { get; private set; }
-        public TransportationType Transportation { get; private set; }
 
         public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool interview)
         {
@@ -79,7 +79,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 OracleParameter[] Parameter =
                 {
                     new OracleParameter("HelprequestID", ID),
-                    new OracleParameter("UserID", volunteer.Account.ID)
+                    new OracleParameter("UserID", volunteer.ID)
                 };
 
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
@@ -107,8 +107,8 @@ namespace ICT4Participation.Classes.ClassObjects
 
                 OracleParameter[] Parameter =
                 {
-                    new OracleParameter(":HelprequestID", ID),
-                    new OracleParameter(":UserID", volunteer.Account.ID)
+                    new OracleParameter("HelprequestID", ID),
+                    new OracleParameter("UserID", volunteer.ID)
                 };
 
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
@@ -140,8 +140,8 @@ namespace ICT4Participation.Classes.ClassObjects
 
             OracleParameter[] Parameter =
                {
-                    new OracleParameter(":HelprequestID", ID),
-                    new OracleParameter(":UserID", volunteer.Account.ID)
+                    new OracleParameter("HelprequestID", ID),
+                    new OracleParameter("UserID", volunteer.ID)
                 };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],Parameter);
         }

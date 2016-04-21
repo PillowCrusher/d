@@ -10,14 +10,16 @@ namespace ICT4Participation.Classes.ClassObjects
 {
     public class Needy : User
     {
+        private string _location;
+
         public string RFID { get; set; }
         public string Location { get; private set; }
 
-        public Needy(Account account, string name, string location, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string rfid)
-            : base(account, name, phonenumber, publicTransport, hasDrivingLincense, hasCar)
+        public Needy(int id, string username, string email, string name, string location, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string rfid)
+            : base(id, username, email, name, phonenumber, publicTransport, hasDrivingLincense, hasCar)
         {
             RFID = rfid;
-            Location = location;
+            _location = location;
         }
 
         public void AddHelpRequest(string titel, string description, bool urgent, TransportationType transportType, DateTime startDate, DateTime endDate, bool requestintroduction)
@@ -26,7 +28,7 @@ namespace ICT4Participation.Classes.ClassObjects
             {
                 new OracleParameter("title", titel),
                 new OracleParameter("description", description),
-                new OracleParameter("location", Location),
+                new OracleParameter("location", _location),
                 new OracleParameter("urgent", Convert.ToInt32(urgent)),
                 new OracleParameter("transporttype", transportType.ToString()),
                 new OracleParameter("startdate", startDate),

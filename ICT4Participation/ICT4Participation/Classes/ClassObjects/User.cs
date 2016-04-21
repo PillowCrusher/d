@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
-    public abstract class User
+    public abstract class User : Account
     {
-        public Account Account { get; protected set; }
         public string Name { get; protected set; }
         public string Phonenumber { get; protected set; }
         public bool PublicTransport { get; protected set; }
@@ -16,13 +15,13 @@ namespace ICT4Participation.Classes.ClassObjects
         public bool HasCar { get; protected set; }
         public DateTime DeRegistrationDate { get; protected set; }
 
-        public User(Account account, string name, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar)
+        public User(int id, string username, string email, string name, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar)
+            :base(id, username, email)
         {
             if (name == null || phonenumber == null)
             {
                 throw new ArgumentNullException("user", "please fill in all fields for the user");
             }
-            this.Account = account;
             this.Name = name;
             this.Phonenumber = phonenumber;
             this.PublicTransport = publicTransport;

@@ -14,8 +14,8 @@ namespace ICT4Participation.Classes.ClassObjects
         public string Address { get; private set; }
         public string City { get; private set; }
 
-        public Volunteer(Account account, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog)
-            : base(account, name, phonenumber, publicTransport,  hasDrivingLincense, hasCar)
+        public Volunteer(int id, string username, string email, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog)
+            : base(id, username, email, name, phonenumber, publicTransport,  hasDrivingLincense, hasCar)
         {
             VOG = vog;
             Photo = photo;

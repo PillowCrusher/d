@@ -61,8 +61,8 @@ namespace ICT4Participation.Forms
                                 }
                                 try
                                 {
-                                    Needy needy = (Needy)administration.user;
-                                    //administration.user.UpdateProfiel(new Needy(new Account(administration.user.Account.ID, tbUsername.Text, tbPassword.Text, tbEmail.Text), tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, needy.RFID));
+                                    Needy needy = (Needy)administration.User;
+                                    //administration.user.UpdateProfiel(new Needy(administration.user.ID, tbUsername.Text, tbEmail.Text, tbName.Text, location, tbPhonenumber.Text, publicTransport, driving, car, needy.RFID));
                                 }
                                 catch (Exception ex)
                                 {
@@ -101,7 +101,8 @@ namespace ICT4Participation.Forms
             {
                 try
                 {
-                    administration.user.UnSubscribe();
+                    Volunteer v = administration.User as Volunteer;
+                    v.UnSubscribe();
                 }
                 catch (Exception ex)
                 {
