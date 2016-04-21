@@ -24,7 +24,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public bool Interview { get; private set; }
         public TransportationType Transportation { get; private set; }
 
-        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool Interview)
+        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine,  bool interview)
         {
             if (titel == null)
             {
@@ -46,16 +46,16 @@ namespace ICT4Participation.Classes.ClassObjects
             {
                 throw new ArgumentNullException("endDate", "endDate is empty");
             }
-            this.ID = id;
-            this.NeedyName = needyName;
-            this.Titel = titel;
-            this.Description = description;
-            this.Location = location;
-            this.StartDate = startDate;
-            this.DeadLine = deadLine;
-            this.Urgent = urgent;
-            this.Interview = Interview;
-            this.Transportation = transportation;
+            ID = id;
+            NeedyName = needyName;
+            Titel = titel;
+            Description = description;
+            Location = location;
+            StartDate = startDate;
+            DeadLine = deadLine;
+            Urgent = urgent;
+            Interview = interview;
+            Transportation = transportation;
         }
 
         public void Decline(Volunteer volunteer)
