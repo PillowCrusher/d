@@ -12,6 +12,7 @@ namespace ICT4Participation.Classes.ClassObjects
         Bus,
         Auto,
         Fiets,
-        Benenwagen
+        Benenwagena,
+        NVT
     }
 }
