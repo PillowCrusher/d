@@ -20,10 +20,20 @@ namespace ICT4Participation.Classes.Database
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid);";
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason);";
 
-            Query["GetUserLogin"] = "SELECT Username, Password FROM \"ACCOUNT\" WHERE USERNAME = :username AND PASSWORD = :password";
-            
-            
-            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"CHATMESSAGE\" WHERE HELPREQUEST_ID = :helprequest_id";
+            Query["GetUserLogin"] =
+                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password;";
+            Query["GetUserLoginByRFID"] =
+                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where n.RFID = :rfid;";
+            Query["GetAdminLogin"] =
+                "select * from \"Account\" a left join \"Admin\" ad on a.ID = ad.ID where a.Username = :username and a.Password = :password and n.RFID = :rfid;";
+            Query["GetAllHelpRequests"] = "SELECT * FROM \"Helprequest\"";
+            Query["UpdateAccount"] = "update \"Account\" set Username = :username, Password = :password, Email = :email;";
+            Query["UpdateUser"] = "update \"User\" set Name = :name, Adress = :adress, City = :city, Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar;";
+            Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, City = :vog;";
+            Query["GetUserHelpRequests"] = "SELECT * FROM \"Helprequest\" WHERE NEEDYID = :needyid";
+            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
+
+            Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
 
             //VrijwilligersForm
             Query["GetAllHelpRequests"] =
