@@ -8,11 +8,11 @@ namespace ICT4Participation.Classes.ClassObjects
 {
     public enum TransportationType
     {
+        NVT,
         Trein,
         Bus,
         Auto,
         Fiets,
-        Benenwagena,
-        NVT
+        Benenwagena
     }
 }

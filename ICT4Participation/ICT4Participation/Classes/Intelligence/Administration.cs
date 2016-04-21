@@ -12,10 +12,9 @@ namespace ICT4Participation.Classes.Intelligence
 {
     public class Administration
     {
-        private static User _currentUser;
 
-        public User user = null;
-      //  public List<User> Users { get; private set; }
+        public Account User { get; private set; }
+        //  public List<User> Users { get; private set; }
 
         public Administration()
         {
@@ -28,8 +27,8 @@ namespace ICT4Participation.Classes.Intelligence
                 User user = null;
                 OracleParameter[] loginParameter = 
             {
-                new OracleParameter(":username", username),
-                new OracleParameter(":password", password)
+                new OracleParameter("username", username),
+                new OracleParameter("password", password)
             };
 
                 DataTable id = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetUserLogin"], null);
@@ -52,7 +51,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public User GetCurrentUser()
         {
-            return new Needy(new Account(1, "henk", "password", "email@email.com"), "Henk", "address", "city", "+316 12345678", true, false, false, "1234");
+            return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234");
             //return _currentUser;
         }
 
@@ -63,7 +62,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public void Logout(string username)
         {
-            user = null;
+            User = null;
         }
 
         public void Unsubscribe(User user)
@@ -83,38 +82,38 @@ namespace ICT4Participation.Classes.Intelligence
                 {
                     volunteerID = Convert.ToInt32(dr["ACCOUNT_SEQ.nextval"]);
                 }
-                Volunteer volunteer = new Volunteer(new Account(volunteerID, username, password, email), name, address, city, phonenumber, publicTransport, hasdrivinglicence, hascar, birthdate, photo, vog);
+                Volunteer volunteer = new Volunteer(volunteerID, username, email, name, address, city, phonenumber, publicTransport, hasdrivinglicence, hascar, birthdate, photo, vog);
 
                 OracleParameter[] accountParameter = 
             {
-                new OracleParameter(":id", volunteerID),
-                new OracleParameter(":username", username),
-                new OracleParameter(":password", password),
-                new OracleParameter(":email", email)
+                new OracleParameter("id", volunteerID),
+                new OracleParameter("username", username),
+                new OracleParameter("password", password),
+                new OracleParameter("email", email)
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertAccount"], accountParameter);
 
                 OracleParameter[] userParameter = 
             {
-                new OracleParameter(":id", volunteerID),
-                new OracleParameter(":name", name),
-                new OracleParameter(":adress", address),
-                new OracleParameter(":city", city),
-                new OracleParameter(":phonenumber", phonenumber),
-                new OracleParameter(":hasdrivinglicence", Convert.ToInt32(hasdrivinglicence)),
-                new OracleParameter(":hascar", Convert.ToInt32(hascar)),
-                new OracleParameter(":deregistrationdate", null),
-                new OracleParameter(":ovpossible", Convert.ToInt32(publicTransport))
+                new OracleParameter("id", volunteerID),
+                new OracleParameter("name", name),
+                new OracleParameter("adress", address),
+                new OracleParameter("city", city),
+                new OracleParameter("phonenumber", phonenumber),
+                new OracleParameter("hasdrivinglicence", Convert.ToInt32(hasdrivinglicence)),
+                new OracleParameter("hascar", Convert.ToInt32(hascar)),
+                new OracleParameter("deregistrationdate", null),
+                new OracleParameter("ovpossible", Convert.ToInt32(publicTransport))
 
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUser"], userParameter);
 
                 OracleParameter[] volunteerParameter = 
             {
-                new OracleParameter(":id", volunteerID), 
-                new OracleParameter(":dateofbirth", birthdate), 
-                new OracleParameter(":photo", photo), 
-                new OracleParameter(":vog", vog)
+                new OracleParameter("id", volunteerID), 
+                new OracleParameter("dateofbirth", birthdate), 
+                new OracleParameter("photo", photo), 
+                new OracleParameter("vog", vog)
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertVolunteer"], volunteerParameter);
             }
@@ -124,9 +123,8 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void AddNeedy(string username, string password, string email, string name, string address,
-            string city, string phonenumber, bool publictransport, bool hasdrivinglicence,
-            bool hascar, string rfid)
+        public void AddNeedy(string username, string password, string email, string name, string location, 
+            string phonenumber, bool publictransport, bool hasdrivinglicence, bool hascar, string rfid)
         {
             try
             {
@@ -136,28 +134,27 @@ namespace ICT4Participation.Classes.Intelligence
                 {
                     needyID = Convert.ToInt32(dr["ACCOUNT_SEQ.nextval"]);
                 }
-                Needy needy = new Needy(new Account(needyID, username, password, email), name, address, city, phonenumber, publictransport, hasdrivinglicence, hascar, rfid);
+                Needy needy = new Needy(needyID, username, email, name, location, phonenumber, publictransport, hasdrivinglicence, hascar, rfid);
 
                 OracleParameter[] accountParameter = 
             {
-                new OracleParameter(":id", needyID),
-                new OracleParameter(":username", username),
-                new OracleParameter(":password", password),
-                new OracleParameter(":email", email)
+                new OracleParameter("id", needyID),
+                new OracleParameter("username", username),
+                new OracleParameter("password", password),
+                new OracleParameter("email", email)
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertAccount"], accountParameter);
 
                 OracleParameter[] userParameter = 
             {
-                new OracleParameter(":id", needyID),
-                new OracleParameter(":name", name),
-                new OracleParameter(":adress", address),
-                new OracleParameter(":city", city),
-                new OracleParameter(":phonenumber", phonenumber),
-                new OracleParameter(":hasdrivinglicence", Convert.ToInt32(hasdrivinglicence)),
-                new OracleParameter(":hascar", Convert.ToInt32(hascar)),
-                new OracleParameter(":deregistrationdate", null),
-                new OracleParameter(":ovpossible", Convert.ToInt32(publictransport))
+                new OracleParameter("id", needyID),
+                new OracleParameter("name", name),
+                new OracleParameter("location", location),
+                new OracleParameter("phonenumber", phonenumber),
+                new OracleParameter("hasdrivinglicence", Convert.ToInt32(hasdrivinglicence)),
+                new OracleParameter("hascar", Convert.ToInt32(hascar)),
+                new OracleParameter("deregistrationdate", null),
+                new OracleParameter("ovpossible", Convert.ToInt32(publictransport))
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUser"], userParameter);
 

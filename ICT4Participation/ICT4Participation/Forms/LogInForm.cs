@@ -53,9 +53,9 @@ namespace ICT4Participation.Forms
                 MessageBox.Show(ex.Message);
             }
             Form form = null;
-            if (administration.user != null)
+            if (administration.User != null)
             {
-                if (administration.user.GetType() == typeof(Needy))
+                if (administration.User.GetType() == typeof(Needy))
                 {
                      form = new HulpbehoevendeForm();
                      using (form)
@@ -108,12 +108,12 @@ namespace ICT4Participation.Forms
                         {
                             MessageBox.Show(ex.Message);
                         }
-                        if (administration.user != null)
+                        if (administration.User != null)
                         {
                             AdminForm form = new AdminForm();
                             using (form)
                             {
-                                this.Hide();
+                                Hide();
                             } 
                         }
                         else
@@ -131,9 +131,9 @@ namespace ICT4Participation.Forms
                         {
                             MessageBox.Show(ex.Message);
                         }
-                        if (administration.user != null)
+                        if (administration.User != null)
                         {
-                            if (administration.user.GetType() == typeof(Needy))
+                            if (administration.User.GetType() == typeof(Needy))
                             {
                                 HulpbehoevendeForm form = new HulpbehoevendeForm();
                                 using (form)

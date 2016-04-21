@@ -27,7 +27,7 @@ namespace ICT4Participation.Forms
             
             OracleParameter[] parameters =
             {
-                new OracleParameter("needyid", _administration.GetCurrentUser().Account.ID)
+                new OracleParameter("needyid", _administration.GetCurrentUser().ID)
             };
             
             _helpRequests = _administration.GetHelpRequests(parameters);
@@ -63,12 +63,10 @@ namespace ICT4Participation.Forms
         {
             string title = tbTitle.Text;
             string description = tbDescription.Text;
-            bool driverLicense = cbDriverLicense.Checked;
-            bool hasCar = cbHasCar.Checked;
-            bool ov = cbOV.Checked;
             bool urgent = cbUrgent.Checked;
-            bool meeting = cbMeeting.Checked;
+            TransportationType tt = TransportationType.NVT;
             DateTime dt = dtpEndDate.Value;
+            bool meeting = cbMeeting.Checked;
 
             if (title == "" || description == "")
             {
@@ -77,7 +75,7 @@ namespace ICT4Participation.Forms
 
             Needy currentNeedy = (Needy) _administration.GetCurrentUser();
 
-            currentNeedy.AddHelpRequest(title, description, );
+            currentNeedy.AddHelpRequest(title, description, urgent, tt, DateTime.Now, dt, meeting);
         }
     }
 }

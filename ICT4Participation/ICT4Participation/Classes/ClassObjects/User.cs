@@ -6,28 +6,23 @@ using System.Threading.Tasks;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
-    public abstract class User
+    public abstract class User : Account
     {
-        public Account Account { get; protected set; }
         public string Name { get; protected set; }
-        public string Address { get; protected set; }
-        public string City { get; protected set; }
         public string Phonenumber { get; protected set; }
         public bool PublicTransport { get; protected set; }
         public bool HasDrivingLincense { get; protected set; }
         public bool HasCar { get; protected set; }
         public DateTime DeRegistrationDate { get; protected set; }
 
-        public User(Account account, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar)
+        public User(int id, string username, string email, string name, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar)
+            :base(id, username, email)
         {
-            if (name == null || address == null || city == null || phonenumber == null)
+            if (name == null || phonenumber == null)
             {
                 throw new ArgumentNullException("user", "please fill in all fields for the user");
             }
-            this.Account = account;
             this.Name = name;
-            this.Address = address;
-            this.City = city;
             this.Phonenumber = phonenumber;
             this.PublicTransport = publicTransport;
             this.HasDrivingLincense = hasDrivingLincense;
@@ -37,8 +32,6 @@ namespace ICT4Participation.Classes.ClassObjects
         public void UpdateProfiel(User user)
         {
            // Name = user.Name;
-            Address = user.Address;
-            City = user.City;
             Phonenumber = user.Phonenumber;
             HasDrivingLincense = user.HasDrivingLincense;
             HasCar = HasCar;

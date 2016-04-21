@@ -10,21 +10,24 @@ namespace ICT4Participation.Classes.ClassObjects
 {
     public class Needy : User
     {
+        private string _location;
+
         public string RFID { get; set; }
 
-        public Needy(Account account, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string rfid)
-            : base(account, name, address, city, phonenumber, publicTransport, hasDrivingLincense, hasCar)
+        public Needy(int id, string username, string email, string name, string location, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string rfid)
+            : base(id, username, email, name, phonenumber, publicTransport, hasDrivingLincense, hasCar)
         {
             RFID = rfid;
+            _location = location;
         }
 
-        public void AddHelpRequest(string titel, string description, string location, bool urgent, TransportationType transportType, DateTime startDate, DateTime endDate, bool requestintroduction)
+        public void AddHelpRequest(string titel, string description, bool urgent, TransportationType transportType, DateTime startDate, DateTime endDate, bool requestintroduction)
         {
             OracleParameter[] parameters =
             {
                 new OracleParameter("title", titel),
                 new OracleParameter("description", description),
-                new OracleParameter("location", location),
+                new OracleParameter("location", _location),
                 new OracleParameter("urgent", Convert.ToInt32(urgent)),
                 new OracleParameter("transporttype", transportType.ToString()),
                 new OracleParameter("startdate", startDate),
