@@ -16,10 +16,12 @@ namespace ICT4Participation
     {
         private readonly Administration _administration;
         private List<Volunteer> _volunteers;
+
         public AdminForm()
         {
             InitializeComponent();
             _administration = new Administration();
+
             GetAllVolunteers();
         }
 
@@ -32,6 +34,7 @@ namespace ICT4Participation
         {
             
         }
+
         private void UpdateVolunteerListGui()
         {
             int position = 0;
