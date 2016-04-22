@@ -43,19 +43,7 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                    pnlHulpVragen.Controls.Add(
-                        FormTools.NewHelpRequest(
-                            h.NeedyName,
-                            h.Titel,
-                            h.Description,
-                            h.Location,
-                            h.Urgent,
-                            h.Transportation,
-                            h.DeadLine,
-                            h.Interview,
-                            position
-                            )
-                        );
+                    pnlHulpVragen.Controls.Add(FormTools.NewHelpRequest(h, position, true));
                     position++;
 
             }
@@ -75,7 +63,7 @@ namespace ICT4Participation.Forms
                 MessageBox.Show("Vul alstublieft een titel of beschrijving in om door te gaan!");
             }
 
-            Needy currentNeedy = (Needy) _administration.GetCurrentUser();
+            Needy currentNeedy = (Needy) _administration.User;
 
             currentNeedy.AddHelpRequest(title, description, urgent, tt, DateTime.Now, dt, meeting);
         }

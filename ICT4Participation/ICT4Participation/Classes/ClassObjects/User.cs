@@ -16,8 +16,9 @@ namespace ICT4Participation.Classes.ClassObjects
         public bool HasDrivingLincense { get; protected set; }
         public bool HasCar { get; protected set; }
         public DateTime DeRegistrationDate { get; protected set; }
+        public bool IsWarned { get; protected set; }
 
-        public User(int id, string username, string email, string name, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar)
+        public User(int id, string username, string email, string name, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, bool isWarned)
             :base(id, username, email)
         {
             if (name == null || phonenumber == null)
@@ -29,6 +30,7 @@ namespace ICT4Participation.Classes.ClassObjects
             this.PublicTransport = publicTransport;
             this.HasDrivingLincense = hasDrivingLincense;
             this.HasCar = hasCar;
+            this.IsWarned = isWarned;
         }
 
         public void UpdateProfiel(User user)

@@ -11,15 +11,6 @@ namespace ICT4Participation.Classes.ClassObjects
 {
     public static class FormTools
     {
-        private static string _needyName;
-        private static string _title;
-        private static string _description;
-        private static string _location;
-        private static DateTime _startDate;
-        private static DateTime _deadLine;
-        private static bool _urgent;
-        private static bool _meeting;
-        private static TransportationType _transportation;
         private static int _position;
 
         /// <summary>
@@ -36,99 +27,72 @@ namespace ICT4Participation.Classes.ClassObjects
         /// <param name="transportation"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public static GroupBox NewHelpRequest(
-            string needyName,
-            string title,
-            string description,
-            string location,
-            DateTime startDate,
-            DateTime deadLine,
-            bool urgent,
-            bool meeting,
-            TransportationType transportation,
-            int position)
+        public static GroupBox NewHelpRequest(HelpRequest hr, int position, bool personal)
         {
-            _needyName = needyName;
-            _title = title;
-            _description = description;
-            _location = location;
-            _startDate = startDate;
-            _deadLine = deadLine;
-            _urgent = urgent;
-            _meeting = meeting;
-            _transportation = transportation;
             _position = position;
 
-            var extraInfo =
-                "Locatie: " + _location + Environment.NewLine +
-                "Urgent: " + ConvertBoolToString(_urgent) + Environment.NewLine +
-                "Kennis maken: " + ConvertBoolToString(_meeting) + Environment.NewLine +
-                "Transport type: " + _transportation + Environment.NewLine +
-                "Datum geplaatst: " + _startDate.ToString("d") + Environment.NewLine +
-                "Deadline: " + _deadLine.ToString("d");
+            if (personal)
+            {
+                var extraInfo =
+                "Locatie: " + hr.Location + Environment.NewLine +
+                "Urgent: " + ConvertBoolToString(hr.Urgent) + Environment.NewLine +
+                "Kennis maken: " + ConvertBoolToString(hr.Interview) + Environment.NewLine +
+                "Transport type: " + hr.Transportation + Environment.NewLine +
+                "Deadline: " + hr.DeadLine.ToString("d");
 
-            return NewGroupbox(220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
+                return NewHelpRequestGroupbox(hr, 270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
+            }
+            else
+            {
+                var extraInfo =
+                    "Locatie: " + hr.Location + Environment.NewLine +
+                    "Urgent: " + ConvertBoolToString(hr.Urgent) + Environment.NewLine +
+                    "Kennis maken: " + ConvertBoolToString(hr.Interview) + Environment.NewLine +
+                    "Transport type: " + hr.Transportation + Environment.NewLine +
+                    "Datum geplaatst: " + hr.StartDate.ToString("d") + Environment.NewLine +
+                    "Deadline: " + hr.DeadLine.ToString("d");
+
+                return NewHelpRequestGroupbox(hr, 220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
+            }
         }
 
-        /// <summary>
-        /// Voor het aanmaken van een helpRequest lijst voor Needy
-        /// </summary>
-        /// <param name="needyName"></param>
-        /// <param name="title"></param>
-        /// <param name="description"></param>
-        /// <param name="location"></param>
-        /// <param name="deadLine"></param>
-        /// <param name="urgent"></param>
-        /// <param name="interview"></param>
-        /// <param name="transportation"></param>
-        /// <param name="position"></param>
-        /// <returns></returns>
-        public static GroupBox NewHelpRequest(
-            string needyName,
-            string title,
-            string description,
-            string location,
-            bool urgent,
-            TransportationType transportation,
-            DateTime deadLine,
-            bool interview,
-            int position
-            )
+        public static GroupBox NewVolunteer(Volunteer volunteer, int position, bool VOG)
         {
-            _needyName = needyName;
-            _title = title;
-            _description = description;
-            _location = location;
-            _deadLine = deadLine;
-            _urgent = urgent;
-            _meeting = interview;
-            _transportation = transportation;
             _position = position;
 
-            var extraInfo =
-                "Locatie: " + location + Environment.NewLine +
-                "Urgent: " + ConvertBoolToString(urgent) + Environment.NewLine +
-                "Kennis maken: " + ConvertBoolToString(interview) + Environment.NewLine +
-                "Transport type: " + transportation + Environment.NewLine +
-                "Deadline: " + deadLine.ToString("d");
+            if (VOG)
+            {
+                var extraInfo =
+                    "Naam: " + volunteer.Name + Environment.NewLine +
+                    "Rijbewijs: " + ConvertBoolToString(volunteer.HasDrivingLincense) + Environment.NewLine +
+                    "Auto beschikbaar: " + ConvertBoolToString(volunteer.HasCar) + Environment.NewLine +
+                    "Openbaar Vervoer: " + ConvertBoolToString(volunteer.PublicTransport);
 
-            return NewGroupbox(270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
+                return NewVolunteerGroupbox(volunteer, position, extraInfo, "Bevestigen", "Afwijzen", true);
+            }
+            else
+            {
+                var extraInfo =
+                    "Naam: " + volunteer.Name + Environment.NewLine +
+                    "Rijbewijs: " + ConvertBoolToString(volunteer.HasDrivingLincense) + Environment.NewLine +
+                    "Auto beschikbaar: " + ConvertBoolToString(volunteer.HasCar) + Environment.NewLine +
+                    "Openbaar Vervoer: " + ConvertBoolToString(volunteer.PublicTransport) + Environment.NewLine +
+                    "Gewaarschuwd: " + ConvertBoolToString(volunteer.Warned) + Environment.NewLine +
+                    "Geblokkeerd: " + ConvertBoolToString(volunteer.Blocked);
+
+                return NewVolunteerGroupbox(volunteer, position, extraInfo, "Blokkeer", "Waarschuwen", false);
+            }
         }
 
-        public static GroupBox NewVolunteer(Volunteer volunteer)
-        {
-            return null;
-        }
-
-        private static GroupBox NewGroupbox(int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
+        private static GroupBox NewHelpRequestGroupbox(HelpRequest hr, int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
         {
             locationInt = locationInt * _position;
             locationInt += 5;
-
+            
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = _needyName + " - " + _title,
+                Text = hr.NeedyName + " - " + hr.Titel,
                 Location = new Point(6, locationInt),
                 Size = new Size(685, gbSize)
             };
@@ -139,7 +103,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 Multiline = true,
                 Location = new Point(6, 19),
                 Size = new Size(673, 94),
-                Text = _description
+                Text = hr.Description
             };
             newQuestion.Controls.Add(t);
 
@@ -166,7 +130,7 @@ namespace ICT4Participation.Classes.ClassObjects
             return newQuestion;
         }
 
-        private static GroupBox NewGroupbox(int locationInt, int volunteerID, string pictureLocation, string lblExtraInfo, string btn1Text, string btn2Text, string btn3Text, bool allVolunteers)
+        private static GroupBox NewVolunteerGroupbox(Volunteer volunteer, int locationInt, string lblExtraInfo, string btn1Text, string btn2Text, bool VOG)
         {
             locationInt = locationInt * _position;
             locationInt += 5;
@@ -174,7 +138,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = volunteerID.ToString(),
+                Text = volunteer.ID.ToString(),
                 Location = new Point(6, locationInt),
                 Size = new Size(461, 131)
             };
@@ -182,7 +146,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Textbox voor de hulpvraag
             var pb = new PictureBox
             {
-                ImageLocation = pictureLocation,
+                ImageLocation = volunteer.Photo,
                 Size = new Size(108, 106)
             };
             newQuestion.Controls.Add(pb);
@@ -198,41 +162,43 @@ namespace ICT4Participation.Classes.ClassObjects
             newQuestion.Controls.Add(l);
 
             //Button voor reageren
-            var btn1 = new Button
+            var btnVOG = new Button
             {
                 Location = new Point(381, 19),
+                Size = new Size(85, 23),
+                Text = "VOG Openen"
+            };
+            newQuestion.Controls.Add(btnVOG);
+            btnVOG.Click += new EventHandler(btnVOG_Openen);
+
+            //Button voor reageren
+            var btn1 = new Button
+            {
+                Location = new Point(370, 74),
                 Size = new Size(85, 23),
                 Text = btn1Text
             };
             newQuestion.Controls.Add(btn1);
-            btn1.Click += new EventHandler(btnVOG_Openen);
 
             //Button voor reageren
             var btn2 = new Button
             {
-                Location = new Point(370, 74),
+                Location = new Point(370, 102),
                 Size = new Size(85, 23),
                 Text = btn2Text
             };
             newQuestion.Controls.Add(btn2);
 
-            //Button voor reageren
-            var btn3 = new Button
-            {
-                Location = new Point(370, 102),
-                Size = new Size(85, 23),
-                Text = btn3Text
-            };
-            newQuestion.Controls.Add(btn3);
-
             //eventhandlers voor verschillende buttons
-            if (allVolunteers)
+            if (VOG)
             {
-                
+                btn1.Click += new EventHandler(btnBevestigen);
+                btn2.Click += new EventHandler(btnAfwijzen);
             }
             else
             {
-                
+                btn1.Click += new EventHandler(btnBlokkeer);
+                btn2.Click += new EventHandler(btnWaarschuwen);
             }
 
             return newQuestion;
@@ -246,7 +212,7 @@ namespace ICT4Participation.Classes.ClassObjects
 
             return converted;
         }
-
+        
         private static void Reageer_Click(object sender, EventArgs e)
         {
 
