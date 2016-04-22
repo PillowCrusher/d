@@ -29,7 +29,7 @@ namespace ICT4Participation.Forms
             
             OracleParameter[] parameters =
             {
-                new OracleParameter("needyid", _administration.GetCurrentUser().ID)
+                new OracleParameter("needyid", _administration.User.ID)
             };
             
             _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);

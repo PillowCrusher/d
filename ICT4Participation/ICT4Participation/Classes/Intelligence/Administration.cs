@@ -99,12 +99,6 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public User GetCurrentUser()
-        {
-            return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234", false);
-            //return _currentUser;
-        }
-
         public void LoginWithRfid(string rfid)
         {
             try
