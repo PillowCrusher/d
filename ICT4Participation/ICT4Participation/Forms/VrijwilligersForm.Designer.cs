@@ -303,13 +303,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 548);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbHelpRequest);
             this.Controls.Add(this.gbFilter);
-            this.MaximumSize = new System.Drawing.Size(1270, 690);
-            this.MinimumSize = new System.Drawing.Size(967, 558);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "VrijwilligersForm";
             this.Text = "VrijwilligersForm";
             this.gbFilter.ResumeLayout(false);
