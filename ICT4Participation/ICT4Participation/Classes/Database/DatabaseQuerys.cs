@@ -27,13 +27,17 @@ namespace ICT4Participation.Classes.Database
             Query["GetAdminLogin"] =
                 "select * from \"Account\" a left join \"Admin\" ad on a.ID = ad.ID where a.Username = :username and a.Password = :password and n.RFID = :rfid";
             Query["UpdateAccount"] = "update \"Account\" set Username = :username, Password = :password, Email = :email where ID = :id";
-            Query["UpdateUser"] = "update \"User\" set Name = :name, Adress = :adress, City = :city, Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar where ID = :id";
-            Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, City = :vog where ID = :id";
+            Query["UpdateUser"] = "update \"User\" set Name = :name, Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
+            Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, VOG = :vog, Adress = :adress, City = :city where ID = :id";
+            Query["UpdateNeedy"] = "update \"Needy\" set RFID = :rfid, location = :location where ID = :id";
             Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
             Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
-            Query["BlockUser"] = "UPDATE \"Volunteer\" SET Blocked = true where ID = :id";
+            Query["WarnUser"] = "UPDATE \"User\" SET ISWARNED = true where ID = :id";
+            Query["UnWarnUser"] = "UPDATE \"User\" SET ISWARNED = false where ID = :id";
+            Query["BlockVolunteer"] = "UPDATE \"Volunteer\" SET Blocked = true where ID = :id";
             Query["UnsubscribeUser"] = "UPDATE \"User\" set Deregistrationdate = :deregistrationdate where ID = :id";
+            Query["AddRFIDToNeedy"] = "UPDATE \"Needy\" set RFID = :rfid where ID = :id";
             //VrijwilligersForm
             Query["GetAllHelpRequests"] =
                 "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
