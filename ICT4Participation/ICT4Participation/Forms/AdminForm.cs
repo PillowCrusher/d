@@ -16,6 +16,7 @@ namespace ICT4Participation
     {
         private readonly Administration _administration;
         private List<Volunteer> _volunteers;
+        private List<Volunteer> _pendingVolunteers; 
 
         public AdminForm()
         {
@@ -23,15 +24,20 @@ namespace ICT4Participation
             _administration = new Administration();
 
             GetAllVolunteers();
+
+            UpdateVolunteerListGui();
         }
 
         private void GetAllVolunteers()
         {
-            _volunteers = _administration.GetAllVolunteers(null);
+            _volunteers = _administration.GetAllVolunteers();
         }
 
         private void GetPendingVolunteers()
         {
+            int position = 0;
+
+            pnlVOGVolunteers.Controls.Clear();
             
         }
 
@@ -43,7 +49,7 @@ namespace ICT4Participation
 
             foreach (Volunteer v in _volunteers)
             {
-                pnlVolunteers.Controls.Add(FormTools.NewVolunteer(v, position, false));
+                pnlVolunteers.Controls.Add(v.NewVolunteer(v, position, false));
                 position++;
 
             }

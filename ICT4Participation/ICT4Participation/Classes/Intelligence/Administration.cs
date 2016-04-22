@@ -2,7 +2,6 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
@@ -54,7 +53,8 @@ namespace ICT4Participation.Classes.Intelligence
                         string adres = dr["ADRESS"].ToString();
                         string city = dr["CITY"].ToString();
                         bool blocked = Convert.ToBoolean(dr["ISBLOCKED"]);
-                        if (blocked == false)
+                        bool accpeted = Convert.ToBoolean(dr["ACCEPTED"]);
+                        if (accpeted)
                         {
                            // throw new NotImplementedException(
                              //   "IsWarned moet worden opgehaald voor het toevoegen van volunteer");
@@ -73,9 +73,8 @@ namespace ICT4Participation.Classes.Intelligence
                 }
                 User = account;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
                 throw;
             }
         }
@@ -97,12 +96,6 @@ namespace ICT4Participation.Classes.Intelligence
                 string rfid = Convert.ToString(dr["RFID"]);
                 User = new Admin(id, userName, email, rfid);
             }
-        }
-
-        public User GetCurrentUser()
-        {
-            return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234", false);
-            //return _currentUser;
         }
 
         public void LoginWithRfid(string rfid)
@@ -315,11 +308,11 @@ namespace ICT4Participation.Classes.Intelligence
             return helpRequests;
         }
 
-        public List<Volunteer> GetAllVolunteers(OracleParameter[] parameters)
+        public List<Volunteer> GetAllVolunteers()
         {
             List<Volunteer> volunteers = new List<Volunteer>();
 
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllVolunteers"], parameters);
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllVolunteers"], null);
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -332,10 +325,10 @@ namespace ICT4Participation.Classes.Intelligence
                         dr["Adress"].ToString(),
                         dr["City"].ToString(),
                         dr["Phonenumber"].ToString(),
-                        Convert.ToBoolean(dr["PublicTransport"]),
+                        Convert.ToBoolean(dr["OVpossible"]),
                         Convert.ToBoolean(dr["HasDrivingLicence"]),
                         Convert.ToBoolean(dr["HasCar"]),
-                        Convert.ToDateTime(dr["BirthDate"]),
+                        DateTime.Now,// Convert.ToDateTime(dr["DateOfBirth"]),
                         dr["Photo"].ToString(),
                         dr["VOG"].ToString(),
                         Convert.ToBoolean(dr["ISWARNED"]),
@@ -362,6 +355,39 @@ namespace ICT4Participation.Classes.Intelligence
         {
             Admin admin = ((Admin)User);
             admin.AddRfidToUser(needy, rfid);
+        }
+
+        public void UpdateVolunteer(string password, string adress, string city, string phonenumber, bool publicTransport, bool drivingLincence, bool hasCar, DateTime birhtDay, string photoFile, string VOGFile)
+        {
+            try
+            {
+                OracleParameter[] userParameter =
+                {
+                new OracleParameter("phonenumber", phonenumber),
+                new OracleParameter("hasdrivinglicence", Convert.ToInt32(drivingLincence)),
+                new OracleParameter("hascar", Convert.ToInt32(hasCar)),
+                new OracleParameter("ovpossible", Convert.ToInt32(publicTransport)),
+                new OracleParameter("id", User.ID)
+            };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UpdateUser"], userParameter);
+
+                OracleParameter[] volunteerParameter =
+                {
+                new OracleParameter("dateofbirth", birhtDay),
+                new OracleParameter("photo", photoFile),
+                new OracleParameter("vog", VOGFile),
+                new OracleParameter("adress", adress),
+                new OracleParameter("city", city),
+                new OracleParameter("id", User.ID)
+            };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UpdateVolunteer"], volunteerParameter);
+
+                Login(User.Username, password);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

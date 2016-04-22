@@ -8,7 +8,7 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
-    public abstract class User : Account
+    public class User : Account
     {
         public string Name { get; protected set; }
         public string Phonenumber { get; protected set; }
@@ -33,15 +33,6 @@ namespace ICT4Participation.Classes.ClassObjects
             this.IsWarned = isWarned;
         }
 
-        public void UpdateProfiel(User user)
-        {
-           // Name = user.Name;
-            Phonenumber = user.Phonenumber;
-            HasDrivingLincense = user.HasDrivingLincense;
-            HasCar = HasCar;
-            //Wat willen we toestaan dat de user kan veranderen?
-        }
-
         public void UnSubscribe()
         {
             try
@@ -52,7 +43,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 new OracleParameter("deregistrationdate", DeRegistrationDate),
                 new OracleParameter("id", ID)
                 };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeAccount"], userParameter);
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeUser"], userParameter);
             }
             catch (Exception)
             {

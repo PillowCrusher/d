@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
     public class HelpRequest
     {
+        private int _position;
+
         public List<Volunteer> Accepted = new List<Volunteer>();
         public List<Volunteer> Declined = new List<Volunteer>();
         public List<Volunteer> Pending = new List<Volunteer>();
@@ -20,7 +25,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public Account Account { get; private set; }
         public int ID { get; private set; }
         public string NeedyName { get; private set; }
-        public string Titel { get; private set; }
+        public string Title { get; private set; }
         public string Description { get; private set; }
         public string Location { get; private set; }
         public bool Urgent { get; private set; }
@@ -53,7 +58,7 @@ namespace ICT4Participation.Classes.ClassObjects
             }
             ID = id;
             NeedyName = needyName;
-            Titel = titel;
+            Title = titel;
             Description = description;
             Location = location;
             StartDate = startDate;
@@ -136,16 +141,39 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void AddChatMessage(ChatMessage chatmessage)
         {
-            ChatMessages.Add(chatmessage);
-
-            OracleParameter[] Parameter =
+            OracleParameter[] parameters =
             {
-                new OracleParameter("userid",Account.ID),
-                new OracleParameter("helprequestid",ID),
-                new OracleParameter("time",DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss")),
-                new OracleParameter("message",chatmessage.Message),
+                new OracleParameter("userid", chatmessage.Sender.ID),
+                new OracleParameter("helprequestid", ID),
+                new OracleParameter("time", chatmessage.Time),
+                new OracleParameter("message", chatmessage.Message),
             };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertChatMessage"], Parameter);
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertChatMessage"], parameters);
+        }
+
+        public void GetChatMessages()
+            {
+            ChatMessages = null;
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("helprequest_id", ID)
+            };
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetChatMessagesFromHelprequest"], parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ChatMessages.Add(new ChatMessage(new User(
+                            Convert.ToInt32(dr["ID"]),
+                            Convert.ToString(dr["username"]),
+                            Convert.ToString(dr["email"]),
+                            Convert.ToString(dr["name"]),
+                            Convert.ToString(dr["phonenumber"]),
+                            Convert.ToBoolean(dr["ovpossible"]),
+                            Convert.ToBoolean(dr["hasdrivinglicence"]),
+                            Convert.ToBoolean(dr["hascar"]),
+                            Convert.ToBoolean(dr["iswarned"])),
+                            Convert.ToString(dr["message"]),
+                            Convert.ToDateTime(dr["time"])));
+        }
         }
 
         public void DeleteReview(Review review)
@@ -180,9 +208,84 @@ namespace ICT4Participation.Classes.ClassObjects
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], Parameter);
         }
 
-        public override string ToString()
+        public GroupBox NewHelpRequest(HelpRequest hr, int position, bool personal)
         {
-            return Titel;
+            _position = position;
+
+            if (personal)
+            {
+                var extraInfo =
+                    "Locatie: " + hr.Location + Environment.NewLine +
+                    "Urgent: " + FormTools.ConvertBoolToString(hr.Urgent) + Environment.NewLine +
+                    "Kennis maken: " + FormTools.ConvertBoolToString(hr.Interview) + Environment.NewLine +
+                    "Transport type: " + hr.Transportation + Environment.NewLine +
+                    "Deadline: " + hr.DeadLine.ToString("d");
+
+                return NewHelpRequestGroupbox(hr, 270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
+            }
+            else
+            {
+                var extraInfo =
+                    "Locatie: " + hr.Location + Environment.NewLine +
+                    "Urgent: " + FormTools.ConvertBoolToString(hr.Urgent) + Environment.NewLine +
+                    "Kennis maken: " + FormTools.ConvertBoolToString(hr.Interview) + Environment.NewLine +
+                    "Transport type: " + hr.Transportation + Environment.NewLine +
+                    "Datum geplaatst: " + hr.StartDate.ToString("d") + Environment.NewLine +
+                    "Deadline: " + hr.DeadLine.ToString("d");
+
+                return NewHelpRequestGroupbox(hr, 220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
+            }
+        }
+
+        private GroupBox NewHelpRequestGroupbox(HelpRequest hr, int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
+        {
+            locationInt = locationInt * _position;
+            locationInt += 5;
+
+            //Nieuwe groupbox voor de hulp vraag
+            var newQuestion = new GroupBox
+            {
+                Text = hr.NeedyName + " - " + hr.Title,
+                Location = new Point(6, locationInt),
+                Size = new Size(685, gbSize)
+            };
+
+            //Textbox voor de hulpvraag
+            var t = new TextBox
+            {
+                Multiline = true,
+                Location = new Point(6, 19),
+                Size = new Size(673, 94),
+                Text = hr.Description
+            };
+            newQuestion.Controls.Add(t);
+
+            //Label voor extra informatie
+            var l = new Label
+            {
+                Location = new Point(6, 116),
+                Text = lblExtraInfo,
+                AutoSize = true,
+                Size = new Size(138, 78)
+            };
+            newQuestion.Controls.Add(l);
+
+            //Button voor reageren
+            var btn = new Button
+            {
+                Location = new Point(btnX, btnY),
+                Size = new Size(btnW, btnH),
+                Text = btnText
+            };
+            btn.Click += new EventHandler(Reageer_Click);
+            newQuestion.Controls.Add(btn);
+
+            return newQuestion;
+        }
+
+        private static void Reageer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

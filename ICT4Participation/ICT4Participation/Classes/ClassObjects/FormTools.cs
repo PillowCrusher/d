@@ -92,7 +92,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = hr.NeedyName + " - " + hr.Titel,
+                Text = hr.NeedyName + " - " + hr.Title,
                 Location = new Point(6, locationInt),
                 Size = new Size(685, gbSize)
             };
@@ -124,7 +124,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 Size = new Size(btnW, btnH),
                 Text = btnText
             };
-            btn.Click += new EventHandler(Reageer_Click);
+            //btn.Click += new EventHandler(Reageer_Click);
             newQuestion.Controls.Add(btn);
 
             return newQuestion;
@@ -169,7 +169,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 Text = "VOG Openen"
             };
             newQuestion.Controls.Add(btnVOG);
-            btnVOG.Click += new EventHandler(btnVOG_Openen);
+            //btnVOG.Click += new EventHandler(btnVOG_Openen);
 
             //Button voor reageren
             var btn1 = new Button
@@ -192,13 +192,13 @@ namespace ICT4Participation.Classes.ClassObjects
             //eventhandlers voor verschillende buttons
             if (VOG)
             {
-                btn1.Click += new EventHandler(btnBevestigen);
-                btn2.Click += new EventHandler(btnAfwijzen);
+                //btn1.Click += new EventHandler(btnBevestigen);
+                //btn2.Click += new EventHandler(btnAfwijzen);
             }
             else
             {
-                btn1.Click += new EventHandler(btnBlokkeer);
-                btn2.Click += new EventHandler(btnWaarschuwen);
+                //btn1.Click += new EventHandler(btnBlokkeer);
+                //btn2.Click += new EventHandler(btnWaarschuwen);
             }
 
             return newQuestion;
@@ -211,36 +211,6 @@ namespace ICT4Participation.Classes.ClassObjects
             converted = toConvert ? "Ja" : "Nee";
 
             return converted;
-        }
-        
-        private static void Reageer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnVOG_Openen(object sender, EventArgs e)
-        {
-            
-        }
-
-        private static void btnBevestigen(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnAfwijzen(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnBlokkeer(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnWaarschuwen(object sender, EventArgs e)
-        {
-
         }
     }
 }

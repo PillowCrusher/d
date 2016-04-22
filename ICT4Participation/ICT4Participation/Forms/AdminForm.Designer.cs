@@ -29,21 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.button10 = new System.Windows.Forms.Button();
@@ -53,12 +41,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlVolunteers = new System.Windows.Forms.Panel();
+            this.pnlVOGVolunteers = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -74,57 +59,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vrijwilligers";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.pictureBox2);
-            this.groupBox3.Location = new System.Drawing.Point(6, 212);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(461, 131);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Vrijwilliger";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(370, 102);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Waarschuwen";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(370, 74);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Blokkeer";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(120, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 78);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Naam: vrij williger\r\nRijbewijs: Ja/Nee\r\nAuto beschikbaar: Ja/Nee\r\nOpenbaar vervoe" +
-    "r: Ja/Nee\r\nGeblokkeerd: Ja/Nee\r\nGewaarschuwd: Ja/Nee";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ICT4Participation.Properties.Resources.user_male_silhouette_318_55563;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(108, 106);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // btnSearch
             // 
@@ -144,83 +78,13 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.groupBox3);
-            this.groupBox4.Controls.Add(this.vScrollBar2);
-            this.groupBox4.Controls.Add(this.groupBox6);
+            this.groupBox4.Controls.Add(this.pnlVOGVolunteers);
             this.groupBox4.Location = new System.Drawing.Point(523, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(505, 657);
+            this.groupBox4.Size = new System.Drawing.Size(505, 303);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "VOG";
-            // 
-            // vScrollBar2
-            // 
-            this.vScrollBar2.Location = new System.Drawing.Point(482, 16);
-            this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(20, 638);
-            this.vScrollBar2.TabIndex = 5;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.button7);
-            this.groupBox6.Controls.Add(this.button6);
-            this.groupBox6.Controls.Add(this.button8);
-            this.groupBox6.Controls.Add(this.label4);
-            this.groupBox6.Controls.Add(this.pictureBox4);
-            this.groupBox6.Location = new System.Drawing.Point(6, 19);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(472, 131);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Vrijwilliger";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(310, 100);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "Bevestigen";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(391, 100);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Afwijzen";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(381, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(85, 23);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "VOG Openen";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(120, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 52);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Naam: vrij williger\r\nRijbewijs: Ja/Nee\r\nAuto beschikbaar: Ja/Nee\r\nOpenbaar vervoe" +
-    "r: Ja/Nee\r\n";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ICT4Participation.Properties.Resources.user_male_silhouette_318_55563;
-            this.pictureBox4.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(108, 106);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
             // 
             // groupBox5
             // 
@@ -316,6 +180,14 @@
             this.pnlVolunteers.Size = new System.Drawing.Size(493, 595);
             this.pnlVolunteers.TabIndex = 1;
             // 
+            // pnlVOGVolunteers
+            // 
+            this.pnlVOGVolunteers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlVOGVolunteers.Location = new System.Drawing.Point(3, 16);
+            this.pnlVOGVolunteers.Name = "pnlVOGVolunteers";
+            this.pnlVOGVolunteers.Size = new System.Drawing.Size(499, 284);
+            this.pnlVOGVolunteers.TabIndex = 0;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,13 +201,7 @@
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -351,19 +217,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.VScrollBar vScrollBar2;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button button10;
@@ -373,5 +227,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel pnlVolunteers;
+        private System.Windows.Forms.Panel pnlVOGVolunteers;
     }
 }

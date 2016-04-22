@@ -19,10 +19,10 @@ namespace ICT4Participation.Forms
         private readonly Administration _administration;
         private List<HelpRequest> _helpRequests;
 
-        public VrijwilligersForm()
+        public VrijwilligersForm(Administration administration)
         {
             InitializeComponent();
-            _administration = new Administration();
+            _administration = administration;
 
             GetAllHelpRequests();
 
@@ -43,7 +43,7 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                    pnlHulpVragen.Controls.Add(FormTools.NewHelpRequest(h, position, false));
+                    pnlHulpVragen.Controls.Add(h.NewHelpRequest(h, position, false));
                     position++;
 
             }
@@ -51,9 +51,9 @@ namespace ICT4Participation.Forms
 
         private void UpdatePersonalRecords()
         {
-            if (_administration.GetCurrentUser() is Volunteer)
+            if (_administration.User.GetType() == typeof(Volunteer))
             {
-                Volunteer currentUser = (Volunteer)_administration.GetCurrentUser();
+                Volunteer currentUser = (Volunteer)_administration.User;
 
                 lblPersonalInfo.Text =
                     "Naam: " + currentUser.Name + Environment.NewLine +
@@ -66,16 +66,17 @@ namespace ICT4Participation.Forms
 
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
-            if (_administration.GetCurrentUser() is Volunteer)
+            if (_administration.User is Volunteer)
             {
-                Volunteer currentUser = (Volunteer) _administration.GetCurrentUser();
+                Volunteer currentUser = (Volunteer) _administration.User;
 
                 Volunteer_Profile vpForm = new Volunteer_Profile(currentUser);
 
                 vpForm.ShowDialog();
 
-
-
+                _administration.UpdateVolunteer(vpForm.password, vpForm.adress, vpForm.city, vpForm.phonenumber, vpForm.publicTransport,
+                    vpForm.drivingLincence, vpForm.hasCar, vpForm.birhtDay, vpForm.photoFile, vpForm.VOGFile);
+                vpForm.Close();
                 UpdatePersonalRecords();
             }
             else
