@@ -26,7 +26,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 {
                 new OracleParameter("id", user.ID)
                 };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["WarnUser"], userParameter);
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["BlockUser"], userParameter);
             }
             catch (Exception)
             {
@@ -34,15 +34,15 @@ namespace ICT4Participation.Classes.ClassObjects
             }
         }
 
-        public void SendWarning(string message, Volunteer volunteer)
+        public void SendWarning(string message, User user)
         {
             try
             {
                 OracleParameter[] userParameter =
                 {
-                new OracleParameter("id", volunteer.ID)
+                new OracleParameter("id", user.ID)
                 };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["BlockVolunteer"], userParameter);
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["WarnUser"], userParameter);
             }
             catch (Exception)
             {
@@ -52,7 +52,7 @@ namespace ICT4Participation.Classes.ClassObjects
             
         }
 
-        public void AddRfidToUser(Needy needy, string RFID)
+        public void AddRfidToUser(Needy needy, string rfid)
         {
             OracleParameter[] userParameter =
                 {

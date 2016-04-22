@@ -322,8 +322,7 @@ namespace ICT4Participation.Classes.Intelligence
 
             foreach (DataRow dr in dt.Rows)
             {
-                throw new NotImplementedException("IsWarned moet worden opgehaald voor het toevoegen van volunteer");
-                /*volunteers.Add(
+                volunteers.Add(
                     new Volunteer(
                         Convert.ToInt32(dr["ID"]),
                         dr["Username"].ToString(),
@@ -337,11 +336,31 @@ namespace ICT4Participation.Classes.Intelligence
                         Convert.ToBoolean(dr["HasCar"]),
                         Convert.ToDateTime(dr["BirthDate"]),
                         dr["Photo"].ToString(),
-                        dr["VOG"].ToString())
-                    );*/
+                        dr["VOG"].ToString(),
+                        Convert.ToBoolean(dr["ISWARNED"]),
+                        Convert.ToBoolean(dr["ISBLOCKED"]))
+                    );
             }
 
             return volunteers;
+        }
+
+        public void BlockAccount(User user)
+        {
+            Admin admin = ((Admin)User);
+            admin.BlockAccount(user);
+        }
+
+        public void SendWarning(string message, User user)
+        {
+            Admin admin = ((Admin)User);
+            admin.SendWarning(message, user);
+        }
+
+        public void AddRfidToUser(Needy needy, string rfid)
+        {
+            Admin admin = ((Admin)User);
+            admin.AddRfidToUser(needy, rfid);
         }
     }
 }
