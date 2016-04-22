@@ -21,11 +21,12 @@ namespace ICT4Participation.Classes.Database
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason)";
 
             Query["GetUserLogin"] =
-                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password WHERE Deregistrationdate IS NULL";
+                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password AND Deregistrationdate IS NULL";
             Query["GetUserLoginByRFID"] =
                 "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where n.RFID = :rfid AND Deregistrationdate IS NULL";
             Query["GetAdminLogin"] =
                 "select * from \"Account\" a left join \"Admin\" ad on a.ID = ad.ID where a.Username = :username and a.Password = :password and ad.RFID = :rfid";
+            Query["GetAllVolunteers"] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID;";
             Query["UpdateAccount"] = "update \"Account\" set Username = :username, Password = :password, Email = :email where ID = :id";
             Query["UpdateUser"] = "update \"User\" set Name = :name, Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
             Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, VOG = :vog, Adress = :adress, City = :city where ID = :id";
@@ -33,9 +34,9 @@ namespace ICT4Participation.Classes.Database
             Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
             Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
-            Query["WarnUser"] = "UPDATE \"User\" SET ISWARNED = true where ID = :id";
-            Query["UnWarnUser"] = "UPDATE \"User\" SET ISWARNED = false where ID = :id";
-            Query["BlockVolunteer"] = "UPDATE \"Volunteer\" SET Blocked = true where ID = :id";
+            Query["WarnUser"] = "UPDATE \"User\" SET ISWARNED = 1 where ID = :id";
+            Query["UnWarnUser"] = "UPDATE \"User\" SET ISWARNED = 0 where ID = :id";
+            Query["BlockUser"] = "UPDATE \"Volunteer\" SET ISBLOCKED = 1 where ID = :id";
             Query["UnsubscribeUser"] = "UPDATE \"User\" set Deregistrationdate = :deregistrationdate where ID = :id";
             Query["AddRFIDToNeedy"] = "UPDATE \"Needy\" set RFID = :rfid where ID = :id";
             //VrijwilligersForm
