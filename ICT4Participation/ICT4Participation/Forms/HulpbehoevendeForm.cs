@@ -18,8 +18,7 @@ namespace ICT4Participation.Forms
             _administration = ad;
             cbTransportType.DataSource = Enum.GetValues(typeof(TransportationType));
             RefreshAll();
-            tbMessage.AccessibleDefaultActionDescription = "Type hier uw bericht";
-            lbHelpRequests.SelectedIndex = -1;
+
         }
 
         private void RefreshAll()
@@ -40,6 +39,7 @@ namespace ICT4Participation.Forms
             };
             
             _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);
+            lbHelpRequests.DataSource = _helpRequests;
         }
 
         private void UpdateHelpListGui()

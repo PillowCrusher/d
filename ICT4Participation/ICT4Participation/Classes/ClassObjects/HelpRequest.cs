@@ -177,7 +177,7 @@ namespace ICT4Participation.Classes.ClassObjects
                             Convert.ToBoolean(dr["iswarned"])),
                             Convert.ToString(dr["message"]),
                             Convert.ToDateTime(dr["time"])));
-            }
+        }
         }
 
         public void DeleteReview(Review review)
