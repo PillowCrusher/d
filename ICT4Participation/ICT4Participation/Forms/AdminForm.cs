@@ -23,6 +23,8 @@ namespace ICT4Participation
             _administration = new Administration();
 
             GetAllVolunteers();
+
+            UpdateVolunteerListGui();
         }
 
         private void GetAllVolunteers()
@@ -38,25 +40,15 @@ namespace ICT4Participation
         private void UpdateVolunteerListGui()
         {
             int position = 0;
-            /*
-            pnlUsers.Controls.Clear();
+            
+            pnlVolunteers.Controls.Clear();
 
             foreach (Volunteer v in _volunteers)
             {
-                pnlUsers.Controls.Add(
-                    FormTools.NewVolunteer(
-                        v.Name,
-                        v.HasDrivingLincense,
-                        v.HasCar,
-                        v.PublicTransport,
-                        v.Blocked,
-                        v.Warned,
-                        position
-                        )
-                    );
+                pnlVolunteers.Controls.Add(FormTools.NewVolunteer(v, position, false));
                 position++;
 
-            }*/
+            }
         }
 
     }

@@ -298,7 +298,8 @@ namespace ICT4Participation.Classes.Intelligence
                         (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
                         DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
                         DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
-                        Convert.ToBoolean(dr["Interview"])
+                        Convert.ToBoolean(dr["Interview"]),
+                        User
                         )
                     );
             }
@@ -323,10 +324,10 @@ namespace ICT4Participation.Classes.Intelligence
                         dr["Adress"].ToString(),
                         dr["City"].ToString(),
                         dr["Phonenumber"].ToString(),
-                        Convert.ToBoolean(dr["PublicTransport"]),
+                        Convert.ToBoolean(dr["OVpossible"]),
                         Convert.ToBoolean(dr["HasDrivingLicence"]),
                         Convert.ToBoolean(dr["HasCar"]),
-                        Convert.ToDateTime(dr["BirthDate"]),
+                        DateTime.Now,// Convert.ToDateTime(dr["DateOfBirth"]),
                         dr["Photo"].ToString(),
                         dr["VOG"].ToString(),
                         Convert.ToBoolean(dr["ISWARNED"]),

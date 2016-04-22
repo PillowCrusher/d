@@ -122,9 +122,13 @@ namespace ICT4Participation.Forms
                             form.ShowDialog();
                         }
                     }
-                    _administration.Logout();
                     Show();
                 }
+                else
+                {
+                    MessageBox.Show("Inloggen mislukt, controleer uw gebruikersnaam en wachtwoord.");
+                }
+                _administration.Logout();
             }
             else
             {
