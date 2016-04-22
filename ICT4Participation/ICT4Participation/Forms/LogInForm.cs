@@ -19,24 +19,22 @@ namespace ICT4Participation.Forms
     public partial class LogInForm : Form
     {
         private RFID rfid;
-        string rfidTag = null;
-        public Administration administration = new Administration();
+        private string rfidTag = null;
+        private Administration _administration;
 
         public LogInForm()
         {
             InitializeComponent();
+            _administration = new Administration();
         }
 
-        private void LogInForm_Load(object sender, System.EventArgs e)
+        private void LogInForm_Load(object sender, EventArgs e)
         {
             rfid = new RFID();
             rfid.Attach += new AttachEventHandler(rfid_Attach);
             rfid.Detach += new DetachEventHandler(rfid_Detach);
             rfid.Error += new ErrorEventHandler(rfid_Error);
-
             rfid.Tag += new TagEventHandler(rfid_Tag);
-            rfid.TagLost += new TagEventHandler(rfid_TagLost);
-
             rfid.open();
         }
 
@@ -44,34 +42,38 @@ namespace ICT4Participation.Forms
         {
             //scanned rfid ID
             rfidTag = e.Tag;
-            tbUsername.Text = null;
-            tbUsername.Text = e.Tag;
-            try
-            {
-                administration.LoginWithRfid(rfidTag);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
             Form form = null;
-            if (administration.User != null)
+            if (tbUsername.Text != "" && tbPassword.Text != "")
             {
-                if (administration.User.GetType() == typeof(Needy))
+                _administration.Login(tbUsername.Text, tbPassword.Text, rfidTag);
+                if (_administration.User != null && _administration.User.GetType() == typeof(Admin))
                 {
-                     form = new HulpbehoevendeForm();
-                     using (form)
-                     {
-                         this.Hide();
-                     }             
+                    tbUsername.Text = "";
+                    tbPassword.Text = "";
+                    using (form = new AdminForm())
+                    {
+                        Hide();
+                        form.ShowDialog();
+                    }
+                    _administration.Logout();
+                    Show();
                 }
             }
-        }
-
-        void rfid_TagLost(object sender, TagEventArgs e)
-        {
-            // if tag is lost
-             rfidTag = null;
+            else
+            {
+                _administration.LoginWithRfid(rfidTag);
+                if (_administration.User != null && _administration.User.GetType() == typeof(Needy))
+                {
+                    using (form = new HulpbehoevendeForm())
+                    {
+                        Hide();
+                        form.ShowDialog();
+                    }
+                    _administration.Logout();
+                    Show();
+                }
+            }
+            rfidTag = null;
         }
 
         void rfid_Attach(object sender, AttachEventArgs e)
@@ -91,92 +93,53 @@ namespace ICT4Participation.Forms
             // if the is an error, show
             MessageBox.Show("RFID ERROR " + e.Description);
             rfid.close();
-            this.Close();
+            Close();
         }
 
-        private void btLogIn_Click(object sender, System.EventArgs e)
+        private void btLogIn_Click(object sender, EventArgs e)
         {
-            if (tbUsername.Text != "")
+            Form form = null;
+            if (tbUsername.Text != "" && tbPassword.Text != "")
             {
-                if (tbPassword.Text != "")
+                _administration.Login(tbUsername.Text, tbPassword.Text);
+                tbUsername.Text = "";
+                tbPassword.Text = "";
+                if (_administration.User != null)
                 {
-                    if (rfidTag != null)
+                    if (_administration.User.GetType() == typeof(Volunteer))
                     {
-                        try
+                        using (form = new VrijwilligersForm())
                         {
-                            administration.Login(tbUsername.Text, tbPassword.Text, rfidTag);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                        if (administration.User != null)
-                        {
-                            AdminForm form = new AdminForm();
-                            using (form)
-                            {
-                                Hide();
-                            } 
-                        }
-                        else
-                        {
-                            MessageBox.Show("Er is geen admin account gevonden met deze naam, wachtwoord en rfid combinatie");
+                            Hide();
+                            form.ShowDialog();
                         }
                     }
-                    else
+                    if (_administration.User.GetType() == typeof(Needy))
                     {
-                        try
+                        using (form = new HulpbehoevendeForm())
                         {
-                            administration.Login(tbUsername.Text, tbPassword.Text);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                        if (administration.User != null)
-                        {
-                            if (administration.User.GetType() == typeof(Needy))
-                            {
-                                HulpbehoevendeForm form = new HulpbehoevendeForm();
-                                using (form)
-                                {
-                                    this.Hide();
-                                } 
-                            }
-                            else if (administration.User.GetType() == typeof(Volunteer))
-                            {
-                                VrijwilligersForm form =  new VrijwilligersForm();
-                                using (form)
-                                {
-                                    this.Hide();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Er is geen account met de naam en wachtwoord combinatie gevonden");
+                            Hide();
+                            form.ShowDialog();
                         }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Vul alsjeblieft een wachtwoord in");
+                    _administration.Logout();
+                    Show();
                 }
             }
             else
             {
-                MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
+                MessageBox.Show("Vul AUB een gebruikersnaam en wachtwoord in.");
             }
         }
 
         private void llblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RegisterForm form = new RegisterForm();
-            this.Visible = false;
+            Visible = false;
             var closing = form.ShowDialog();
             if (closing == DialogResult.OK)
             {
-                this.Visible = true;
+                Visible = true;
             }
         }
     }

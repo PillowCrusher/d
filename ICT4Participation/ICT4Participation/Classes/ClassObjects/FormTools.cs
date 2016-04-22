@@ -114,7 +114,12 @@ namespace ICT4Participation.Classes.ClassObjects
 
             return NewGroupbox(270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
         }
-        
+
+        public static GroupBox NewVolunteer(Volunteer volunteer)
+        {
+            return null;
+        }
+
         private static GroupBox NewGroupbox(int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
         {
             locationInt = locationInt * _position;
@@ -160,7 +165,79 @@ namespace ICT4Participation.Classes.ClassObjects
 
             return newQuestion;
         }
-        
+
+        private static GroupBox NewGroupbox(int locationInt, int volunteerID, string pictureLocation, string lblExtraInfo, string btn1Text, string btn2Text, string btn3Text, bool allVolunteers)
+        {
+            locationInt = locationInt * _position;
+            locationInt += 5;
+
+            //Nieuwe groupbox voor de hulp vraag
+            var newQuestion = new GroupBox
+            {
+                Text = volunteerID.ToString(),
+                Location = new Point(6, locationInt),
+                Size = new Size(461, 131)
+            };
+
+            //Textbox voor de hulpvraag
+            var pb = new PictureBox
+            {
+                ImageLocation = pictureLocation,
+                Size = new Size(108, 106)
+            };
+            newQuestion.Controls.Add(pb);
+
+            //Label voor extra informatie
+            var l = new Label
+            {
+                Location = new Point(120, 19),
+                Text = lblExtraInfo,
+                AutoSize = true,
+                Size = new Size(135, 78)
+            };
+            newQuestion.Controls.Add(l);
+
+            //Button voor reageren
+            var btn1 = new Button
+            {
+                Location = new Point(381, 19),
+                Size = new Size(85, 23),
+                Text = btn1Text
+            };
+            newQuestion.Controls.Add(btn1);
+            btn1.Click += new EventHandler(btnVOG_Openen);
+
+            //Button voor reageren
+            var btn2 = new Button
+            {
+                Location = new Point(370, 74),
+                Size = new Size(85, 23),
+                Text = btn2Text
+            };
+            newQuestion.Controls.Add(btn2);
+
+            //Button voor reageren
+            var btn3 = new Button
+            {
+                Location = new Point(370, 102),
+                Size = new Size(85, 23),
+                Text = btn3Text
+            };
+            newQuestion.Controls.Add(btn3);
+
+            //eventhandlers voor verschillende buttons
+            if (allVolunteers)
+            {
+                
+            }
+            else
+            {
+                
+            }
+
+            return newQuestion;
+        }
+
         public static string ConvertBoolToString(bool toConvert)
         {
             string converted;
@@ -171,6 +248,31 @@ namespace ICT4Participation.Classes.ClassObjects
         }
 
         private static void Reageer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private static void btnVOG_Openen(object sender, EventArgs e)
+        {
+            
+        }
+
+        private static void btnBevestigen(object sender, EventArgs e)
+        {
+
+        }
+
+        private static void btnAfwijzen(object sender, EventArgs e)
+        {
+
+        }
+
+        private static void btnBlokkeer(object sender, EventArgs e)
+        {
+
+        }
+
+        private static void btnWaarschuwen(object sender, EventArgs e)
         {
 
         }
