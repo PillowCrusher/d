@@ -289,5 +289,35 @@ namespace ICT4Participation.Classes.Intelligence
 
             return helpRequests;
         }
+
+        public List<Volunteer> GetAllVolunteers(OracleParameter[] parameters)
+        {
+            List<Volunteer> volunteers = new List<Volunteer>();
+
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllVolunteers"], parameters);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                volunteers.Add(
+                    new Volunteer(
+                        Convert.ToInt32(dr["ID"]),
+                        dr["Username"].ToString(),
+                        dr["Email"].ToString(),
+                        dr["Name"].ToString(),
+                        dr["Adress"].ToString(),
+                        dr["City"].ToString(),
+                        dr["Phonenumber"].ToString(),
+                        Convert.ToBoolean(dr["PublicTransport"]),
+                        Convert.ToBoolean(dr["HasDrivingLicence"]),
+                        Convert.ToBoolean(dr["HasCar"]),
+                        Convert.ToDateTime(dr["BirthDate"]),
+                        dr["Photo"].ToString(),
+                        dr["VOG"].ToString())
+                    );
+            }
+
+            return volunteers;
+        }
     }
 }
