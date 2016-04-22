@@ -67,15 +67,15 @@ namespace ICT4Participation.Classes.Intelligence
                             account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
                                 ovPossible, drivingLicence, car, birthdate, photo, vog, isWarned, blocked);
                         }
-                        //als de rfid en locatie niet leeg zijn wordt een needy aangemaakt 
-                        else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
-                        {
-                            string rfid = dr["RFID"].ToString();
-                            string location = dr["LOCATION"].ToString();
+                    }
+                    //als de rfid en locatie niet leeg zijn wordt een needy aangemaakt 
+                    else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
+                    {
+                        string rfid = dr["RFID"].ToString();
+                        string location = dr["LOCATION"].ToString();
 
-                            account = new Needy(id, userName, email, name, location, phonenumber,
-                                ovPossible, drivingLicence, car, rfid, isWarned);
-                        }
+                        account = new Needy(id, userName, email, name, location, phonenumber,
+                            ovPossible, drivingLicence, car, rfid, isWarned);
                     }
                 }
                 // zet de gevonden user in het Field user
