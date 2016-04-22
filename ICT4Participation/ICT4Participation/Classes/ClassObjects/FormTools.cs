@@ -126,7 +126,7 @@ namespace ICT4Participation.Classes.ClassObjects
             };
             //btn.Click += new EventHandler(Reageer_Click);
             newQuestion.Controls.Add(btn);
-
+            
             return newQuestion;
         }
 
@@ -169,7 +169,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 Text = "VOG Openen"
             };
             newQuestion.Controls.Add(btnVOG);
-            //btnVOG.Click += new EventHandler(btnVOG_Openen);
+           // btnVOG.Click += new EventHandler(btnVOG_Openen);
 
             //Button voor reageren
             var btn1 = new Button

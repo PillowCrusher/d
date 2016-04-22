@@ -64,9 +64,9 @@
             this.gbFilter.Controls.Add(this.tlpProperties);
             this.gbFilter.Enabled = false;
             this.gbFilter.Location = new System.Drawing.Point(2236, 23);
-            this.gbFilter.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbFilter.Margin = new System.Windows.Forms.Padding(6);
             this.gbFilter.Name = "gbFilter";
-            this.gbFilter.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbFilter.Padding = new System.Windows.Forms.Padding(6);
             this.gbFilter.Size = new System.Drawing.Size(268, 390);
             this.gbFilter.TabIndex = 0;
             this.gbFilter.TabStop = false;
@@ -84,7 +84,7 @@
             this.tlpProperties.Controls.Add(this.checkBox5, 0, 4);
             this.tlpProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpProperties.Location = new System.Drawing.Point(6, 30);
-            this.tlpProperties.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tlpProperties.Margin = new System.Windows.Forms.Padding(6);
             this.tlpProperties.Name = "tlpProperties";
             this.tlpProperties.RowCount = 6;
             this.tlpProperties.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -100,7 +100,7 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(6, 129);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(6);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(108, 29);
             this.checkBox4.TabIndex = 3;
@@ -111,7 +111,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(6, 88);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(6);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(220, 29);
             this.checkBox3.TabIndex = 2;
@@ -122,7 +122,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(6, 47);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(6);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(88, 29);
             this.checkBox2.TabIndex = 1;
@@ -133,7 +133,7 @@
             // 
             this.cbDriverLicense.AutoSize = true;
             this.cbDriverLicense.Location = new System.Drawing.Point(6, 6);
-            this.cbDriverLicense.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbDriverLicense.Margin = new System.Windows.Forms.Padding(6);
             this.cbDriverLicense.Name = "cbDriverLicense";
             this.cbDriverLicense.Size = new System.Drawing.Size(129, 29);
             this.cbDriverLicense.TabIndex = 0;
@@ -144,7 +144,7 @@
             // 
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker1.Location = new System.Drawing.Point(6, 211);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(244, 31);
             this.dateTimePicker1.TabIndex = 4;
@@ -153,7 +153,7 @@
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.Location = new System.Drawing.Point(6, 170);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkBox5.Margin = new System.Windows.Forms.Padding(6);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(180, 29);
             this.checkBox5.TabIndex = 5;
@@ -165,9 +165,9 @@
             this.gbHelpRequest.Controls.Add(this.pnlHulpVragen);
             this.gbHelpRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbHelpRequest.Location = new System.Drawing.Point(24, 23);
-            this.gbHelpRequest.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbHelpRequest.Margin = new System.Windows.Forms.Padding(6);
             this.gbHelpRequest.Name = "gbHelpRequest";
-            this.gbHelpRequest.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbHelpRequest.Padding = new System.Windows.Forms.Padding(6);
             this.gbHelpRequest.Size = new System.Drawing.Size(1460, 1263);
             this.gbHelpRequest.TabIndex = 1;
             this.gbHelpRequest.TabStop = false;
@@ -178,7 +178,7 @@
             this.pnlHulpVragen.AutoScroll = true;
             this.pnlHulpVragen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHulpVragen.Location = new System.Drawing.Point(6, 31);
-            this.pnlHulpVragen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlHulpVragen.Margin = new System.Windows.Forms.Padding(6);
             this.pnlHulpVragen.Name = "pnlHulpVragen";
             this.pnlHulpVragen.Size = new System.Drawing.Size(1448, 1226);
             this.pnlHulpVragen.TabIndex = 0;
@@ -189,9 +189,9 @@
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Controls.Add(this.lblPersonalInfo);
             this.groupBox4.Location = new System.Drawing.Point(1496, 23);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox4.Size = new System.Drawing.Size(728, 390);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
@@ -207,7 +207,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnChangeInfo, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnShowReviews, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 287);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -219,7 +219,7 @@
             // 
             this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRefresh.Location = new System.Drawing.Point(6, 6);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(6);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(221, 80);
             this.btnRefresh.TabIndex = 4;
@@ -231,7 +231,7 @@
             // 
             this.btnChangeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnChangeInfo.Location = new System.Drawing.Point(472, 6);
-            this.btnChangeInfo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnChangeInfo.Margin = new System.Windows.Forms.Padding(6);
             this.btnChangeInfo.Name = "btnChangeInfo";
             this.btnChangeInfo.Size = new System.Drawing.Size(222, 80);
             this.btnChangeInfo.TabIndex = 2;
@@ -243,7 +243,7 @@
             // 
             this.btnShowReviews.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnShowReviews.Location = new System.Drawing.Point(239, 6);
-            this.btnShowReviews.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnShowReviews.Margin = new System.Windows.Forms.Padding(6);
             this.btnShowReviews.Name = "btnShowReviews";
             this.btnShowReviews.Size = new System.Drawing.Size(221, 80);
             this.btnShowReviews.TabIndex = 3;
@@ -255,7 +255,7 @@
             // 
             this.pictureBox1.Image = global::ICT4Participation.Properties.Resources.user_male_silhouette_318_55563;
             this.pictureBox1.Location = new System.Drawing.Point(12, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(198, 210);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -279,9 +279,9 @@
             this.groupBox5.Controls.Add(this.lbChats);
             this.groupBox5.Controls.Add(this.lbHelpRequests);
             this.groupBox5.Location = new System.Drawing.Point(1496, 425);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox5.Size = new System.Drawing.Size(1008, 856);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
@@ -290,7 +290,7 @@
             // btnSend
             // 
             this.btnSend.Location = new System.Drawing.Point(810, 756);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(6);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(186, 88);
             this.btnSend.TabIndex = 3;
@@ -300,7 +300,7 @@
             // tbMessage
             // 
             this.tbMessage.Location = new System.Drawing.Point(264, 756);
-            this.tbMessage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbMessage.Margin = new System.Windows.Forms.Padding(6);
             this.tbMessage.Multiline = true;
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(530, 85);
@@ -312,7 +312,7 @@
             this.lbChats.FormattingEnabled = true;
             this.lbChats.ItemHeight = 25;
             this.lbChats.Location = new System.Drawing.Point(264, 37);
-            this.lbChats.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lbChats.Margin = new System.Windows.Forms.Padding(6);
             this.lbChats.Name = "lbChats";
             this.lbChats.Size = new System.Drawing.Size(728, 704);
             this.lbChats.TabIndex = 1;
@@ -322,7 +322,7 @@
             this.lbHelpRequests.FormattingEnabled = true;
             this.lbHelpRequests.ItemHeight = 25;
             this.lbHelpRequests.Location = new System.Drawing.Point(12, 37);
-            this.lbHelpRequests.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lbHelpRequests.Margin = new System.Windows.Forms.Padding(6);
             this.lbHelpRequests.Name = "lbHelpRequests";
             this.lbHelpRequests.Size = new System.Drawing.Size(236, 804);
             this.lbHelpRequests.TabIndex = 0;
@@ -336,7 +336,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbHelpRequest);
             this.Controls.Add(this.gbFilter);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximumSize = new System.Drawing.Size(2524, 1290);
             this.MinimumSize = new System.Drawing.Size(2524, 1290);
             this.Name = "VrijwilligersForm";

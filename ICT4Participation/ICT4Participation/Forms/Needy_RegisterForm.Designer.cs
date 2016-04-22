@@ -319,7 +319,6 @@
             this.Controls.Add(this.lblName);
             this.Name = "Needy_RegisterForm";
             this.Text = "Needy_RegisterForm";
-            this.Load += new System.EventHandler(this.Needy_RegisterForm_Load);
             this.grbxPublicTransport.ResumeLayout(false);
             this.grbxPublicTransport.PerformLayout();
             this.grbxDrivingLincense.ResumeLayout(false);
