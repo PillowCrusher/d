@@ -19,15 +19,16 @@ namespace ICT4Participation.Forms
     public partial class LogInForm : Form
     {
         private RFID rfid;
-        string rfidTag = null;
-        public Administration _administration = new Administration();
+        private string rfidTag = null;
+        private Administration _administration;
 
         public LogInForm()
         {
             InitializeComponent();
+            _administration = new Administration();
         }
 
-        private void LogInForm_Load(object sender, System.EventArgs e)
+        private void LogInForm_Load(object sender, EventArgs e)
         {
             rfid = new RFID();
             rfid.Attach += new AttachEventHandler(rfid_Attach);
