@@ -77,7 +77,7 @@ namespace ICT4Participation.Classes.ClassObjects
                     "Rijbewijs: " + ConvertBoolToString(volunteer.HasDrivingLincense) + Environment.NewLine +
                     "Auto beschikbaar: " + ConvertBoolToString(volunteer.HasCar) + Environment.NewLine +
                     "Openbaar Vervoer: " + ConvertBoolToString(volunteer.PublicTransport) + Environment.NewLine +
-                    "Gewaarschuwd: " + ConvertBoolToString(volunteer.Warned);
+                    "Gewaarschuwd: " + ConvertBoolToString(volunteer.IsWarned);
 
                 return NewVolunteerGroupbox(volunteer, position, extraInfo, "Blokkeer", "Waarschuwen", false);
             }
