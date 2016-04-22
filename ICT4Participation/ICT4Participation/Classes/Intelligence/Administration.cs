@@ -2,6 +2,7 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
@@ -42,6 +43,8 @@ namespace ICT4Participation.Classes.Intelligence
                     bool drivingLicence = Convert.ToBoolean(dr["HASDRIVINGLICENCE"]);
                     bool car = Convert.ToBoolean(dr["HASCAR"]);
                     bool ovPossible = Convert.ToBoolean(dr["OVPOSSIBLE"]);
+                    bool isWarned = Convert.ToBoolean(dr["ISWARNED"]);
+
 
                     if (dr["DATEOFBIRTH"] != DBNull.Value && dr["PHOTO"] != DBNull.Value && dr["VOG"] != DBNull.Value && dr["ADRESS"] != DBNull.Value && dr["CITY"] != DBNull.Value)
                     {
@@ -50,10 +53,14 @@ namespace ICT4Participation.Classes.Intelligence
                         string vog = dr["VOG"].ToString();
                         string adres = dr["ADRESS"].ToString();
                         string city = dr["CITY"].ToString();
-
-                        throw new NotImplementedException("IsWarned moet worden opgehaald voor het toevoegen van volunteer");
-                        //account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
-                            //ovPossible, drivingLicence, car, birthdate, photo, vog);
+                        bool blocked = Convert.ToBoolean(dr["ISBLOCKED"]);
+                        if (blocked == false)
+                        {
+                           // throw new NotImplementedException(
+                             //   "IsWarned moet worden opgehaald voor het toevoegen van volunteer");
+                            account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
+                            ovPossible, drivingLicence, car, birthdate, photo, vog, isWarned, blocked);
+                        }
                     }
                     else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
                     {
@@ -61,13 +68,14 @@ namespace ICT4Participation.Classes.Intelligence
                         string location = dr["LOCATION"].ToString();
 
                         account = new Needy(id, userName, email, name, location, phonenumber,
-                            ovPossible, drivingLicence, car, rfid);
+                            ovPossible, drivingLicence, car, rfid, isWarned);
                     }
                 }
                 User = account;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 throw;
             }
         }
@@ -93,7 +101,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public User GetCurrentUser()
         {
-            return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234");
+            return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234", false);
             //return _currentUser;
         }
 
@@ -120,6 +128,7 @@ namespace ICT4Participation.Classes.Intelligence
                     bool drivingLicence = Convert.ToBoolean(dr["HASDRIVINGLICENCE"]);
                     bool car = Convert.ToBoolean(dr["HASCAR"]);
                     bool ovPossible = Convert.ToBoolean(dr["OVPOSSIBLE"]);
+                    bool isWarned = Convert.ToBoolean(dr["ISWARNED"]);
 
                     if (dr["DATEOFBIRTH"] != DBNull.Value && dr["PHOTO"] != DBNull.Value && dr["VOG"] != DBNull.Value && dr["ADRESS"] != DBNull.Value && dr["CITY"] != DBNull.Value)
                     {
@@ -128,9 +137,11 @@ namespace ICT4Participation.Classes.Intelligence
                         string vog = dr["VOG"].ToString();
                         string adres = dr["ADRESS"].ToString();
                         string city = dr["CITY"].ToString();
-                        throw new NotImplementedException("IsWarned moet worden opgehaald voor het toevoegen van volunteer");
-                        //account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
-                            //ovPossible, drivingLicence, car, birthdate, photo, vog);
+                        bool blocked = Convert.ToBoolean(dr["ISBLOCKED"]);
+
+                        //throw new NotImplementedException("IsWarned moet worden opgehaald voor het toevoegen van volunteer");
+                        account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
+                            ovPossible, drivingLicence, car, birthdate, photo, vog, isWarned, blocked);
                     }
                     else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
                     {
@@ -138,7 +149,7 @@ namespace ICT4Participation.Classes.Intelligence
                         string location = dr["LOCATION"].ToString();
 
                         account = new Needy(id, userName, email, name, location, phonenumber,
-                            ovPossible, drivingLicence, car, RFID);
+                            ovPossible, drivingLicence, car, RFID, isWarned);
                     }
                 }
                 User = account;
