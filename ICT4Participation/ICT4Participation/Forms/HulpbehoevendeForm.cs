@@ -63,7 +63,7 @@ namespace ICT4Participation.Forms
                 MessageBox.Show("Vul alstublieft een titel of beschrijving in om door te gaan!");
             }
 
-            Needy currentNeedy = (Needy) _administration.GetCurrentUser();
+            Needy currentNeedy = (Needy) _administration.User;
 
             currentNeedy.AddHelpRequest(title, description, urgent, tt, DateTime.Now, dt, meeting);
         }
