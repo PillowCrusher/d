@@ -21,8 +21,8 @@ namespace ICT4Participation.Classes.ClassObjects
         public List<Volunteer> Pending;
         public List<Review> Reviews;
         public List<ChatMessage> ChatMessages;
-
-        public Account Account { get; private set; }
+        
+        public User CurrentUser { get; private set; }
         public int ID { get; private set; }
         public string NeedyName { get; private set; }
         public string Title { get; private set; }
@@ -34,7 +34,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public DateTime DeadLine { get; private set; }
         public bool Interview { get; private set; }
 
-        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine, bool interview, Account account)
+        public HelpRequest(User currentUser, int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine, bool interview)
         {
             if (titel == null)
             {
@@ -56,6 +56,7 @@ namespace ICT4Participation.Classes.ClassObjects
             {
                 throw new ArgumentNullException("endDate", "endDate is empty");
             }
+            CurrentUser = currentUser;
             ID = id;
             NeedyName = needyName;
             Title = titel;
@@ -66,7 +67,6 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
-            Account = account;
             Accepted = new List<Volunteer>();
             Declined = new List<Volunteer>();
             Pending = new List<Volunteer>();
@@ -287,9 +287,17 @@ namespace ICT4Participation.Classes.ClassObjects
             return newQuestion;
         }
 
-        private static void Reageer_Click(object sender, EventArgs e)
+        private void Reageer_Click(object sender, EventArgs e)
         {
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("userid", CurrentUser.ID), 
+                new OracleParameter("helprequestid", ID), 
+            };
 
+
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],parameters);
         }
     }
 }
