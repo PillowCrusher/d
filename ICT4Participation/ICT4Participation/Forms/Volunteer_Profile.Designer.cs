@@ -55,6 +55,9 @@
             this.btUnsubscribe = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbPassword1 = new System.Windows.Forms.Label();
+            this.lbPassword2 = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.grbxPublicTransport.SuspendLayout();
             this.grbxDrivingLincense.SuspendLayout();
             this.grpbxCar.SuspendLayout();
@@ -99,7 +102,7 @@
             // btUpdateProfile
             // 
             this.btUpdateProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdateProfile.Location = new System.Drawing.Point(12, 568);
+            this.btUpdateProfile.Location = new System.Drawing.Point(12, 698);
             this.btUpdateProfile.Name = "btUpdateProfile";
             this.btUpdateProfile.Size = new System.Drawing.Size(526, 90);
             this.btUpdateProfile.TabIndex = 46;
@@ -311,7 +314,7 @@
             // btUnsubscribe
             // 
             this.btUnsubscribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUnsubscribe.Location = new System.Drawing.Point(12, 664);
+            this.btUnsubscribe.Location = new System.Drawing.Point(12, 794);
             this.btUnsubscribe.Name = "btUnsubscribe";
             this.btUnsubscribe.Size = new System.Drawing.Size(526, 90);
             this.btUnsubscribe.TabIndex = 54;
@@ -360,11 +363,42 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(526, 130);
             this.tableLayoutPanel2.TabIndex = 56;
             // 
+            // lbPassword1
+            // 
+            this.lbPassword1.AutoSize = true;
+            this.lbPassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword1.Location = new System.Drawing.Point(5, 581);
+            this.lbPassword1.Name = "lbPassword1";
+            this.lbPassword1.Size = new System.Drawing.Size(537, 37);
+            this.lbPassword1.TabIndex = 57;
+            this.lbPassword1.Text = "Om je gegevens aan te passen moet";
+            // 
+            // lbPassword2
+            // 
+            this.lbPassword2.AutoSize = true;
+            this.lbPassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword2.Location = new System.Drawing.Point(9, 618);
+            this.lbPassword2.Name = "lbPassword2";
+            this.lbPassword2.Size = new System.Drawing.Size(371, 37);
+            this.lbPassword2.TabIndex = 58;
+            this.lbPassword2.Text = "je je wachtwoord invullen";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(12, 662);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(523, 31);
+            this.tbPassword.TabIndex = 59;
+            // 
             // Volunteer_Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 766);
+            this.ClientSize = new System.Drawing.Size(548, 896);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.lbPassword2);
+            this.Controls.Add(this.lbPassword1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btUnsubscribe);
@@ -420,5 +454,8 @@
         private System.Windows.Forms.Button btUnsubscribe;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lbPassword1;
+        private System.Windows.Forms.Label lbPassword2;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }
