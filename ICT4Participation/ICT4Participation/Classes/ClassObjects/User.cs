@@ -33,15 +33,6 @@ namespace ICT4Participation.Classes.ClassObjects
             this.IsWarned = isWarned;
         }
 
-        public void UpdateProfiel(User user)
-        {
-           // Name = user.Name;
-            Phonenumber = user.Phonenumber;
-            HasDrivingLincense = user.HasDrivingLincense;
-            HasCar = HasCar;
-            //Wat willen we toestaan dat de user kan veranderen?
-        }
-
         public void UnSubscribe()
         {
             try

@@ -75,7 +75,6 @@ namespace ICT4Participation.Forms
                 vpForm.ShowDialog();
 
 
-
                 UpdatePersonalRecords();
             }
             else
