@@ -84,7 +84,7 @@ namespace ICT4Participation.Forms
         void rfid_Detach(object sender, DetachEventArgs e)
         {
             // if the rfid is detachted and change status
-            rfid.Antenna = false;
+            //rfid.Antenna = false;
         }
 
         void rfid_Error(object sender, ErrorEventArgs e)

@@ -28,10 +28,8 @@ namespace ICT4Participation.Forms
             {
                 if (tbName.Text != "")
                 {
-                    if (tbAddress.Text != "")
+                    if (cbxLocation.Text != "")
                     {
-                        if (tbCity.Text != "")
-                        {
                             if (tbPhonenumber.Text != "")
                             {
                                 if (rbtTransportNo.Checked == true)
@@ -62,7 +60,16 @@ namespace ICT4Participation.Forms
                                 {
                                     try
                                     {
-                                        //administration.AddNeedy(tbUsername.Text, tbPassword.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, txtRFID.Text);
+                                        if (administration.GetAccountId(tbUsername.Text) == 0)
+                                        {
+                                            administration.AddNeedy(tbUsername.Text, tbPassword.Text, tbEmail.Text,
+                                                tbName.Text, cbxLocation.Text, tbPhonenumber.Text, publicTransport,
+                                                driving, car, txtRFID.Text);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Username is al bezet");
+                                        }
                                     }
                                     catch (Exception ex)
                                     {
@@ -79,14 +86,9 @@ namespace ICT4Participation.Forms
                                 MessageBox.Show("Vul alsjeblieft een naam in");
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("Vul alsjeblieft een woonplaats in");
-                        }
-                    }
                     else
                     {
-                        MessageBox.Show("Vul alsjeblieft een adres in");
+                        MessageBox.Show("Vul alsjeblieft een locatie in");
                     }
                 }
                 else
@@ -98,6 +100,11 @@ namespace ICT4Participation.Forms
             {
                 MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
             }
+        }
+
+        private void Needy_RegisterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

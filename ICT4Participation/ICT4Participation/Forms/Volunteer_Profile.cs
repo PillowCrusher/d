@@ -14,13 +14,58 @@ namespace ICT4Participation.Forms
 {
     public partial class Volunteer_Profile : Form
     {
-        public Administration administration = new Administration();
-        private string photoFile = null;
-        private string VOGFile = null;
+        public Administration _administration = new Administration();
+        public string adress { get; private set; }
+        public string city { get; private set; }
+        public string phonenumber { get; private set; }
+        public bool publicTransport { get; private set; }
+        public bool drivingLincence { get; private set; }
+        public bool hasCar { get; private set; }
+        public DateTime birhtDay { get; private set; }
+        public string photoFile { get; private set; }
+        public string VOGFile { get; private set; }
+
 
         public Volunteer_Profile()
         {
             InitializeComponent();
+        }
+
+        public Volunteer_Profile(Volunteer volunteer)
+        {
+            InitializeComponent();
+
+            tbAddress.Text = volunteer.Address;
+            tbCity.Text = volunteer.City;
+            tbPhonenumber.Text = volunteer.Phonenumber;
+            if (volunteer.PublicTransport )
+            {
+                rbtTransportYes.Checked = true;
+            }
+            else
+            {
+                rbtTransportNo.Checked = true;
+
+            }
+            if (volunteer.HasDrivingLincense)
+            {
+                rbtDrivingYes.Checked = true;
+            }
+            else
+            {
+                rbtDrivingNo.Checked = true;
+            }
+            if (volunteer.HasCar)
+            {
+                rbtCarYes.Checked = true;
+            }
+            else
+            {
+                rbtCarNo.Checked = true;
+            }
+            dtpBirthDate.Value = volunteer.BirthDate;
+            lbFileVOG.Text = volunteer.VOG;
+            lbFilePhoto.Text = volunteer.Photo;
         }
 
         private void btPhoto_Click(object sender, EventArgs e)
@@ -42,93 +87,71 @@ namespace ICT4Participation.Forms
                 lbFileVOG.Text = VOGFile.Split('\\').Last();
             }
         }
+
         private void btUpdateProfile_Click(object sender, EventArgs e)
         {
-            bool publicTransport = false;
-            bool car = false;
-            bool driving = false;
-            if (tbUsername.Text != "")
+            if (tbAddress.Text != "")
             {
-                if (tbName.Text != "")
+                if (tbCity.Text != "")
                 {
-                    if (tbAddress.Text != "")
+                    if (tbPhonenumber.Text != "")
                     {
-                        if (tbCity.Text != "")
+                        if (rbtTransportNo.Checked == true)
                         {
-                            if (tbPhonenumber.Text != "")
+                            publicTransport = true;
+                        }
+                        else if (rbtTransportNo.Checked == false)
+                        {
+                            publicTransport = false;
+                        }
+                        if (rbtCarYes.Checked == true)
+                        {
+                            hasCar = true;
+                        }
+                        else if (rbtCarNo.Checked == false)
+                        {
+                            hasCar = false;
+                        }
+                        if (rbtDrivingYes.Checked == true)
+                        {
+                            drivingLincence = true;
+                        }
+                        else if (rbtDrivingNo.Checked == false)
+                        {
+                            drivingLincence = false;
+                        }
+                        if (photoFile != null)
+                        {
+                            if (VOGFile != null)
                             {
-                                if (rbtTransportNo.Checked == true)
-                                {
-                                    publicTransport = true;
-                                }
-                                else if (rbtTransportNo.Checked == false)
-                                {
-                                    publicTransport = false;
-                                }
-                                if (rbtCarYes.Checked == true)
-                                {
-                                    car = true;
-                                }
-                                else if (rbtCarNo.Checked == false)
-                                {
-                                    car = false;
-                                }
-                                if (rbtDrivingYes.Checked == true)
-                                {
-                                    driving = true;
-                                }
-                                else if (rbtDrivingNo.Checked == false)
-                                {
-                                    driving = false;
-                                }
-                                if (photoFile != null)
-                                {
-                                    if (VOGFile != null)
-                                    {
-                                        DateTime birthday = dtpBirthDate.Value.Date;
-                                        try
-                                        {
-                                            //administration.User.UpdateProfiel(new Volunteer(administration.User.ID, tbUsername.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text, publicTransport, driving, car, birthday, photoFile, VOGFile));
-                                            this.DialogResult = DialogResult.OK;
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            MessageBox.Show(ex.Message);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Voeg alsjeblieft een VOG toe");
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Voeg alsjeblieft een Foto toe");
-                                }
+                                adress = tbAddress.Text;
+                                city = tbCity.Text;
+                                phonenumber = tbPhonenumber.Text;
+                                birhtDay = dtpBirthDate.Value.Date;
                             }
                             else
                             {
-                                MessageBox.Show("Vul alsjeblieft een naam in");
+                                MessageBox.Show("Voeg alsjeblieft een VOG toe");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Vul alsjeblieft een woonplaats in");
+                            MessageBox.Show("Voeg alsjeblieft een Foto toe");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Vul alsjeblieft een adres in");
+                        MessageBox.Show("Vul alsjeblieft een naam in");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vul alsjeblieft een naam in");
+                    MessageBox.Show("Vul alsjeblieft een woonplaats in");
                 }
             }
             else
             {
-                MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
+                MessageBox.Show("Vul alsjeblieft een adres in");
             }
         }
 
@@ -138,7 +161,7 @@ namespace ICT4Participation.Forms
             {
                 try
                 {
-                    Volunteer v = administration.User as Volunteer;
+                    Volunteer v = _administration.User as Volunteer;
                     v.UnSubscribe();
                 }
                 catch (Exception ex)

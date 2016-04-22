@@ -48,7 +48,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 OracleParameter[] userParameter =
                 {
                 new OracleParameter("deregistrationdate", DeRegistrationDate),
-                new OracleParameter("id", ID),
+                new OracleParameter("id", ID)
                 };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeAccount"], userParameter);
             }

@@ -32,7 +32,7 @@ namespace ICT4Participation.Forms
 
         private void GetAllHelpRequests()
         {
-            _helpRequests = _administration.GetHelpRequests(null);
+            _helpRequests = _administration.GetHelpRequests("GetAllHelpRequests", null);
         }
 
         private void UpdateHelpListGui()
@@ -70,11 +70,41 @@ namespace ICT4Participation.Forms
 
                 lblPersonalInfo.Text =
                     "Naam: " + currentUser.Name + Environment.NewLine +
-                    "Rijbewijs: " + FormTools.ConvertBoolToString(currentUser.HasDrivingLincense) +
-                    Environment.NewLine +
-                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(currentUser.HasCar) + Environment.NewLine;
-                //"Openbaar vervoer: " + FormTools.ConvertBoolToString(currentUser.)
+                    "Gebruikersnaam: " + currentUser.Username + Environment.NewLine +
+                    "Rijbewijs: " + FormTools.ConvertBoolToString(currentUser.HasDrivingLincense) + Environment.NewLine +
+                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(currentUser.HasCar) + Environment.NewLine +
+                    "Openbaar vervoer: " + FormTools.ConvertBoolToString(currentUser.PublicTransport);
             }
+        }
+
+        private void btnChangeInfo_Click(object sender, EventArgs e)
+        {
+            if (_administration.GetCurrentUser() is Volunteer)
+            {
+                Volunteer currentUser = (Volunteer) _administration.GetCurrentUser();
+
+                Volunteer_Profile vpForm = new Volunteer_Profile(currentUser);
+
+                vpForm.ShowDialog();
+
+
+
+                UpdatePersonalRecords();
+            }
+            else
+            {
+                MessageBox.Show("Het is niet mogelijk om de gegevens aan te passen!");
+            }
+        }
+
+        private void btnShowReviews_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            UpdateHelpListGui();
         }
     }
 }

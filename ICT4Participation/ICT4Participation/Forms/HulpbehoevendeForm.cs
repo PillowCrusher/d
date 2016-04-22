@@ -9,13 +9,15 @@ namespace ICT4Participation.Forms
 {
     public partial class HulpbehoevendeForm : Form
     {
-        private Administration _administration;
+        private readonly Administration _administration;
         private List<HelpRequest> _helpRequests;
 
         public HulpbehoevendeForm()
         {
             InitializeComponent();
             _administration = new Administration();
+
+            cbTransportType.DataSource = Enum.GetValues(typeof(TransportationType));
 
             GetPersonalHelpRequests();
 
@@ -30,7 +32,7 @@ namespace ICT4Participation.Forms
                 new OracleParameter("needyid", _administration.GetCurrentUser().ID)
             };
             
-            _helpRequests = _administration.GetHelpRequests(parameters);
+            _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);
         }
 
         private void UpdateHelpListGui()

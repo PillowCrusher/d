@@ -112,7 +112,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 "Transport type: " + transportation + Environment.NewLine +
                 "Deadline: " + deadLine.ToString("d");
 
-            return NewGroupbox(270, 265, extraInfo, 550, 195, 128, 60, "Bekik vrijwilligers");
+            return NewGroupbox(270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
         }
         
         private static GroupBox NewGroupbox(int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
