@@ -8,7 +8,7 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
-    public abstract class User : Account
+    public class User : Account
     {
         public string Name { get; protected set; }
         public string Phonenumber { get; protected set; }

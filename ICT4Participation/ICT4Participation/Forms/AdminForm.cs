@@ -29,7 +29,7 @@ namespace ICT4Participation
 
         private void GetAllVolunteers()
         {
-            _volunteers = _administration.GetAllVolunteers(null);
+            _volunteers = _administration.GetAllVolunteers();
         }
 
         private void GetPendingVolunteers()

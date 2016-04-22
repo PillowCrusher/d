@@ -88,15 +88,18 @@
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(267, 46);
             this.tbMessage.TabIndex = 2;
-            this.tbMessage.Text = "tekst om te verzenden";
+            this.tbMessage.Text = "Type hier uw bericht";
+            this.tbMessage.Click += new System.EventHandler(this.tbMessage_Click);
             // 
             // lbChats
             // 
             this.lbChats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChats.FormattingEnabled = true;
+            this.lbChats.HorizontalScrollbar = true;
             this.lbChats.ItemHeight = 20;
             this.lbChats.Location = new System.Drawing.Point(132, 19);
             this.lbChats.Name = "lbChats";
+            this.lbChats.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbChats.Size = new System.Drawing.Size(366, 564);
             this.lbChats.TabIndex = 1;
             // 
@@ -109,6 +112,7 @@
             this.lbHelpRequests.Name = "lbHelpRequests";
             this.lbHelpRequests.Size = new System.Drawing.Size(120, 624);
             this.lbHelpRequests.TabIndex = 0;
+            this.lbHelpRequests.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequests_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -279,7 +283,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 682);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.gbHulpVragen);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);

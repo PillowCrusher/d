@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public Account Account { get; private set; }
         public int ID { get; private set; }
         public string NeedyName { get; private set; }
-        public string Titel { get; private set; }
+        public string Title { get; private set; }
         public string Description { get; private set; }
         public string Location { get; private set; }
         public bool Urgent { get; private set; }
@@ -53,7 +54,7 @@ namespace ICT4Participation.Classes.ClassObjects
             }
             ID = id;
             NeedyName = needyName;
-            Titel = titel;
+            Title = titel;
             Description = description;
             Location = location;
             StartDate = startDate;
@@ -136,16 +137,37 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void AddChatMessage(ChatMessage chatmessage)
         {
-            ChatMessages.Add(chatmessage);
-
-            OracleParameter[] Parameter =
+            OracleParameter[] parameters =
             {
-                new OracleParameter("userid",Account.ID),
-                new OracleParameter("helprequestid",ID),
-                new OracleParameter("time",DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss")),
-                new OracleParameter("message",chatmessage.Message),
+                new OracleParameter("userid", chatmessage.Sender.ID),
+                new OracleParameter("helprequestid", ID),
+                new OracleParameter("time", chatmessage.Time),
+                new OracleParameter("message", chatmessage.Message),
             };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertChatMessage"], Parameter);
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertChatMessage"], parameters);
+        }
+
+        public void GetChatMessages()
+        {
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("helprequest_id", ID)
+            };
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetChatMessagesFromHelprequest"], parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                new ChatMessage(new User(Convert.ToInt32(dr["ID"]),
+                            Convert.ToString(dr["username"]),
+                            Convert.ToString(dr["email"]),
+                            Convert.ToString(dr["name"]),
+                            Convert.ToString(dr["phonenumber"]),
+                            Convert.ToBoolean(dr["ovpossible"]),
+                            Convert.ToBoolean(dr["hasdrivinglicence"]),
+                            Convert.ToBoolean(dr["hascar"]),
+                            Convert.ToBoolean(dr["iswarned"])),
+                            Convert.ToString(dr["message"]),
+                            Convert.ToDateTime(dr["time"]));
+            }
         }
 
         public void DeleteReview(Review review)
