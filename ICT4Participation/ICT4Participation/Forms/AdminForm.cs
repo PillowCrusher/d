@@ -56,7 +56,7 @@ namespace ICT4Participation
             }
         }
 
-        private void btAddNeedy_Click(object sender, EventArgs e)
+        private void btAddNeedy_Click_1(object sender, EventArgs e)
         {
             Form form = null;
             using (form = new Needy_RegisterForm())
