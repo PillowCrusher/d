@@ -248,6 +248,7 @@
             // 
             this.lbChats.FormattingEnabled = true;
             this.lbChats.Location = new System.Drawing.Point(132, 19);
+            this.lbChats.MultiColumn = true;
             this.lbChats.Name = "lbChats";
             this.lbChats.Size = new System.Drawing.Size(366, 368);
             this.lbChats.TabIndex = 1;
