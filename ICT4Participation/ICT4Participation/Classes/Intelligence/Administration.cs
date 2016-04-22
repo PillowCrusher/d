@@ -293,7 +293,8 @@ namespace ICT4Participation.Classes.Intelligence
                         (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
                         DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
                         DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
-                        Convert.ToBoolean(dr["Interview"])
+                        Convert.ToBoolean(dr["Interview"]),
+                        User
                         )
                     );
             }
