@@ -13,14 +13,24 @@ namespace ICT4Participation.Forms
 {
     public partial class Needy_RegisterForm : Form
     {
+        /// <summary>
+        /// Administratie klasse wat de logica regelt
+        /// </summary>
         public Administration administration = new Administration();
+
         public Needy_RegisterForm()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
 
+        /// <summary>
+        /// Event controleert de ingevulde waardes en voegt een nieuw needy toe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btRegister_Click(object sender, EventArgs e)
         {
+            //tijdelijk bools om de waarde in op te slaan
             bool publicTransport = false;
             bool car = false;
             bool driving = false;
@@ -32,7 +42,9 @@ namespace ICT4Participation.Forms
                     {
                             if (tbPhonenumber.Text != "")
                             {
-                                if (rbtTransportNo.Checked == true)
+                            //Kijkt welk van de radiobuttons is geselecteerd en geeft een waarde mee
+                            //aan de tijdelijke bool
+                            if (rbtTransportNo.Checked == true)
                                 {
                                     publicTransport = true;
                                 }
@@ -60,9 +72,11 @@ namespace ICT4Participation.Forms
                                 {
                                     try
                                     {
-                                        if (administration.GetAccountId(tbUsername.Text) == 0)
+                                    //Controleert of het username nog niet bezet is door andere gebruikers
+                                    if (administration.GetAccountId(tbUsername.Text) == 0)
                                         {
-                                            administration.AddNeedy(tbUsername.Text, tbPassword.Text, tbEmail.Text,
+                                        //Voegt de volunteer toe in de database
+                                        administration.AddNeedy(tbUsername.Text, tbPassword.Text, tbEmail.Text,
                                                 tbName.Text, cbxLocation.Text, tbPhonenumber.Text, publicTransport,
                                                 driving, car, txtRFID.Text);
                                         }
@@ -100,11 +114,6 @@ namespace ICT4Participation.Forms
             {
                 MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
             }
-        }
-
-        private void Needy_RegisterForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

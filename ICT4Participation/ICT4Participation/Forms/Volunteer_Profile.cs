@@ -14,6 +14,10 @@ namespace ICT4Participation.Forms
 {
     public partial class Volunteer_Profile : Form
     {
+        /// <summary>
+        /// readonly fields om na het klikken van Update account op te hallen
+        /// en te gebruiken
+        /// </summary>
         public Volunteer _volunteer { get; private set; }
         public string adress { get; private set; }
         public string city { get; private set; }
@@ -31,6 +35,10 @@ namespace ICT4Participation.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor van de klasse om alle gegevens van de vrijwilliger te tonen
+        /// </summary>
+        /// <param name="volunteer"></param>
         public Volunteer_Profile(Volunteer volunteer)
         {
             InitializeComponent();
@@ -73,6 +81,12 @@ namespace ICT4Participation.Forms
                 
         }
 
+        /// <summary>
+        /// Event zorgt ervoor dat een gebruiker een photo uit zijn bestanden kan kiezen
+        /// en slaat het file path oop in het field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btPhoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog photoLog = new OpenFileDialog();
@@ -83,6 +97,12 @@ namespace ICT4Participation.Forms
             }
         }
 
+        /// <summary>
+        /// Event zorgt ervoor dat een gebruiker een VOG uit zijn bestanden kan kiezen
+        /// en slaat het file path oop in het field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btVOG_Click(object sender, EventArgs e)
         {
             OpenFileDialog VOGLog = new OpenFileDialog();
@@ -93,6 +113,11 @@ namespace ICT4Participation.Forms
             }
         }
 
+        /// <summary>
+        /// Event controleert de ingevulde waardes en zet deze in de readonly fields
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btUpdateProfile_Click(object sender, EventArgs e)
         {
             if (tbAddress.Text != "")
@@ -129,6 +154,7 @@ namespace ICT4Participation.Forms
                         {
                             if (VOGFile != null)
                             {
+                                //Om de gegevens aan te passen is het wachtwoord van de gebruiker nodig
                                 if (tbPassword.Text != "")
                                 {
                                     adress = tbAddress.Text;
@@ -136,6 +162,7 @@ namespace ICT4Participation.Forms
                                     phonenumber = tbPhonenumber.Text;
                                     birhtDay = dtpBirthDate.Value.Date;
                                     password = tbPassword.Text;
+                                    //als alle waardes zijn ingevuld wordt dit Form verborgen
                                     this.Hide();
                                 }
                                 else
@@ -169,12 +196,19 @@ namespace ICT4Participation.Forms
             }
         }
 
+        /// <summary>
+        /// Event waarmee een vrijwilliger zich kan uitschrijven
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btUnsubscribe_Click(object sender, EventArgs e)
         {
+            //Er wordt de Vrijwilliger om bevestiging gevraagd
             if (MessageBox.Show("Weet je het zeker?", "Bevestig", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
+                    //Vrijwilliger wordt uitgeschreven
                     _volunteer.UnSubscribe();
                 }
                 catch (Exception ex)

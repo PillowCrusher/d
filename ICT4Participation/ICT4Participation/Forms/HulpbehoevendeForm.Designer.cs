@@ -88,7 +88,6 @@
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(267, 46);
             this.tbMessage.TabIndex = 2;
-            this.tbMessage.Text = "Type hier uw bericht";
             this.tbMessage.Click += new System.EventHandler(this.tbMessage_Click);
             // 
             // lbChats
@@ -227,7 +226,7 @@
             this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpEndDate.Location = new System.Drawing.Point(442, 3);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(165, 26);
+            this.dtpEndDate.Size = new System.Drawing.Size(310, 26);
             this.dtpEndDate.TabIndex = 3;
             // 
             // cbUrgent
@@ -288,7 +287,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.MaximumSize = new System.Drawing.Size(1280, 720);
-            this.MinimumSize = new System.Drawing.Size(1278, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "HulpbehoevendeForm";
             this.Text = "HulpbehoevendeForm";
             this.groupBox5.ResumeLayout(false);

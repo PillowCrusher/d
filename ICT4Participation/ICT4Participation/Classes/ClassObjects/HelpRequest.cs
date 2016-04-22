@@ -16,13 +16,13 @@ namespace ICT4Participation.Classes.ClassObjects
     {
         private int _position;
 
-        public List<Volunteer> Accepted = new List<Volunteer>();
-        public List<Volunteer> Declined = new List<Volunteer>();
-        public List<Volunteer> Pending = new List<Volunteer>();
-        public List<Review> Reviews = new List<Review>();
-        public List<ChatMessage> ChatMessages = new List<ChatMessage>();
-
-        public Account Account { get; private set; }
+        public List<Volunteer> Accepted;
+        public List<Volunteer> Declined;
+        public List<Volunteer> Pending;
+        public List<Review> Reviews;
+        public List<ChatMessage> ChatMessages;
+        
+        public User CurrentUser { get; private set; }
         public int ID { get; private set; }
         public string NeedyName { get; private set; }
         public string Title { get; private set; }
@@ -34,7 +34,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public DateTime DeadLine { get; private set; }
         public bool Interview { get; private set; }
 
-        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine, bool interview, Account account)
+        public HelpRequest(User currentUser, int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine, bool interview)
         {
             if (titel == null)
             {
@@ -56,6 +56,7 @@ namespace ICT4Participation.Classes.ClassObjects
             {
                 throw new ArgumentNullException("endDate", "endDate is empty");
             }
+            CurrentUser = currentUser;
             ID = id;
             NeedyName = needyName;
             Title = titel;
@@ -66,7 +67,10 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
-            Account = account;
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
+            Pending = new List<Volunteer>();
+            Reviews = new List<Review>();
         }
 
         public void Decline(Volunteer volunteer)
@@ -152,8 +156,8 @@ namespace ICT4Participation.Classes.ClassObjects
         }
 
         public void GetChatMessages()
-            {
-            ChatMessages = null;
+        {
+            ChatMessages = new List<ChatMessage>();
             OracleParameter[] parameters =
             {
                 new OracleParameter("helprequest_id", ID)
@@ -283,9 +287,19 @@ namespace ICT4Participation.Classes.ClassObjects
             return newQuestion;
         }
 
-        private static void Reageer_Click(object sender, EventArgs e)
+        private void Reageer_Click(object sender, EventArgs e)
         {
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("userid", CurrentUser.ID), 
+                new OracleParameter("helprequestid", ID), 
+            };
 
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["CheckifUserHelprequestExists"], parameters);
+
+            if(dt.Rows.Count != 0) return;
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],parameters);
         }
     }
 }

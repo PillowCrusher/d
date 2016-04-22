@@ -49,6 +49,11 @@ namespace ICT4Participation.Forms
             }
         }
 
+        private void btnVOG_Openen(object sender, EventArgs e)
+        {
+            MessageBox.Show("Henkd");
+        }
+
         private void UpdatePersonalRecords()
         {
             if (_administration.User.GetType() == typeof(Volunteer))
