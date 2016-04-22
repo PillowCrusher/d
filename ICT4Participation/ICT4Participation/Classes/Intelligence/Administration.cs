@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Oracle.ManagedDataAccess.Client;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
@@ -151,8 +152,11 @@ namespace ICT4Participation.Classes.Intelligence
                 InsertAccount(username, password, email);
 
                 int volunteerId = 0;
-                DataTable d = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetLastNumber"], null);
-                DataTable id = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAccountID"], null);
+                OracleParameter[] idParameter =
+                {
+                    new OracleParameter("username", username)
+                };
+                DataTable id = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAccountID"], idParameter);
                 foreach (DataRow dr in id.Rows)
                 {
                     volunteerId = Convert.ToInt32(dr["ID"]);
@@ -241,12 +245,11 @@ namespace ICT4Participation.Classes.Intelligence
                 new OracleParameter("phonenumber", phonenumber),
                 new OracleParameter("hasdrivinglicence", Convert.ToInt32(hasdrivinglicence)),
                 new OracleParameter("hascar", Convert.ToInt32(hascar)),
-                new OracleParameter("deregistrationdate", null),
                 new OracleParameter("ovpossible", Convert.ToInt32(publictransport))
             };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUser"], userParameter);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

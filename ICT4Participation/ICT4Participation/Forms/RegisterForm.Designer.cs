@@ -348,7 +348,7 @@
             this.grbxPublicTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grbxPublicTransport.Location = new System.Drawing.Point(15, 284);
             this.grbxPublicTransport.Name = "grbxPublicTransport";
-            this.grbxPublicTransport.Size = new System.Drawing.Size(272, 72);
+            this.grbxPublicTransport.Size = new System.Drawing.Size(372, 72);
             this.grbxPublicTransport.TabIndex = 27;
             this.grbxPublicTransport.TabStop = false;
             this.grbxPublicTransport.Text = "Openbaar vervoer:";
@@ -379,7 +379,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 778);
+            this.ClientSize = new System.Drawing.Size(562, 778);
             this.Controls.Add(this.grbxPublicTransport);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.tbEmail);

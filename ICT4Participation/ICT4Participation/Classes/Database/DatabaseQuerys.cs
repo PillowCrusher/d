@@ -8,10 +8,10 @@ namespace ICT4Participation.Classes.Database
 
         static DatabaseQuerys()
         {
-            Query["GetAccountID"] = "SELECT ACCOUNT_SEQ.currval from dual";
+            Query["GetAccountID"] = "SELECT ID from \"Account\" where Username = :username";
             Query["InsertAccount"] = "INSERT INTO \"Account\" (Username, Password, Email) values (:username, :password, :email)";
-            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRESS, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, OVPOSSIBLE) values (:id, :name, :adress, :city, :phonenumber, :hasdrivinglicence, :hascar, :ovpossible,)";
-            Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog)";
+            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, OVPOSSIBLE) values (:id, :name, :phonenumber, :hasdrivinglicence, :hascar, :ovpossible)";
+            Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG, ADRESS, CITY) values (:id, :dateofbirth, :photo, :vog, :adress, :city)";
             Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, RFID) values (:id, :rfid)";
             Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, RFID) values (:id, :rfid)";
             Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview)";

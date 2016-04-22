@@ -141,6 +141,14 @@ namespace ICT4Participation.Forms
                                     this.Hide();
                                 } 
                             }
+                            else if (administration.User.GetType() == typeof(Volunteer))
+                            {
+                                VrijwilligersForm form =  new VrijwilligersForm();
+                                using (form)
+                                {
+                                    this.Hide();
+                                }
+                            }
                         }
                         else
                         {
