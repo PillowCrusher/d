@@ -89,8 +89,18 @@ namespace ICT4Participation.Forms
                                         DateTime birthday = dtpBirthDate.Value.Date;
                                         try
                                         {
-                                            administration.AddVolunteer(tbUsername.Text, tbPassword.Text, tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text, tbPhonenumber.Text,publicTransport, driving, car, birthday, photoFile, VOGFile);
-                                            this.DialogResult = DialogResult.OK;
+                                            if (administration.GetAccountId(tbUsername.Text) == 0)
+                                            {
+                                                administration.AddVolunteer(tbUsername.Text, tbPassword.Text,
+                                                    tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text,
+                                                    tbPhonenumber.Text, publicTransport, driving, car, birthday,
+                                                    photoFile, VOGFile);
+                                                this.DialogResult = DialogResult.OK;
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("username is al bezet");
+                                            }
                                         }
                                         catch (Exception ex)
                                         {
