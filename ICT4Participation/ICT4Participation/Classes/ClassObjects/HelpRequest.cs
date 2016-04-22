@@ -179,5 +179,10 @@ namespace ICT4Participation.Classes.ClassObjects
                 };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], Parameter);
         }
+
+        public override string ToString()
+        {
+            return Titel;
+        }
     }
 }

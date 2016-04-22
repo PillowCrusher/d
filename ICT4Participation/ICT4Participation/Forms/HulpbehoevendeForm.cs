@@ -33,6 +33,7 @@ namespace ICT4Participation.Forms
             };
             
             _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);
+            lbHelpRequests.DataSource = _helpRequests;
         }
 
         private void UpdateHelpListGui()
@@ -70,7 +71,7 @@ namespace ICT4Participation.Forms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
