@@ -94,5 +94,51 @@ namespace ICT4Participation.Forms
         {
             UpdateHelpListGui();
         }
+
+
+        private void RefreshAll()
+        {
+            UpdateHelpListGui();
+            lbHelpRequests.DataSource = _helpRequests;
+            lbHelpRequests.DisplayMember = "Title";
+        }
+
+
+        private void btnSend_Click_1(object sender, EventArgs e)
+        {
+            HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
+            foreach (HelpRequest hr in _helpRequests)
+            {
+                if (h == hr)
+                {
+                    hr.AddChatMessage(new ChatMessage((User)_administration.User, tbMessage.Text, DateTime.Now));
+                    hr.GetChatMessages();
+                    RefreshAll();
+                    break;
+                }
+            }
+        }
+
+        private void tbMessage_Click_1(object sender, EventArgs e)
+        {
+            tbMessage.Text = "";
+        }
+
+        private void lbHelpRequests_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
+            foreach (HelpRequest hr in _helpRequests)
+            {
+                if (h == hr)
+                {
+                    hr.GetChatMessages();
+                    SelectionMode selectionMode = lbHelpRequests.SelectionMode;
+                    lbHelpRequests.SelectionMode = SelectionMode.None;
+                    lbChats.DataSource = hr.ChatMessages;
+                    lbChats.DisplayMember = "TotalString";
+                    lbHelpRequests.SelectionMode = selectionMode;
+                }
+            }
+        }
     }
 }
