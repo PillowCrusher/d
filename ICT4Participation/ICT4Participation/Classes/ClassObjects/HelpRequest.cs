@@ -153,6 +153,7 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void GetChatMessages()
         {
+            ChatMessages = null;
             OracleParameter[] parameters =
             {
                 new OracleParameter("helprequest_id", ID)
@@ -160,7 +161,8 @@ namespace ICT4Participation.Classes.ClassObjects
             DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetChatMessagesFromHelprequest"], parameters);
             foreach (DataRow dr in dt.Rows)
             {
-                new ChatMessage(new User(Convert.ToInt32(dr["ID"]),
+                ChatMessages.Add(new ChatMessage(new User(
+                            Convert.ToInt32(dr["ID"]),
                             Convert.ToString(dr["username"]),
                             Convert.ToString(dr["email"]),
                             Convert.ToString(dr["name"]),
@@ -170,7 +172,7 @@ namespace ICT4Participation.Classes.ClassObjects
                             Convert.ToBoolean(dr["hascar"]),
                             Convert.ToBoolean(dr["iswarned"])),
                             Convert.ToString(dr["message"]),
-                            Convert.ToDateTime(dr["time"]));
+                            Convert.ToDateTime(dr["time"])));
             }
         }
 
@@ -243,7 +245,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = hr.NeedyName + " - " + hr.Titel,
+                Text = hr.NeedyName + " - " + hr.Title,
                 Location = new Point(6, locationInt),
                 Size = new Size(685, gbSize)
             };
