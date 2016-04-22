@@ -74,7 +74,9 @@ namespace ICT4Participation.Forms
 
                 vpForm.ShowDialog();
 
-
+                _administration.UpdateVolunteer(vpForm.password, vpForm.adress, vpForm.city, vpForm.phonenumber, vpForm.publicTransport,
+                    vpForm.drivingLincence, vpForm.hasCar, vpForm.birhtDay, vpForm.photoFile, vpForm.VOGFile);
+                vpForm.Close();
                 UpdatePersonalRecords();
             }
             else

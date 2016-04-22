@@ -58,7 +58,7 @@ namespace ICT4Participation.Forms
                         {
                             if (tbPhonenumber.Text != "")
                             {
-                                if (rbtTransportNo.Checked == true)
+                                if (rbtTransportYes.Checked == true)
                                 {   
                                     publicTransport = true;
                                 }

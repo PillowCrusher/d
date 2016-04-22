@@ -24,7 +24,7 @@ namespace ICT4Participation.Forms
         public DateTime birhtDay { get; private set; }
         public string photoFile { get; private set; }
         public string VOGFile { get; private set; }
-
+        public string password { get; private set; }
 
         public Volunteer_Profile()
         {
@@ -64,11 +64,13 @@ namespace ICT4Participation.Forms
             {
                 rbtCarNo.Checked = true;
             }
-            dtpBirthDate.Value = volunteer.BirthDate;
-            VOGFile = volunteer.VOG;
-            lbFileVOG.Text = VOGFile;
-            photoFile = volunteer.Photo;
-            lbFilePhoto.Text = photoFile;
+            
+                dtpBirthDate.Value = volunteer.BirthDate;
+                VOGFile = volunteer.VOG;
+                lbFileVOG.Text = VOGFile;
+                photoFile = volunteer.Photo;
+                lbFilePhoto.Text = photoFile;
+                
         }
 
         private void btPhoto_Click(object sender, EventArgs e)
@@ -99,7 +101,7 @@ namespace ICT4Participation.Forms
                 {
                     if (tbPhonenumber.Text != "")
                     {
-                        if (rbtTransportNo.Checked == true)
+                        if (rbtTransportYes.Checked == true)
                         {
                             publicTransport = true;
                         }
@@ -127,11 +129,19 @@ namespace ICT4Participation.Forms
                         {
                             if (VOGFile != null)
                             {
-                                adress = tbAddress.Text;
-                                city = tbCity.Text;
-                                phonenumber = tbPhonenumber.Text;
-                                birhtDay = dtpBirthDate.Value.Date;
-                                this.Hide();
+                                if (tbPassword.Text != "")
+                                {
+                                    adress = tbAddress.Text;
+                                    city = tbCity.Text;
+                                    phonenumber = tbPhonenumber.Text;
+                                    birhtDay = dtpBirthDate.Value.Date;
+                                    password = tbPassword.Text;
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Je moet je wacthwoord invullen");
+                                }
                             }
                             else
                             {
