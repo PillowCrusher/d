@@ -50,8 +50,10 @@ namespace ICT4Participation.Classes.Intelligence
                         string vog = dr["VOG"].ToString();
                         string adres = dr["ADRESS"].ToString();
                         string city = dr["CITY"].ToString();
-                        account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
-                            ovPossible, drivingLicence, car, birthdate, photo, vog);
+
+                        throw new NotImplementedException("IsWarned moet worden opgehaald voor het toevoegen van volunteer");
+                        //account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
+                            //ovPossible, drivingLicence, car, birthdate, photo, vog);
                     }
                     else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
                     {
@@ -91,7 +93,6 @@ namespace ICT4Participation.Classes.Intelligence
 
         public User GetCurrentUser()
         {
-            return new Volunteer(2, "harrie", "email@email.com", "harrie", "straat", "city", "+316 12345678", true, true, true, DateTime.Now, "hoi", "heuj");
             return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234");
             //return _currentUser;
         }
@@ -127,8 +128,9 @@ namespace ICT4Participation.Classes.Intelligence
                         string vog = dr["VOG"].ToString();
                         string adres = dr["ADRESS"].ToString();
                         string city = dr["CITY"].ToString();
-                        account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
-                            ovPossible, drivingLicence, car, birthdate, photo, vog);
+                        throw new NotImplementedException("IsWarned moet worden opgehaald voor het toevoegen van volunteer");
+                        //account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
+                            //ovPossible, drivingLicence, car, birthdate, photo, vog);
                     }
                     else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
                     {
@@ -309,8 +311,8 @@ namespace ICT4Participation.Classes.Intelligence
 
             foreach (DataRow dr in dt.Rows)
             {
-
-                volunteers.Add(
+                throw new NotImplementedException("IsWarned moet worden opgehaald voor het toevoegen van volunteer");
+                /*volunteers.Add(
                     new Volunteer(
                         Convert.ToInt32(dr["ID"]),
                         dr["Username"].ToString(),
@@ -325,7 +327,7 @@ namespace ICT4Participation.Classes.Intelligence
                         Convert.ToDateTime(dr["BirthDate"]),
                         dr["Photo"].ToString(),
                         dr["VOG"].ToString())
-                    );
+                    );*/
             }
 
             return volunteers;
