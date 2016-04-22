@@ -18,6 +18,5 @@ namespace ICT4Participation.Classes.ClassObjects
             this.Username = username;
             this.Email = email;
         }
-        //test test
     }
 }
