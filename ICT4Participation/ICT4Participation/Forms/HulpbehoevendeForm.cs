@@ -47,7 +47,7 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                    pnlHulpVragen.Controls.Add(FormTools.NewHelpRequest(h, position, true));
+                    pnlHulpVragen.Controls.Add(h.NewHelpRequest(h, position, true));
                     position++;
 
             }

@@ -19,10 +19,10 @@ namespace ICT4Participation.Forms
         private readonly Administration _administration;
         private List<HelpRequest> _helpRequests;
 
-        public VrijwilligersForm()
+        public VrijwilligersForm(Administration administration)
         {
             InitializeComponent();
-            _administration = new Administration();
+            _administration = administration;
 
             GetAllHelpRequests();
 
@@ -43,7 +43,7 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                    pnlHulpVragen.Controls.Add(FormTools.NewHelpRequest(h, position, false));
+                    pnlHulpVragen.Controls.Add(h.NewHelpRequest(h, position, false));
                     position++;
 
             }
@@ -51,7 +51,7 @@ namespace ICT4Participation.Forms
 
         private void UpdatePersonalRecords()
         {
-            if (_administration.User is Volunteer)
+            if (_administration.User.GetType() == typeof(Volunteer))
             {
                 Volunteer currentUser = (Volunteer)_administration.User;
 
@@ -74,8 +74,9 @@ namespace ICT4Participation.Forms
 
                 vpForm.ShowDialog();
 
-
-
+                _administration.UpdateVolunteer(vpForm.password, vpForm.adress, vpForm.city, vpForm.phonenumber, vpForm.publicTransport,
+                    vpForm.drivingLincence, vpForm.hasCar, vpForm.birhtDay, vpForm.photoFile, vpForm.VOGFile);
+                vpForm.Close();
                 UpdatePersonalRecords();
             }
             else

@@ -212,35 +212,5 @@ namespace ICT4Participation.Classes.ClassObjects
 
             return converted;
         }
-        
-        private static void Reageer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnVOG_Openen(object sender, EventArgs e)
-        {
-            
-        }
-
-        private static void btnBevestigen(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnAfwijzen(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnBlokkeer(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnWaarschuwen(object sender, EventArgs e)
-        {
-
-        }
     }
 }

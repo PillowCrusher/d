@@ -82,15 +82,15 @@ namespace ICT4Participation.Classes.Database
 
 
             //not yet needed
-            Query["UpdateAccount"] = "update \"Account\" set Username = :username, Password = :password, Email = :email where ID = :id";
+            // Query["UpdateAccount"] = "update \"Account\" set Username = :username, Password = :password, Email = :email where ID = :id";
             
-            Query["UpdateUser"] = "update \"User\" set Name = :name, Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
+            Query["UpdateUser"] = "update \"User\" SET Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
             
             Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, VOG = :vog, Adress = :adress, City = :city where ID = :id";
             
             Query["UpdateNeedy"] = "update \"Needy\" set RFID = :rfid, location = :location where ID = :id";
             
-            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
+            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" c left join \"Account\" a on c.USERID = a.ID left join \"User\" u on a.ID = u.ID WHERE c.HELPREQUESTID = :helprequestid";
             
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
             
