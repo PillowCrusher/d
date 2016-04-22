@@ -70,9 +70,23 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public Admin Login(string username, string password, string RFID)
+        public void Login(string username, string password, string RFID)
         {
-            return null;
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("username", username),
+                new OracleParameter("password", password),
+                new OracleParameter("rfid", RFID)
+            };
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAdminLogin"], parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                int id = Convert.ToInt32(dr["ID"]);
+                string userName = Convert.ToString(dr["USERNAME"]);
+                string email = Convert.ToString(dr["EMAIL"]);
+                string rfid = Convert.ToString(dr["RFID"]);
+                User = new Admin(id, userName, email, rfid);
+            }
         }
 
         public User GetCurrentUser()
@@ -133,7 +147,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void Logout(string username)
+        public void Logout()
         {
             User = null;
         }
@@ -248,7 +262,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
         }
 
