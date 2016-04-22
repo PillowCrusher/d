@@ -33,7 +33,7 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbDriverLicense = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.gbHelpRequest = new System.Windows.Forms.GroupBox();
@@ -77,7 +77,7 @@
             this.tlpProperties.Controls.Add(this.checkBox4, 0, 3);
             this.tlpProperties.Controls.Add(this.checkBox3, 0, 2);
             this.tlpProperties.Controls.Add(this.checkBox2, 0, 1);
-            this.tlpProperties.Controls.Add(this.checkBox1, 0, 0);
+            this.tlpProperties.Controls.Add(this.cbDriverLicense, 0, 0);
             this.tlpProperties.Controls.Add(this.dateTimePicker1, 0, 5);
             this.tlpProperties.Controls.Add(this.checkBox5, 0, 4);
             this.tlpProperties.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -123,15 +123,15 @@
             this.checkBox2.Text = "Auto";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // cbDriverLicense
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(67, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Rijbewijs";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbDriverLicense.AutoSize = true;
+            this.cbDriverLicense.Location = new System.Drawing.Point(3, 3);
+            this.cbDriverLicense.Name = "cbDriverLicense";
+            this.cbDriverLicense.Size = new System.Drawing.Size(67, 17);
+            this.cbDriverLicense.TabIndex = 0;
+            this.cbDriverLicense.Text = "Rijbewijs";
+            this.cbDriverLicense.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -333,7 +333,7 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbDriverLicense;
         private System.Windows.Forms.GroupBox gbHelpRequest;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PictureBox pictureBox1;

@@ -70,10 +70,10 @@ namespace ICT4Participation.Forms
 
                 lblPersonalInfo.Text =
                     "Naam: " + currentUser.Name + Environment.NewLine +
-                    "Rijbewijs: " + FormTools.ConvertBoolToString(currentUser.HasDrivingLincense) +
-                    Environment.NewLine +
-                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(currentUser.HasCar) + Environment.NewLine;
-                //"Openbaar vervoer: " + FormTools.ConvertBoolToString(currentUser.)
+                    "Gebruikersnaam: " + currentUser.Username + Environment.NewLine +
+                    "Rijbewijs: " + FormTools.ConvertBoolToString(currentUser.HasDrivingLincense) + Environment.NewLine +
+                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(currentUser.HasCar) + Environment.NewLine +
+                    "Openbaar vervoer: " + FormTools.ConvertBoolToString(currentUser.PublicTransport);
             }
         }
 
@@ -86,6 +86,10 @@ namespace ICT4Participation.Forms
                 Volunteer_Profile vpForm = new Volunteer_Profile(currentUser);
 
                 vpForm.ShowDialog();
+
+
+
+                UpdatePersonalRecords();
             }
             else
             {
