@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Intelligence;
+using ICT4Participation.Forms;
 
 namespace ICT4Participation
 {
@@ -51,5 +52,15 @@ namespace ICT4Participation
             }
         }
 
+        private void btAddNeedy_Click(object sender, EventArgs e)
+        {
+            Form form = null;
+            using (form = new Needy_RegisterForm())
+            {
+                Hide();
+                form.ShowDialog();
+            }
+            Show();
+        }
     }
 }
