@@ -133,7 +133,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void Logout(string username)
+        public void Logout()
         {
             User = null;
         }

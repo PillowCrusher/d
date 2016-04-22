@@ -21,9 +21,9 @@ namespace ICT4Participation.Classes.Database
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason)";
 
             Query["GetUserLogin"] =
-                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password";
+                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password WHERE Deregistrationdate IS NULL";
             Query["GetUserLoginByRFID"] =
-                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where n.RFID = :rfid";
+                "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where n.RFID = :rfid AND Deregistrationdate IS NULL";
             Query["GetAdminLogin"] =
                 "select * from \"Account\" a left join \"Admin\" ad on a.ID = ad.ID where a.Username = :username and a.Password = :password and n.RFID = :rfid";
             Query["UpdateAccount"] = "update \"Account\" set Username = :username, Password = :password, Email = :email where ID = :id";
