@@ -16,11 +16,11 @@ namespace ICT4Participation.Classes.ClassObjects
     {
         private int _position;
 
-        public List<Volunteer> Accepted = new List<Volunteer>();
-        public List<Volunteer> Declined = new List<Volunteer>();
-        public List<Volunteer> Pending = new List<Volunteer>();
-        public List<Review> Reviews = new List<Review>();
-        public List<ChatMessage> ChatMessages = new List<ChatMessage>();
+        public List<Volunteer> Accepted;
+        public List<Volunteer> Declined;
+        public List<Volunteer> Pending;
+        public List<Review> Reviews;
+        public List<ChatMessage> ChatMessages;
 
         public Account Account { get; private set; }
         public int ID { get; private set; }
@@ -67,6 +67,10 @@ namespace ICT4Participation.Classes.ClassObjects
             Interview = interview;
             Transportation = transportation;
             Account = account;
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
+            Pending = new List<Volunteer>();
+            Reviews = new List<Review>();
         }
 
         public void Decline(Volunteer volunteer)
@@ -153,7 +157,7 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void GetChatMessages()
         {
-            ChatMessages = null;
+            ChatMessages = new List<ChatMessage>();
             OracleParameter[] parameters =
             {
                 new OracleParameter("helprequest_id", ID)

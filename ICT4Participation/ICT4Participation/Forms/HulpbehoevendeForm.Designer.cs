@@ -88,7 +88,6 @@
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(267, 46);
             this.tbMessage.TabIndex = 2;
-            this.tbMessage.Text = "Type hier uw bericht";
             this.tbMessage.Click += new System.EventHandler(this.tbMessage_Click);
             // 
             // lbChats

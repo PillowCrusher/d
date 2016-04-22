@@ -18,15 +18,18 @@ namespace ICT4Participation.Forms
             _administration = ad;
             cbTransportType.DataSource = Enum.GetValues(typeof(TransportationType));
             RefreshAll();
-            
+            tbMessage.AccessibleDefaultActionDescription = "Type hier uw bericht";
+            lbHelpRequests.SelectedIndex = -1;
         }
 
         private void RefreshAll()
         {
             GetPersonalHelpRequests();
             UpdateHelpListGui();
+            HelpRequest h = (HelpRequest)lbHelpRequests.SelectedItem;
             lbHelpRequests.DataSource = _helpRequests;
             lbHelpRequests.DisplayMember = "Title";
+            lbHelpRequests.SelectedItem = h;
         }
 
         private void GetPersonalHelpRequests()
@@ -82,6 +85,7 @@ namespace ICT4Participation.Forms
                 if (h == hr)
                 {
                     hr.AddChatMessage(new ChatMessage((User)_administration.User, tbMessage.Text, DateTime.Now));
+                    tbMessage.Text = "";
                     hr.GetChatMessages();
                     RefreshAll();
                     break;
@@ -102,11 +106,8 @@ namespace ICT4Participation.Forms
                 if (h == hr)
                 {
                     hr.GetChatMessages();
-                    SelectionMode selectionMode = lbHelpRequests.SelectionMode;
-                    lbHelpRequests.SelectionMode = SelectionMode.None;
                     lbChats.DataSource = hr.ChatMessages;
                     lbChats.DisplayMember = "TotalString";
-                    lbHelpRequests.SelectionMode = selectionMode;
                 }
             }
         }
