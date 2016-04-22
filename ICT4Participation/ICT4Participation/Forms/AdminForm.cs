@@ -23,6 +23,8 @@ namespace ICT4Participation
             _administration = new Administration();
 
             GetAllVolunteers();
+
+            UpdateVolunteerListGui();
         }
 
         private void GetAllVolunteers()
