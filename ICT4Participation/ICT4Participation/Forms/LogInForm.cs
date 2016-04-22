@@ -64,7 +64,7 @@ namespace ICT4Participation.Forms
                 _administration.LoginWithRfid(rfidTag);
                 if (_administration.User != null && _administration.User.GetType() == typeof(Needy))
                 {
-                    using (form = new HulpbehoevendeForm())
+                    using (form = new HulpbehoevendeForm(_administration))
                     {
                         Hide();
                         form.ShowDialog();
@@ -116,7 +116,7 @@ namespace ICT4Participation.Forms
                     }
                     if (_administration.User.GetType() == typeof(Needy))
                     {
-                        using (form = new HulpbehoevendeForm())
+                        using (form = new HulpbehoevendeForm(_administration))
                         {
                             Hide();
                             form.ShowDialog();

@@ -26,6 +26,7 @@ namespace ICT4Participation.Classes.ClassObjects
         {
             OracleParameter[] parameters =
             {
+                new OracleParameter("needyid", ID),
                 new OracleParameter("title", titel),
                 new OracleParameter("description", description),
                 new OracleParameter("location", _location),

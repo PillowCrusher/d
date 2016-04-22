@@ -308,11 +308,11 @@ namespace ICT4Participation.Classes.Intelligence
             return helpRequests;
         }
 
-        public List<Volunteer> GetAllVolunteers(OracleParameter[] parameters)
+        public List<Volunteer> GetAllVolunteers()
         {
             List<Volunteer> volunteers = new List<Volunteer>();
 
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllVolunteers"], parameters);
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllVolunteers"], null);
 
             foreach (DataRow dr in dt.Rows)
             {

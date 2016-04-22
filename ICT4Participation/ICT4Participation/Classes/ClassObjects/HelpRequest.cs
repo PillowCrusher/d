@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,16 +16,16 @@ namespace ICT4Participation.Classes.ClassObjects
     {
         private int _position;
 
-        public List<Volunteer> Accepted = new List<Volunteer>();
-        public List<Volunteer> Declined = new List<Volunteer>();
-        public List<Volunteer> Pending = new List<Volunteer>();
-        public List<Review> Reviews = new List<Review>();
-        public List<ChatMessage> ChatMessages = new List<ChatMessage>();
+        public List<Volunteer> Accepted;
+        public List<Volunteer> Declined;
+        public List<Volunteer> Pending;
+        public List<Review> Reviews;
+        public List<ChatMessage> ChatMessages;
 
         public Account Account { get; private set; }
         public int ID { get; private set; }
         public string NeedyName { get; private set; }
-        public string Titel { get; private set; }
+        public string Title { get; private set; }
         public string Description { get; private set; }
         public string Location { get; private set; }
         public bool Urgent { get; private set; }
@@ -57,7 +58,7 @@ namespace ICT4Participation.Classes.ClassObjects
             }
             ID = id;
             NeedyName = needyName;
-            Titel = titel;
+            Title = titel;
             Description = description;
             Location = location;
             StartDate = startDate;
@@ -66,6 +67,10 @@ namespace ICT4Participation.Classes.ClassObjects
             Interview = interview;
             Transportation = transportation;
             Account = account;
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
+            Pending = new List<Volunteer>();
+            Reviews = new List<Review>();
         }
 
         public void Decline(Volunteer volunteer)
@@ -140,16 +145,39 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void AddChatMessage(ChatMessage chatmessage)
         {
-            ChatMessages.Add(chatmessage);
-
-            OracleParameter[] Parameter =
+            OracleParameter[] parameters =
             {
-                new OracleParameter("userid",Account.ID),
-                new OracleParameter("helprequestid",ID),
-                new OracleParameter("time",DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss")),
-                new OracleParameter("message",chatmessage.Message),
+                new OracleParameter("userid", chatmessage.Sender.ID),
+                new OracleParameter("helprequestid", ID),
+                new OracleParameter("time", chatmessage.Time),
+                new OracleParameter("message", chatmessage.Message),
             };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertChatMessage"], Parameter);
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertChatMessage"], parameters);
+        }
+
+        public void GetChatMessages()
+        {
+            ChatMessages = new List<ChatMessage>();
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("helprequest_id", ID)
+            };
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetChatMessagesFromHelprequest"], parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ChatMessages.Add(new ChatMessage(new User(
+                            Convert.ToInt32(dr["ID"]),
+                            Convert.ToString(dr["username"]),
+                            Convert.ToString(dr["email"]),
+                            Convert.ToString(dr["name"]),
+                            Convert.ToString(dr["phonenumber"]),
+                            Convert.ToBoolean(dr["ovpossible"]),
+                            Convert.ToBoolean(dr["hasdrivinglicence"]),
+                            Convert.ToBoolean(dr["hascar"]),
+                            Convert.ToBoolean(dr["iswarned"])),
+                            Convert.ToString(dr["message"]),
+                            Convert.ToDateTime(dr["time"])));
+        }
         }
 
         public void DeleteReview(Review review)
@@ -221,7 +249,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = hr.NeedyName + " - " + hr.Titel,
+                Text = hr.NeedyName + " - " + hr.Title,
                 Location = new Point(6, locationInt),
                 Size = new Size(685, gbSize)
             };

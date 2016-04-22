@@ -38,7 +38,7 @@ namespace ICT4Participation.Classes.Database
                 " WHERE n.ID = :needyid" +
                 " AND h.COMPLETED = 0";
 
-            Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview)";
+            Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (NeedyID, Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:needyid, :title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview)";
 
             Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message)";
 
