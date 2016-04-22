@@ -42,11 +42,10 @@
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.cbDriverLicense = new System.Windows.Forms.CheckBox();
-            this.cbHasCar = new System.Windows.Forms.CheckBox();
-            this.cbOV = new System.Windows.Forms.CheckBox();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.cbUrgent = new System.Windows.Forms.CheckBox();
             this.cbMeeting = new System.Windows.Forms.CheckBox();
+            this.cbTransportType = new System.Windows.Forms.ComboBox();
             this.gbHulpVragen = new System.Windows.Forms.GroupBox();
             this.pnlHulpVragen = new System.Windows.Forms.Panel();
             this.groupBox5.SuspendLayout();
@@ -189,19 +188,17 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.Controls.Add(this.cbDriverLicense, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbHasCar, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbOV, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpEndDate, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbUrgent, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbMeeting, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpEndDate, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbUrgent, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbMeeting, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbTransportType, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(110, 145);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -220,30 +217,10 @@
             this.cbDriverLicense.Text = "Rijbewijs";
             this.cbDriverLicense.UseVisualStyleBackColor = true;
             // 
-            // cbHasCar
-            // 
-            this.cbHasCar.AutoSize = true;
-            this.cbHasCar.Location = new System.Drawing.Point(98, 3);
-            this.cbHasCar.Name = "cbHasCar";
-            this.cbHasCar.Size = new System.Drawing.Size(62, 24);
-            this.cbHasCar.TabIndex = 1;
-            this.cbHasCar.Text = "Auto";
-            this.cbHasCar.UseVisualStyleBackColor = true;
-            // 
-            // cbOV
-            // 
-            this.cbOV.AutoSize = true;
-            this.cbOV.Location = new System.Drawing.Point(166, 3);
-            this.cbOV.Name = "cbOV";
-            this.cbOV.Size = new System.Drawing.Size(51, 24);
-            this.cbOV.TabIndex = 2;
-            this.cbOV.Text = "OV";
-            this.cbOV.UseVisualStyleBackColor = true;
-            // 
             // dtpEndDate
             // 
             this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpEndDate.Location = new System.Drawing.Point(440, 3);
+            this.dtpEndDate.Location = new System.Drawing.Point(442, 3);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(165, 26);
             this.dtpEndDate.TabIndex = 3;
@@ -251,7 +228,7 @@
             // cbUrgent
             // 
             this.cbUrgent.AutoSize = true;
-            this.cbUrgent.Location = new System.Drawing.Point(223, 3);
+            this.cbUrgent.Location = new System.Drawing.Point(225, 3);
             this.cbUrgent.Name = "cbUrgent";
             this.cbUrgent.Size = new System.Drawing.Size(77, 24);
             this.cbUrgent.TabIndex = 4;
@@ -261,12 +238,21 @@
             // cbMeeting
             // 
             this.cbMeeting.AutoSize = true;
-            this.cbMeeting.Location = new System.Drawing.Point(306, 3);
+            this.cbMeeting.Location = new System.Drawing.Point(308, 3);
             this.cbMeeting.Name = "cbMeeting";
             this.cbMeeting.Size = new System.Drawing.Size(128, 24);
             this.cbMeeting.TabIndex = 5;
             this.cbMeeting.Text = "Kennis maken";
             this.cbMeeting.UseVisualStyleBackColor = true;
+            // 
+            // cbTransportType
+            // 
+            this.cbTransportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTransportType.FormattingEnabled = true;
+            this.cbTransportType.Location = new System.Drawing.Point(98, 3);
+            this.cbTransportType.Name = "cbTransportType";
+            this.cbTransportType.Size = new System.Drawing.Size(121, 28);
+            this.cbTransportType.TabIndex = 6;
             // 
             // gbHulpVragen
             // 
@@ -292,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 682);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.gbHulpVragen);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
@@ -328,12 +314,11 @@
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox cbDriverLicense;
-        private System.Windows.Forms.CheckBox cbHasCar;
-        private System.Windows.Forms.CheckBox cbOV;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.CheckBox cbUrgent;
         private System.Windows.Forms.CheckBox cbMeeting;
         private System.Windows.Forms.GroupBox gbHulpVragen;
         private System.Windows.Forms.Panel pnlHulpVragen;
+        private System.Windows.Forms.ComboBox cbTransportType;
     }
 }

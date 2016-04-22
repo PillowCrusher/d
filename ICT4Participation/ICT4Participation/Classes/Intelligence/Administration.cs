@@ -77,6 +77,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public User GetCurrentUser()
         {
+            return new Volunteer(2, "harrie", "email@email.com", "harrie", "straat", "city", "+316 12345678", true, true, true, DateTime.Now, "hoi", "heuj");
             return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234");
             //return _currentUser;
         }
@@ -255,7 +256,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public List<HelpRequest> GetHelpRequests(OracleParameter[] parameters)
+        public List<HelpRequest> GetHelpRequests(string querie, OracleParameter[] parameters)
         {
             List<HelpRequest> helpRequests = new List<HelpRequest>();
 
@@ -266,7 +267,7 @@ namespace ICT4Participation.Classes.Intelligence
             };
             */
 
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllHelpRequests"], parameters);
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[querie], parameters);
 
             foreach (DataRow dr in dt.Rows)
             {

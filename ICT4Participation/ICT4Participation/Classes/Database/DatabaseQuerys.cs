@@ -53,7 +53,7 @@ namespace ICT4Participation.Classes.Database
                 " ON h.NeedyID = n.ID" +
                 " JOIN \"User\" u" +
                 " ON u.ID = n.ID " +
-                " WHERE n.NAME = :needyid" +
+                " WHERE n.ID = :needyid" +
                 " AND h.COMPLETED = 0";
 
             Query["HelpRequestAccept"] = "UPDATE \"UserHelprequest\" SET Accepted = 1 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
