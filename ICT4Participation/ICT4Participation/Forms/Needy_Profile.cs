@@ -14,94 +14,102 @@ namespace ICT4Participation.Forms
 {
     public partial class Needy_Profile : Form
     {
-        public Administration administration = new Administration();
+        public Administration _administration = new Administration();
+        public string location { get; private set; }
+        public string phonenumber { get; private set; }
+        public bool publicTransport { get; private set; }
+        public bool drivingLincence { get; private set; }
+        public bool hasCar { get; private set; }
+
         public Needy_Profile()
         {
             InitializeComponent();
         }
 
+        public Needy_Profile(Needy needy)
+        {
+            InitializeComponent();
+            cbxLocation.Text = needy.Location;
+            tbPhonenumber.Text = needy.Phonenumber;
+            if (needy.PublicTransport)
+            {
+                rbtTransportYes.Checked = true;
+            }
+            else
+            {
+                rbtTransportNo.Checked = true;
+
+            }
+            if (needy.HasDrivingLincense)
+            {
+                rbtDrivingYes.Checked = true;
+            }
+            else
+            {
+                rbtDrivingNo.Checked = true;
+            }
+            if (needy.HasCar)
+            {
+                rbtCarYes.Checked = true;
+            }
+            else
+            {
+                rbtCarNo.Checked = true;
+            }
+        }
+
         private void btUpdateProfile_Click(object sender, EventArgs e)
         {
-            bool publicTransport = false;
-            bool car = false;
-            bool driving = false;
-            if (tbUsername.Text != "")
-            {
-                if (tbName.Text != "")
+                if (cbxLocation.Text != "")
                 {
-                    if (tbAddress.Text != "")
+                    if (tbPhonenumber.Text != "")
                     {
-                        if (tbCity.Text != "")
+                        if (rbtTransportNo.Checked == true)
                         {
-                            if (tbPhonenumber.Text != "")
-                            {
-                                if (rbtTransportNo.Checked == true)
-                                {
-                                    publicTransport = true;
-                                }
-                                else if (rbtTransportNo.Checked == false)
-                                {
-                                    publicTransport = false;
-                                }
-                                if (rbtCarYes.Checked == true)
-                                {
-                                    car = true;
-                                }
-                                else if (rbtCarNo.Checked == false)
-                                {
-                                    car = false;
-                                }
-                                if (rbtDrivingYes.Checked == true)
-                                {
-                                    driving = true;
-                                }
-                                else if (rbtDrivingNo.Checked == false)
-                                {
-                                    driving = false;
-                                }
-                                try
-                                {
-                                    Needy needy = (Needy)administration.User;
-                                    //administration.user.UpdateProfiel(new Needy(administration.user.ID, tbUsername.Text, tbEmail.Text, tbName.Text, location, tbPhonenumber.Text, publicTransport, driving, car, needy.RFID));
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(ex.Message);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Vul alsjeblieft een naam in");
-                            }
+                            publicTransport = true;
                         }
-                        else
+                        else if (rbtTransportNo.Checked == false)
                         {
-                            MessageBox.Show("Vul alsjeblieft een woonplaats in");
+                            publicTransport = false;
                         }
+                        if (rbtCarYes.Checked == true)
+                        {
+                            hasCar = true;
+                        }
+                        else if (rbtCarNo.Checked == false)
+                        {
+                            hasCar = false;
+                        }
+                        if (rbtDrivingYes.Checked == true)
+                        {
+                            drivingLincence = true;
+                        }
+                        else if (rbtDrivingNo.Checked == false)
+                        {
+                            drivingLincence = false;
+                        }
+                        location = cbxLocation.Text;
+                        phonenumber = tbPhonenumber.Text;
                     }
                     else
                     {
-                        MessageBox.Show("Vul alsjeblieft een adres in");
+                        MessageBox.Show("Vul alsjeblieft een naam in");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vul alsjeblieft een naam in");
+                    MessageBox.Show("Vul alsjeblieft een lokatie in");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
-            }
         }
+    
 
-        private void btUnsubscribe_Click(object sender, EventArgs e)
+    private void btUnsubscribe_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Weet je het zeker?", "Bevestig", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    Volunteer v = administration.User as Volunteer;
+                    Volunteer v = _administration.User as Volunteer;
                     v.UnSubscribe();
                 }
                 catch (Exception ex)
