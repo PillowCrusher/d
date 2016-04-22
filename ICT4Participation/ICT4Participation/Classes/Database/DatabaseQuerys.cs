@@ -33,6 +33,7 @@ namespace ICT4Participation.Classes.Database
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
             Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
             Query["BlockUser"] = "UPDATE \"Volunteer\" SET Blocked = true where ID = :id";
+            Query["UnsubscribeUser"] = "UPDATE \"User\" set Deregistrationdate = :deregistrationdate where ID = :id";
             //VrijwilligersForm
             Query["GetAllHelpRequests"] =
                 "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +

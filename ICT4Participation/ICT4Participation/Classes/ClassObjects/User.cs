@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ICT4Participation.Classes.Database;
+using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -40,7 +42,21 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void UnSubscribe()
         {
-            DeRegistrationDate = DateTime.Now;
+            try
+            {
+                DeRegistrationDate = DateTime.Now;
+                OracleParameter[] userParameter =
+                {
+                new OracleParameter("deregistrationdate", DeRegistrationDate),
+                new OracleParameter("id", ID),
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeAccount"], userParameter);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
