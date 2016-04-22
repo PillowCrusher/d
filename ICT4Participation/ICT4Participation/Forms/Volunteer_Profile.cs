@@ -14,7 +14,7 @@ namespace ICT4Participation.Forms
 {
     public partial class Volunteer_Profile : Form
     {
-        public Administration _administration = new Administration();
+        public Volunteer _volunteer { get; private set; }
         public string adress { get; private set; }
         public string city { get; private set; }
         public string phonenumber { get; private set; }
@@ -35,6 +35,7 @@ namespace ICT4Participation.Forms
         {
             InitializeComponent();
 
+            _volunteer = volunteer;
             tbAddress.Text = volunteer.Address;
             tbCity.Text = volunteer.City;
             tbPhonenumber.Text = volunteer.Phonenumber;
@@ -64,8 +65,10 @@ namespace ICT4Participation.Forms
                 rbtCarNo.Checked = true;
             }
             dtpBirthDate.Value = volunteer.BirthDate;
-            lbFileVOG.Text = volunteer.VOG;
-            lbFilePhoto.Text = volunteer.Photo;
+            VOGFile = volunteer.VOG;
+            lbFileVOG.Text = VOGFile;
+            photoFile = volunteer.Photo;
+            lbFilePhoto.Text = photoFile;
         }
 
         private void btPhoto_Click(object sender, EventArgs e)
@@ -128,6 +131,7 @@ namespace ICT4Participation.Forms
                                 city = tbCity.Text;
                                 phonenumber = tbPhonenumber.Text;
                                 birhtDay = dtpBirthDate.Value.Date;
+                                this.Hide();
                             }
                             else
                             {
@@ -161,8 +165,7 @@ namespace ICT4Participation.Forms
             {
                 try
                 {
-                    Volunteer v = _administration.User as Volunteer;
-                    v.UnSubscribe();
+                    _volunteer.UnSubscribe();
                 }
                 catch (Exception ex)
                 {

@@ -52,7 +52,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 new OracleParameter("deregistrationdate", DeRegistrationDate),
                 new OracleParameter("id", ID)
                 };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeAccount"], userParameter);
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeUser"], userParameter);
             }
             catch (Exception)
             {

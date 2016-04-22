@@ -108,7 +108,7 @@ namespace ICT4Participation.Forms
                 {
                     if (_administration.User.GetType() == typeof(Volunteer))
                     {
-                        using (form = new VrijwilligersForm())
+                        using (form = new VrijwilligersForm(this._administration))
                         {
                             Hide();
                             form.ShowDialog();

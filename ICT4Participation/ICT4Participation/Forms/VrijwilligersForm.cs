@@ -19,10 +19,10 @@ namespace ICT4Participation.Forms
         private readonly Administration _administration;
         private List<HelpRequest> _helpRequests;
 
-        public VrijwilligersForm()
+        public VrijwilligersForm(Administration administration)
         {
             InitializeComponent();
-            _administration = new Administration();
+            _administration = administration;
 
             GetAllHelpRequests();
 
@@ -51,9 +51,9 @@ namespace ICT4Participation.Forms
 
         private void UpdatePersonalRecords()
         {
-            if (_administration.GetCurrentUser() is Volunteer)
+            if (_administration.User.GetType() == typeof(Volunteer))
             {
-                Volunteer currentUser = (Volunteer)_administration.GetCurrentUser();
+                Volunteer currentUser = (Volunteer)_administration.User;
 
                 lblPersonalInfo.Text =
                     "Naam: " + currentUser.Name + Environment.NewLine +
@@ -66,9 +66,9 @@ namespace ICT4Participation.Forms
 
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
-            if (_administration.GetCurrentUser() is Volunteer)
+            if (_administration.User is Volunteer)
             {
-                Volunteer currentUser = (Volunteer) _administration.GetCurrentUser();
+                Volunteer currentUser = (Volunteer) _administration.User;
 
                 Volunteer_Profile vpForm = new Volunteer_Profile(currentUser);
 

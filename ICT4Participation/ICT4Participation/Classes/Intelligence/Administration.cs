@@ -2,7 +2,6 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
@@ -73,9 +72,8 @@ namespace ICT4Participation.Classes.Intelligence
                 }
                 User = account;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
                 throw;
             }
         }
@@ -97,12 +95,6 @@ namespace ICT4Participation.Classes.Intelligence
                 string rfid = Convert.ToString(dr["RFID"]);
                 User = new Admin(id, userName, email, rfid);
             }
-        }
-
-        public User GetCurrentUser()
-        {
-            return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234", false);
-            //return _currentUser;
         }
 
         public void LoginWithRfid(string rfid)
