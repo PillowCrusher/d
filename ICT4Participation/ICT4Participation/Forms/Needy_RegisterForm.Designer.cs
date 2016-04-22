@@ -42,18 +42,16 @@
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbGebruikersnaam = new System.Windows.Forms.Label();
             this.tbPhonenumber = new System.Windows.Forms.TextBox();
-            this.tbCity = new System.Windows.Forms.TextBox();
-            this.tbAddress = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.grbxDrivingLincense = new System.Windows.Forms.GroupBox();
             this.grpbxCar = new System.Windows.Forms.GroupBox();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblLocation = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lbl_RFID = new System.Windows.Forms.Label();
             this.txtRFID = new System.Windows.Forms.TextBox();
             this.btRegister = new System.Windows.Forms.Button();
+            this.cbxLocation = new System.Windows.Forms.ComboBox();
             this.grbxPublicTransport.SuspendLayout();
             this.grbxDrivingLincense.SuspendLayout();
             this.grpbxCar.SuspendLayout();
@@ -119,7 +117,7 @@
             this.grbxPublicTransport.Controls.Add(this.rbtTransportNo);
             this.grbxPublicTransport.Controls.Add(this.rbtTransportYes);
             this.grbxPublicTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbxPublicTransport.Location = new System.Drawing.Point(17, 279);
+            this.grbxPublicTransport.Location = new System.Drawing.Point(17, 245);
             this.grbxPublicTransport.Name = "grbxPublicTransport";
             this.grbxPublicTransport.Size = new System.Drawing.Size(272, 72);
             this.grbxPublicTransport.TabIndex = 44;
@@ -190,24 +188,10 @@
             // 
             // tbPhonenumber
             // 
-            this.tbPhonenumber.Location = new System.Drawing.Point(251, 242);
+            this.tbPhonenumber.Location = new System.Drawing.Point(251, 208);
             this.tbPhonenumber.Name = "tbPhonenumber";
             this.tbPhonenumber.Size = new System.Drawing.Size(300, 31);
             this.tbPhonenumber.TabIndex = 37;
-            // 
-            // tbCity
-            // 
-            this.tbCity.Location = new System.Drawing.Point(251, 205);
-            this.tbCity.Name = "tbCity";
-            this.tbCity.Size = new System.Drawing.Size(300, 31);
-            this.tbCity.TabIndex = 36;
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(251, 164);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(300, 31);
-            this.tbAddress.TabIndex = 35;
             // 
             // tbName
             // 
@@ -221,7 +205,7 @@
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingNo);
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingYes);
             this.grbxDrivingLincense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbxDrivingLincense.Location = new System.Drawing.Point(17, 357);
+            this.grbxDrivingLincense.Location = new System.Drawing.Point(17, 323);
             this.grbxDrivingLincense.Name = "grbxDrivingLincense";
             this.grbxDrivingLincense.Size = new System.Drawing.Size(272, 72);
             this.grbxDrivingLincense.TabIndex = 33;
@@ -233,7 +217,7 @@
             this.grpbxCar.Controls.Add(this.rbtCarNo);
             this.grpbxCar.Controls.Add(this.rbtCarYes);
             this.grpbxCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grpbxCar.Location = new System.Drawing.Point(17, 435);
+            this.grpbxCar.Location = new System.Drawing.Point(17, 401);
             this.grpbxCar.Name = "grpbxCar";
             this.grpbxCar.Size = new System.Drawing.Size(272, 72);
             this.grpbxCar.TabIndex = 32;
@@ -244,31 +228,21 @@
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPhoneNumber.Location = new System.Drawing.Point(23, 239);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(23, 205);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(226, 31);
             this.lblPhoneNumber.TabIndex = 31;
             this.lblPhoneNumber.Text = "Telefoonnummer:";
             // 
-            // lblCity
+            // lblLocation
             // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCity.Location = new System.Drawing.Point(23, 202);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(165, 31);
-            this.lblCity.TabIndex = 30;
-            this.lblCity.Text = "Woonplaats:";
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblAddress.Location = new System.Drawing.Point(23, 161);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(93, 31);
-            this.lblAddress.TabIndex = 29;
-            this.lblAddress.Text = "Adres:";
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblLocation.Location = new System.Drawing.Point(23, 161);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(125, 31);
+            this.lblLocation.TabIndex = 29;
+            this.lblLocation.Text = "Location:";
             // 
             // lblName
             // 
@@ -284,7 +258,7 @@
             // 
             this.lbl_RFID.AutoSize = true;
             this.lbl_RFID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl_RFID.Location = new System.Drawing.Point(17, 514);
+            this.lbl_RFID.Location = new System.Drawing.Point(18, 480);
             this.lbl_RFID.Name = "lbl_RFID";
             this.lbl_RFID.Size = new System.Drawing.Size(87, 31);
             this.lbl_RFID.TabIndex = 45;
@@ -292,7 +266,7 @@
             // 
             // txtRFID
             // 
-            this.txtRFID.Location = new System.Drawing.Point(111, 514);
+            this.txtRFID.Location = new System.Drawing.Point(111, 480);
             this.txtRFID.Name = "txtRFID";
             this.txtRFID.Size = new System.Drawing.Size(440, 31);
             this.txtRFID.TabIndex = 46;
@@ -300,7 +274,7 @@
             // btRegister
             // 
             this.btRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRegister.Location = new System.Drawing.Point(17, 566);
+            this.btRegister.Location = new System.Drawing.Point(17, 532);
             this.btRegister.Name = "btRegister";
             this.btRegister.Size = new System.Drawing.Size(534, 90);
             this.btRegister.TabIndex = 47;
@@ -308,11 +282,24 @@
             this.btRegister.UseVisualStyleBackColor = true;
             this.btRegister.Click += new System.EventHandler(this.btRegister_Click);
             // 
+            // cbxLocation
+            // 
+            this.cbxLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxLocation.FormattingEnabled = true;
+            this.cbxLocation.Items.AddRange(new object[] {
+            "Oes Hoes",
+            "t Slotje"});
+            this.cbxLocation.Location = new System.Drawing.Point(251, 161);
+            this.cbxLocation.Name = "cbxLocation";
+            this.cbxLocation.Size = new System.Drawing.Size(300, 33);
+            this.cbxLocation.TabIndex = 48;
+            // 
             // Needy_RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 679);
+            this.Controls.Add(this.cbxLocation);
             this.Controls.Add(this.btRegister);
             this.Controls.Add(this.txtRFID);
             this.Controls.Add(this.lbl_RFID);
@@ -324,17 +311,15 @@
             this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.lbGebruikersnaam);
             this.Controls.Add(this.tbPhonenumber);
-            this.Controls.Add(this.tbCity);
-            this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.grbxDrivingLincense);
             this.Controls.Add(this.grpbxCar);
             this.Controls.Add(this.lblPhoneNumber);
-            this.Controls.Add(this.lblCity);
-            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.lblName);
             this.Name = "Needy_RegisterForm";
             this.Text = "Needy_RegisterForm";
+            this.Load += new System.EventHandler(this.Needy_RegisterForm_Load);
             this.grbxPublicTransport.ResumeLayout(false);
             this.grbxPublicTransport.PerformLayout();
             this.grbxDrivingLincense.ResumeLayout(false);
@@ -362,17 +347,15 @@
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label lbGebruikersnaam;
         private System.Windows.Forms.TextBox tbPhonenumber;
-        private System.Windows.Forms.TextBox tbCity;
-        private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.GroupBox grbxDrivingLincense;
         private System.Windows.Forms.GroupBox grpbxCar;
         private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lbl_RFID;
         private System.Windows.Forms.TextBox txtRFID;
         private System.Windows.Forms.Button btRegister;
+        private System.Windows.Forms.ComboBox cbxLocation;
     }
 }

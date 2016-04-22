@@ -12,7 +12,7 @@ namespace ICT4Participation.Classes.Database
             Query["InsertAccount"] = "INSERT INTO \"Account\" (Username, Password, Email) values (:username, :password, :email)";
             Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, OVPOSSIBLE) values (:id, :name, :phonenumber, :hasdrivinglicence, :hascar, :ovpossible)";
             Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG, ADRESS, CITY) values (:id, :dateofbirth, :photo, :vog, :adress, :city)";
-            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, RFID) values (:id, :rfid)";
+            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, RFID, LOCATION) values (:id, :rfid, :location)";
             Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, RFID) values (:id, :rfid)";
             Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview)";
             Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message)";
@@ -54,7 +54,7 @@ namespace ICT4Participation.Classes.Database
                 " ON h.NeedyID = n.ID" +
                 " JOIN \"User\" u" +
                 " ON u.ID = n.ID " +
-                " WHERE n.NAME = :needyid" +
+                " WHERE n.ID = :needyid" +
                 " AND h.COMPLETED = 0";
 
             Query["HelpRequestAccept"] = "UPDATE \"UserHelprequest\" SET Accepted = 1 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";

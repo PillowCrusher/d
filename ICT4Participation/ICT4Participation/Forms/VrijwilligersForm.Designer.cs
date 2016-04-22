@@ -47,12 +47,16 @@
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.lbChats = new System.Windows.Forms.ListBox();
             this.lbHelpRequests = new System.Windows.Forms.ListBox();
+            this.btnShowReviews = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             this.tlpProperties.SuspendLayout();
             this.gbHelpRequest.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbFilter
@@ -169,7 +173,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btnChangeInfo);
+            this.groupBox4.Controls.Add(this.tableLayoutPanel1);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Controls.Add(this.lblPersonalInfo);
             this.groupBox4.Location = new System.Drawing.Point(748, 12);
@@ -181,12 +185,14 @@
             // 
             // btnChangeInfo
             // 
-            this.btnChangeInfo.Location = new System.Drawing.Point(240, 162);
+            this.btnChangeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnChangeInfo.Location = new System.Drawing.Point(235, 3);
             this.btnChangeInfo.Name = "btnChangeInfo";
-            this.btnChangeInfo.Size = new System.Drawing.Size(118, 35);
+            this.btnChangeInfo.Size = new System.Drawing.Size(112, 42);
             this.btnChangeInfo.TabIndex = 2;
             this.btnChangeInfo.Text = "Informatie aanpassen";
             this.btnChangeInfo.UseVisualStyleBackColor = true;
+            this.btnChangeInfo.Click += new System.EventHandler(this.btnChangeInfo_Click);
             // 
             // pictureBox1
             // 
@@ -254,11 +260,50 @@
             this.lbHelpRequests.Size = new System.Drawing.Size(120, 420);
             this.lbHelpRequests.TabIndex = 0;
             // 
+            // btnShowReviews
+            // 
+            this.btnShowReviews.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnShowReviews.Location = new System.Drawing.Point(119, 3);
+            this.btnShowReviews.Name = "btnShowReviews";
+            this.btnShowReviews.Size = new System.Drawing.Size(110, 42);
+            this.btnShowReviews.TabIndex = 3;
+            this.btnShowReviews.Text = "Bekijk Reviews";
+            this.btnShowReviews.UseVisualStyleBackColor = true;
+            this.btnShowReviews.Click += new System.EventHandler(this.btnShowReviews_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.btnRefresh, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnChangeInfo, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnShowReviews, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 149);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 48);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRefresh.Location = new System.Drawing.Point(3, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(110, 42);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh Hulp Vragen";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // VrijwilligersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 667);
+            this.ClientSize = new System.Drawing.Size(1259, 666);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbHelpRequest);
@@ -276,6 +321,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -301,5 +347,8 @@
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Panel pnlHulpVragen;
         private System.Windows.Forms.Button btnChangeInfo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnShowReviews;
     }
 }

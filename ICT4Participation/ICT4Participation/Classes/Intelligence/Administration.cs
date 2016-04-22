@@ -77,6 +77,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public User GetCurrentUser()
         {
+            return new Volunteer(2, "harrie", "email@email.com", "harrie", "straat", "city", "+316 12345678", true, true, true, DateTime.Now, "hoi", "heuj");
             return new Needy(1, "henk", "email@email.com", "Henk", "Oes Hoes", "+316 12345678", true, false, false, "1234");
             //return _currentUser;
         }
@@ -151,22 +152,9 @@ namespace ICT4Participation.Classes.Intelligence
 
                 InsertAccount(username, password, email);
 
-                int volunteerId = 0;
-                OracleParameter[] idParameter =
-                {
-                    new OracleParameter("username", username)
-                };
-                DataTable id = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAccountID"], idParameter);
-                foreach (DataRow dr in id.Rows)
-                {
-                    volunteerId = Convert.ToInt32(dr["ID"]);
-                }
-                Volunteer volunteer = new Volunteer(volunteerId, username, email, name, address, city, phonenumber, publicTransport, hasdrivinglicence, hascar, birthdate, photo, vog);
-
-                InsertAccount(username, password, email);
-
+                int volunteerId = GetAccountId(username);
+                
                 InsertUser(volunteerId, name, phonenumber, hasdrivinglicence, hascar, publicTransport);
-
 
                 OracleParameter[] volunteerParameter =
             {
@@ -190,15 +178,9 @@ namespace ICT4Participation.Classes.Intelligence
         {
             try
             {
-                int needyId = 0;
-                DataTable id = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAccountID"], null);
-                foreach (DataRow dr in id.Rows)
-                {
-                    needyId = Convert.ToInt32(dr["ACCOUNT_SEQ.nextval"]);
-                }
-                Needy needy = new Needy(needyId, username, email, name, location, phonenumber, publictransport, hasdrivinglicence, hascar, rfid);
-
                 InsertAccount(username, password, email);
+
+                int needyId = GetAccountId(username);
 
                 InsertUser(needyId, name, phonenumber, hasdrivinglicence, hascar, publictransport);
 
@@ -214,6 +196,21 @@ namespace ICT4Participation.Classes.Intelligence
             {
                 throw;
             }
+        }
+
+        public int GetAccountId(string username)
+        {
+            int id = 0;
+            OracleParameter[] idParameter =
+                {
+                    new OracleParameter("username", username)
+                };
+            DataTable d = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAccountID"], idParameter);
+            foreach (DataRow dr in d.Rows)
+            {
+                id = Convert.ToInt32(dr["ID"]);
+            }
+            return id;
         }
 
         public void InsertAccount(string username, string password, string email)
@@ -255,7 +252,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public List<HelpRequest> GetHelpRequests(OracleParameter[] parameters)
+        public List<HelpRequest> GetHelpRequests(string querie, OracleParameter[] parameters)
         {
             List<HelpRequest> helpRequests = new List<HelpRequest>();
 
@@ -266,7 +263,7 @@ namespace ICT4Participation.Classes.Intelligence
             };
             */
 
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllHelpRequests"], parameters);
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[querie], parameters);
 
             foreach (DataRow dr in dt.Rows)
             {

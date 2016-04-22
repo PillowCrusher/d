@@ -23,6 +23,14 @@ namespace ICT4Participation.Forms
             InitializeComponent();
         }
 
+        public Volunteer_Profile(User user)
+        {
+            InitializeComponent();
+
+            tbUsername.Text = user.Username;
+            
+        }
+
         private void btPhoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog photoLog = new OpenFileDialog();
