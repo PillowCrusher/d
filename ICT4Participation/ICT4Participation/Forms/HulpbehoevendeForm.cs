@@ -79,5 +79,10 @@ namespace ICT4Participation.Forms
 
             currentNeedy.AddHelpRequest(title, description, urgent, tt, DateTime.Now, dt, meeting);
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

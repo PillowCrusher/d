@@ -78,6 +78,7 @@
             this.btnSend.TabIndex = 3;
             this.btnSend.Text = "Verstuur";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // tbMessage
             // 
@@ -278,12 +279,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 682);
             this.Controls.Add(this.gbHulpVragen);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.MaximumSize = new System.Drawing.Size(1280, 720);
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1278, 720);
             this.Name = "HulpbehoevendeForm";
             this.Text = "HulpbehoevendeForm";
             this.groupBox5.ResumeLayout(false);
