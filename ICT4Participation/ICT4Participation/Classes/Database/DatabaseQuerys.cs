@@ -70,6 +70,8 @@ namespace ICT4Participation.Classes.Database
             //HelpRequest
             Query["InsertChatMessage"] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:userid, :helprequestid, :time, :message)";
 
+            Query["CheckifUserHelprequestExists"] = "SELECT * FROM \"UserHelprequest\" WHERE USERID = :userid AND HelprequestID = :helprequestid";
+
             Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:userid, :helprequestid)";
 
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason)";

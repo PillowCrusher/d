@@ -295,7 +295,9 @@ namespace ICT4Participation.Classes.ClassObjects
                 new OracleParameter("helprequestid", ID), 
             };
 
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["CheckifUserHelprequestExists"], parameters);
 
+            if(dt.Rows.Count != 0) return;
 
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],parameters);
         }
