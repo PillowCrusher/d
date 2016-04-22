@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
     public class HelpRequest
     {
+        private int _position;
+
         public List<Volunteer> Accepted = new List<Volunteer>();
         public List<Volunteer> Declined = new List<Volunteer>();
         public List<Volunteer> Pending = new List<Volunteer>();
@@ -178,6 +182,86 @@ namespace ICT4Participation.Classes.ClassObjects
                     new OracleParameter("UserID", volunteer.ID)
                 };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], Parameter);
+        }
+
+        public GroupBox NewHelpRequest(HelpRequest hr, int position, bool personal)
+        {
+            _position = position;
+
+            if (personal)
+            {
+                var extraInfo =
+                    "Locatie: " + hr.Location + Environment.NewLine +
+                    "Urgent: " + FormTools.ConvertBoolToString(hr.Urgent) + Environment.NewLine +
+                    "Kennis maken: " + FormTools.ConvertBoolToString(hr.Interview) + Environment.NewLine +
+                    "Transport type: " + hr.Transportation + Environment.NewLine +
+                    "Deadline: " + hr.DeadLine.ToString("d");
+
+                return NewHelpRequestGroupbox(hr, 270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
+            }
+            else
+            {
+                var extraInfo =
+                    "Locatie: " + hr.Location + Environment.NewLine +
+                    "Urgent: " + FormTools.ConvertBoolToString(hr.Urgent) + Environment.NewLine +
+                    "Kennis maken: " + FormTools.ConvertBoolToString(hr.Interview) + Environment.NewLine +
+                    "Transport type: " + hr.Transportation + Environment.NewLine +
+                    "Datum geplaatst: " + hr.StartDate.ToString("d") + Environment.NewLine +
+                    "Deadline: " + hr.DeadLine.ToString("d");
+
+                return NewHelpRequestGroupbox(hr, 220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
+            }
+        }
+
+        private GroupBox NewHelpRequestGroupbox(HelpRequest hr, int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
+        {
+            locationInt = locationInt * _position;
+            locationInt += 5;
+
+            //Nieuwe groupbox voor de hulp vraag
+            var newQuestion = new GroupBox
+            {
+                Text = hr.NeedyName + " - " + hr.Titel,
+                Location = new Point(6, locationInt),
+                Size = new Size(685, gbSize)
+            };
+
+            //Textbox voor de hulpvraag
+            var t = new TextBox
+            {
+                Multiline = true,
+                Location = new Point(6, 19),
+                Size = new Size(673, 94),
+                Text = hr.Description
+            };
+            newQuestion.Controls.Add(t);
+
+            //Label voor extra informatie
+            var l = new Label
+            {
+                Location = new Point(6, 116),
+                Text = lblExtraInfo,
+                AutoSize = true,
+                Size = new Size(138, 78)
+            };
+            newQuestion.Controls.Add(l);
+
+            //Button voor reageren
+            var btn = new Button
+            {
+                Location = new Point(btnX, btnY),
+                Size = new Size(btnW, btnH),
+                Text = btnText
+            };
+            btn.Click += new EventHandler(Reageer_Click);
+            newQuestion.Controls.Add(btn);
+
+            return newQuestion;
+        }
+
+        private static void Reageer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

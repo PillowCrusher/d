@@ -90,7 +90,7 @@ namespace ICT4Participation.Classes.Database
             
             Query["UpdateNeedy"] = "update \"Needy\" set RFID = :rfid, location = :location where ID = :id";
             
-            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" WHERE HELPREQUEST_ID = :helprequest_id";
+            Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" c left join \"Account\" a on c.USERID = a.ID left join \"User\" u on a.ID = u.ID WHERE c.HELPREQUESTID = :helprequestid";
             
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
             
