@@ -213,6 +213,7 @@ namespace ICT4Participation.Classes.ClassObjects
                     MessageBox.Show(this.Name+" is geblokeerd");
                     Button s = (Button) sender;
                     AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
+                    f.GetAllVolunteers();
                     f.UpdateVolunteerListGui();
                 }
             }
@@ -224,6 +225,10 @@ namespace ICT4Participation.Classes.ClassObjects
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Vul hier de waarschuwing in voor de vrijwilliger", "Waarschuwing", "Default", -1, -1);
                 Administration.SendWarning(input,this);
+                Button s = (Button)sender;
+                AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
+                f.GetAllVolunteers();
+                f.UpdateVolunteerListGui();
             }
         }
     }
