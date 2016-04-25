@@ -21,26 +21,6 @@ namespace ICT4Participation.Classes.ClassObjects
         /// </summary>
         public Administration Administration { get; private set; }
         /// <summary>
-        /// Het ID van een Volunteer
-        /// </summary>
-        public int ID { get; set; }
-        /// <summary>
-        /// de naam van de volunteer
-        /// </summary>
-        public string Name { get; private set; }
-        /// <summary>
-        /// een bool of de volunteer gebruik het openbare vervoer tot beschikking heeft
-        /// </summary>
-        public bool PublicTransport { get; private set; }
-        /// <summary>
-        /// een bool of de volunteer een rijbewijs heeft
-        /// </summary>
-        public bool HasDrivingLincense { get; private set; }
-        /// <summary>
-        /// een bool of de volunteer een auto heeft
-        /// </summary>
-        public bool HasCar { get; private set; }
-        /// <summary>
         /// De verjaardag van de volunteer
         /// </summary>
         public DateTime BirthDate { get; private set; }
