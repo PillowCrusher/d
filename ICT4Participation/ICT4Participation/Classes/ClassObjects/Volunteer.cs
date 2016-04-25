@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ICT4Participation.Classes.Intelligence;
+using ICT4Participation.Forms;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -14,6 +16,30 @@ namespace ICT4Participation.Classes.ClassObjects
     {
         private int _position;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public Administration Administration { get; private set; }
+        /// <summary>
+        /// Het ID van een Volunteer
+        /// </summary>
+        public int ID { get; set; }
+        /// <summary>
+        /// de naam van de volunteer
+        /// </summary>
+        public string Name { get; private set; }
+        /// <summary>
+        /// een bool of de volunteer gebruik het openbare vervoer tot beschikking heeft
+        /// </summary>
+        public bool PublicTransport { get; private set; }
+        /// <summary>
+        /// een bool of de volunteer een rijbewijs heeft
+        /// </summary>
+        public bool HasDrivingLincense { get; private set; }
+        /// <summary>
+        /// een bool of de volunteer een auto heeft
+        /// </summary>
+        public bool HasCar { get; private set; }
         /// <summary>
         /// De verjaardag van de volunteer
         /// </summary>
@@ -62,9 +88,14 @@ namespace ICT4Participation.Classes.ClassObjects
         /// <param name="vog"></param>
         /// <param name="warned"></param>
         /// <param name="blocked"></param>
-        public Volunteer(int id, string username, string email, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog, bool warned, bool blocked)
+        public Volunteer(int id, string username, string email, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog, bool warned, bool blocked, Administration administration)
             : base(id, username, email, name, phonenumber, publicTransport,  hasDrivingLincense, hasCar, warned)
         {
+            ID = id;
+            Name = name;
+            PublicTransport = publicTransport;
+            HasDrivingLincense = hasDrivingLincense;
+            HasCar = hasCar;
             VOG = vog;
             Photo = photo;
             BirthDate = birthDate;
@@ -72,37 +103,38 @@ namespace ICT4Participation.Classes.ClassObjects
             City = city;
             Warned = warned;
             Blocked = blocked;
+            Administration = administration;
         }
 
-        public GroupBox NewVolunteer(Volunteer volunteer, int position, bool VOG)
+        public GroupBox NewVolunteer(int position, bool VOG)
         {
             _position = position;
 
             if (VOG)
             {
                 var extraInfo =
-                    "Naam: " + volunteer.Name + Environment.NewLine +
-                    "Rijbewijs: " + FormTools.ConvertBoolToString(volunteer.HasDrivingLincense) + Environment.NewLine +
-                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(volunteer.HasCar) + Environment.NewLine +
-                    "Openbaar Vervoer: " + FormTools.ConvertBoolToString(volunteer.PublicTransport);
+                    "Naam: " + Name + Environment.NewLine +
+                    "Rijbewijs: " + FormTools.ConvertBoolToString(HasDrivingLincense) + Environment.NewLine +
+                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(HasCar) + Environment.NewLine +
+                    "Openbaar Vervoer: " + FormTools.ConvertBoolToString(PublicTransport);
 
-                return NewVolunteerGroupbox(volunteer, position, extraInfo, "Bevestigen", "Afwijzen", true);
+                return NewVolunteerGroupbox(position, extraInfo, "Bevestigen", "Afwijzen", true);
             }
             else
             {
                 var extraInfo =
-                    "Naam: " + volunteer.Name + Environment.NewLine +
-                    "Rijbewijs: " + FormTools.ConvertBoolToString(volunteer.HasDrivingLincense) + Environment.NewLine +
-                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(volunteer.HasCar) + Environment.NewLine +
-                    "Openbaar Vervoer: " + FormTools.ConvertBoolToString(volunteer.PublicTransport) + Environment.NewLine +
-                    "Gewaarschuwd: " + FormTools.ConvertBoolToString(volunteer.Warned) + Environment.NewLine +
-                    "Geblokkeerd: " + FormTools.ConvertBoolToString(volunteer.Blocked);
+                    "Naam: " + Name + Environment.NewLine +
+                    "Rijbewijs: " + FormTools.ConvertBoolToString(HasDrivingLincense) + Environment.NewLine +
+                    "Auto beschikbaar: " + FormTools.ConvertBoolToString(HasCar) + Environment.NewLine +
+                    "Openbaar Vervoer: " + FormTools.ConvertBoolToString(PublicTransport) + Environment.NewLine +
+                    "Gewaarschuwd: " + FormTools.ConvertBoolToString(Warned) + Environment.NewLine +
+                    "Geblokkeerd: " + FormTools.ConvertBoolToString(Blocked);
 
-                return NewVolunteerGroupbox(volunteer, position, extraInfo, "Blokkeer", "Waarschuwen", false);
+                return NewVolunteerGroupbox(position, extraInfo, "Blokkeer", "Waarschuwen", false);
             }
         }
 
-        private GroupBox NewVolunteerGroupbox(Volunteer volunteer, int locationInt, string lblExtraInfo, string btn1Text, string btn2Text, bool VOG)
+        private GroupBox NewVolunteerGroupbox(int locationInt, string lblExtraInfo, string btn1Text, string btn2Text, bool VOG)
         {
             locationInt = locationInt * _position;
             locationInt += 5;
@@ -110,7 +142,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = volunteer.ID.ToString(),
+                Text = ID.ToString(),
                 Location = new Point(6, locationInt),
                 Size = new Size(461, 131)
             };
@@ -118,7 +150,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Textbox voor de hulpvraag
             var pb = new PictureBox
             {
-                ImageLocation = volunteer.Photo,
+                ImageLocation = Photo,
                 Size = new Size(108, 106)
             };
             newQuestion.Controls.Add(pb);
@@ -176,29 +208,40 @@ namespace ICT4Participation.Classes.ClassObjects
             return newQuestion;
         }
 
-        private static void btnVOG_Openen(object sender, EventArgs e)
-        {
-           
-        }
-
-        private static void btnBevestigen(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnAfwijzen(object sender, EventArgs e)
-        {
-
-        }
-
-        private static void btnBlokkeer(object sender, EventArgs e)
+        private void btnVOG_Openen(object sender, EventArgs e)
         {
             
         }
 
-        private static void btnWaarschuwen(object sender, EventArgs e)
+        private void btnBevestigen(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAfwijzen(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBlokkeer(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Weet je het zeker?", "Bevestig", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                if (Administration.User.GetType() == typeof(Admin))
+                {
+                    Administration.BlockAccount(this);
+                    MessageBox.Show(this.Name+" is geblokeerd");
+                }
+            }
+        }
+
+        private void btnWaarschuwen(object sender, EventArgs e)
+        {
+            if (Administration.User.GetType() == typeof(Admin))
+            {
+                string input = Microsoft.VisualBasic.Interaction.InputBox("Vul hier de waarschuwing in voor de vrijwilliger", "Waarschuwing", "Default", -1, -1);
+                Administration.SendWarning(input,this);
+            }
         }
     }
 }

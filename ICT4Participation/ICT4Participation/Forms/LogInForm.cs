@@ -65,7 +65,14 @@ namespace ICT4Participation.Forms
             // als tijdens het scannen de username en password niet leeg zijn word er gekeken of het om een admin account gaat
             if (tbUsername.Text != "" && tbPassword.Text != "")
             {
+                try
+                { 
                 _administration.Login(tbUsername.Text, tbPassword.Text, rfidTag);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
                 //als het gevonden account niet leeg is en van het type admin is wordt deze doorgestuurd naar het admin form
                 if (_administration.User != null && _administration.User.GetType() == typeof(Admin))
                 {
@@ -130,7 +137,14 @@ namespace ICT4Participation.Forms
             //Als de username en password niet leeg zijn wordt er in de database gezocht naar een matchend account
             if (tbUsername.Text != "" && tbPassword.Text != "")
             {
-                _administration.Login(tbUsername.Text, tbPassword.Text);
+                try
+                {
+                    _administration.Login(tbUsername.Text, tbPassword.Text);
+                }
+                catch(Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
                 tbUsername.Text = "";
                 tbPassword.Text = "";
                 //Als het gevonden account niet leeg is en een type van volunteer wordt deze naar het vrijwilligers form gebracht

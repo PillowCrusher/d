@@ -50,7 +50,7 @@ namespace ICT4Participation
 
             foreach (Volunteer v in _volunteers)
             {
-                pnlVolunteers.Controls.Add(v.NewVolunteer(v, position, false));
+                pnlVolunteers.Controls.Add(v.NewVolunteer(position, false));
                 position++;
 
             }
