@@ -65,7 +65,8 @@ namespace ICT4Participation.Forms
                     "Gebruikersnaam: " + currentUser.Username + Environment.NewLine +
                     "Rijbewijs: " + FormTools.ConvertBoolToString(currentUser.HasDrivingLincense) + Environment.NewLine +
                     "Auto beschikbaar: " + FormTools.ConvertBoolToString(currentUser.HasCar) + Environment.NewLine +
-                    "Openbaar vervoer: " + FormTools.ConvertBoolToString(currentUser.PublicTransport);
+                    "Openbaar vervoer: " + FormTools.ConvertBoolToString(currentUser.PublicTransport) + Environment.NewLine +
+                    "Gewaarschuwd: " + FormTools.ConvertBoolToString(currentUser.Warned);
             }
         }
 
