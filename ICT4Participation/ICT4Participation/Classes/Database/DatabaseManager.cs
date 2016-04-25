@@ -23,8 +23,6 @@ namespace ICT4Participation.Classes.Database
                 }
                 catch (Exception ex)
                 {
-                    //TODO: implementeer functie voor als de database geen connectie kan maken.
-                    //Update: Schrijft nu wat weg naar de debug output. - Kevin Sorée
                     Debug.WriteLine(ex.Message);
                 }
                 return null;

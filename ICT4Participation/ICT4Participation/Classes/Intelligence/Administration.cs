@@ -71,6 +71,10 @@ namespace ICT4Participation.Classes.Intelligence
                                 account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
                                     ovPossible, drivingLicence, car, birthdate, photo, vog, isWarned, blocked, this);
                             }
+                            else
+                            {
+                                throw new WarningException("Je kunt nog niet inloggen, de administrator moet eerst je aanvraag goedkeuren");
+                            }
                         }
                         else
                         {
