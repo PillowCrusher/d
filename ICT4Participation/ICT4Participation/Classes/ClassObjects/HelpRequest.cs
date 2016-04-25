@@ -297,9 +297,14 @@ namespace ICT4Participation.Classes.ClassObjects
 
             DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["CheckifUserHelprequestExists"], parameters);
 
-            if(dt.Rows.Count != 0) return;
+            if (dt.Rows.Count != 0)
+            {
+                MessageBox.Show("Je hebt al gereageerd op deze hulpvraag!");
+                return;
+            }
 
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],parameters);
+            MessageBox.Show("Je hebt succesvol gereageerd op deze hulpvraag!");
         }
     }
 }

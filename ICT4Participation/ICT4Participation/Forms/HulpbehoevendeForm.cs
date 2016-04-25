@@ -69,13 +69,13 @@ namespace ICT4Participation.Forms
             string title = tbTitle.Text;
             string description = tbDescription.Text;
             bool urgent = cbUrgent.Checked;
-            TransportationType tt = TransportationType.NVT;
+            TransportationType tt = ((TransportationType) cbTransportType.SelectedIndex);
             DateTime dt = dtpEndDate.Value;
             bool meeting = cbMeeting.Checked;
 
-            if (title == "" || description == "")
+            if (title == string.Empty || description == string.Empty)
             {
-                MessageBox.Show("Vul alstublieft een titel of beschrijving in om door te gaan!");
+                MessageBox.Show("Vul alstublieft een titel en beschrijving in om door te gaan!");
                 return;
             }
 
