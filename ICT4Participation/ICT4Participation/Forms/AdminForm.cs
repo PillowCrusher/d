@@ -47,7 +47,7 @@ namespace ICT4Participation
             
         }
 
-        private void UpdateVolunteerListGui()
+        public void UpdateVolunteerListGui()
         {
             int position = 0;
             

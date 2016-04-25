@@ -211,6 +211,9 @@ namespace ICT4Participation.Classes.ClassObjects
                 {
                     Administration.BlockAccount(this);
                     MessageBox.Show(this.Name+" is geblokeerd");
+                    Button s = (Button) sender;
+                    AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
+                    f.UpdateVolunteerListGui();
                 }
             }
         }
