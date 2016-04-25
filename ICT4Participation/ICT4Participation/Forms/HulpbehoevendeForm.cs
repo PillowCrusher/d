@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
+using System.Drawing;
 
 namespace ICT4Participation.Forms
 {
@@ -16,6 +17,13 @@ namespace ICT4Participation.Forms
         {
             InitializeComponent();
             _administration = ad;
+
+            Size size = new Size(1280, 720);
+            this.Size = size;
+            this.MinimumSize = size;
+            this.MaximumSize = size;
+
+
             cbTransportType.DataSource = Enum.GetValues(typeof(TransportationType));
             RefreshAll();
 

@@ -24,6 +24,11 @@ namespace ICT4Participation
             InitializeComponent();
             _administration = new Administration();
 
+            Size size = new Size(1280, 720);
+            this.Size = size;
+            this.MinimumSize = size;
+            this.MaximumSize = size;
+
             GetAllVolunteers();
 
             UpdateVolunteerListGui();
