@@ -23,11 +23,11 @@ namespace ICT4Participation.Classes.ClassObjects
         /// <summary>
         /// Het ID van een Volunteer
         /// </summary>
-        public int ID { get; set; }
+ //       public int ID { get; set; }
         /// <summary>
         /// de naam van de volunteer
         /// </summary>
-        public string Name { get; private set; }
+ //       public string Name { get; private set; }
         /// <summary>
         /// een bool of de volunteer gebruik het openbare vervoer tot beschikking heeft
         /// </summary>
@@ -91,8 +91,8 @@ namespace ICT4Participation.Classes.ClassObjects
         public Volunteer(int id, string username, string email, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog, bool warned, bool blocked, Administration administration)
             : base(id, username, email, name, phonenumber, publicTransport,  hasDrivingLincense, hasCar, warned)
         {
-            ID = id;
-            Name = name;
+            //ID = id;
+           // Name = name;
             PublicTransport = publicTransport;
             HasDrivingLincense = hasDrivingLincense;
             HasCar = hasCar;
