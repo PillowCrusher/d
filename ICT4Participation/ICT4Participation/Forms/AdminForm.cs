@@ -34,7 +34,7 @@ namespace ICT4Participation
             UpdateVolunteerListGui();
         }
 
-        private void GetAllVolunteers()
+        public void GetAllVolunteers()
         {
             _volunteers = _administration.GetAllVolunteers();
         }
