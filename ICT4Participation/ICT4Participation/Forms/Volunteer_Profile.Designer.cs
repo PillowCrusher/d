@@ -69,7 +69,7 @@
             // 
             this.rbtTransportYes.AutoSize = true;
             this.rbtTransportYes.Location = new System.Drawing.Point(8, 19);
-            this.rbtTransportYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtTransportYes.Margin = new System.Windows.Forms.Padding(2);
             this.rbtTransportYes.Name = "rbtTransportYes";
             this.rbtTransportYes.Size = new System.Drawing.Size(37, 21);
             this.rbtTransportYes.TabIndex = 0;
@@ -83,9 +83,9 @@
             this.grbxPublicTransport.Controls.Add(this.rbtTransportNo);
             this.grbxPublicTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grbxPublicTransport.Location = new System.Drawing.Point(6, 71);
-            this.grbxPublicTransport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxPublicTransport.Margin = new System.Windows.Forms.Padding(2);
             this.grbxPublicTransport.Name = "grbxPublicTransport";
-            this.grbxPublicTransport.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxPublicTransport.Padding = new System.Windows.Forms.Padding(2);
             this.grbxPublicTransport.Size = new System.Drawing.Size(263, 37);
             this.grbxPublicTransport.TabIndex = 53;
             this.grbxPublicTransport.TabStop = false;
@@ -95,7 +95,7 @@
             // 
             this.rbtTransportNo.AutoSize = true;
             this.rbtTransportNo.Location = new System.Drawing.Point(52, 19);
-            this.rbtTransportNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtTransportNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbtTransportNo.Name = "rbtTransportNo";
             this.rbtTransportNo.Size = new System.Drawing.Size(50, 21);
             this.rbtTransportNo.TabIndex = 1;
@@ -107,7 +107,7 @@
             // 
             this.btUpdateProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUpdateProfile.Location = new System.Drawing.Point(6, 363);
-            this.btUpdateProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUpdateProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btUpdateProfile.Name = "btUpdateProfile";
             this.btUpdateProfile.Size = new System.Drawing.Size(263, 47);
             this.btUpdateProfile.TabIndex = 46;
@@ -142,7 +142,7 @@
             this.btVOG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btVOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btVOG.Location = new System.Drawing.Point(89, 36);
-            this.btVOG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btVOG.Margin = new System.Windows.Forms.Padding(2);
             this.btVOG.Name = "btVOG";
             this.btVOG.Size = new System.Drawing.Size(83, 30);
             this.btVOG.TabIndex = 43;
@@ -155,7 +155,7 @@
             this.btPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btPhoto.Location = new System.Drawing.Point(89, 2);
-            this.btPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btPhoto.Name = "btPhoto";
             this.btPhoto.Size = new System.Drawing.Size(83, 30);
             this.btPhoto.TabIndex = 42;
@@ -167,7 +167,7 @@
             // 
             this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtpBirthDate.Location = new System.Drawing.Point(86, 191);
-            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.Size = new System.Drawing.Size(185, 23);
             this.dtpBirthDate.TabIndex = 41;
@@ -175,7 +175,7 @@
             // tbPhonenumber
             // 
             this.tbPhonenumber.Location = new System.Drawing.Point(133, 42);
-            this.tbPhonenumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPhonenumber.Margin = new System.Windows.Forms.Padding(2);
             this.tbPhonenumber.Name = "tbPhonenumber";
             this.tbPhonenumber.Size = new System.Drawing.Size(128, 20);
             this.tbPhonenumber.TabIndex = 40;
@@ -183,7 +183,7 @@
             // tbCity
             // 
             this.tbCity.Location = new System.Drawing.Point(133, 22);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCity.Margin = new System.Windows.Forms.Padding(2);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(128, 20);
             this.tbCity.TabIndex = 39;
@@ -191,7 +191,7 @@
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(133, 2);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(2);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(128, 20);
             this.tbAddress.TabIndex = 38;
@@ -200,7 +200,7 @@
             // 
             this.rbtDrivingNo.AutoSize = true;
             this.rbtDrivingNo.Location = new System.Drawing.Point(64, 16);
-            this.rbtDrivingNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtDrivingNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbtDrivingNo.Name = "rbtDrivingNo";
             this.rbtDrivingNo.Size = new System.Drawing.Size(50, 21);
             this.rbtDrivingNo.TabIndex = 1;
@@ -212,7 +212,7 @@
             // 
             this.rbtDrivingYes.AutoSize = true;
             this.rbtDrivingYes.Location = new System.Drawing.Point(22, 16);
-            this.rbtDrivingYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtDrivingYes.Margin = new System.Windows.Forms.Padding(2);
             this.rbtDrivingYes.Name = "rbtDrivingYes";
             this.rbtDrivingYes.Size = new System.Drawing.Size(37, 21);
             this.rbtDrivingYes.TabIndex = 0;
@@ -226,9 +226,9 @@
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingYes);
             this.grbxDrivingLincense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grbxDrivingLincense.Location = new System.Drawing.Point(6, 111);
-            this.grbxDrivingLincense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxDrivingLincense.Margin = new System.Windows.Forms.Padding(2);
             this.grbxDrivingLincense.Name = "grbxDrivingLincense";
-            this.grbxDrivingLincense.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxDrivingLincense.Padding = new System.Windows.Forms.Padding(2);
             this.grbxDrivingLincense.Size = new System.Drawing.Size(263, 37);
             this.grbxDrivingLincense.TabIndex = 36;
             this.grbxDrivingLincense.TabStop = false;
@@ -238,7 +238,7 @@
             // 
             this.rbtCarNo.AutoSize = true;
             this.rbtCarNo.Location = new System.Drawing.Point(64, 16);
-            this.rbtCarNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtCarNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbtCarNo.Name = "rbtCarNo";
             this.rbtCarNo.Size = new System.Drawing.Size(50, 21);
             this.rbtCarNo.TabIndex = 1;
@@ -250,7 +250,7 @@
             // 
             this.rbtCarYes.AutoSize = true;
             this.rbtCarYes.Location = new System.Drawing.Point(22, 16);
-            this.rbtCarYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtCarYes.Margin = new System.Windows.Forms.Padding(2);
             this.rbtCarYes.Name = "rbtCarYes";
             this.rbtCarYes.Size = new System.Drawing.Size(37, 21);
             this.rbtCarYes.TabIndex = 0;
@@ -264,9 +264,9 @@
             this.grpbxCar.Controls.Add(this.rbtCarYes);
             this.grpbxCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grpbxCar.Location = new System.Drawing.Point(3, 147);
-            this.grpbxCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpbxCar.Margin = new System.Windows.Forms.Padding(2);
             this.grpbxCar.Name = "grpbxCar";
-            this.grpbxCar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpbxCar.Padding = new System.Windows.Forms.Padding(2);
             this.grpbxCar.Size = new System.Drawing.Size(266, 37);
             this.grpbxCar.TabIndex = 35;
             this.grpbxCar.TabStop = false;
@@ -342,7 +342,7 @@
             // 
             this.btUnsubscribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUnsubscribe.Location = new System.Drawing.Point(6, 413);
-            this.btUnsubscribe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUnsubscribe.Margin = new System.Windows.Forms.Padding(2);
             this.btUnsubscribe.Name = "btUnsubscribe";
             this.btUnsubscribe.Size = new System.Drawing.Size(263, 47);
             this.btUnsubscribe.TabIndex = 54;
@@ -363,7 +363,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblCity, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblPhoneNumber, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -385,7 +385,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lbFilePhoto, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbFileVOG, 2, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 225);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -418,7 +418,7 @@
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(6, 344);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(264, 20);
@@ -441,7 +441,7 @@
             this.Controls.Add(this.grbxDrivingLincense);
             this.Controls.Add(this.grpbxCar);
             this.Controls.Add(this.lblBirthdate);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Volunteer_Profile";
             this.Text = "Volunteer_Profile";
             this.grbxPublicTransport.ResumeLayout(false);
