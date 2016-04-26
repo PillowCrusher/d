@@ -10,17 +10,14 @@ using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
 using System.Drawing;
 using ICT4Participation.Forms;
+using ICT4Participation.Forms.SubForms;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
     public class HelpRequest
     {
         private int _position;
-
-        public List<Volunteer> Accepted;
-        public List<Volunteer> Declined;
-        public List<Volunteer> Pending;
-        public List<Review> Reviews;
+        
         public List<ChatMessage> ChatMessages;
         
         public int ID { get; private set; }
@@ -66,68 +63,35 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
-            Accepted = new List<Volunteer>();
-            Declined = new List<Volunteer>();
-            Pending = new List<Volunteer>();
             Reviews = new List<Review>();
         }
 
         public void Decline(Volunteer volunteer)
         {
-            Volunteer _volunteer = null;
-            foreach (Volunteer volunteerPending in Pending)
-            {
-                if (volunteerPending.Phonenumber == volunteer.Phonenumber)
-                {
-                    _volunteer = volunteerPending;
-                }
-            }
-            if (_volunteer != null)
-            {
-                Pending.Remove(_volunteer);
-                Declined.Add(_volunteer);
+            Pending.Remove(volunteer);
+            Declined.Add(volunteer);
 
-                OracleParameter[] Parameter =
-                {
-                    new OracleParameter("HelprequestID", ID),
-                    new OracleParameter("UserID", volunteer.ID)
-                };
-
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
-            }
-            else
+            OracleParameter[] Parameter =
             {
-                throw new Exception("Volunteer zit niet in Pending.");
-            }
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
         }
 
         public void Accept(Volunteer volunteer)
         {
-            Volunteer _volunteer = null;
-            foreach (Volunteer volunteerPending in Pending)
-            {
-                if (volunteerPending.Phonenumber == volunteer.Phonenumber)
-                {
-                    _volunteer = volunteerPending;
-                }
-            }
-            if (_volunteer != null)
-            {
-                Pending.Remove(_volunteer);
-                Accepted.Add(_volunteer);
+            Pending.Remove(volunteer);
+            Accepted.Add(volunteer);
 
-                OracleParameter[] Parameter =
-                {
-                    new OracleParameter("HelprequestID", ID),
-                    new OracleParameter("UserID", volunteer.ID)
-                };
-
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
-            }
-            else
+            OracleParameter[] Parameter =
             {
-                throw new Exception("Volunteer zit niet in Pending.");
-            }
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
         }
 
         public void AddReview(Review review)
@@ -178,39 +142,7 @@ namespace ICT4Participation.Classes.ClassObjects
                             Convert.ToDateTime(dr["time"])));
         }
         }
-
-        public void DeleteReview(Review review)
-        {
-            Review _review = null;
-            foreach (Review tempReview in Reviews)
-            {
-                if (tempReview.Volunteer.ID == review.Volunteer.ID && tempReview.Comment == review.Comment)
-                {
-                    _review = tempReview;
-                }
-            }
-            Reviews.Remove(_review);
-            OracleParameter[] Parameter =
-            {
-                new OracleParameter("helprequestid",ID),
-                new OracleParameter("volunteerid",_review.Volunteer.ID),
-                new OracleParameter("message",_review.Comment),
-            };
-            DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteReview"], Parameter);
-        }
-
-        public void AddVolunteer(Volunteer volunteer)
-        {
-            Pending.Add(volunteer);
-
-            OracleParameter[] Parameter =
-               {
-                    new OracleParameter("HelprequestID", ID),
-                    new OracleParameter("UserID", volunteer.ID)
-                };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], Parameter);
-        }
-
+        
         public GroupBox NewHelpRequest(int position, bool personal)
         {
             _position = position;
@@ -293,7 +225,10 @@ namespace ICT4Participation.Classes.ClassObjects
 
             if (b.Parent.Parent.Parent.Parent is HulpbehoevendeForm)
             {
-                
+                using (Form form = new BekijkVrijwilligersForm(this))
+                {
+                    form.ShowDialog();
+                }
             }
 
             if (b.Parent.Parent.Parent.Parent is VrijwilligersForm)
