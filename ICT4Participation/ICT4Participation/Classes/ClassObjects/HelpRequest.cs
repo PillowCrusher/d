@@ -17,11 +17,7 @@ namespace ICT4Participation.Classes.ClassObjects
     public class HelpRequest
     {
         private int _position;
-
-        public List<Volunteer> Accepted;
-        public List<Volunteer> Declined;
-        public List<Volunteer> Pending;
-        public List<Review> Reviews;
+        
         public List<ChatMessage> ChatMessages;
         
         public int ID { get; private set; }
@@ -67,9 +63,6 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
-            Accepted = new List<Volunteer>();
-            Declined = new List<Volunteer>();
-            Pending = new List<Volunteer>();
             Reviews = new List<Review>();
         }
 
@@ -147,84 +140,9 @@ namespace ICT4Participation.Classes.ClassObjects
                             Convert.ToBoolean(dr["iswarned"])),
                             Convert.ToString(dr["message"]),
                             Convert.ToDateTime(dr["time"])));
-            }
         }
-
-        public void DeleteReview(Review review)
-        {
-            Review _review = null;
-            foreach (Review tempReview in Reviews)
-            {
-                if (tempReview.Volunteer.ID == review.Volunteer.ID && tempReview.Comment == review.Comment)
-                {
-                    _review = tempReview;
-                }
-            }
-            Reviews.Remove(_review);
-            OracleParameter[] Parameter =
-            {
-                new OracleParameter("helprequestid",ID),
-                new OracleParameter("volunteerid",_review.Volunteer.ID),
-                new OracleParameter("message",_review.Comment),
-            };
-            DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteReview"], Parameter);
         }
-
-        public void AddVolunteer(Volunteer volunteer)
-        {
-            Pending.Add(volunteer);
-
-            OracleParameter[] Parameter =
-            {
-                new OracleParameter("HelprequestID", ID),
-                new OracleParameter("UserID", volunteer.ID)
-            };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], Parameter);
-        }
-
-        public void GetVolunteers()
-        {
-            OracleParameter[] parameters =
-            {
-                new OracleParameter("helprequestid", ID)
-            };
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[""], parameters);
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                Volunteer v = new Volunteer(
-                    Convert.ToInt32(dr["ID"]),
-                    dr["Username"].ToString(),
-                    dr["Email"].ToString(),
-                    dr["Name"].ToString(),
-                    dr["Adress"].ToString(),
-                    dr["City"].ToString(),
-                    dr["Phonenumber"].ToString(),
-                    Convert.ToBoolean(dr["OVpossible"]),
-                    Convert.ToBoolean(dr["HasDrivingLicence"]),
-                    Convert.ToBoolean(dr["HasCar"]),
-                    Convert.ToDateTime(dr["DateOfBirth"]),
-                    dr["Photo"].ToString(),
-                    dr["VOG"].ToString(),
-                    Convert.ToBoolean(dr["ISWARNED"]),
-                    Convert.ToBoolean(dr["ISBLOCKED"]),
-                    null);
-                string status = dr["Status"].ToString();
-                if (status == "Pending")
-                {
-                    Pending.Add(v);
-                }
-                else if (status == "Accepted")
-                {
-                    Accepted.Add(v);
-                }
-                else if (status == "Declined")
-                {
-                    Declined.Add(v);
-                }
-            }
-        }
-
+        
         public GroupBox NewHelpRequest(int position, bool personal)
         {
             _position = position;

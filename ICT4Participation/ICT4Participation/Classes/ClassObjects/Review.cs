@@ -8,15 +8,15 @@ namespace ICT4Participation.Classes.ClassObjects
 {
     public class Review
     {
-        public Volunteer Volunteer { get; }
-        public string Rating { get; }
-        public string Comment { get; }
+        public int HelpRequestId { get; private set; }
+        public int VolunteerId { get; private set; }
+        public string Message { get; private set; }
 
-        public Review(string rating, string comment, Volunteer volunteer)
+        public Review(int helpRequestId, int volunteerId, string message)
         {
-            Volunteer = volunteer;
-            Rating = rating;
-            Comment = comment;
+            HelpRequestId = helpRequestId;
+            VolunteerId = volunteerId;
+            Message = message;
         }
     }
 }

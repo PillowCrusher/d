@@ -81,10 +81,15 @@ namespace ICT4Participation.Classes.Database
 
             Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Accepted = 2 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
 
+            Query["GetAllReviews"] = "SELECT * FROM \"Review\"";
+
             Query["DeleteReview"] = "DELETE FROM \"Review\" WHERE HelpRequestID = :helprequestid AND VolunteerID = :volunteerid AND message = :message";
 
-
             //not yet needed            
+            Query["AcceptedVolunteer"] = "UPDATE \"Volunteer\" SET ACCEPTED = 1 WHERE ID = :id";
+
+            Query["DenyVolunteer"] = "DELETE FROM \"Account\" WHERE ID = :id";
+
             Query["UpdateUser"] = "update \"User\" SET Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
             
             Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, VOG = :vog, Adress = :adress, City = :city where ID = :id";
@@ -95,14 +100,18 @@ namespace ICT4Participation.Classes.Database
             
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
 
-            Query["DeleteReview"] = "DELETE FROM \"Review\" WHERE HELPREQUESTID =:ID AND VOLUNTEERID =:VolunteerID";
+            Query["GetAllReviewsVolunteer"] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :id";
+
 
             Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
 
             Query["UnWarnUser"] = "UPDATE \"User\" SET ISWARNED = 0 where ID = :id";
             
             Query["UnsubscribeUser"] = "UPDATE \"User\" set Deregistrationdate = :deregistrationdate where ID = :id";
-            
+
+            Query["GetVolunteersHelprequest"] = "select * from \"UserHelprequest\" h, \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE h.USERID = a.id AND h.HELPREQUESTID = :id";
+
+
         }
     }
 }

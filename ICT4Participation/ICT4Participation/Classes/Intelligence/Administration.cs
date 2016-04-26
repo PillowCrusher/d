@@ -16,7 +16,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public Administration()
         {
-            User = new Admin(1, "Henk", "@F", "234567890");
+           // User = new Admin(1, "Henk", "@F", "234567890");
         }
 
         /// <summary>
@@ -406,6 +406,24 @@ namespace ICT4Participation.Classes.Intelligence
             return volunteers;
         }
 
+        public List<Review> GetAllReviews()
+        {
+            List<Review> riviews = new List<Review>();
+
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllReviews"], null);
+            foreach (DataRow dr in dt.Rows)
+            {
+                riviews.Add(
+                    new Review(
+                        Convert.ToInt32(dr["HELPREQUESTID"]),
+                        Convert.ToInt32(dr["VOLUNTEERID"]),
+                        dr["MESSAGE"].ToString()
+                        ));
+            }
+
+            return riviews;
+        } 
+
         public void BlockAccount(User user)
         {
             Admin admin = ((Admin)User);
@@ -464,7 +482,7 @@ namespace ICT4Participation.Classes.Intelligence
             {
                 OracleParameter[] deleteParameter =
                 {
-                    new OracleParameter("id", id)
+                    new OracleParameter("d", id)
                 };
                 DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteHelpRequest"], deleteParameter);
             }
@@ -474,16 +492,49 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void DeleteReview(int HelpRequestID, int VolunteerID)
+        public void DeleteReview(int HelpRequestID, int VolunteerID, string message)
         {
             try
             {
                 OracleParameter[] deleteParameter =
                 {
-                    new OracleParameter("ID", HelpRequestID),
-                    new OracleParameter("VolunteerID", VolunteerID) 
+                    new OracleParameter("helprequestid", HelpRequestID),
+                    new OracleParameter("volunteerid", VolunteerID),
+                    new OracleParameter("message",message)  
                 };
-                DatabaseManager.ExecuteDeleteQuery("DeleteReview", deleteParameter);
+                DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteReview"], deleteParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void AcceptedVolunteer(int ID)
+        {
+            try
+            {
+                OracleParameter[] updateParameter =
+                {
+                    new OracleParameter("id", ID)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["AcceptedVolunteer"], updateParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void DenyVolunteer(int ID)
+        {
+            try
+            {
+                OracleParameter[] deleteParameter =
+                {
+                    new OracleParameter("id", ID)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["DenyVolunteer"], deleteParameter);
             }
             catch (Exception)
             {
