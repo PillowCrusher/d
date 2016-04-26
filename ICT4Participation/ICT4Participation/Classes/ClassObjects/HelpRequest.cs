@@ -10,6 +10,7 @@ using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
 using System.Drawing;
 using ICT4Participation.Forms;
+using ICT4Participation.Forms.SubForms;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -62,6 +63,46 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
+        }
+
+        public void Decline(Volunteer volunteer)
+        {
+            Pending.Remove(volunteer);
+            Declined.Add(volunteer);
+
+            OracleParameter[] Parameter =
+            {
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
+        }
+
+        public void Accept(Volunteer volunteer)
+        {
+            Pending.Remove(volunteer);
+            Accepted.Add(volunteer);
+
+            OracleParameter[] Parameter =
+            {
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
+        }
+
+        public void AddReview(Review review)
+        {
+            Reviews.Add(review);
+            OracleParameter[] Parameter =
+            {
+                new OracleParameter("helprequestid",ID),
+                new OracleParameter("volunteerid",review.Volunteer.ID),
+                new OracleParameter("message",review.Comment),
+            };
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertReview"], Parameter);
         }
 
         public void AddChatMessage(ChatMessage chatmessage)
@@ -183,7 +224,10 @@ namespace ICT4Participation.Classes.ClassObjects
 
             if (b.Parent.Parent.Parent.Parent is HulpbehoevendeForm)
             {
-                
+                using (Form form = new BekijkVrijwilligersForm(this))
+                {
+                    form.ShowDialog();
+                }
             }
 
             if (b.Parent.Parent.Parent.Parent is VrijwilligersForm)
