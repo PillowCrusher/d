@@ -29,13 +29,7 @@ namespace ICT4Participation
             this.MinimumSize = size;
             this.MaximumSize = size;
 
-            GetVolunteers();
-
-            GetPendingVolunteersGui();
-
-            UpdateVolunteerListGui();
-
-            UpdateAllHelpRequests();
+            UpdateAllGui();
         }
 
         public void UpdateAllGui()
@@ -47,6 +41,8 @@ namespace ICT4Participation
             UpdateVolunteerListGui();
 
             UpdateAllHelpRequests();
+
+            UpdateAllReviews();
         }
 
         public void GetVolunteers()
@@ -148,7 +144,29 @@ namespace ICT4Participation
 
         private void lbHelpRequestReview_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            Review r = (Review) lbHelpRequestReview.SelectedItem;
+
+            tbReview.Text = r.Message;
+
+            btnDeleteReview.Enabled = true;
+        }
+
+        private void btnDeleteReview_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Review r = (Review)lbHelpRequestReview.SelectedItem;
+
+                _administration.DeleteReview(r.HelpRequestId, r.VolunteerId, r.Message);
+
+                UpdateAllReviews();
+
+                tbReview.Text = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
