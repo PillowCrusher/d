@@ -3,7 +3,6 @@ using System.Security;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
-using ICT4Participation.Classes.ClassObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PTS37UnitTest
@@ -16,7 +15,6 @@ namespace PTS37UnitTest
         public void Initialize()
         {
             _administration = new Administration();
-            
         }
         [TestMethod]
         public void Test_ConnectionString()
