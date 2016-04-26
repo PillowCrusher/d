@@ -108,7 +108,10 @@ namespace ICT4Participation.Classes.Database
             Query["UnWarnUser"] = "UPDATE \"User\" SET ISWARNED = 0 where ID = :id";
             
             Query["UnsubscribeUser"] = "UPDATE \"User\" set Deregistrationdate = :deregistrationdate where ID = :id";
-            
+
+            Query["GetVolunteersHelprequest"] = "select * from \"UserHelprequest\" h, \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE h.USERID = a.id AND h.HELPREQUESTID = :id";
+
+
         }
     }
 }
