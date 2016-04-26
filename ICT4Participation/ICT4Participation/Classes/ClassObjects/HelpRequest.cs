@@ -62,7 +62,6 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
-            Reviews = new List<Review>();
         }
 
         public void AddChatMessage(ChatMessage chatmessage)

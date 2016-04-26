@@ -265,7 +265,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(219, 41);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
@@ -334,6 +334,7 @@
             this.btnDeleteReview.TabIndex = 2;
             this.btnDeleteReview.Text = "Verwijder";
             this.btnDeleteReview.UseVisualStyleBackColor = true;
+            this.btnDeleteReview.Click += new System.EventHandler(this.btnDeleteReview_Click);
             // 
             // tbReview
             // 
