@@ -351,14 +351,7 @@ namespace ICT4Participation.Classes.Intelligence
         public List<HelpRequest> GetHelpRequests(string querie, OracleParameter[] parameters)
         {
             List<HelpRequest> helpRequests = new List<HelpRequest>();
-
-            /*
-            OracleParameter[] parameter =
-            {
-                new OracleParameter("USERID", Convert.ToInt32(row[3]))
-            };
-            */
-
+            
             DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[querie], parameters);
 
             foreach (DataRow dr in dt.Rows)
@@ -373,8 +366,8 @@ namespace ICT4Participation.Classes.Intelligence
                         dr["Location"].ToString(),
                         Convert.ToBoolean(dr["Urgent"]),
                         (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
-                        DateTime.Now, //Convert.ToDateTime(dr["StartDate"]),
-                        DateTime.Now, //Convert.ToDateTime(dr["EndDate"]),
+                        Convert.ToDateTime(dr["StartDate"]),
+                        Convert.ToDateTime(dr["EndDate"]),
                         Convert.ToBoolean(dr["Interview"])
                         )
                     );
@@ -473,7 +466,7 @@ namespace ICT4Participation.Classes.Intelligence
                 {
                     new OracleParameter("id", id)
                 };
-                DatabaseManager.ExecuteDeleteQuery("DeleteHelpRequest", deleteParameter);
+                DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteHelpRequest"], deleteParameter);
             }
             catch (Exception)
             {
