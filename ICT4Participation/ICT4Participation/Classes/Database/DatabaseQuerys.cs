@@ -111,7 +111,7 @@ namespace ICT4Participation.Classes.Database
 
             Query["GetVolunteersHelprequest"] = "select * from \"UserHelprequest\" h, \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE h.USERID = a.id AND h.HELPREQUESTID = :id";
 
-
+            Query["GetAcceptedHelpRequests"] = "SELECT HELPREQUESTID FROM \"UserHelprequest\" WHERE USERID = :userid AND STATUS = 'Accepted'";
         }
     }
 }

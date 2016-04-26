@@ -33,6 +33,7 @@ namespace ICT4Participation.Forms
 
             UpdateHelpListGui();
             UpdatePersonalRecords();
+            GetAcceptedHelpRequest();
         }
 
         private void GetAllHelpRequests()
@@ -53,9 +54,22 @@ namespace ICT4Participation.Forms
             }
         }
 
-        private void GetHelpRequest()
+        private void GetAcceptedHelpRequest()
         {
-            
+            lbHelpRequests.Items.Clear();
+
+            OracleParameter[] parameter =
+            {
+                new OracleParameter("userid", _administration.User.ID),
+            };
+
+            foreach (HelpRequest h in _helpRequests)
+            {
+                if (_administration.GetAcceptedHelpRequests(parameter).Contains(h.ID))
+                {
+                    lbHelpRequests.Items.Add(h);
+                }
+            }
         }
 
         private void UpdatePersonalRecords()

@@ -541,5 +541,26 @@ namespace ICT4Participation.Classes.Intelligence
                 throw;
             }
         }
+
+        public List<int> GetAcceptedHelpRequests(OracleParameter[] parameter)
+        {
+            List<int> helprequestIdList = new List<int>();
+
+            try
+            {
+                DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAcceptedHelpRequests"], parameter);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    helprequestIdList.Add(Convert.ToInt32(dr["HELPREQUESTID"]));
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return helprequestIdList;
+        } 
     }
 }
