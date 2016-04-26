@@ -92,6 +92,16 @@ namespace ICT4Participation
             }
         }
 
+        private void UpdateAllReviews()
+        {
+            lbHelpRequestReview.Items.Clear();
+
+            foreach (Review r in _administration.GetAllReviews())
+            {
+                lbHelpRequestReview.Items.Add(r);
+            }
+        }
+
         private void btAddNeedy_Click_1(object sender, EventArgs e)
         {
             Form form = null;
@@ -134,6 +144,11 @@ namespace ICT4Participation
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             UpdateAllGui();
+        }
+
+        private void lbHelpRequestReview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

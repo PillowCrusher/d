@@ -48,6 +48,13 @@
             this.lbHelpRequest = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.tcHelpRequestReview = new System.Windows.Forms.TabControl();
+            this.tabHelpRequest = new System.Windows.Forms.TabPage();
+            this.tabReview = new System.Windows.Forms.TabPage();
+            this.gbReview = new System.Windows.Forms.GroupBox();
+            this.btnDeleteReview = new System.Windows.Forms.Button();
+            this.tbReview = new System.Windows.Forms.TextBox();
+            this.lbHelpRequestReview = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -56,6 +63,10 @@
             this.groupBox7.SuspendLayout();
             this.gbHelpRequest.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tcHelpRequestReview.SuspendLayout();
+            this.tabHelpRequest.SuspendLayout();
+            this.tabReview.SuspendLayout();
+            this.gbReview.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -142,6 +153,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.groupBox7);
+            this.groupBox5.Enabled = false;
             this.groupBox5.Location = new System.Drawing.Point(1034, 12);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(218, 256);
@@ -206,9 +218,9 @@
             this.gbHelpRequest.Controls.Add(this.tbDescription);
             this.gbHelpRequest.Controls.Add(this.lbHelpRequest);
             this.gbHelpRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbHelpRequest.Location = new System.Drawing.Point(526, 321);
+            this.gbHelpRequest.Location = new System.Drawing.Point(6, 6);
             this.gbHelpRequest.Name = "gbHelpRequest";
-            this.gbHelpRequest.Size = new System.Drawing.Size(502, 348);
+            this.gbHelpRequest.Size = new System.Drawing.Size(707, 310);
             this.gbHelpRequest.TabIndex = 9;
             this.gbHelpRequest.TabStop = false;
             this.gbHelpRequest.Text = "Hulp Vragen:";
@@ -230,7 +242,7 @@
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(352, 111);
+            this.tbDescription.Size = new System.Drawing.Size(557, 111);
             this.tbDescription.TabIndex = 1;
             // 
             // lbHelpRequest
@@ -238,7 +250,7 @@
             this.lbHelpRequest.FormattingEnabled = true;
             this.lbHelpRequest.Location = new System.Drawing.Point(6, 19);
             this.lbHelpRequest.Name = "lbHelpRequest";
-            this.lbHelpRequest.Size = new System.Drawing.Size(132, 316);
+            this.lbHelpRequest.Size = new System.Drawing.Size(132, 277);
             this.lbHelpRequest.TabIndex = 0;
             this.lbHelpRequest.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequest_SelectedIndexChanged);
             // 
@@ -268,13 +280,86 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // tcHelpRequestReview
+            // 
+            this.tcHelpRequestReview.Controls.Add(this.tabHelpRequest);
+            this.tcHelpRequestReview.Controls.Add(this.tabReview);
+            this.tcHelpRequestReview.Location = new System.Drawing.Point(526, 321);
+            this.tcHelpRequestReview.Name = "tcHelpRequestReview";
+            this.tcHelpRequestReview.SelectedIndex = 0;
+            this.tcHelpRequestReview.Size = new System.Drawing.Size(727, 348);
+            this.tcHelpRequestReview.TabIndex = 11;
+            // 
+            // tabHelpRequest
+            // 
+            this.tabHelpRequest.Controls.Add(this.gbHelpRequest);
+            this.tabHelpRequest.Location = new System.Drawing.Point(4, 22);
+            this.tabHelpRequest.Name = "tabHelpRequest";
+            this.tabHelpRequest.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHelpRequest.Size = new System.Drawing.Size(719, 322);
+            this.tabHelpRequest.TabIndex = 0;
+            this.tabHelpRequest.Text = "HelpRequest";
+            this.tabHelpRequest.UseVisualStyleBackColor = true;
+            // 
+            // tabReview
+            // 
+            this.tabReview.Controls.Add(this.gbReview);
+            this.tabReview.Location = new System.Drawing.Point(4, 22);
+            this.tabReview.Name = "tabReview";
+            this.tabReview.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReview.Size = new System.Drawing.Size(719, 322);
+            this.tabReview.TabIndex = 1;
+            this.tabReview.Text = "Review";
+            this.tabReview.UseVisualStyleBackColor = true;
+            // 
+            // gbReview
+            // 
+            this.gbReview.Controls.Add(this.btnDeleteReview);
+            this.gbReview.Controls.Add(this.tbReview);
+            this.gbReview.Controls.Add(this.lbHelpRequestReview);
+            this.gbReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbReview.Location = new System.Drawing.Point(6, 6);
+            this.gbReview.Name = "gbReview";
+            this.gbReview.Size = new System.Drawing.Size(707, 310);
+            this.gbReview.TabIndex = 10;
+            this.gbReview.TabStop = false;
+            this.gbReview.Text = "Hulp Vragen:";
+            // 
+            // btnDeleteReview
+            // 
+            this.btnDeleteReview.Enabled = false;
+            this.btnDeleteReview.Location = new System.Drawing.Point(144, 136);
+            this.btnDeleteReview.Name = "btnDeleteReview";
+            this.btnDeleteReview.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteReview.TabIndex = 2;
+            this.btnDeleteReview.Text = "Verwijder";
+            this.btnDeleteReview.UseVisualStyleBackColor = true;
+            // 
+            // tbReview
+            // 
+            this.tbReview.Location = new System.Drawing.Point(144, 19);
+            this.tbReview.Multiline = true;
+            this.tbReview.Name = "tbReview";
+            this.tbReview.ReadOnly = true;
+            this.tbReview.Size = new System.Drawing.Size(557, 111);
+            this.tbReview.TabIndex = 1;
+            // 
+            // lbHelpRequestReview
+            // 
+            this.lbHelpRequestReview.FormattingEnabled = true;
+            this.lbHelpRequestReview.Location = new System.Drawing.Point(6, 19);
+            this.lbHelpRequestReview.Name = "lbHelpRequestReview";
+            this.lbHelpRequestReview.Size = new System.Drawing.Size(132, 277);
+            this.lbHelpRequestReview.TabIndex = 0;
+            this.lbHelpRequestReview.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequestReview_SelectedIndexChanged);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.tcHelpRequestReview);
             this.Controls.Add(this.tableLayoutPanel3);
-            this.Controls.Add(this.gbHelpRequest);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -293,6 +378,11 @@
             this.gbHelpRequest.ResumeLayout(false);
             this.gbHelpRequest.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tcHelpRequestReview.ResumeLayout(false);
+            this.tabHelpRequest.ResumeLayout(false);
+            this.tabReview.ResumeLayout(false);
+            this.gbReview.ResumeLayout(false);
+            this.gbReview.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -319,5 +409,12 @@
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Button btnDeleteHR;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.TabControl tcHelpRequestReview;
+        private System.Windows.Forms.TabPage tabHelpRequest;
+        private System.Windows.Forms.TabPage tabReview;
+        private System.Windows.Forms.GroupBox gbReview;
+        private System.Windows.Forms.Button btnDeleteReview;
+        private System.Windows.Forms.TextBox tbReview;
+        private System.Windows.Forms.ListBox lbHelpRequestReview;
     }
 }
