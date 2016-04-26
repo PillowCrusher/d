@@ -23,7 +23,6 @@ namespace ICT4Participation.Classes.ClassObjects
         public List<Review> Reviews;
         public List<ChatMessage> ChatMessages;
         
-        public User CurrentUser { get; private set; }
         public int ID { get; private set; }
         public string NeedyName { get; private set; }
         public string Title { get; private set; }
@@ -35,7 +34,7 @@ namespace ICT4Participation.Classes.ClassObjects
         public DateTime DeadLine { get; private set; }
         public bool Interview { get; private set; }
 
-        public HelpRequest(User currentUser, int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine, bool interview)
+        public HelpRequest(int id, string needyName, string titel, string description, string location, bool urgent, TransportationType transportation, DateTime startDate, DateTime deadLine, bool interview)
         {
             if (titel == null)
             {
@@ -57,7 +56,6 @@ namespace ICT4Participation.Classes.ClassObjects
             {
                 throw new ArgumentNullException("endDate", "endDate is empty");
             }
-            CurrentUser = currentUser;
             ID = id;
             NeedyName = needyName;
             Title = titel;
@@ -213,36 +211,36 @@ namespace ICT4Participation.Classes.ClassObjects
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], Parameter);
         }
 
-        public GroupBox NewHelpRequest(HelpRequest hr, int position, bool personal)
+        public GroupBox NewHelpRequest(int position, bool personal)
         {
             _position = position;
 
             if (personal)
             {
                 var extraInfo =
-                    "Locatie: " + hr.Location + Environment.NewLine +
-                    "Urgent: " + FormTools.ConvertBoolToString(hr.Urgent) + Environment.NewLine +
-                    "Kennis maken: " + FormTools.ConvertBoolToString(hr.Interview) + Environment.NewLine +
-                    "Transport type: " + hr.Transportation + Environment.NewLine +
-                    "Deadline: " + hr.DeadLine.ToString("d");
+                    "Locatie: " + Location + Environment.NewLine +
+                    "Urgent: " + FormTools.ConvertBoolToString(Urgent) + Environment.NewLine +
+                    "Kennis maken: " + FormTools.ConvertBoolToString(Interview) + Environment.NewLine +
+                    "Transport type: " + Transportation + Environment.NewLine +
+                    "Deadline: " + DeadLine.ToString("d");
 
-                return NewHelpRequestGroupbox(hr, 270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
+                return NewHelpRequestGroupbox(270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
             }
             else
             {
                 var extraInfo =
-                    "Locatie: " + hr.Location + Environment.NewLine +
-                    "Urgent: " + FormTools.ConvertBoolToString(hr.Urgent) + Environment.NewLine +
-                    "Kennis maken: " + FormTools.ConvertBoolToString(hr.Interview) + Environment.NewLine +
-                    "Transport type: " + hr.Transportation + Environment.NewLine +
-                    "Datum geplaatst: " + hr.StartDate.ToString("d") + Environment.NewLine +
-                    "Deadline: " + hr.DeadLine.ToString("d");
+                    "Locatie: " + Location + Environment.NewLine +
+                    "Urgent: " + FormTools.ConvertBoolToString(Urgent) + Environment.NewLine +
+                    "Kennis maken: " + FormTools.ConvertBoolToString(Interview) + Environment.NewLine +
+                    "Transport type: " + Transportation + Environment.NewLine +
+                    "Datum geplaatst: " + StartDate.ToString("d") + Environment.NewLine +
+                    "Deadline: " + DeadLine.ToString("d");
 
-                return NewHelpRequestGroupbox(hr, 220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
+                return NewHelpRequestGroupbox(220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
             }
         }
 
-        private GroupBox NewHelpRequestGroupbox(HelpRequest hr, int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
+        private GroupBox NewHelpRequestGroupbox(int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
         {
             locationInt = locationInt * _position;
             locationInt += 5;
@@ -250,7 +248,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = hr.NeedyName + " - " + hr.Title,
+                Text = NeedyName + " - " + Title,
                 Location = new Point(6, locationInt),
                 Size = new Size(685, gbSize)
             };
@@ -261,7 +259,8 @@ namespace ICT4Participation.Classes.ClassObjects
                 Multiline = true,
                 Location = new Point(6, 19),
                 Size = new Size(673, 94),
-                Text = hr.Description
+                Text = Description,
+                ReadOnly = true
             };
             newQuestion.Controls.Add(t);
 
@@ -299,10 +298,9 @@ namespace ICT4Participation.Classes.ClassObjects
 
             if (b.Parent.Parent.Parent.Parent is VrijwilligersForm)
             {
-
                 OracleParameter[] parameters =
                 {
-                    new OracleParameter("userid", CurrentUser.ID),
+                    new OracleParameter("userid", ((VrijwilligersForm)b.Parent.Parent.Parent.Parent).GetCurrentVolunteer().ID),
                     new OracleParameter("helprequestid", ID),
                 };
 

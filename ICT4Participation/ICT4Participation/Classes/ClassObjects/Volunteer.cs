@@ -120,7 +120,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = Name.ToString(),
+                Text = Name,
                 Location = new Point(6, locationInt),
                 Size = new Size(461, 131)
             };

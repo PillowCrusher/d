@@ -102,9 +102,19 @@ namespace ICT4Participation
 
         private void btnDeleteHR_Click(object sender, EventArgs e)
         {
-            HelpRequest hr = (HelpRequest) lbHelpRequest.SelectedItem;
+            try
+            {
+                HelpRequest hr = (HelpRequest)lbHelpRequest.SelectedItem;
 
-            
+
+                _administration.DeleteHelprequest(hr.ID);
+
+                UpdateAllHelpRequests();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -366,7 +366,6 @@ namespace ICT4Participation.Classes.Intelligence
 
                 helpRequests.Add(
                     new HelpRequest(
-                        (User)User,
                         Convert.ToInt32(dr["ID"]),
                         dr["Name"].ToString(),
                         dr["Title"].ToString(),
@@ -466,7 +465,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void deleteHelprequest(int id)
+        public void DeleteHelprequest(int id)
         {
             try
             {

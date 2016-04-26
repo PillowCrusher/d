@@ -48,7 +48,7 @@ namespace ICT4Participation.Forms
 
             foreach (HelpRequest h in _helpRequests)
             {
-                    pnlHulpVragen.Controls.Add(h.NewHelpRequest(h, position, false));
+                    pnlHulpVragen.Controls.Add(h.NewHelpRequest(position, false));
                     position++;
 
             }
@@ -153,6 +153,12 @@ namespace ICT4Participation.Forms
                     lbHelpRequests.SelectionMode = selectionMode;
                 }
             }
+        }
+
+        public Volunteer GetCurrentVolunteer()
+        {
+            var user = _administration.User as Volunteer;
+            return user;
         }
     }
 }
