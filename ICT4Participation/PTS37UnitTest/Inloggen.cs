@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
@@ -41,6 +42,25 @@ namespace PTS37UnitTest
             string vog = "vog.pdf";
             _administration.AddVolunteer(username, password, email, name, address, city, phonenumber, publicTransport,
                 hasdrivinglicence, hascar, birthdate, photo, vog);
+            Assert.IsNotNull(_administration.GetAccountId(username));
+        }
+
+        [TestMethod]
+        public void Test_RegisterNeedy()
+        {
+            string username = "testneedy";
+            string password = "testneedy";
+            string email = "test@test.com";
+            string name = "testneedynaam";
+            string address = "testaddress 1";
+            string city = "testneedycity";
+            string phonenumber = "0123456789";
+            bool publicTransport = true;
+            bool hasdrivinglicence = true;
+            bool hascar = true;
+            string rfid = "355353544";
+            _administration.AddNeedy(username, password, email, name, address, phonenumber, publicTransport, hasdrivinglicence, hascar, rfid);
+            Assert.IsNotNull(_administration.GetAccountId(username));
         }
         [TestMethod]
         public void Test_InloggenAlsGebruiker()
@@ -95,12 +115,26 @@ namespace PTS37UnitTest
             string username = "test";
             string password = "test";
 
+            
             _administration.Login(username, password);
-            Volunteer volunteer = new Volunteer();
-
-            _administration.Unsubscribe(_administration.User);
+            Volunteer volunteer = (Volunteer)_administration.User;
+            
+            _administration.Unsubscribe(volunteer);
+            Assert.IsNotNull(volunteer.DeRegistrationDate);
         }
 
-
+        [TestMethod]
+        public void Test_UpdateProfile()
+        {
+            string username = "test";
+            string password = "test";
+            _administration.Login(username, password);
+            Volunteer volunteer = (Volunteer) _administration.User;
+            _administration.UpdateVolunteer(password, "Harrylaan 31", volunteer.City, volunteer.Phonenumber, volunteer.PublicTransport, volunteer.HasDrivingLincense, volunteer.HasCar, volunteer.BirthDate, volunteer.Photo, volunteer.VOG);
+            volunteer = (Volunteer)_administration.User;
+            string actual = volunteer.Address;
+            string expected = "Harrylaan 31";
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
