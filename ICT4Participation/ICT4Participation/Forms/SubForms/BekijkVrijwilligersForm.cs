@@ -22,6 +22,7 @@ namespace ICT4Participation.Forms.SubForms
         {
             InitializeComponent();
             _helpRequest = helpRequest;
+            _helpRequest.GetVolunteers();
             RefreshListBoxes();
         }
 
@@ -35,12 +36,14 @@ namespace ICT4Participation.Forms.SubForms
         {
             Volunteer v = (Volunteer) lbVrijwilligers.SelectedItem;
             _helpRequest.Accept(v);
+            RefreshListBoxes();
         }
 
         private void btnWijsAf_Click(object sender, EventArgs e)
         {
             Volunteer v = (Volunteer)lbVrijwilligers.SelectedItem;
             _helpRequest.Decline(v);
+            RefreshListBoxes();
         }
 
         private void lbRecensies_SelectedIndexChanged(object sender, EventArgs e)

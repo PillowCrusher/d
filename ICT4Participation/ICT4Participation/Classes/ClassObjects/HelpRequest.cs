@@ -64,9 +64,6 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
-            Pending = new List<Volunteer>();
-            Accepted = new List<Volunteer>();
-            Declined = new List<Volunteer>();
         }
 
         public void Decline(Volunteer volunteer)
@@ -114,22 +111,25 @@ namespace ICT4Participation.Classes.ClassObjects
             foreach (DataRow dr in dt.Rows)
             {
                 ChatMessages.Add(new ChatMessage(new User(
-                            Convert.ToInt32(dr["ID"]),
-                            Convert.ToString(dr["username"]),
-                            Convert.ToString(dr["email"]),
-                            Convert.ToString(dr["name"]),
-                            Convert.ToString(dr["phonenumber"]),
-                            Convert.ToBoolean(dr["ovpossible"]),
-                            Convert.ToBoolean(dr["hasdrivinglicence"]),
-                            Convert.ToBoolean(dr["hascar"]),
-                            Convert.ToBoolean(dr["iswarned"])),
-                            Convert.ToString(dr["message"]),
-                            Convert.ToDateTime(dr["time"])));
+                    Convert.ToInt32(dr["ID"]),
+                    Convert.ToString(dr["username"]),
+                    Convert.ToString(dr["email"]),
+                    Convert.ToString(dr["name"]),
+                    Convert.ToString(dr["phonenumber"]),
+                    Convert.ToBoolean(dr["ovpossible"]),
+                    Convert.ToBoolean(dr["hasdrivinglicence"]),
+                    Convert.ToBoolean(dr["hascar"]),
+                    Convert.ToBoolean(dr["iswarned"])),
+                    Convert.ToString(dr["message"]),
+                    Convert.ToDateTime(dr["time"])));
             }
         }
 
         public void GetVolunteers()
         {
+            Pending = new List<Volunteer>();
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
             OracleParameter[] parameters =
             {
                 new OracleParameter("id", ID)
@@ -153,6 +153,7 @@ namespace ICT4Participation.Classes.ClassObjects
                     dr["VOG"].ToString(),
                     Convert.ToBoolean(dr["ISWARNED"]),
                     Convert.ToBoolean(dr["ISBLOCKED"]), null);
+
                 string status = dr["Status"].ToString();
                 if (status == "Pending")
                 {

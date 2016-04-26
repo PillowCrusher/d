@@ -77,9 +77,9 @@ namespace ICT4Participation.Classes.Database
 
             Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:reporter, :reported, :reason)";
 
-            Query["HelpRequestAccept"] = "UPDATE \"UserHelprequest\" SET Accepted = 1 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
+            Query["HelpRequestAccept"] = "UPDATE \"UserHelprequest\" SET Status = 'Accepted' WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
 
-            Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Accepted = 2 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
+            Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Status = 'Declined' WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
 
             Query["GetAllReviews"] = "SELECT * FROM \"Review\"";
 
