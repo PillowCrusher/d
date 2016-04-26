@@ -100,7 +100,20 @@ namespace PTS37UnitTest
 
             _administration.Unsubscribe(_administration.User);
         }
+        [TestMethod]
+        public void Test_Registreren_Volunteer()
+        {
+            
+        }
+        [TestMethod]
+        public void Test_Update_Volunteer()
+        {
 
+        }
+        [TestMethod]
+        public void Test_Registreren_Needy()
+        {
 
+        }
     }
 }

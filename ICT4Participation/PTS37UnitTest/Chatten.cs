@@ -12,6 +12,7 @@ namespace PTS37UnitTest
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
