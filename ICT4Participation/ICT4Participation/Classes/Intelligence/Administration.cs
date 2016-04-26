@@ -464,7 +464,7 @@ namespace ICT4Participation.Classes.Intelligence
             {
                 OracleParameter[] deleteParameter =
                 {
-                    new OracleParameter("id", id)
+                    new OracleParameter("d", id)
                 };
                 DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteHelpRequest"], deleteParameter);
             }
@@ -474,16 +474,49 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void DeleteReview(int HelpRequestID, int VolunteerID)
+        public void DeleteReview(int HelpRequestID, int VolunteerID, string message)
         {
             try
             {
                 OracleParameter[] deleteParameter =
                 {
-                    new OracleParameter("ID", HelpRequestID),
-                    new OracleParameter("VolunteerID", VolunteerID) 
+                    new OracleParameter("helprequestid", HelpRequestID),
+                    new OracleParameter("volunteerid", VolunteerID),
+                    new OracleParameter("message",message)  
                 };
-                DatabaseManager.ExecuteDeleteQuery("DeleteReview", deleteParameter);
+                DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteReview"], deleteParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void AcceptedVolunteer(int ID)
+        {
+            try
+            {
+                OracleParameter[] updateParameter =
+                {
+                    new OracleParameter("id", ID)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["AcceptedVolunteer"], updateParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void DenyVolunteer(int ID)
+        {
+            try
+            {
+                OracleParameter[] deleteParameter =
+                {
+                    new OracleParameter("id", ID)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["DenyVolunteer"], deleteParameter);
             }
             catch (Exception)
             {

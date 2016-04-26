@@ -194,12 +194,44 @@ namespace ICT4Participation.Classes.ClassObjects
 
         private void btnBevestigen(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Weet je het zeker?", "Bevestig", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                if (Administration.User.GetType() == typeof(Admin))
+                {
+                    try
+                    {
+                        Administration.AcceptedVolunteer(ID);
+                        Button s = (Button)sender;
+                        AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent;
+                        f.UpdateAllGui();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
         }
 
         private void btnAfwijzen(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Weet je het zeker?", "Bevestig", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                if (Administration.User.GetType() == typeof(Admin))
+                {
+                    try
+                    {
+                        Administration.DenyVolunteer(ID);
+                        Button s = (Button)sender;
+                        AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent;
+                        f.UpdateAllGui();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
         }
 
         private void btnBlokkeer(object sender, EventArgs e)
