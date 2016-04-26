@@ -14,11 +14,18 @@ namespace PTS37UnitTest
     [TestClass]
     public class Beheren
     {
+        private readonly Administration _administration;
+        private List<Volunteer> _volunteers;
+        private List<Volunteer> _pendingVolunteers;
         public Beheren()
         {
             //
             // TODO: Add constructor logic here
             //
+            _administration = new Administration();
+            _administration.Login("Badman", "homo", "1c00fcfa13");
+            _volunteers = _administration.GetAllVolunteers("GetAcceptedVolunteers");
+            _pendingVolunteers = _administration.GetAllVolunteers("GetVOGVolunteers");
         }
         private TestContext testContextInstance;
 
@@ -38,34 +45,24 @@ namespace PTS37UnitTest
             }
         }
 
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
-
         [TestMethod]
-        public void TestMethod1()
+        public void Test_BlockUser()
         {
             //
             // TODO: Add test logic here
             //
+            string name = "testnaam";
+            Volunteer volunteer = _volunteers.Find(x => x.Name == name);
+            _administration.BlockAccount(volunteer);
+            _volunteers.Clear();
+            _volunteers = _administration.GetAllVolunteers("GetAcceptedVolunteers");
+            Assert.IsNull(_volunteers.Find(x => x.Name == name));
+        }
+
+        [TestMethod]
+        public void Test_DeleteHelpRequest()
+        {
+            
         }
     }
 }
