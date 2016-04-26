@@ -120,7 +120,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = Name.ToString(),
+                Text = Name,
                 Location = new Point(6, locationInt),
                 Size = new Size(461, 131)
             };
@@ -213,7 +213,7 @@ namespace ICT4Participation.Classes.ClassObjects
                     Button s = (Button) sender;
                     AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
                     f.GetVolunteers();
-                    f.UpdateVolunteerListGui();
+                    f.UpdateAllGui();
                 }
             }
         }
@@ -227,7 +227,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 Button s = (Button)sender;
                 AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
                 f.GetVolunteers();
-                f.UpdateVolunteerListGui();
+                f.UpdateAllGui();
             }
         }
     }

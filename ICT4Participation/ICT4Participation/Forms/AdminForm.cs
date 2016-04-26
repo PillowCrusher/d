@@ -30,21 +30,23 @@ namespace ICT4Participation
             this.MaximumSize = size;
 
             GetVolunteers();
-            GetPendingVolunteers();
+
+            GetPendingVolunteersGui();
 
             UpdateVolunteerListGui();
 
             UpdateAllHelpRequests();
         }
 
-        private void UpdateAllHelpRequests()
+        public void UpdateAllGui()
         {
-            lbHelpRequest.Items.Clear();
+            GetVolunteers();
 
-            foreach (HelpRequest hr in _administration.GetHelpRequests("GetAllHelpRequests", null))
-            {
-                lbHelpRequest.Items.Add(hr);
-            }
+            GetPendingVolunteersGui();
+
+            UpdateVolunteerListGui();
+
+            UpdateAllHelpRequests();
         }
 
         public void GetVolunteers()
@@ -53,7 +55,7 @@ namespace ICT4Participation
             _pendingVolunteers = _administration.GetAllVolunteers("GetVOGVolunteers");
         }
 
-        private void GetPendingVolunteers()
+        private void GetPendingVolunteersGui()
         {
             int position = 0;
 
@@ -67,7 +69,7 @@ namespace ICT4Participation
             
         }
 
-        public void UpdateVolunteerListGui()
+        private void UpdateVolunteerListGui()
         {
             int position = 0;
             
@@ -77,6 +79,16 @@ namespace ICT4Participation
             {
                 pnlVolunteers.Controls.Add(v.NewVolunteer(position, false));
                 position++;
+            }
+        }
+
+        private void UpdateAllHelpRequests()
+        {
+            lbHelpRequest.Items.Clear();
+
+            foreach (HelpRequest hr in _administration.GetHelpRequests("GetAllHelpRequests", null))
+            {
+                lbHelpRequest.Items.Add(hr);
             }
         }
 
@@ -102,9 +114,26 @@ namespace ICT4Participation
 
         private void btnDeleteHR_Click(object sender, EventArgs e)
         {
-            HelpRequest hr = (HelpRequest) lbHelpRequest.SelectedItem;
+            try
+            {
+                HelpRequest hr = (HelpRequest)lbHelpRequest.SelectedItem;
 
-            
+
+                _administration.DeleteHelprequest(hr.ID);
+
+                UpdateAllHelpRequests();
+
+                tbDescription.Text = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            UpdateAllGui();
         }
     }
 }

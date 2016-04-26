@@ -1,6 +1,8 @@
 ﻿using System;
+using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
+using ICT4Participation.Classes.ClassObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PTS37UnitTest
@@ -21,6 +23,25 @@ namespace PTS37UnitTest
             Assert.AreEqual(true, DatabaseManager.CheckConnection());
         }
 
+        [TestMethod]
+        public void Test_RegisterVolunteer()
+        {
+            string username = "test";
+            string password = "test";
+            string email = "test@test.com";
+            string name = "testnaam";
+            string address = "testaddress";
+            string city = "testcity";
+            string phonenumber = "0123456789";
+            bool publicTransport = true;
+            bool hasdrivinglicence = true;
+            bool hascar = true;
+            DateTime birthdate = DateTime.Now;
+            string photo = "photo.png";
+            string vog = "vog.pdf";
+            _administration.AddVolunteer(username, password, email, name, address, city, phonenumber, publicTransport,
+                hasdrivinglicence, hascar, birthdate, photo, vog);
+        }
         [TestMethod]
         public void Test_InloggenAlsGebruiker()
         {
@@ -57,11 +78,29 @@ namespace PTS37UnitTest
             string actual = _administration.User.Username;
             Assert.AreEqual(expected, actual);
         }
-
         [TestMethod]
         public void Test_Uitloggen()
         {
+            string username = "Harrie";
+            string password = "HarriePotter";
+
+            _administration.Login(username, password);
+            _administration.Logout();
             
+            Assert.IsNull(_administration.User);
         }
+        [TestMethod]
+        public void Test_Uitschrijven()
+        {
+            string username = "test";
+            string password = "test";
+
+            _administration.Login(username, password);
+            Volunteer volunteer = new Volunteer();
+
+            _administration.Unsubscribe(_administration.User);
+        }
+
+
     }
 }

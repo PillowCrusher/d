@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using ICT4Participation.Classes.Database;
+using ICT4Participation.Classes.Intelligence;
+using ICT4Participation.Classes.ClassObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PTS37UnitTest
