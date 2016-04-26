@@ -9,6 +9,7 @@ using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
 using System.Drawing;
+using ICT4Participation.Forms;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -289,22 +290,34 @@ namespace ICT4Participation.Classes.ClassObjects
 
         private void Reageer_Click(object sender, EventArgs e)
         {
-            OracleParameter[] parameters =
-            {
-                new OracleParameter("userid", CurrentUser.ID), 
-                new OracleParameter("helprequestid", ID), 
-            };
+            Button b = (Button)sender;
 
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["CheckifUserHelprequestExists"], parameters);
-
-            if (dt.Rows.Count != 0)
+            if (b.Parent.Parent.Parent.Parent is HulpbehoevendeForm)
             {
-                MessageBox.Show("Je hebt al gereageerd op deze hulpvraag!");
-                return;
+                
             }
 
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],parameters);
-            MessageBox.Show("Je hebt succesvol gereageerd op deze hulpvraag!");
+            if (b.Parent.Parent.Parent.Parent is VrijwilligersForm)
+            {
+
+                OracleParameter[] parameters =
+                {
+                    new OracleParameter("userid", CurrentUser.ID),
+                    new OracleParameter("helprequestid", ID),
+                };
+
+                DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["CheckifUserHelprequestExists"],
+                    parameters);
+
+                if (dt.Rows.Count != 0)
+                {
+                    MessageBox.Show("Je hebt al gereageerd op deze hulpvraag!");
+                    return;
+                }
+
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], parameters);
+                MessageBox.Show("Je hebt succesvol gereageerd op deze hulpvraag!");
+            }
         }
 
         public override string ToString()
