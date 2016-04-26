@@ -98,6 +98,8 @@ namespace ICT4Participation.Classes.Database
             
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
 
+            Query["GetAllReviewsVolunteer"] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :id";
+
 
             Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
 
