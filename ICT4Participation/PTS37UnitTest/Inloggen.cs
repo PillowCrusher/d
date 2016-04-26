@@ -51,7 +51,6 @@ namespace PTS37UnitTest
             string email = "test@test.com";
             string name = "testneedynaam";
             string address = "testaddress 1";
-            string city = "testneedycity";
             string phonenumber = "0123456789";
             bool publicTransport = true;
             bool hasdrivinglicence = true;
@@ -72,7 +71,7 @@ namespace PTS37UnitTest
             string expected = "Henkie";
             string actual = _administration.User.Username;
             Assert.AreEqual(actual, expected);
-            _administration.Login(false_username, false_username);
+            _administration.Login(false_username, false_password);
             
         }
         [TestMethod]
