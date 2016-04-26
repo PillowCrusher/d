@@ -16,7 +16,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public Administration()
         {
-            User = new Admin(1, "Henk", "@F", "234567890");
+           // User = new Admin(1, "Henk", "@F", "234567890");
         }
 
         /// <summary>
