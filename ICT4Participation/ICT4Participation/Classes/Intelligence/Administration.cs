@@ -466,7 +466,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void deleteHelprequest(int id)
+        public void DeleteHelprequest(int id)
         {
             try
             {
@@ -481,5 +481,7 @@ namespace ICT4Participation.Classes.Intelligence
                 throw;
             }
         }
+
+        public void DeleteReview()
     }
 }
