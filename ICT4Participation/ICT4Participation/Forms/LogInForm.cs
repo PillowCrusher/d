@@ -197,5 +197,13 @@ namespace ICT4Participation.Forms
                 Visible = true;
             }
         }
+
+        private void tbPassword_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btLogIn_Click(this, e);
+            }
+        }
     }
 }

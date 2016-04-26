@@ -19,9 +19,9 @@ namespace ICT4Participation.Forms
             _administration = ad;
 
             Size size = new Size(1280, 720);
-            this.Size = size;
-            this.MinimumSize = size;
-            this.MaximumSize = size;
+            Size = size;
+            MinimumSize = size;
+            MaximumSize = size;
 
 
             cbTransportType.DataSource = Enum.GetValues(typeof(TransportationType));
@@ -117,6 +117,14 @@ namespace ICT4Participation.Forms
                     lbChats.DataSource = hr.ChatMessages;
                     lbChats.DisplayMember = "TotalString";
                 }
+            }
+        }
+
+        private void tbMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSend_Click(this, e);
             }
         }
     }
