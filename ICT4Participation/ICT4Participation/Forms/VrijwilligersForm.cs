@@ -50,13 +50,12 @@ namespace ICT4Participation.Forms
             {
                     pnlHulpVragen.Controls.Add(h.NewHelpRequest(position, false));
                     position++;
-
             }
         }
 
-        private void btnVOG_Openen(object sender, EventArgs e)
+        private void GetHelpRequest()
         {
-            MessageBox.Show("Henkd");
+            
         }
 
         private void UpdatePersonalRecords()
@@ -118,7 +117,7 @@ namespace ICT4Participation.Forms
         }
 
 
-        private void btnSend_Click_1(object sender, EventArgs e)
+        private void btnSend_Click(object sender, EventArgs e)
         {
             HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
             foreach (HelpRequest hr in _helpRequests)
@@ -133,12 +132,12 @@ namespace ICT4Participation.Forms
             }
         }
 
-        private void tbMessage_Click_1(object sender, EventArgs e)
+        private void tbMessage_Click(object sender, EventArgs e)
         {
             tbMessage.Text = "";
         }
 
-        private void lbHelpRequests_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void lbHelpRequests_SelectedIndexChanged(object sender, EventArgs e)
         {
             HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
             foreach (HelpRequest hr in _helpRequests)

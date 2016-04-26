@@ -273,6 +273,7 @@
             this.btnSend.TabIndex = 3;
             this.btnSend.Text = "Verstuur";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // tbMessage
             // 
@@ -282,6 +283,7 @@
             this.tbMessage.Size = new System.Drawing.Size(267, 46);
             this.tbMessage.TabIndex = 2;
             this.tbMessage.Text = "tekst om te verzenden";
+            this.tbMessage.Click += new System.EventHandler(this.tbMessage_Click);
             // 
             // lbChats
             // 
@@ -298,12 +300,13 @@
             this.lbHelpRequests.Name = "lbHelpRequests";
             this.lbHelpRequests.Size = new System.Drawing.Size(120, 420);
             this.lbHelpRequests.TabIndex = 0;
+            this.lbHelpRequests.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequests_SelectedIndexChanged);
             // 
             // VrijwilligersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 548);
+            this.ClientSize = new System.Drawing.Size(1259, 666);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbHelpRequest);

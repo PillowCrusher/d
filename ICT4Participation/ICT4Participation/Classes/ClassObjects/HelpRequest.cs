@@ -182,7 +182,7 @@ namespace ICT4Participation.Classes.ClassObjects
                     "Transport type: " + Transportation + Environment.NewLine +
                     "Deadline: " + DeadLine.ToString("d");
 
-                return NewHelpRequestGroupbox(270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers");
+                return NewHelpRequestGroupbox(270, 265, extraInfo, 550, 195, 128, 60, "Bekijk vrijwilligers", true);
             }
             else
             {
@@ -194,11 +194,11 @@ namespace ICT4Participation.Classes.ClassObjects
                     "Datum geplaatst: " + StartDate.ToString("d") + Environment.NewLine +
                     "Deadline: " + DeadLine.ToString("d");
 
-                return NewHelpRequestGroupbox(220, 214, extraInfo, 604, 185, 75, 23, "Reageer");
+                return NewHelpRequestGroupbox(220, 214, extraInfo, 604, 185, 75, 23, "Reageer", false);
             }
         }
 
-        private GroupBox NewHelpRequestGroupbox(int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText)
+        private GroupBox NewHelpRequestGroupbox(int locationInt, int gbSize, string lblExtraInfo, int btnX, int btnY, int btnW, int btnH, string btnText, bool personal)
         {
             locationInt = locationInt * _position;
             locationInt += 5;
@@ -242,6 +242,18 @@ namespace ICT4Participation.Classes.ClassObjects
             btn.Click += new EventHandler(Reageer_Click);
             newQuestion.Controls.Add(btn);
 
+            if (personal)
+            {
+                var btn2 = new Button()
+                {
+                    Location = new Point(btnX - btnW - 5, btnY),
+                    Size = new Size(btnW, btnH),
+                    Text = "Hulpvraag Afsluiten"
+                };
+                btn2.Click += new EventHandler(Afsluiten_Click);
+                newQuestion.Controls.Add(btn2);
+            }
+            
             return newQuestion;
         }
 
@@ -277,6 +289,11 @@ namespace ICT4Participation.Classes.ClassObjects
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], parameters);
                 MessageBox.Show("Je hebt succesvol gereageerd op deze hulpvraag!");
             }
+        }
+
+        private void Afsluiten_Click(object sender, EventArgs e)
+        {
+            
         }
 
         public override string ToString()

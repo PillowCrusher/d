@@ -18,5 +18,10 @@ namespace ICT4Participation.Classes.ClassObjects
             VolunteerId = volunteerId;
             Message = message;
         }
+
+        public override string ToString()
+        {
+            return "Helprequest: " + HelpRequestId;
+        }
     }
 }
