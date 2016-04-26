@@ -37,16 +37,17 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pnlVOGVolunteers = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btAddNeedy = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btAddNeedy = new System.Windows.Forms.Button();
             this.gbHelpRequest = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbHelpRequest = new System.Windows.Forms.ListBox();
-            this.tbDescription = new System.Windows.Forms.TextBox();
             this.btnDeleteHR = new System.Windows.Forms.Button();
+            this.tbDescription = new System.Windows.Forms.TextBox();
+            this.lbHelpRequest = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -148,18 +149,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Klachten";
             // 
-            // btAddNeedy
-            // 
-            this.btAddNeedy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btAddNeedy.Location = new System.Drawing.Point(2, 2);
-            this.btAddNeedy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btAddNeedy.Name = "btAddNeedy";
-            this.btAddNeedy.Size = new System.Drawing.Size(105, 37);
-            this.btAddNeedy.TabIndex = 8;
-            this.btAddNeedy.Text = "Voeg een needy toe";
-            this.btAddNeedy.UseVisualStyleBackColor = true;
-            this.btAddNeedy.Click += new System.EventHandler(this.btAddNeedy_Click_1);
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.button10);
@@ -199,6 +188,18 @@
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "Deze man onvriendelijk en doet alles te gehaast. Dit is niet fijn.";
             // 
+            // btAddNeedy
+            // 
+            this.btAddNeedy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btAddNeedy.Location = new System.Drawing.Point(2, 2);
+            this.btAddNeedy.Margin = new System.Windows.Forms.Padding(2);
+            this.btAddNeedy.Name = "btAddNeedy";
+            this.btAddNeedy.Size = new System.Drawing.Size(105, 37);
+            this.btAddNeedy.TabIndex = 8;
+            this.btAddNeedy.Text = "Voeg een needy toe";
+            this.btAddNeedy.UseVisualStyleBackColor = true;
+            this.btAddNeedy.Click += new System.EventHandler(this.btAddNeedy_Click_1);
+            // 
             // gbHelpRequest
             // 
             this.gbHelpRequest.Controls.Add(this.btnDeleteHR);
@@ -212,37 +213,6 @@
             this.gbHelpRequest.TabStop = false;
             this.gbHelpRequest.Text = "Hulp Vragen:";
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btAddNeedy, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1034, 274);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(219, 41);
-            this.tableLayoutPanel3.TabIndex = 10;
-            // 
-            // lbHelpRequest
-            // 
-            this.lbHelpRequest.FormattingEnabled = true;
-            this.lbHelpRequest.Location = new System.Drawing.Point(6, 19);
-            this.lbHelpRequest.Name = "lbHelpRequest";
-            this.lbHelpRequest.Size = new System.Drawing.Size(132, 316);
-            this.lbHelpRequest.TabIndex = 0;
-            this.lbHelpRequest.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequest_SelectedIndexChanged);
-            // 
-            // tbDescription
-            // 
-            this.tbDescription.Location = new System.Drawing.Point(144, 19);
-            this.tbDescription.Multiline = true;
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(352, 111);
-            this.tbDescription.TabIndex = 1;
-            // 
             // btnDeleteHR
             // 
             this.btnDeleteHR.Enabled = false;
@@ -253,6 +223,50 @@
             this.btnDeleteHR.Text = "Verwijder";
             this.btnDeleteHR.UseVisualStyleBackColor = true;
             this.btnDeleteHR.Click += new System.EventHandler(this.btnDeleteHR_Click);
+            // 
+            // tbDescription
+            // 
+            this.tbDescription.Location = new System.Drawing.Point(144, 19);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.ReadOnly = true;
+            this.tbDescription.Size = new System.Drawing.Size(352, 111);
+            this.tbDescription.TabIndex = 1;
+            // 
+            // lbHelpRequest
+            // 
+            this.lbHelpRequest.FormattingEnabled = true;
+            this.lbHelpRequest.Location = new System.Drawing.Point(6, 19);
+            this.lbHelpRequest.Name = "lbHelpRequest";
+            this.lbHelpRequest.Size = new System.Drawing.Size(132, 316);
+            this.lbHelpRequest.TabIndex = 0;
+            this.lbHelpRequest.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequest_SelectedIndexChanged);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.btAddNeedy, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnRefresh, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1034, 274);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(219, 41);
+            this.tableLayoutPanel3.TabIndex = 10;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRefresh.Location = new System.Drawing.Point(112, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(104, 35);
+            this.btnRefresh.TabIndex = 9;
+            this.btnRefresh.Text = "Refresh Alles";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // AdminForm
             // 
@@ -304,5 +318,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Button btnDeleteHR;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
