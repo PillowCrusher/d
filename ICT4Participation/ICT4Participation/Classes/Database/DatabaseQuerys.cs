@@ -81,6 +81,8 @@ namespace ICT4Participation.Classes.Database
 
             Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Accepted = 2 WHERE(HelprequestID = :HelprequestID AND UserID = :UserID) ";
 
+            Query["GetAllReviews"] = "SELECT * FROM \"Review\"";
+
             Query["DeleteReview"] = "DELETE FROM \"Review\" WHERE HelpRequestID = :helprequestid AND VolunteerID = :volunteerid AND message = :message";
 
             //not yet needed            

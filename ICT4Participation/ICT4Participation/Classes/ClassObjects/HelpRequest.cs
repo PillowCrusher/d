@@ -135,9 +135,9 @@ namespace ICT4Participation.Classes.ClassObjects
             Reviews.Add(review);
             OracleParameter[] Parameter =
             {
-                new OracleParameter("helprequestid",ID),
-                new OracleParameter("volunteerid",review.Volunteer.ID),
-                new OracleParameter("message",review.Comment),
+                new OracleParameter("helprequestid", ID),
+                new OracleParameter("volunteerid", review.VolunteerId),
+                new OracleParameter("message", review.Message),
             };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertReview"], Parameter);
         }
@@ -184,7 +184,7 @@ namespace ICT4Participation.Classes.ClassObjects
             Review _review = null;
             foreach (Review tempReview in Reviews)
             {
-                if (tempReview.Volunteer.ID == review.Volunteer.ID && tempReview.Comment == review.Comment)
+                if (tempReview.VolunteerId == review.VolunteerId && tempReview.Message == review.Message)
                 {
                     _review = tempReview;
                 }
@@ -193,8 +193,8 @@ namespace ICT4Participation.Classes.ClassObjects
             OracleParameter[] Parameter =
             {
                 new OracleParameter("helprequestid",ID),
-                new OracleParameter("volunteerid",_review.Volunteer.ID),
-                new OracleParameter("message",_review.Comment),
+                new OracleParameter("volunteerid",_review.VolunteerId),
+                new OracleParameter("message",_review.Message),
             };
             DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteReview"], Parameter);
         }

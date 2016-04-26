@@ -406,6 +406,24 @@ namespace ICT4Participation.Classes.Intelligence
             return volunteers;
         }
 
+        public List<Review> GetAllReviews()
+        {
+            List<Review> riviews = new List<Review>();
+
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllReviews"], null);
+            foreach (DataRow dr in dt.Rows)
+            {
+                riviews.Add(
+                    new Review(
+                        Convert.ToInt32(dr["HELPREQUESTID"]),
+                        Convert.ToInt32(dr["VOLUNTEERID"]),
+                        dr["MESSAGE"].ToString()
+                        ));
+            }
+
+            return riviews;
+        } 
+
         public void BlockAccount(User user)
         {
             Admin admin = ((Admin)User);
