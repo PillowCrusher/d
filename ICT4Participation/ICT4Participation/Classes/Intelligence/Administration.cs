@@ -351,7 +351,7 @@ namespace ICT4Participation.Classes.Intelligence
         public List<HelpRequest> GetHelpRequests(string querie, OracleParameter[] parameters)
         {
             List<HelpRequest> helpRequests = new List<HelpRequest>();
-
+            
             DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[querie], parameters);
 
             foreach (DataRow dr in dt.Rows)

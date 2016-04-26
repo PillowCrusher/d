@@ -239,7 +239,7 @@ namespace ICT4Participation.Classes.ClassObjects
                     Button s = (Button) sender;
                     AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
                     f.GetVolunteers();
-                    f.UpdateVolunteerListGui();
+                    f.UpdateAllGui();
                 }
             }
         }
@@ -253,7 +253,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 Button s = (Button)sender;
                 AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
                 f.GetVolunteers();
-                f.UpdateVolunteerListGui();
+                f.UpdateAllGui();
             }
         }
     }
