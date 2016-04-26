@@ -1,6 +1,7 @@
 ﻿using System;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
+using ICT4Participation.Classes.ClassObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PTS37UnitTest
