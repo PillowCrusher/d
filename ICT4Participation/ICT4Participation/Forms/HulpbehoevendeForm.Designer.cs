@@ -100,7 +100,7 @@
             this.lbChats.Location = new System.Drawing.Point(132, 19);
             this.lbChats.Name = "lbChats";
             this.lbChats.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbChats.Size = new System.Drawing.Size(366, 564);
+            this.lbChats.Size = new System.Drawing.Size(366, 544);
             this.lbChats.TabIndex = 1;
             // 
             // lbHelpRequests
@@ -110,7 +110,7 @@
             this.lbHelpRequests.ItemHeight = 20;
             this.lbHelpRequests.Location = new System.Drawing.Point(6, 19);
             this.lbHelpRequests.Name = "lbHelpRequests";
-            this.lbHelpRequests.Size = new System.Drawing.Size(120, 624);
+            this.lbHelpRequests.Size = new System.Drawing.Size(120, 604);
             this.lbHelpRequests.TabIndex = 0;
             this.lbHelpRequests.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequests_SelectedIndexChanged);
             // 
@@ -283,12 +283,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(958, 548);
             this.Controls.Add(this.gbHulpVragen);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
-            this.MaximumSize = new System.Drawing.Size(1280, 720);
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.MaximumSize = new System.Drawing.Size(1275, 705);
+            this.MinimumSize = new System.Drawing.Size(967, 558);
             this.Name = "HulpbehoevendeForm";
             this.Text = "HulpbehoevendeForm";
             this.groupBox5.ResumeLayout(false);

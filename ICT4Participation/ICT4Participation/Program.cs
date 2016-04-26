@@ -18,7 +18,7 @@ namespace ICT4Participation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInForm());
+            Application.Run(new AdminForm());
         }
     }
 }

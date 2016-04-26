@@ -29,14 +29,28 @@ namespace ICT4Participation
             this.MinimumSize = size;
             this.MaximumSize = size;
 
-            GetAllVolunteers();
+            GetVolunteers();
+            GetPendingVolunteers();
 
             UpdateVolunteerListGui();
+
+            UpdateAllHelpRequests();
         }
 
-        public void GetAllVolunteers()
+        private void UpdateAllHelpRequests()
         {
-            _volunteers = _administration.GetAllVolunteers();
+            lbHelpRequest.Items.Clear();
+
+            foreach (HelpRequest hr in _administration.GetHelpRequests("GetAllHelpRequests", null))
+            {
+                lbHelpRequest.Items.Add(hr);
+            }
+        }
+
+        public void GetVolunteers()
+        {
+            _volunteers = _administration.GetAllVolunteers("GetAcceptedVolunteers");
+            _pendingVolunteers = _administration.GetAllVolunteers("GetVOGVolunteers");
         }
 
         private void GetPendingVolunteers()
@@ -44,6 +58,12 @@ namespace ICT4Participation
             int position = 0;
 
             pnlVOGVolunteers.Controls.Clear();
+
+            foreach (Volunteer v in _pendingVolunteers)
+            {
+                pnlVOGVolunteers.Controls.Add(v.NewVolunteer(position, true));
+                position++;
+            }
             
         }
 
@@ -57,7 +77,6 @@ namespace ICT4Participation
             {
                 pnlVolunteers.Controls.Add(v.NewVolunteer(position, false));
                 position++;
-
             }
         }
 
@@ -70,6 +89,22 @@ namespace ICT4Participation
                 form.ShowDialog();
             }
             Show();
+        }
+
+        private void lbHelpRequest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HelpRequest hr = (HelpRequest) lbHelpRequest.SelectedItem;
+
+            tbDescription.Text = hr.Description;
+
+            btnDeleteHR.Enabled = true;
+        }
+
+        private void btnDeleteHR_Click(object sender, EventArgs e)
+        {
+            HelpRequest hr = (HelpRequest) lbHelpRequest.SelectedItem;
+
+            
         }
     }
 }
