@@ -312,10 +312,10 @@ namespace ICT4Participation.Classes.Intelligence
                 //de parameters voor de query
                 OracleParameter[] accountParameter =
                 {
-                new OracleParameter("username", username),
-                new OracleParameter("password", password),
-                new OracleParameter("email", email)
-            };
+                    new OracleParameter("username", username),
+                    new OracleParameter("password", password),
+                    new OracleParameter("email", email)
+                };
                 //Voer de query uit om een account toe te voegen
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertAccount"], accountParameter);
             }
