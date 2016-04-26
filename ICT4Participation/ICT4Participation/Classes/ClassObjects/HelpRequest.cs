@@ -10,6 +10,7 @@ using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
 using System.Drawing;
 using ICT4Participation.Forms;
+using ICT4Participation.Forms.SubForms;
 
 namespace ICT4Participation.Classes.ClassObjects
 {
@@ -74,60 +75,30 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void Decline(Volunteer volunteer)
         {
-            Volunteer _volunteer = null;
-            foreach (Volunteer volunteerPending in Pending)
-            {
-                if (volunteerPending.Phonenumber == volunteer.Phonenumber)
-                {
-                    _volunteer = volunteerPending;
-                }
-            }
-            if (_volunteer != null)
-            {
-                Pending.Remove(_volunteer);
-                Declined.Add(_volunteer);
+            Pending.Remove(volunteer);
+            Declined.Add(volunteer);
 
-                OracleParameter[] Parameter =
-                {
-                    new OracleParameter("HelprequestID", ID),
-                    new OracleParameter("UserID", volunteer.ID)
-                };
-
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
-            }
-            else
+            OracleParameter[] Parameter =
             {
-                throw new Exception("Volunteer zit niet in Pending.");
-            }
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestDecline"], Parameter);
         }
 
         public void Accept(Volunteer volunteer)
         {
-            Volunteer _volunteer = null;
-            foreach (Volunteer volunteerPending in Pending)
-            {
-                if (volunteerPending.Phonenumber == volunteer.Phonenumber)
-                {
-                    _volunteer = volunteerPending;
-                }
-            }
-            if (_volunteer != null)
-            {
-                Pending.Remove(_volunteer);
-                Accepted.Add(_volunteer);
+            Pending.Remove(volunteer);
+            Accepted.Add(volunteer);
 
-                OracleParameter[] Parameter =
-                {
-                    new OracleParameter("HelprequestID", ID),
-                    new OracleParameter("UserID", volunteer.ID)
-                };
-
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
-            }
-            else
+            OracleParameter[] Parameter =
             {
-                throw new Exception("Volunteer zit niet in Pending.");
-            }
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.ID)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
         }
 
         public void AddReview(Review review)
@@ -176,7 +147,7 @@ namespace ICT4Participation.Classes.ClassObjects
                             Convert.ToBoolean(dr["iswarned"])),
                             Convert.ToString(dr["message"]),
                             Convert.ToDateTime(dr["time"])));
-        }
+            }
         }
 
         public void DeleteReview(Review review)
@@ -204,11 +175,54 @@ namespace ICT4Participation.Classes.ClassObjects
             Pending.Add(volunteer);
 
             OracleParameter[] Parameter =
-               {
-                    new OracleParameter("HelprequestID", ID),
-                    new OracleParameter("UserID", volunteer.ID)
-                };
+            {
+                new OracleParameter("HelprequestID", ID),
+                new OracleParameter("UserID", volunteer.ID)
+            };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"], Parameter);
+        }
+
+        public void GetVolunteers()
+        {
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("helprequestid", ID)
+            };
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[""], parameters);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                Volunteer v = new Volunteer(
+                    Convert.ToInt32(dr["ID"]),
+                    dr["Username"].ToString(),
+                    dr["Email"].ToString(),
+                    dr["Name"].ToString(),
+                    dr["Adress"].ToString(),
+                    dr["City"].ToString(),
+                    dr["Phonenumber"].ToString(),
+                    Convert.ToBoolean(dr["OVpossible"]),
+                    Convert.ToBoolean(dr["HasDrivingLicence"]),
+                    Convert.ToBoolean(dr["HasCar"]),
+                    Convert.ToDateTime(dr["DateOfBirth"]),
+                    dr["Photo"].ToString(),
+                    dr["VOG"].ToString(),
+                    Convert.ToBoolean(dr["ISWARNED"]),
+                    Convert.ToBoolean(dr["ISBLOCKED"]),
+                    null);
+                string status = dr["Status"].ToString();
+                if (status == "Pending")
+                {
+                    Pending.Add(v);
+                }
+                else if (status == "Accepted")
+                {
+                    Accepted.Add(v);
+                }
+                else if (status == "Declined")
+                {
+                    Declined.Add(v);
+                }
+            }
         }
 
         public GroupBox NewHelpRequest(int position, bool personal)
@@ -293,7 +307,10 @@ namespace ICT4Participation.Classes.ClassObjects
 
             if (b.Parent.Parent.Parent.Parent is HulpbehoevendeForm)
             {
-                
+                using (Form form = new BekijkVrijwilligersForm(this))
+                {
+                    form.ShowDialog();
+                }
             }
 
             if (b.Parent.Parent.Parent.Parent is VrijwilligersForm)

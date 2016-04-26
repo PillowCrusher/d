@@ -51,6 +51,7 @@
             this.lbRecensies.Name = "lbRecensies";
             this.lbRecensies.Size = new System.Drawing.Size(357, 186);
             this.lbRecensies.TabIndex = 0;
+            this.lbRecensies.SelectedIndexChanged += new System.EventHandler(this.lbRecensies_SelectedIndexChanged);
             // 
             // btnAccepteer
             // 
@@ -61,6 +62,7 @@
             this.btnAccepteer.TabIndex = 1;
             this.btnAccepteer.Text = "Accepteer vrijwilliger";
             this.btnAccepteer.UseVisualStyleBackColor = true;
+            this.btnAccepteer.Click += new System.EventHandler(this.btnAccepteer_Click);
             // 
             // btnWijsAf
             // 
@@ -71,6 +73,7 @@
             this.btnWijsAf.TabIndex = 1;
             this.btnWijsAf.Text = "Wijs vrijwilliger af";
             this.btnWijsAf.UseVisualStyleBackColor = true;
+            this.btnWijsAf.Click += new System.EventHandler(this.btnWijsAf_Click);
             // 
             // lblVrijwilligers
             // 
