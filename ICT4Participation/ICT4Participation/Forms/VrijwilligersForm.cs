@@ -84,9 +84,12 @@ namespace ICT4Participation.Forms
                 Volunteer_Profile vpForm = new Volunteer_Profile(currentUser);
 
                 vpForm.ShowDialog();
-
-                _administration.UpdateVolunteer(vpForm.password, vpForm.adress, vpForm.city, vpForm.phonenumber, vpForm.publicTransport,
-                    vpForm.drivingLincence, vpForm.hasCar, vpForm.birhtDay, vpForm.photoFile, vpForm.VOGFile);
+                if (vpForm.password != null)
+                {
+                    _administration.UpdateVolunteer(vpForm.password, vpForm.adress, vpForm.city, vpForm.phonenumber,
+                        vpForm.publicTransport,
+                        vpForm.drivingLincence, vpForm.hasCar, vpForm.birhtDay, vpForm.photoFile, vpForm.VOGFile);
+                }
                 vpForm.Close();
                 UpdatePersonalRecords();
             }

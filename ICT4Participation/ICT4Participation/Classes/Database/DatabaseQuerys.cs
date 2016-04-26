@@ -84,9 +84,7 @@ namespace ICT4Participation.Classes.Database
             Query["DeleteReview"] = "DELETE FROM \"Review\" WHERE HelpRequestID = :helprequestid AND VolunteerID = :volunteerid AND message = :message";
 
 
-            //not yet needed
-            // Query["UpdateAccount"] = "update \"Account\" set Username = :username, Password = :password, Email = :email where ID = :id";
-            
+            //not yet needed            
             Query["UpdateUser"] = "update \"User\" SET Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
             
             Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, VOG = :vog, Adress = :adress, City = :city where ID = :id";
@@ -96,7 +94,9 @@ namespace ICT4Participation.Classes.Database
             Query["GetChatMessagesFromHelprequest"] = "SELECT * FROM \"ChatMessage\" c left join \"Account\" a on c.USERID = a.ID left join \"User\" u on a.ID = u.ID WHERE c.HELPREQUESTID = :helprequestid";
             
             Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :id";
-            
+
+            Query["DeleteReview"] = "DELETE FROM \"Review\" WHERE HELPREQUESTID =:ID AND VOLUNTEERID =:VolunteerID";
+
             Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
 
             Query["UnWarnUser"] = "UPDATE \"User\" SET ISWARNED = 0 where ID = :id";

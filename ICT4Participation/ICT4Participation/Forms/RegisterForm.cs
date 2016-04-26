@@ -124,11 +124,16 @@ namespace ICT4Participation.Forms
                                             if (administration.GetAccountId(tbUsername.Text) == 0)
                                             {
                                                 //Voegt de volunteer toe in de database
-                                                administration.AddVolunteer(tbUsername.Text, tbPassword.Text,
+                                                bool register = administration.AddVolunteer(tbUsername.Text, tbPassword.Text,
                                                     tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text,
                                                     tbPhonenumber.Text, publicTransport, driving, car, birthday,
                                                     photoFile, VOGFile);
-                                                this.DialogResult = DialogResult.OK;
+                                                if (register = true)
+                                                {
+                                                    MessageBox.Show(
+                                                        "Je hebt je geregistreerd, we vragen je vriendelijk om te wachten met inloggen totdat de admin je aanvraag heeft goedgekeurd");
+                                                    this.DialogResult = DialogResult.OK;
+                                                }
                                             }
                                             else
                                             {
