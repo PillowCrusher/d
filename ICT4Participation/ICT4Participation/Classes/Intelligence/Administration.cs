@@ -384,11 +384,11 @@ namespace ICT4Participation.Classes.Intelligence
             return helpRequests;
         }
 
-        public List<Volunteer> GetAllVolunteers()
+        public List<Volunteer> GetAllVolunteers(string queryName)
         {
             List<Volunteer> volunteers = new List<Volunteer>();
 
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllVolunteers"], null);
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[queryName], null);
             foreach (DataRow dr in dt.Rows)
             {
                 volunteers.Add(
@@ -418,7 +418,7 @@ namespace ICT4Participation.Classes.Intelligence
         {
             Admin admin = ((Admin)User);
             admin.BlockAccount(user);
-            GetAllVolunteers();
+            GetAllVolunteers("GetAcceptedVolunteers");
         }
 
         public void SendWarning(string message, User user)

@@ -306,5 +306,10 @@ namespace ICT4Participation.Classes.ClassObjects
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertUserHelprequest"],parameters);
             MessageBox.Show("Je hebt succesvol gereageerd op deze hulpvraag!");
         }
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }
