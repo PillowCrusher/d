@@ -471,9 +471,26 @@ namespace ICT4Participation.Classes.Intelligence
             {
                 OracleParameter[] deleteParameter =
                 {
-                    new OracleParameter("id", User.ID)
+                    new OracleParameter("id", id)
                 };
                 DatabaseManager.ExecuteDeleteQuery("DeleteHelpRequest", deleteParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void DeleteReview(int HelpRequestID, int VolunteerID)
+        {
+            try
+            {
+                OracleParameter[] deleteParameter =
+                {
+                    new OracleParameter("ID", HelpRequestID),
+                    new OracleParameter("VolunteerID", VolunteerID) 
+                };
+                DatabaseManager.ExecuteDeleteQuery("DeleteReview", deleteParameter);
             }
             catch (Exception)
             {
