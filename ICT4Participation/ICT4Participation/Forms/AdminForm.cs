@@ -24,12 +24,17 @@ namespace ICT4Participation
             InitializeComponent();
             _administration = new Administration();
 
+            Size size = new Size(1280, 720);
+            this.Size = size;
+            this.MinimumSize = size;
+            this.MaximumSize = size;
+
             GetAllVolunteers();
 
             UpdateVolunteerListGui();
         }
 
-        private void GetAllVolunteers()
+        public void GetAllVolunteers()
         {
             _volunteers = _administration.GetAllVolunteers();
         }
@@ -42,7 +47,7 @@ namespace ICT4Participation
             
         }
 
-        private void UpdateVolunteerListGui()
+        public void UpdateVolunteerListGui()
         {
             int position = 0;
             
@@ -50,7 +55,7 @@ namespace ICT4Participation
 
             foreach (Volunteer v in _volunteers)
             {
-                pnlVolunteers.Controls.Add(v.NewVolunteer(v, position, false));
+                pnlVolunteers.Controls.Add(v.NewVolunteer(position, false));
                 position++;
 
             }

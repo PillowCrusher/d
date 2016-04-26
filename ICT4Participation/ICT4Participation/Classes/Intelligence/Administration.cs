@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using Oracle.ManagedDataAccess.Client;
 using ICT4Participation.Classes.ClassObjects;
@@ -15,6 +16,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public Administration()
         {
+            User = new Admin(1,"Henk","@F","234567890");
         }
 
         /// <summary>
@@ -61,16 +63,27 @@ namespace ICT4Participation.Classes.Intelligence
                         string city = dr["CITY"].ToString();
                         bool blocked = Convert.ToBoolean(dr["ISBLOCKED"]);
                         bool accpeted = Convert.ToBoolean(dr["ACCEPTED"]);
-                        if (accpeted)
+                        if (blocked == false)
                         {
+                            if (accpeted)
+                            {
 
-                            account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
-                                ovPossible, drivingLicence, car, birthdate, photo, vog, isWarned, blocked);
+                                account = new Volunteer(id, userName, email, name, adres, city, phonenumber,
+                                    ovPossible, drivingLicence, car, birthdate, photo, vog, isWarned, blocked, this);
+                            }
+                            else
+                            {
+                                throw new WarningException("Je kunt nog niet inloggen, de administrator moet eerst je aanvraag goedkeuren");
+                            }
+                        }
+                        else
+                        {
+                            throw  new WarningException("Sorry, je account is geblokkeerd je kunt niet meer inloggen");
                         }
                     }
-                    //als de rfid en locatie niet leeg zijn wordt een needy aangemaakt 
                     else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
                     {
+                        //als de rfid en locatie niet leeg zijn wordt een needy aangemaakt 
                         string rfid = dr["RFID"].ToString();
                         string location = dr["LOCATION"].ToString();
 
@@ -81,9 +94,9 @@ namespace ICT4Participation.Classes.Intelligence
                 // zet de gevonden user in het Field user
                 User = account;
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                throw;
+                throw exception;
             }
         }
 
@@ -375,7 +388,6 @@ namespace ICT4Participation.Classes.Intelligence
             List<Volunteer> volunteers = new List<Volunteer>();
 
             DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllVolunteers"], null);
-
             foreach (DataRow dr in dt.Rows)
             {
                 volunteers.Add(
@@ -390,12 +402,13 @@ namespace ICT4Participation.Classes.Intelligence
                         Convert.ToBoolean(dr["OVpossible"]),
                         Convert.ToBoolean(dr["HasDrivingLicence"]),
                         Convert.ToBoolean(dr["HasCar"]),
-                        DateTime.Now,// Convert.ToDateTime(dr["DateOfBirth"]),
+                        Convert.ToDateTime(dr["DateOfBirth"]),
                         dr["Photo"].ToString(),
                         dr["VOG"].ToString(),
                         Convert.ToBoolean(dr["ISWARNED"]),
-                        Convert.ToBoolean(dr["ISBLOCKED"]))
+                        Convert.ToBoolean(dr["ISBLOCKED"]), this)
                     );
+                
             }
 
             return volunteers;
@@ -405,6 +418,7 @@ namespace ICT4Participation.Classes.Intelligence
         {
             Admin admin = ((Admin)User);
             admin.BlockAccount(user);
+            GetAllVolunteers();
         }
 
         public void SendWarning(string message, User user)

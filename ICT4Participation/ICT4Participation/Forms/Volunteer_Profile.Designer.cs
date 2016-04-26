@@ -56,20 +56,21 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbPassword1 = new System.Windows.Forms.Label();
-            this.lbPassword2 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.grbxPublicTransport.SuspendLayout();
             this.grbxDrivingLincense.SuspendLayout();
             this.grpbxCar.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbtTransportYes
             // 
             this.rbtTransportYes.AutoSize = true;
-            this.rbtTransportYes.Location = new System.Drawing.Point(8, 19);
-            this.rbtTransportYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtTransportYes.Location = new System.Drawing.Point(4, 20);
+            this.rbtTransportYes.Margin = new System.Windows.Forms.Padding(2);
             this.rbtTransportYes.Name = "rbtTransportYes";
             this.rbtTransportYes.Size = new System.Drawing.Size(37, 21);
             this.rbtTransportYes.TabIndex = 0;
@@ -82,11 +83,13 @@
             this.grbxPublicTransport.Controls.Add(this.rbtTransportYes);
             this.grbxPublicTransport.Controls.Add(this.rbtTransportNo);
             this.grbxPublicTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbxPublicTransport.Location = new System.Drawing.Point(6, 71);
-            this.grbxPublicTransport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxPublicTransport.Location = new System.Drawing.Point(11, 92);
+            this.grbxPublicTransport.Margin = new System.Windows.Forms.Padding(2);
+            this.grbxPublicTransport.MaximumSize = new System.Drawing.Size(285, 49);
+            this.grbxPublicTransport.MinimumSize = new System.Drawing.Size(285, 49);
             this.grbxPublicTransport.Name = "grbxPublicTransport";
-            this.grbxPublicTransport.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grbxPublicTransport.Size = new System.Drawing.Size(263, 37);
+            this.grbxPublicTransport.Padding = new System.Windows.Forms.Padding(2);
+            this.grbxPublicTransport.Size = new System.Drawing.Size(285, 49);
             this.grbxPublicTransport.TabIndex = 53;
             this.grbxPublicTransport.TabStop = false;
             this.grbxPublicTransport.Text = "Openbaar vervoer:";
@@ -94,8 +97,8 @@
             // rbtTransportNo
             // 
             this.rbtTransportNo.AutoSize = true;
-            this.rbtTransportNo.Location = new System.Drawing.Point(52, 19);
-            this.rbtTransportNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtTransportNo.Location = new System.Drawing.Point(45, 20);
+            this.rbtTransportNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbtTransportNo.Name = "rbtTransportNo";
             this.rbtTransportNo.Size = new System.Drawing.Size(50, 21);
             this.rbtTransportNo.TabIndex = 1;
@@ -106,10 +109,10 @@
             // btUpdateProfile
             // 
             this.btUpdateProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdateProfile.Location = new System.Drawing.Point(6, 363);
-            this.btUpdateProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUpdateProfile.Location = new System.Drawing.Point(11, 429);
+            this.btUpdateProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btUpdateProfile.Name = "btUpdateProfile";
-            this.btUpdateProfile.Size = new System.Drawing.Size(263, 47);
+            this.btUpdateProfile.Size = new System.Drawing.Size(285, 47);
             this.btUpdateProfile.TabIndex = 46;
             this.btUpdateProfile.Text = "Update Profiel";
             this.btUpdateProfile.UseVisualStyleBackColor = true;
@@ -119,7 +122,7 @@
             // 
             this.lbFileVOG.AutoSize = true;
             this.lbFileVOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbFileVOG.Location = new System.Drawing.Point(176, 34);
+            this.lbFileVOG.Location = new System.Drawing.Point(192, 34);
             this.lbFileVOG.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFileVOG.Name = "lbFileVOG";
             this.lbFileVOG.Size = new System.Drawing.Size(31, 17);
@@ -130,7 +133,7 @@
             // 
             this.lbFilePhoto.AutoSize = true;
             this.lbFilePhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbFilePhoto.Location = new System.Drawing.Point(176, 0);
+            this.lbFilePhoto.Location = new System.Drawing.Point(192, 0);
             this.lbFilePhoto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFilePhoto.Name = "lbFilePhoto";
             this.lbFilePhoto.Size = new System.Drawing.Size(32, 17);
@@ -141,10 +144,10 @@
             // 
             this.btVOG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btVOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btVOG.Location = new System.Drawing.Point(89, 36);
-            this.btVOG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btVOG.Location = new System.Drawing.Point(97, 36);
+            this.btVOG.Margin = new System.Windows.Forms.Padding(2);
             this.btVOG.Name = "btVOG";
-            this.btVOG.Size = new System.Drawing.Size(83, 30);
+            this.btVOG.Size = new System.Drawing.Size(91, 30);
             this.btVOG.TabIndex = 43;
             this.btVOG.Text = "Voeg VOG toe";
             this.btVOG.UseVisualStyleBackColor = true;
@@ -154,10 +157,10 @@
             // 
             this.btPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btPhoto.Location = new System.Drawing.Point(89, 2);
-            this.btPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btPhoto.Location = new System.Drawing.Point(97, 2);
+            this.btPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btPhoto.Name = "btPhoto";
-            this.btPhoto.Size = new System.Drawing.Size(83, 30);
+            this.btPhoto.Size = new System.Drawing.Size(91, 30);
             this.btPhoto.TabIndex = 42;
             this.btPhoto.Text = "Voeg foto toe";
             this.btPhoto.UseVisualStyleBackColor = true;
@@ -166,32 +169,32 @@
             // dtpBirthDate
             // 
             this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtpBirthDate.Location = new System.Drawing.Point(86, 191);
-            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBirthDate.Location = new System.Drawing.Point(111, 251);
+            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.Size = new System.Drawing.Size(185, 23);
             this.dtpBirthDate.TabIndex = 41;
             // 
             // tbPhonenumber
             // 
-            this.tbPhonenumber.Location = new System.Drawing.Point(133, 42);
-            this.tbPhonenumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPhonenumber.Location = new System.Drawing.Point(144, 52);
+            this.tbPhonenumber.Margin = new System.Windows.Forms.Padding(2);
             this.tbPhonenumber.Name = "tbPhonenumber";
             this.tbPhonenumber.Size = new System.Drawing.Size(128, 20);
             this.tbPhonenumber.TabIndex = 40;
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(133, 22);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCity.Location = new System.Drawing.Point(144, 27);
+            this.tbCity.Margin = new System.Windows.Forms.Padding(2);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(128, 20);
             this.tbCity.TabIndex = 39;
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(133, 2);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAddress.Location = new System.Drawing.Point(144, 2);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(2);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(128, 20);
             this.tbAddress.TabIndex = 38;
@@ -199,8 +202,8 @@
             // rbtDrivingNo
             // 
             this.rbtDrivingNo.AutoSize = true;
-            this.rbtDrivingNo.Location = new System.Drawing.Point(64, 16);
-            this.rbtDrivingNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtDrivingNo.Location = new System.Drawing.Point(45, 20);
+            this.rbtDrivingNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbtDrivingNo.Name = "rbtDrivingNo";
             this.rbtDrivingNo.Size = new System.Drawing.Size(50, 21);
             this.rbtDrivingNo.TabIndex = 1;
@@ -211,8 +214,8 @@
             // rbtDrivingYes
             // 
             this.rbtDrivingYes.AutoSize = true;
-            this.rbtDrivingYes.Location = new System.Drawing.Point(22, 16);
-            this.rbtDrivingYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtDrivingYes.Location = new System.Drawing.Point(4, 20);
+            this.rbtDrivingYes.Margin = new System.Windows.Forms.Padding(2);
             this.rbtDrivingYes.Name = "rbtDrivingYes";
             this.rbtDrivingYes.Size = new System.Drawing.Size(37, 21);
             this.rbtDrivingYes.TabIndex = 0;
@@ -225,11 +228,13 @@
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingNo);
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingYes);
             this.grbxDrivingLincense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbxDrivingLincense.Location = new System.Drawing.Point(6, 111);
-            this.grbxDrivingLincense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxDrivingLincense.Location = new System.Drawing.Point(11, 145);
+            this.grbxDrivingLincense.Margin = new System.Windows.Forms.Padding(2);
+            this.grbxDrivingLincense.MaximumSize = new System.Drawing.Size(285, 49);
+            this.grbxDrivingLincense.MinimumSize = new System.Drawing.Size(285, 49);
             this.grbxDrivingLincense.Name = "grbxDrivingLincense";
-            this.grbxDrivingLincense.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grbxDrivingLincense.Size = new System.Drawing.Size(263, 37);
+            this.grbxDrivingLincense.Padding = new System.Windows.Forms.Padding(2);
+            this.grbxDrivingLincense.Size = new System.Drawing.Size(285, 49);
             this.grbxDrivingLincense.TabIndex = 36;
             this.grbxDrivingLincense.TabStop = false;
             this.grbxDrivingLincense.Text = "Rijbewijs:";
@@ -237,8 +242,8 @@
             // rbtCarNo
             // 
             this.rbtCarNo.AutoSize = true;
-            this.rbtCarNo.Location = new System.Drawing.Point(64, 16);
-            this.rbtCarNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtCarNo.Location = new System.Drawing.Point(45, 20);
+            this.rbtCarNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbtCarNo.Name = "rbtCarNo";
             this.rbtCarNo.Size = new System.Drawing.Size(50, 21);
             this.rbtCarNo.TabIndex = 1;
@@ -249,8 +254,8 @@
             // rbtCarYes
             // 
             this.rbtCarYes.AutoSize = true;
-            this.rbtCarYes.Location = new System.Drawing.Point(22, 16);
-            this.rbtCarYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtCarYes.Location = new System.Drawing.Point(4, 20);
+            this.rbtCarYes.Margin = new System.Windows.Forms.Padding(2);
             this.rbtCarYes.Name = "rbtCarYes";
             this.rbtCarYes.Size = new System.Drawing.Size(37, 21);
             this.rbtCarYes.TabIndex = 0;
@@ -263,11 +268,13 @@
             this.grpbxCar.Controls.Add(this.rbtCarNo);
             this.grpbxCar.Controls.Add(this.rbtCarYes);
             this.grpbxCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grpbxCar.Location = new System.Drawing.Point(3, 147);
-            this.grpbxCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpbxCar.Location = new System.Drawing.Point(11, 198);
+            this.grpbxCar.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbxCar.MaximumSize = new System.Drawing.Size(285, 49);
+            this.grpbxCar.MinimumSize = new System.Drawing.Size(285, 49);
             this.grpbxCar.Name = "grpbxCar";
-            this.grpbxCar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpbxCar.Size = new System.Drawing.Size(266, 37);
+            this.grpbxCar.Padding = new System.Windows.Forms.Padding(2);
+            this.grpbxCar.Size = new System.Drawing.Size(285, 49);
             this.grpbxCar.TabIndex = 35;
             this.grpbxCar.TabStop = false;
             this.grpbxCar.Text = "Auto:";
@@ -298,7 +305,7 @@
             // 
             this.lblBirthdate.AutoSize = true;
             this.lblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBirthdate.Location = new System.Drawing.Point(6, 194);
+            this.lblBirthdate.Location = new System.Drawing.Point(12, 256);
             this.lblBirthdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBirthdate.Name = "lblBirthdate";
             this.lblBirthdate.Size = new System.Drawing.Size(82, 17);
@@ -309,7 +316,7 @@
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPhoneNumber.Location = new System.Drawing.Point(2, 40);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(2, 50);
             this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(119, 17);
@@ -320,7 +327,7 @@
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCity.Location = new System.Drawing.Point(2, 20);
+            this.lblCity.Location = new System.Drawing.Point(2, 25);
             this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(87, 17);
@@ -341,10 +348,10 @@
             // btUnsubscribe
             // 
             this.btUnsubscribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUnsubscribe.Location = new System.Drawing.Point(6, 413);
-            this.btUnsubscribe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUnsubscribe.Location = new System.Drawing.Point(11, 480);
+            this.btUnsubscribe.Margin = new System.Windows.Forms.Padding(2);
             this.btUnsubscribe.Name = "btUnsubscribe";
-            this.btUnsubscribe.Size = new System.Drawing.Size(263, 47);
+            this.btUnsubscribe.Size = new System.Drawing.Size(285, 47);
             this.btUnsubscribe.TabIndex = 54;
             this.btUnsubscribe.Text = "Uitschrijven";
             this.btUnsubscribe.UseVisualStyleBackColor = true;
@@ -362,14 +369,14 @@
             this.tableLayoutPanel1.Controls.Add(this.lblAddress, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCity, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblPhoneNumber, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 11);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(263, 61);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(285, 77);
             this.tableLayoutPanel1.TabIndex = 55;
             // 
             // tableLayoutPanel2
@@ -384,54 +391,57 @@
             this.tableLayoutPanel2.Controls.Add(this.lblVOG, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbFilePhoto, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbFileVOG, 2, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 225);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 278);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(263, 68);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(285, 68);
             this.tableLayoutPanel2.TabIndex = 56;
             // 
             // lbPassword1
             // 
             this.lbPassword1.AutoSize = true;
             this.lbPassword1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword1.Location = new System.Drawing.Point(2, 302);
+            this.lbPassword1.Location = new System.Drawing.Point(2, 0);
             this.lbPassword1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbPassword1.MinimumSize = new System.Drawing.Size(285, 49);
             this.lbPassword1.Name = "lbPassword1";
-            this.lbPassword1.Size = new System.Drawing.Size(268, 20);
+            this.lbPassword1.Size = new System.Drawing.Size(285, 49);
             this.lbPassword1.TabIndex = 57;
-            this.lbPassword1.Text = "Om je gegevens aan te passen moet";
-            // 
-            // lbPassword2
-            // 
-            this.lbPassword2.AutoSize = true;
-            this.lbPassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword2.Location = new System.Drawing.Point(4, 321);
-            this.lbPassword2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbPassword2.Name = "lbPassword2";
-            this.lbPassword2.Size = new System.Drawing.Size(182, 20);
-            this.lbPassword2.TabIndex = 58;
-            this.lbPassword2.Text = "je je wachtwoord invullen";
+            this.lbPassword1.Text = "Om je gegevens aan te passen moet je het wachtwoord opnieuw invoeren";
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(6, 344);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Location = new System.Drawing.Point(11, 405);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(264, 20);
+            this.tbPassword.Size = new System.Drawing.Size(285, 20);
             this.tbPassword.TabIndex = 59;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.lbPassword1, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(11, 351);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(284, 49);
+            this.tableLayoutPanel3.TabIndex = 60;
             // 
             // Volunteer_Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 466);
+            this.ClientSize = new System.Drawing.Size(307, 534);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.lbPassword2);
-            this.Controls.Add(this.lbPassword1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btUnsubscribe);
@@ -441,7 +451,9 @@
             this.Controls.Add(this.grbxDrivingLincense);
             this.Controls.Add(this.grpbxCar);
             this.Controls.Add(this.lblBirthdate);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(323, 573);
+            this.MinimumSize = new System.Drawing.Size(323, 573);
             this.Name = "Volunteer_Profile";
             this.Text = "Volunteer_Profile";
             this.grbxPublicTransport.ResumeLayout(false);
@@ -454,6 +466,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,7 +503,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lbPassword1;
-        private System.Windows.Forms.Label lbPassword2;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
