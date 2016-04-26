@@ -86,7 +86,7 @@ namespace ICT4Participation.Classes.Database
             //not yet needed            
             Query["AcceptedVolunteer"] = "UPDATE \"Volunteer\" SET ACCEPTED = 1 WHERE ID = :id";
 
-            Query["DenyVolunteer"] = "DELETE FROM \"Volunteer\" WHERE ID = :id";
+            Query["DenyVolunteer"] = "DELETE FROM \"Account\" WHERE ID = :id";
 
             Query["UpdateUser"] = "update \"User\" SET Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
             

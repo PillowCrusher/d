@@ -201,6 +201,9 @@ namespace ICT4Participation.Classes.ClassObjects
                     try
                     {
                         Administration.AcceptedVolunteer(ID);
+                        Button s = (Button)sender;
+                        AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent;
+                        f.UpdateAllGui();
                     }
                     catch (Exception ex)
                     {
@@ -219,6 +222,9 @@ namespace ICT4Participation.Classes.ClassObjects
                     try
                     {
                         Administration.DenyVolunteer(ID);
+                        Button s = (Button)sender;
+                        AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent;
+                        f.UpdateAllGui();
                     }
                     catch (Exception ex)
                     {
