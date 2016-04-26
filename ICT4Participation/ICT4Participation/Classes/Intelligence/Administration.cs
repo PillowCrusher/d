@@ -482,7 +482,7 @@ namespace ICT4Participation.Classes.Intelligence
             {
                 OracleParameter[] deleteParameter =
                 {
-                    new OracleParameter("d", id)
+                    new OracleParameter("id", id)
                 };
                 DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteHelpRequest"], deleteParameter);
             }
