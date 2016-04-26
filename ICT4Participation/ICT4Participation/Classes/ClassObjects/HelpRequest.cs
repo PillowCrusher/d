@@ -17,9 +17,10 @@ namespace ICT4Participation.Classes.ClassObjects
     public class HelpRequest
     {
         private int _position;
-        
         public List<ChatMessage> ChatMessages;
-        
+        public List<Volunteer> Pending;
+        public List<Volunteer> Accepted;
+        public List<Volunteer> Declined;
         public int ID { get; private set; }
         public string NeedyName { get; private set; }
         public string Title { get; private set; }
@@ -63,13 +64,13 @@ namespace ICT4Participation.Classes.ClassObjects
             Urgent = urgent;
             Interview = interview;
             Transportation = transportation;
+            Pending = new List<Volunteer>();
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
         }
 
         public void Decline(Volunteer volunteer)
         {
-            Pending.Remove(volunteer);
-            Declined.Add(volunteer);
-
             OracleParameter[] Parameter =
             {
                 new OracleParameter("HelprequestID", ID),
@@ -81,9 +82,6 @@ namespace ICT4Participation.Classes.ClassObjects
 
         public void Accept(Volunteer volunteer)
         {
-            Pending.Remove(volunteer);
-            Accepted.Add(volunteer);
-
             OracleParameter[] Parameter =
             {
                 new OracleParameter("HelprequestID", ID),
@@ -91,18 +89,6 @@ namespace ICT4Participation.Classes.ClassObjects
             };
 
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["HelpRequestAccept"], Parameter);
-        }
-
-        public void AddReview(Review review)
-        {
-            Reviews.Add(review);
-            OracleParameter[] Parameter =
-            {
-                new OracleParameter("helprequestid",ID),
-                new OracleParameter("volunteerid",review.Volunteer.ID),
-                new OracleParameter("message",review.Comment),
-            };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertReview"], Parameter);
         }
 
         public void AddChatMessage(ChatMessage chatmessage)
@@ -139,9 +125,50 @@ namespace ICT4Participation.Classes.ClassObjects
                             Convert.ToBoolean(dr["iswarned"])),
                             Convert.ToString(dr["message"]),
                             Convert.ToDateTime(dr["time"])));
+            }
         }
+
+        public void GetVolunteers()
+        {
+            OracleParameter[] parameters =
+            {
+                new OracleParameter("id", ID)
+            };
+            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetVolunteersHelprequest"], parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Volunteer v = new Volunteer(
+                    Convert.ToInt32(dr["ID"]),
+                    dr["Username"].ToString(),
+                    dr["Email"].ToString(),
+                    dr["Name"].ToString(),
+                    dr["Adress"].ToString(),
+                    dr["City"].ToString(),
+                    dr["Phonenumber"].ToString(),
+                    Convert.ToBoolean(dr["OVpossible"]),
+                    Convert.ToBoolean(dr["HasDrivingLicence"]),
+                    Convert.ToBoolean(dr["HasCar"]),
+                    Convert.ToDateTime(dr["DateOfBirth"]),
+                    dr["Photo"].ToString(),
+                    dr["VOG"].ToString(),
+                    Convert.ToBoolean(dr["ISWARNED"]),
+                    Convert.ToBoolean(dr["ISBLOCKED"]), null);
+                string status = dr["Status"].ToString();
+                if (status == "Pending")
+                {
+                    Pending.Add(v);
+                }
+                else if (status == "Accepted")
+                {
+                    Accepted.Add(v);
+                }
+                else if (status == "Declined")
+                {
+                    Declined.Add(v);
+                }
+            }
         }
-        
+
         public GroupBox NewHelpRequest(int position, bool personal)
         {
             _position = position;

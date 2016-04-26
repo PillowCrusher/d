@@ -128,7 +128,7 @@ namespace ICT4Participation.Forms
                                                     tbEmail.Text, tbName.Text, tbAddress.Text, tbCity.Text,
                                                     tbPhonenumber.Text, publicTransport, driving, car, birthday,
                                                     photoFile, VOGFile);
-                                                if (register = true)
+                                                if (register)
                                                 {
                                                     MessageBox.Show(
                                                         "Je hebt je geregistreerd, we vragen je vriendelijk om te wachten met inloggen totdat de admin je aanvraag heeft goedgekeurd");
