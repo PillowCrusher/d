@@ -294,7 +294,15 @@ namespace ICT4Participation.Classes.ClassObjects
 
         private void Afsluiten_Click(object sender, EventArgs e)
         {
-            
+            Button b = (Button)sender;
+
+            if (b.Parent.Parent.Parent.Parent is HulpbehoevendeForm)
+            {
+                using (Form form = new ReviewForm(this))
+                {
+                    form.ShowDialog();
+                }
+            }
         }
 
         public override string ToString()

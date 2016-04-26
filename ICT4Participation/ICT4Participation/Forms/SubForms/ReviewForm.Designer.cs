@@ -60,6 +60,7 @@
             this.btnSluitAf.TabIndex = 2;
             this.btnSluitAf.Text = "Sluit hulpvraag af";
             this.btnSluitAf.UseVisualStyleBackColor = true;
+            this.btnSluitAf.Click += new System.EventHandler(this.btnSluitAf_Click);
             // 
             // btnPlaatsRecensie
             // 
@@ -69,6 +70,7 @@
             this.btnPlaatsRecensie.TabIndex = 2;
             this.btnPlaatsRecensie.Text = "Plaats recensie";
             this.btnPlaatsRecensie.UseVisualStyleBackColor = true;
+            this.btnPlaatsRecensie.Click += new System.EventHandler(this.btnPlaatsRecensie_Click);
             // 
             // lblRecensietb
             // 

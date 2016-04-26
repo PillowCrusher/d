@@ -71,8 +71,6 @@ namespace ICT4Participation.Classes.ClassObjects
         public Volunteer(int id, string username, string email, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog, bool warned, bool blocked, Administration administration)
             : base(id, username, email, name, phonenumber, publicTransport,  hasDrivingLincense, hasCar, warned)
         {
-            //ID = id;
-           // Name = name;
             PublicTransport = publicTransport;
             HasDrivingLincense = hasDrivingLincense;
             HasCar = hasCar;
