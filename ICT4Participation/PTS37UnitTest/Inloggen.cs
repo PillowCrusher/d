@@ -3,7 +3,6 @@ using System.Security;
 using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
-using ICT4Participation.Classes.ClassObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PTS37UnitTest
@@ -16,7 +15,6 @@ namespace PTS37UnitTest
         public void Initialize()
         {
             _administration = new Administration();
-            
         }
         [TestMethod]
         public void Test_ConnectionString()
@@ -65,13 +63,13 @@ namespace PTS37UnitTest
         [TestMethod]
         public void Test_InloggenAlsGebruiker()
         {
-            string username = "Harrie";
-            string password = "HarriePotter";
+            string username = "Henkie";
+            string password = "henkerd";
             string false_username = "falseusername";
             string false_password = "falsepassword";
             
             _administration.Login(username, password);
-            string expected = "Harrie";
+            string expected = "Henkie";
             string actual = _administration.User.Username;
             Assert.AreEqual(actual, expected);
             _administration.Login(false_username, false_username);
@@ -82,7 +80,7 @@ namespace PTS37UnitTest
         {
             string rfid = "2800a7c372";
             _administration.LoginWithRfid(rfid);
-            string expected = "henkie";
+            string expected = "Henkie";
             string actual = _administration.User.Username;
             Assert.AreEqual(actual, expected);
         }
@@ -101,40 +99,46 @@ namespace PTS37UnitTest
         [TestMethod]
         public void Test_Uitloggen()
         {
-            string username = "Harrie";
-            string password = "HarriePotter";
+            string username = "Henkie";
+            string password = "henkerd";
 
             _administration.Login(username, password);
             _administration.Logout();
             
             Assert.IsNull(_administration.User);
         }
+        
+
+        [TestMethod]
+        public void Test_UpdateProfile()
+        {            
+            string username = "test";
+            string password = "test";
+            int id = _administration.GetAccountId(username);
+            _administration.AcceptedVolunteer(id);
+
+            _administration.Login(username, password);
+            Volunteer volunteer = (Volunteer)_administration.User;
+            _administration.UpdateVolunteer(password, "Harrylaan 31", volunteer.City, volunteer.Phonenumber, volunteer.PublicTransport, volunteer.HasDrivingLincense, volunteer.HasCar, volunteer.BirthDate, volunteer.Photo, volunteer.VOG);
+            volunteer = (Volunteer)_administration.User;
+            string actual = volunteer.Address;
+            string expected = "Harrylaan 31";
+            Assert.AreEqual(expected, actual);
+        }
+
         [TestMethod]
         public void Test_Uitschrijven()
         {
             string username = "test";
             string password = "test";
 
-            
             _administration.Login(username, password);
             Volunteer volunteer = (Volunteer)_administration.User;
-            
+            Assert.IsNotNull(volunteer);
+
             _administration.Unsubscribe(volunteer);
             Assert.IsNotNull(volunteer.DeRegistrationDate);
-        }
-
-        [TestMethod]
-        public void Test_UpdateProfile()
-        {
-            string username = "test";
-            string password = "test";
-            _administration.Login(username, password);
-            Volunteer volunteer = (Volunteer) _administration.User;
-            _administration.UpdateVolunteer(password, "Harrylaan 31", volunteer.City, volunteer.Phonenumber, volunteer.PublicTransport, volunteer.HasDrivingLincense, volunteer.HasCar, volunteer.BirthDate, volunteer.Photo, volunteer.VOG);
-            volunteer = (Volunteer)_administration.User;
-            string actual = volunteer.Address;
-            string expected = "Harrylaan 31";
-            Assert.AreEqual(expected, actual);
+            _administration.DenyVolunteer(volunteer.ID);
         }
     }
 }
