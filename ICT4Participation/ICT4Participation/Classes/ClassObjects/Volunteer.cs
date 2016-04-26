@@ -93,36 +93,34 @@ namespace ICT4Participation.Classes.ClassObjects
             if (VOG)
             {
                 var extraInfo =
-                    "Naam: " + Name + Environment.NewLine +
                     "Rijbewijs: " + FormTools.ConvertBoolToString(HasDrivingLincense) + Environment.NewLine +
                     "Auto beschikbaar: " + FormTools.ConvertBoolToString(HasCar) + Environment.NewLine +
                     "Openbaar Vervoer: " + FormTools.ConvertBoolToString(PublicTransport);
 
-                return NewVolunteerGroupbox(position, extraInfo, "Bevestigen", "Afwijzen", true);
+                return NewVolunteerGroupbox(131, extraInfo, "Bevestigen", "Afwijzen", true);
             }
             else
             {
                 var extraInfo =
-                    "Naam: " + Name + Environment.NewLine +
                     "Rijbewijs: " + FormTools.ConvertBoolToString(HasDrivingLincense) + Environment.NewLine +
                     "Auto beschikbaar: " + FormTools.ConvertBoolToString(HasCar) + Environment.NewLine +
                     "Openbaar Vervoer: " + FormTools.ConvertBoolToString(PublicTransport) + Environment.NewLine +
                     "Gewaarschuwd: " + FormTools.ConvertBoolToString(Warned) + Environment.NewLine +
                     "Geblokkeerd: " + FormTools.ConvertBoolToString(Blocked);
 
-                return NewVolunteerGroupbox(position, extraInfo, "Blokkeer", "Waarschuwen", false);
+                return NewVolunteerGroupbox(131, extraInfo, "Blokkeer", "Waarschuwen", false);
             }
         }
 
         private GroupBox NewVolunteerGroupbox(int locationInt, string lblExtraInfo, string btn1Text, string btn2Text, bool VOG)
         {
             locationInt = locationInt * _position;
-            locationInt += 5;
+            locationInt += 6;
 
             //Nieuwe groupbox voor de hulp vraag
             var newQuestion = new GroupBox
             {
-                Text = ID.ToString(),
+                Text = Name.ToString(),
                 Location = new Point(6, locationInt),
                 Size = new Size(461, 131)
             };
@@ -130,6 +128,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Textbox voor de hulpvraag
             var pb = new PictureBox
             {
+                Location = new Point(6, 19),
                 ImageLocation = Photo,
                 Size = new Size(108, 106)
             };
@@ -148,7 +147,7 @@ namespace ICT4Participation.Classes.ClassObjects
             //Button voor reageren
             var btnVOG = new Button
             {
-                Location = new Point(381, 19),
+                Location = new Point(370, 19),
                 Size = new Size(85, 23),
                 Text = "VOG Openen"
             };
@@ -213,7 +212,7 @@ namespace ICT4Participation.Classes.ClassObjects
                     MessageBox.Show(this.Name+" is geblokeerd");
                     Button s = (Button) sender;
                     AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
-                    f.GetAllVolunteers();
+                    f.GetVolunteers();
                     f.UpdateVolunteerListGui();
                 }
             }
@@ -227,7 +226,7 @@ namespace ICT4Participation.Classes.ClassObjects
                 Administration.SendWarning(input,this);
                 Button s = (Button)sender;
                 AdminForm f = (AdminForm)s.Parent.Parent.Parent.Parent.Parent;
-                f.GetAllVolunteers();
+                f.GetVolunteers();
                 f.UpdateVolunteerListGui();
             }
         }
