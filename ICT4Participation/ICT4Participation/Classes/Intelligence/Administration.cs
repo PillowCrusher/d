@@ -465,5 +465,21 @@ namespace ICT4Participation.Classes.Intelligence
                 throw new Exception(ex.Message);
             }
         }
+
+        public void deleteHelprequest(int id)
+        {
+            try
+            {
+                OracleParameter[] deleteParameter =
+                {
+                    new OracleParameter("id", User.ID)
+                };
+                DatabaseManager.ExecuteDeleteQuery("DeleteHelpRequest", deleteParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -2,8 +2,6 @@
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Phidgets;
-using Phidgets.Events;
 
 namespace PTS37UnitTest
 {
@@ -11,7 +9,6 @@ namespace PTS37UnitTest
     public class UnitTest1
     {
         private Administration _administration;
-        private RFID rfid;
         [TestInitialize]
         public void Initialize()
         {
@@ -42,5 +39,7 @@ namespace PTS37UnitTest
         {
             
         }
+
+
     }
 }
