@@ -16,7 +16,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public Administration()
         {
-            User = new Admin(1,"Henk","@F","234567890");
+            User = new Admin(1, "Henk", "@F", "234567890");
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace ICT4Participation.Classes.Intelligence
                         }
                         else
                         {
-                            throw  new WarningException("Sorry, je account is geblokkeerd je kunt niet meer inloggen");
+                            throw new WarningException("Sorry, je account is geblokkeerd je kunt niet meer inloggen");
                         }
                     }
                     else if (dr["RFID"] != DBNull.Value && dr["LOCATION"] != DBNull.Value)
@@ -117,7 +117,7 @@ namespace ICT4Participation.Classes.Intelligence
             };
             //Voer de query uit
             DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAdminLogin"], parameters);
-            
+
             //lees de gevonden data uit
             foreach (DataRow dr in dt.Rows)
             {
@@ -226,12 +226,12 @@ namespace ICT4Participation.Classes.Intelligence
                 //de parameters voor de query
                 OracleParameter[] volunteerParameter =
             {
-                new OracleParameter("id", volunteerId), 
-                new OracleParameter("dateofbirth", birthdate), 
-                new OracleParameter("photo", photo), 
+                new OracleParameter("id", volunteerId),
+                new OracleParameter("dateofbirth", birthdate),
+                new OracleParameter("photo", photo),
                 new OracleParameter("vog", vog),
                 new OracleParameter("adress", address),
-                new OracleParameter("city", city)  
+                new OracleParameter("city", city)
             };
                 //Voer de query uit om een vrijwilleger toe te voegen
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertVolunteer"], volunteerParameter);
@@ -243,7 +243,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void AddNeedy(string username, string password, string email, string name, string location, 
+        public void AddNeedy(string username, string password, string email, string name, string location,
             string phonenumber, bool publictransport, bool hasdrivinglicence, bool hascar, string rfid)
         {
             try
@@ -262,7 +262,7 @@ namespace ICT4Participation.Classes.Intelligence
             {
                 new OracleParameter("id", needyId),
                 new OracleParameter("rfid", rfid),
-                new OracleParameter("location", location) 
+                new OracleParameter("location", location)
             };
                 //Voer de query uit om een hulpbehoevende toe te voegen
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertNeedy"], needyParameter);
@@ -409,7 +409,7 @@ namespace ICT4Participation.Classes.Intelligence
                         Convert.ToBoolean(dr["ISWARNED"]),
                         Convert.ToBoolean(dr["ISBLOCKED"]), this)
                     );
-                
+
             }
             return volunteers;
         }
@@ -463,6 +463,39 @@ namespace ICT4Participation.Classes.Intelligence
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+        public void DeleteHelprequest(int id)
+        {
+            try
+            {
+                OracleParameter[] deleteParameter =
+                {
+                    new OracleParameter("id", id)
+                };
+                DatabaseManager.ExecuteDeleteQuery("DeleteHelpRequest", deleteParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void DeleteReview(int HelpRequestID, int VolunteerID)
+        {
+            try
+            {
+                OracleParameter[] deleteParameter =
+                {
+                    new OracleParameter("ID", HelpRequestID),
+                    new OracleParameter("VolunteerID", VolunteerID) 
+                };
+                DatabaseManager.ExecuteDeleteQuery("DeleteReview", deleteParameter);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }
