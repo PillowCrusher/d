@@ -208,7 +208,7 @@ namespace ICT4Participation.Classes.Intelligence
         /// <param name="birthdate"></param>
         /// <param name="photo"></param>
         /// <param name="vog"></param>
-        public void AddVolunteer(string username, string password, string email, string name, string address,
+        public bool AddVolunteer(string username, string password, string email, string name, string address,
             string city, string phonenumber, bool publicTransport, bool hasdrivinglicence, bool hascar,
             DateTime birthdate, string photo, string vog)
         {
@@ -235,6 +235,7 @@ namespace ICT4Participation.Classes.Intelligence
             };
                 //Voer de query uit om een vrijwilleger toe te voegen
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertVolunteer"], volunteerParameter);
+                return true;
             }
             catch (Exception)
             {
@@ -410,7 +411,6 @@ namespace ICT4Participation.Classes.Intelligence
                     );
                 
             }
-
             return volunteers;
         }
 

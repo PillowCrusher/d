@@ -57,7 +57,6 @@ namespace ICT4Participation
             {
                 pnlVolunteers.Controls.Add(v.NewVolunteer(position, false));
                 position++;
-
             }
         }
 
