@@ -243,7 +243,7 @@ namespace ICT4Participation.Classes.Intelligence
             }
         }
 
-        public void AddNeedy(string username, string password, string email, string name, string location,
+        public bool AddNeedy(string username, string password, string email, string name, string location,
             string phonenumber, bool publictransport, bool hasdrivinglicence, bool hascar, string rfid)
         {
             try
@@ -266,6 +266,7 @@ namespace ICT4Participation.Classes.Intelligence
             };
                 //Voer de query uit om een hulpbehoevende toe te voegen
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertNeedy"], needyParameter);
+                return true;
             }
             catch (Exception)
             {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ICT4Participation.Classes.ClassObjects
 {
     //een Needy erft van User
-    public class Needy : User
+    public class Needy : User 
     {
         private string _location;
 
