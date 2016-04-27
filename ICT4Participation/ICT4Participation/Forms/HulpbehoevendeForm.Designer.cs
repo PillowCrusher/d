@@ -62,9 +62,11 @@
             this.groupBox5.Controls.Add(this.lbChats);
             this.groupBox5.Controls.Add(this.lbHelpRequests);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(748, 12);
+            this.groupBox5.Location = new System.Drawing.Point(1496, 23);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(504, 657);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox5.Size = new System.Drawing.Size(1008, 1263);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chats";
@@ -72,9 +74,10 @@
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(405, 597);
+            this.btnSend.Location = new System.Drawing.Point(810, 1148);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(93, 46);
+            this.btnSend.Size = new System.Drawing.Size(186, 88);
             this.btnSend.TabIndex = 3;
             this.btnSend.Text = "Verstuur";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -83,10 +86,11 @@
             // tbMessage
             // 
             this.tbMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMessage.Location = new System.Drawing.Point(132, 597);
+            this.tbMessage.Location = new System.Drawing.Point(264, 1148);
+            this.tbMessage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbMessage.Multiline = true;
             this.tbMessage.Name = "tbMessage";
-            this.tbMessage.Size = new System.Drawing.Size(267, 46);
+            this.tbMessage.Size = new System.Drawing.Size(530, 85);
             this.tbMessage.TabIndex = 2;
             this.tbMessage.Click += new System.EventHandler(this.tbMessage_Click);
             this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
@@ -96,21 +100,23 @@
             this.lbChats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChats.FormattingEnabled = true;
             this.lbChats.HorizontalScrollbar = true;
-            this.lbChats.ItemHeight = 20;
-            this.lbChats.Location = new System.Drawing.Point(132, 19);
+            this.lbChats.ItemHeight = 37;
+            this.lbChats.Location = new System.Drawing.Point(264, 37);
+            this.lbChats.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lbChats.Name = "lbChats";
             this.lbChats.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbChats.Size = new System.Drawing.Size(366, 544);
+            this.lbChats.Size = new System.Drawing.Size(728, 1040);
             this.lbChats.TabIndex = 1;
             // 
             // lbHelpRequests
             // 
             this.lbHelpRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHelpRequests.FormattingEnabled = true;
-            this.lbHelpRequests.ItemHeight = 20;
-            this.lbHelpRequests.Location = new System.Drawing.Point(6, 19);
+            this.lbHelpRequests.ItemHeight = 37;
+            this.lbHelpRequests.Location = new System.Drawing.Point(12, 37);
+            this.lbHelpRequests.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lbHelpRequests.Name = "lbHelpRequests";
-            this.lbHelpRequests.Size = new System.Drawing.Size(120, 604);
+            this.lbHelpRequests.Size = new System.Drawing.Size(236, 1151);
             this.lbHelpRequests.TabIndex = 0;
             this.lbHelpRequests.SelectedIndexChanged += new System.EventHandler(this.lbHelpRequests_SelectedIndexChanged);
             // 
@@ -118,9 +124,11 @@
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(24, 23);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(730, 210);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Size = new System.Drawing.Size(1460, 404);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nieuwe Hulpvraag";
@@ -136,47 +144,52 @@
             this.tableLayoutPanel1.Controls.Add(this.btnSendRequest, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tbDescription, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 25);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 48);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(718, 179);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1436, 344);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(6, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 20);
+            this.label1.Size = new System.Drawing.Size(86, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Titel:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 35);
+            this.label2.Location = new System.Drawing.Point(6, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.Size = new System.Drawing.Size(197, 37);
             this.label2.TabIndex = 1;
             this.label2.Text = "Beschrijving:";
             // 
             // tbTitle
             // 
             this.tbTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTitle.Location = new System.Drawing.Point(110, 3);
+            this.tbTitle.Location = new System.Drawing.Point(221, 6);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(605, 26);
+            this.tbTitle.Size = new System.Drawing.Size(1209, 44);
             this.tbTitle.TabIndex = 3;
             // 
             // btnSendRequest
             // 
             this.btnSendRequest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSendRequest.Location = new System.Drawing.Point(3, 145);
+            this.btnSendRequest.Location = new System.Drawing.Point(6, 280);
+            this.btnSendRequest.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSendRequest.Name = "btnSendRequest";
-            this.btnSendRequest.Size = new System.Drawing.Size(101, 31);
+            this.btnSendRequest.Size = new System.Drawing.Size(203, 58);
             this.btnSendRequest.TabIndex = 2;
             this.btnSendRequest.Text = "Verstuur";
             this.btnSendRequest.UseVisualStyleBackColor = true;
@@ -185,10 +198,11 @@
             // tbDescription
             // 
             this.tbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDescription.Location = new System.Drawing.Point(110, 38);
+            this.tbDescription.Location = new System.Drawing.Point(221, 74);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(605, 101);
+            this.tbDescription.Size = new System.Drawing.Size(1209, 194);
             this.tbDescription.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -205,19 +219,21 @@
             this.tableLayoutPanel2.Controls.Add(this.cbMeeting, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbTransportType, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(110, 145);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(221, 280);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(605, 31);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1209, 58);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // cbDriverLicense
             // 
             this.cbDriverLicense.AutoSize = true;
-            this.cbDriverLicense.Location = new System.Drawing.Point(3, 3);
+            this.cbDriverLicense.Location = new System.Drawing.Point(6, 6);
+            this.cbDriverLicense.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbDriverLicense.Name = "cbDriverLicense";
-            this.cbDriverLicense.Size = new System.Drawing.Size(89, 24);
+            this.cbDriverLicense.Size = new System.Drawing.Size(173, 41);
             this.cbDriverLicense.TabIndex = 0;
             this.cbDriverLicense.Text = "Rijbewijs";
             this.cbDriverLicense.UseVisualStyleBackColor = true;
@@ -225,17 +241,19 @@
             // dtpEndDate
             // 
             this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpEndDate.Location = new System.Drawing.Point(442, 3);
+            this.dtpEndDate.Location = new System.Drawing.Point(861, 6);
+            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(310, 26);
+            this.dtpEndDate.Size = new System.Drawing.Size(616, 44);
             this.dtpEndDate.TabIndex = 3;
             // 
             // cbUrgent
             // 
             this.cbUrgent.AutoSize = true;
-            this.cbUrgent.Location = new System.Drawing.Point(225, 3);
+            this.cbUrgent.Location = new System.Drawing.Point(441, 6);
+            this.cbUrgent.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbUrgent.Name = "cbUrgent";
-            this.cbUrgent.Size = new System.Drawing.Size(77, 24);
+            this.cbUrgent.Size = new System.Drawing.Size(145, 41);
             this.cbUrgent.TabIndex = 4;
             this.cbUrgent.Text = "Urgent";
             this.cbUrgent.UseVisualStyleBackColor = true;
@@ -243,9 +261,10 @@
             // cbMeeting
             // 
             this.cbMeeting.AutoSize = true;
-            this.cbMeeting.Location = new System.Drawing.Point(308, 3);
+            this.cbMeeting.Location = new System.Drawing.Point(598, 6);
+            this.cbMeeting.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbMeeting.Name = "cbMeeting";
-            this.cbMeeting.Size = new System.Drawing.Size(128, 24);
+            this.cbMeeting.Size = new System.Drawing.Size(251, 41);
             this.cbMeeting.TabIndex = 5;
             this.cbMeeting.Text = "Kennis maken";
             this.cbMeeting.UseVisualStyleBackColor = true;
@@ -254,18 +273,21 @@
             // 
             this.cbTransportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTransportType.FormattingEnabled = true;
-            this.cbTransportType.Location = new System.Drawing.Point(98, 3);
+            this.cbTransportType.Location = new System.Drawing.Point(191, 6);
+            this.cbTransportType.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbTransportType.Name = "cbTransportType";
-            this.cbTransportType.Size = new System.Drawing.Size(121, 28);
+            this.cbTransportType.Size = new System.Drawing.Size(238, 45);
             this.cbTransportType.TabIndex = 6;
             // 
             // gbHulpVragen
             // 
             this.gbHulpVragen.Controls.Add(this.pnlHulpVragen);
             this.gbHulpVragen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbHulpVragen.Location = new System.Drawing.Point(12, 228);
+            this.gbHulpVragen.Location = new System.Drawing.Point(24, 438);
+            this.gbHulpVragen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.gbHulpVragen.Name = "gbHulpVragen";
-            this.gbHulpVragen.Size = new System.Drawing.Size(730, 441);
+            this.gbHulpVragen.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbHulpVragen.Size = new System.Drawing.Size(1460, 848);
             this.gbHulpVragen.TabIndex = 6;
             this.gbHulpVragen.TabStop = false;
             this.gbHulpVragen.Text = "Hulp Vragen:";
@@ -274,21 +296,23 @@
             // 
             this.pnlHulpVragen.AutoScroll = true;
             this.pnlHulpVragen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHulpVragen.Location = new System.Drawing.Point(3, 22);
+            this.pnlHulpVragen.Location = new System.Drawing.Point(6, 43);
+            this.pnlHulpVragen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlHulpVragen.Name = "pnlHulpVragen";
-            this.pnlHulpVragen.Size = new System.Drawing.Size(724, 416);
+            this.pnlHulpVragen.Size = new System.Drawing.Size(1448, 799);
             this.pnlHulpVragen.TabIndex = 1;
             // 
             // HulpbehoevendeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 548);
+            this.ClientSize = new System.Drawing.Size(1916, 1054);
             this.Controls.Add(this.gbHulpVragen);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
-            this.MaximumSize = new System.Drawing.Size(1275, 705);
-            this.MinimumSize = new System.Drawing.Size(967, 558);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MaximumSize = new System.Drawing.Size(2524, 1290);
+            this.MinimumSize = new System.Drawing.Size(1908, 1008);
             this.Name = "HulpbehoevendeForm";
             this.Text = "HulpbehoevendeForm";
             this.groupBox5.ResumeLayout(false);

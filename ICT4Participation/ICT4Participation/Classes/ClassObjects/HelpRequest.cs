@@ -302,6 +302,8 @@ namespace ICT4Participation.Classes.ClassObjects
                 {
                     form.ShowDialog();
                 }
+                HulpbehoevendeForm f = (HulpbehoevendeForm)b.Parent.Parent.Parent.Parent;
+                f.RefreshAll();
             }
         }
 
