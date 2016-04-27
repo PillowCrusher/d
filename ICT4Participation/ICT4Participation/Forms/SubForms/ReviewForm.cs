@@ -30,15 +30,22 @@ namespace ICT4Participation.Forms.SubForms
         {
             if (lbVrijwilligers.SelectedItem != null)
             {
-                Volunteer v = (Volunteer) lbVrijwilligers.SelectedItem;
-                OracleParameter[] parameters =
+                if (tbRecensie.Text != "")
                 {
-                    new OracleParameter("helprequestid", _helpRequest.ID),
-                    new OracleParameter("volunteerid", v.ID),
-                    new OracleParameter("message", tbRecensie.Text)
-                };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertReview"], parameters);
-                this.DialogResult = DialogResult.OK;
+                    Volunteer v = (Volunteer) lbVrijwilligers.SelectedItem;
+                    OracleParameter[] parameters =
+                    {
+                        new OracleParameter("helprequestid", _helpRequest.ID),
+                        new OracleParameter("volunteerid", v.ID),
+                        new OracleParameter("message", tbRecensie.Text)
+                    };
+                    DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertReview"], parameters);
+                    tbRecensie.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("U kunt geen lege recensie indienen.");
+                }
             }
             else
             {
@@ -54,8 +61,8 @@ namespace ICT4Participation.Forms.SubForms
                 {
                     new OracleParameter("id", _helpRequest.ID)
                 };
-                DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteHelpRequest"], parameters);
-                this.DialogResult = DialogResult.OK;
+                DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["CompleteHelpRequest"], parameters);
+                Close();
             }
         }
     }

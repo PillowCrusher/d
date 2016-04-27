@@ -42,6 +42,8 @@ namespace ICT4Participation.Classes.Database
 
             Query["InsertReview"] = "INSERT INTO \"Review\" (HelpRequestID, VolunteerID, Message) values (:helprequestid, :volunteerid, :message)";
 
+            Query["CompleteHelpRequest"] = "UPDATE \"Helprequest\" SET COMPLETED = 1 WHERE ID = :id";
+
 
             //LoginForm
             Query["GetUserLogin"] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password AND Deregistrationdate IS NULL";

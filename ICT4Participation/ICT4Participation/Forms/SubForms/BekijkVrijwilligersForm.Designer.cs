@@ -43,6 +43,7 @@
             this.lbVrijwilligers.Name = "lbVrijwilligers";
             this.lbVrijwilligers.Size = new System.Drawing.Size(126, 225);
             this.lbVrijwilligers.TabIndex = 0;
+            this.lbVrijwilligers.SelectedIndexChanged += new System.EventHandler(this.lbVrijwilligers_SelectedIndexChanged);
             // 
             // lbRecensies
             // 
@@ -51,7 +52,6 @@
             this.lbRecensies.Name = "lbRecensies";
             this.lbRecensies.Size = new System.Drawing.Size(357, 186);
             this.lbRecensies.TabIndex = 0;
-            this.lbRecensies.SelectedIndexChanged += new System.EventHandler(this.lbRecensies_SelectedIndexChanged);
             // 
             // btnAccepteer
             // 

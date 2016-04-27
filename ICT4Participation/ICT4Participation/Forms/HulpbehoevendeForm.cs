@@ -81,6 +81,7 @@ namespace ICT4Participation.Forms
             }
 
             Needy currentNeedy = (Needy)_administration.User;
+            tbTitle.Text = "";
 
             currentNeedy.AddHelpRequest(title, description, urgent, tt, DateTime.Now, dt, meeting);
             RefreshAll();

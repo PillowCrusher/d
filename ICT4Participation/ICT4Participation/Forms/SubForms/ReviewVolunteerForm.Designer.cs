@@ -50,6 +50,7 @@
             this.txtReview.Location = new System.Drawing.Point(287, 41);
             this.txtReview.Multiline = true;
             this.txtReview.Name = "txtReview";
+            this.txtReview.ReadOnly = true;
             this.txtReview.Size = new System.Drawing.Size(426, 257);
             this.txtReview.TabIndex = 1;
             // 
