@@ -49,7 +49,8 @@ namespace ICT4Participation.Forms.SubForms
                 OracleParameter[] parameters =
                 {
                     new OracleParameter("reaction", txtComment.Text),
-                    new OracleParameter("review", message)
+                    new OracleParameter("review", message),
+                    new OracleParameter("id", _user.ID) 
                 };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UpdateCommentReview"], parameters);
                 this.Close();
