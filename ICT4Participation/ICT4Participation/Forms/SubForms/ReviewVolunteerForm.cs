@@ -46,8 +46,8 @@ namespace ICT4Participation.Forms.SubForms
             string message = lbReviews.SelectedItem.ToString();
             OracleParameter[] parameters =
             {
-                new OracleParameter("comment", txtComment.Text),
-                new OracleParameter("review", message)
+                new OracleParameter("reaction", txtComment.Text),
+                new OracleParameter("helpreview", message)
             };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UpdateCommentReview"], parameters);
         }
