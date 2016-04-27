@@ -104,6 +104,7 @@ namespace ICT4Participation.Classes.Database
 
             Query["GetAllReviewsVolunteer"] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :id";
 
+            Query["UpdateCommentReview"] = "UPDATE \"Review\" SET COMMENTS = :comment WHERE MESSAGE = :review";
 
             Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
 

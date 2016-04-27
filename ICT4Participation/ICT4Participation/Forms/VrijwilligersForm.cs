@@ -11,6 +11,7 @@ using ICT4Participation.Classes.ClassObjects;
 using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
 using ICT4Participation.Classes.Database;
+using ICT4Participation.Forms.SubForms;
 
 namespace ICT4Participation.Forms
 {
@@ -114,7 +115,11 @@ namespace ICT4Participation.Forms
 
         private void btnShowReviews_Click(object sender, EventArgs e)
         {
-
+            Form form = new ReviewVolunteerForm(_administration.User);
+            using (form)
+            {
+                form.ShowDialog();
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

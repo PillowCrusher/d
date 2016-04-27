@@ -28,78 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lsReviews = new System.Windows.Forms.ListBox();
-            this.txtReview = new System.Windows.Forms.TextBox();
             this.lblReview = new System.Windows.Forms.Label();
-            this.lbComment = new System.Windows.Forms.Label();
+            this.lblComment = new System.Windows.Forms.Label();
             this.txtComment = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.lbReviews = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // lsReviews
-            // 
-            this.lsReviews.FormattingEnabled = true;
-            this.lsReviews.ItemHeight = 25;
-            this.lsReviews.Location = new System.Drawing.Point(13, 12);
-            this.lsReviews.Name = "lsReviews";
-            this.lsReviews.Size = new System.Drawing.Size(268, 554);
-            this.lsReviews.TabIndex = 0;
-            // 
-            // txtReview
-            // 
-            this.txtReview.Location = new System.Drawing.Point(287, 41);
-            this.txtReview.Multiline = true;
-            this.txtReview.Name = "txtReview";
-            this.txtReview.ReadOnly = true;
-            this.txtReview.Size = new System.Drawing.Size(426, 257);
-            this.txtReview.TabIndex = 1;
             // 
             // lblReview
             // 
             this.lblReview.AutoSize = true;
-            this.lblReview.Location = new System.Drawing.Point(288, 13);
+            this.lblReview.Location = new System.Drawing.Point(11, 8);
+            this.lblReview.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReview.Name = "lblReview";
-            this.lblReview.Size = new System.Drawing.Size(82, 25);
+            this.lblReview.Size = new System.Drawing.Size(51, 13);
             this.lblReview.TabIndex = 2;
-            this.lblReview.Text = "Review";
+            this.lblReview.Text = "Reviews:";
             // 
-            // lbComment
+            // lblComment
             // 
-            this.lbComment.AutoSize = true;
-            this.lbComment.Location = new System.Drawing.Point(288, 305);
-            this.lbComment.Name = "lbComment";
-            this.lbComment.Size = new System.Drawing.Size(103, 25);
-            this.lbComment.TabIndex = 3;
-            this.lbComment.Text = "Comment";
+            this.lblComment.AutoSize = true;
+            this.lblComment.Location = new System.Drawing.Point(11, 179);
+            this.lblComment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(47, 13);
+            this.lblComment.TabIndex = 3;
+            this.lblComment.Text = "Reactie:";
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(287, 334);
+            this.txtComment.Location = new System.Drawing.Point(11, 194);
+            this.txtComment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(426, 158);
+            this.txtComment.Size = new System.Drawing.Size(357, 64);
             this.txtComment.TabIndex = 4;
+            this.txtComment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtComment_KeyDown);
             // 
-            // button1
+            // btnSend
             // 
-            this.button1.Location = new System.Drawing.Point(287, 498);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(426, 63);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "btComment";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSend.Location = new System.Drawing.Point(78, 262);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(213, 33);
+            this.btnSend.TabIndex = 5;
+            this.btnSend.Text = "Plaats reactie";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // lbReviews
+            // 
+            this.lbReviews.FormattingEnabled = true;
+            this.lbReviews.Location = new System.Drawing.Point(11, 23);
+            this.lbReviews.Margin = new System.Windows.Forms.Padding(2);
+            this.lbReviews.Name = "lbReviews";
+            this.lbReviews.Size = new System.Drawing.Size(357, 147);
+            this.lbReviews.TabIndex = 0;
             // 
             // ReviewVolunteerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 573);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(379, 302);
+            this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtComment);
-            this.Controls.Add(this.lbComment);
+            this.Controls.Add(this.lblComment);
             this.Controls.Add(this.lblReview);
-            this.Controls.Add(this.txtReview);
-            this.Controls.Add(this.lsReviews);
+            this.Controls.Add(this.lbReviews);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReviewVolunteerForm";
             this.Text = "ReviewVolunteerForm";
             this.ResumeLayout(false);
@@ -108,12 +104,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lsReviews;
-        private System.Windows.Forms.TextBox txtReview;
         private System.Windows.Forms.Label lblReview;
-        private System.Windows.Forms.Label lbComment;
+        private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.TextBox txtComment;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.ListBox lbReviews;
     }
 }
