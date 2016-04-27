@@ -38,6 +38,7 @@ namespace ICT4Participation.Forms.SubForms
                     new OracleParameter("message", tbRecensie.Text)
                 };
                 DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["InsertReview"], parameters);
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
@@ -54,6 +55,7 @@ namespace ICT4Participation.Forms.SubForms
                     new OracleParameter("id", _helpRequest.ID)
                 };
                 DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.Query["DeleteHelpRequest"], parameters);
+                this.DialogResult = DialogResult.OK;
             }
         }
     }

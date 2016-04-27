@@ -29,7 +29,7 @@ namespace ICT4Participation.Forms
 
         }
 
-        private void RefreshAll()
+        public void RefreshAll()
         {
             GetPersonalHelpRequests();
             UpdateHelpListGui();
@@ -37,6 +37,8 @@ namespace ICT4Participation.Forms
             lbHelpRequests.DataSource = _helpRequests;
             lbHelpRequests.DisplayMember = "Title";
             lbHelpRequests.SelectedItem = h;
+            tbTitle.Text = "";
+            tbDescription.Text = "";
         }
 
         private void GetPersonalHelpRequests()
@@ -60,7 +62,6 @@ namespace ICT4Participation.Forms
             {
                     pnlHulpVragen.Controls.Add(h.NewHelpRequest(position, true));
                     position++;
-
             }
         }
 
