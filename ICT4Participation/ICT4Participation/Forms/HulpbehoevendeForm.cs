@@ -29,7 +29,7 @@ namespace ICT4Participation.Forms
 
         }
 
-        private void RefreshAll()
+        public void RefreshAll()
         {
             GetPersonalHelpRequests();
             UpdateHelpListGui();
@@ -80,6 +80,7 @@ namespace ICT4Participation.Forms
             }
 
             Needy currentNeedy = (Needy)_administration.User;
+            tbTitle.Text = "";
 
             currentNeedy.AddHelpRequest(title, description, urgent, tt, DateTime.Now, dt, meeting);
             RefreshAll();

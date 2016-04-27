@@ -40,7 +40,9 @@ namespace ICT4Participation.Classes.Database
 
             Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (NeedyID, Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:needyid, :title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview)";
 
-            Query["InsertReview"] = "INSERT INTO \"Review\" (ID, HelpRequestID, VolunteerID, Message) values (REVIEW_SEQ.nextval, :helprequestid, :volunteerid, :message)";
+            Query["InsertReview"] = "INSERT INTO \"Review\" (HelpRequestID, VolunteerID, Message) values (:helprequestid, :volunteerid, :message)";
+
+            Query["CompleteHelpRequest"] = "UPDATE \"Helprequest\" SET COMPLETED = 1 WHERE ID = :id";
 
 
             //LoginForm

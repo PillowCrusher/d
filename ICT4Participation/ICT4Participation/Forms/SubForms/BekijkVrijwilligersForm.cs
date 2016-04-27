@@ -16,40 +16,55 @@ namespace ICT4Participation.Forms.SubForms
     public partial class BekijkVrijwilligersForm : Form
     {
         private HelpRequest _helpRequest;
-        private List<string> recensies; 
+        private List<string> _recensies; 
 
         public BekijkVrijwilligersForm(HelpRequest helpRequest)
         {
             InitializeComponent();
             _helpRequest = helpRequest;
-            _helpRequest.GetVolunteers();
             RefreshListBoxes();
         }
 
         private void RefreshListBoxes()
         {
+            _helpRequest.GetVolunteers();
             lbVrijwilligers.DataSource = _helpRequest.Pending;
             lbVrijwilligers.DisplayMember = "Name";
+            lbRecensies.DataSource = _recensies;
         }
 
         private void btnAccepteer_Click(object sender, EventArgs e)
         {
-            Volunteer v = (Volunteer) lbVrijwilligers.SelectedItem;
-            _helpRequest.Accept(v);
-            RefreshListBoxes();
+            if (lbVrijwilligers.SelectedItem != null)
+            {
+                Volunteer v = (Volunteer) lbVrijwilligers.SelectedItem;
+                _helpRequest.Accept(v);
+                RefreshListBoxes();
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een vrijwilliger.");
+            }
         }
 
         private void btnWijsAf_Click(object sender, EventArgs e)
         {
-            Volunteer v = (Volunteer)lbVrijwilligers.SelectedItem;
-            _helpRequest.Decline(v);
-            RefreshListBoxes();
+            if (lbVrijwilligers.SelectedItem != null)
+            {
+                Volunteer v = (Volunteer)lbVrijwilligers.SelectedItem;
+                _helpRequest.Decline(v);
+                RefreshListBoxes();
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een vrijwilliger.");
+            }
         }
 
-        private void lbRecensies_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbVrijwilligers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Volunteer v = (Volunteer) lbVrijwilligers.SelectedItem;
-            recensies = new List<string>();
+            _recensies = new List<string>();
             OracleParameter[] parameters =
             {
                 new OracleParameter("id", v.ID), 
@@ -57,7 +72,7 @@ namespace ICT4Participation.Forms.SubForms
             DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query["GetAllReviewsVolunteer"], parameters);
             foreach (DataRow dr in dt.Rows)
             {
-                recensies.Add(Convert.ToString(dr["MESSAGE"]));
+                _recensies.Add(Convert.ToString(dr["MESSAGE"]));
             }
         }
     }
