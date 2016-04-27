@@ -81,14 +81,18 @@ namespace ICT4Participation.Forms
 
             Needy currentNeedy = (Needy)_administration.User;
             tbTitle.Text = "";
-
+            tbDescription.Text = "";
+            cbUrgent.Checked = false;
+            cbTransportType.SelectedIndex = 0;
+            dtpEndDate.Value = DateTime.Now;
+            cbMeeting.Checked = false;
             currentNeedy.AddHelpRequest(title, description, urgent, tt, DateTime.Now, dt, meeting);
             RefreshAll();
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
+            HelpRequest h = (HelpRequest) lbHelpRequests.SelectedItem;
             foreach (HelpRequest hr in _helpRequests)
             {
                 if (h == hr)
@@ -109,7 +113,7 @@ namespace ICT4Participation.Forms
 
         private void lbHelpRequests_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
+            HelpRequest h = (HelpRequest) lbHelpRequests.SelectedItem;
             foreach (HelpRequest hr in _helpRequests)
             {
                 if (h == hr)

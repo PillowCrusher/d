@@ -284,10 +284,12 @@
             this.tbMessage.TabIndex = 2;
             this.tbMessage.Text = "tekst om te verzenden";
             this.tbMessage.Click += new System.EventHandler(this.tbMessage_Click);
+            this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
             // 
             // lbChats
             // 
             this.lbChats.FormattingEnabled = true;
+            this.lbChats.HorizontalScrollbar = true;
             this.lbChats.Location = new System.Drawing.Point(132, 19);
             this.lbChats.Name = "lbChats";
             this.lbChats.Size = new System.Drawing.Size(366, 368);

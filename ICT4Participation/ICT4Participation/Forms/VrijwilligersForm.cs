@@ -25,9 +25,9 @@ namespace ICT4Participation.Forms
             _administration = administration;
 
             Size size = new Size(1280, 720);
-            this.Size = size;
-            this.MinimumSize = size;
-            this.MaximumSize = size;
+            Size = size;
+            MinimumSize = size;
+            MaximumSize = size;
 
             GetAllHelpRequests();
 
@@ -133,14 +133,16 @@ namespace ICT4Participation.Forms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
+            HelpRequest h = (HelpRequest)lbHelpRequests.SelectedItem;
             foreach (HelpRequest hr in _helpRequests)
             {
                 if (h == hr)
                 {
                     hr.AddChatMessage(new ChatMessage((User)_administration.User, tbMessage.Text, DateTime.Now));
+                    tbMessage.Text = "";
                     hr.GetChatMessages();
-                    RefreshAll();
+                    lbChats.DataSource = hr.ChatMessages;
+                    lbChats.DisplayMember = "TotalString";
                     break;
                 }
             }
@@ -153,17 +155,14 @@ namespace ICT4Participation.Forms
 
         private void lbHelpRequests_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HelpRequest h = lbHelpRequests.SelectedItem as HelpRequest;
+            HelpRequest h = (HelpRequest) lbHelpRequests.SelectedItem;
             foreach (HelpRequest hr in _helpRequests)
             {
                 if (h == hr)
                 {
                     hr.GetChatMessages();
-                    SelectionMode selectionMode = lbHelpRequests.SelectionMode;
-                    lbHelpRequests.SelectionMode = SelectionMode.None;
                     lbChats.DataSource = hr.ChatMessages;
                     lbChats.DisplayMember = "TotalString";
-                    lbHelpRequests.SelectionMode = selectionMode;
                 }
             }
         }
@@ -172,6 +171,14 @@ namespace ICT4Participation.Forms
         {
             var user = _administration.User as Volunteer;
             return user;
+        }
+
+        private void tbMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSend_Click(this, e);
+            }
         }
     }
 }
