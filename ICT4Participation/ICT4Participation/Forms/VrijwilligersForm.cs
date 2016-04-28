@@ -124,15 +124,17 @@ namespace ICT4Participation.Forms
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            UpdateHelpListGui();
+            RefreshAll();
         }
 
 
         private void RefreshAll()
         {
+            GetAllHelpRequests();
             UpdateHelpListGui();
             lbHelpRequests.DataSource = _helpRequests;
             lbHelpRequests.DisplayMember = "Title";
+            lbChats.DataSource = null;
         }
 
 
