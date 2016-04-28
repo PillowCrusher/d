@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICT4Participation.Classes.Intelligence;
+using Phidgets;
+using Phidgets.Events;
 
 namespace ICT4Participation.Forms
 {
@@ -18,9 +20,20 @@ namespace ICT4Participation.Forms
         /// </summary>
         public Administration administration = new Administration();
 
+        /// <summary>
+        /// Het aanmaken van een RFID object om mee te scannen
+        /// </summary>
+        private RFID rfid;
+
         public Needy_RegisterForm()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            rfid = new RFID();
+            rfid.Attach += new AttachEventHandler(rfid_Attach);
+            rfid.Detach += new DetachEventHandler(rfid_Detach);
+            rfid.Error += new ErrorEventHandler(rfid_Error);
+            rfid.Tag += new TagEventHandler(rfid_Tag);
+            rfid.open();
         }
 
         /// <summary>
@@ -114,6 +127,31 @@ namespace ICT4Participation.Forms
             {
                 MessageBox.Show("Vul alsjeblieft een gebruikersnaam in");
             }
+        }
+
+        void rfid_Tag(object sender, TagEventArgs e)
+        {
+            txtRFID.Text = e.Tag;
+        }
+
+        void rfid_Attach(object sender, AttachEventArgs e)
+        {
+            // if the rfid is connected set on and change status
+            rfid.Antenna = true;
+        }
+
+        void rfid_Detach(object sender, DetachEventArgs e)
+        {
+            // if the rfid is detachted and change status
+            //rfid.Antenna = false;
+        }
+
+        void rfid_Error(object sender, ErrorEventArgs e)
+        {
+            // if the is an error, show
+            MessageBox.Show("RFID ERROR " + e.Description);
+            rfid.close();
+            Close();
         }
     }
 }
