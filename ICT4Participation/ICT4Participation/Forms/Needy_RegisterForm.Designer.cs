@@ -60,9 +60,10 @@
             // rbtCarNo
             // 
             this.rbtCarNo.AutoSize = true;
-            this.rbtCarNo.Location = new System.Drawing.Point(127, 30);
+            this.rbtCarNo.Location = new System.Drawing.Point(64, 16);
+            this.rbtCarNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtCarNo.Name = "rbtCarNo";
-            this.rbtCarNo.Size = new System.Drawing.Size(90, 35);
+            this.rbtCarNo.Size = new System.Drawing.Size(50, 21);
             this.rbtCarNo.TabIndex = 1;
             this.rbtCarNo.TabStop = true;
             this.rbtCarNo.Text = "nee";
@@ -71,9 +72,10 @@
             // rbtDrivingNo
             // 
             this.rbtDrivingNo.AutoSize = true;
-            this.rbtDrivingNo.Location = new System.Drawing.Point(127, 30);
+            this.rbtDrivingNo.Location = new System.Drawing.Point(64, 16);
+            this.rbtDrivingNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtDrivingNo.Name = "rbtDrivingNo";
-            this.rbtDrivingNo.Size = new System.Drawing.Size(90, 35);
+            this.rbtDrivingNo.Size = new System.Drawing.Size(50, 21);
             this.rbtDrivingNo.TabIndex = 1;
             this.rbtDrivingNo.TabStop = true;
             this.rbtDrivingNo.Text = "nee";
@@ -82,9 +84,10 @@
             // rbtDrivingYes
             // 
             this.rbtDrivingYes.AutoSize = true;
-            this.rbtDrivingYes.Location = new System.Drawing.Point(43, 30);
+            this.rbtDrivingYes.Location = new System.Drawing.Point(22, 16);
+            this.rbtDrivingYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtDrivingYes.Name = "rbtDrivingYes";
-            this.rbtDrivingYes.Size = new System.Drawing.Size(66, 35);
+            this.rbtDrivingYes.Size = new System.Drawing.Size(37, 21);
             this.rbtDrivingYes.TabIndex = 0;
             this.rbtDrivingYes.TabStop = true;
             this.rbtDrivingYes.Text = "ja";
@@ -93,9 +96,10 @@
             // rbtTransportNo
             // 
             this.rbtTransportNo.AutoSize = true;
-            this.rbtTransportNo.Location = new System.Drawing.Point(127, 30);
+            this.rbtTransportNo.Location = new System.Drawing.Point(64, 16);
+            this.rbtTransportNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtTransportNo.Name = "rbtTransportNo";
-            this.rbtTransportNo.Size = new System.Drawing.Size(90, 35);
+            this.rbtTransportNo.Size = new System.Drawing.Size(50, 21);
             this.rbtTransportNo.TabIndex = 1;
             this.rbtTransportNo.TabStop = true;
             this.rbtTransportNo.Text = "nee";
@@ -104,9 +108,10 @@
             // rbtTransportYes
             // 
             this.rbtTransportYes.AutoSize = true;
-            this.rbtTransportYes.Location = new System.Drawing.Point(43, 30);
+            this.rbtTransportYes.Location = new System.Drawing.Point(22, 16);
+            this.rbtTransportYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtTransportYes.Name = "rbtTransportYes";
-            this.rbtTransportYes.Size = new System.Drawing.Size(66, 35);
+            this.rbtTransportYes.Size = new System.Drawing.Size(37, 21);
             this.rbtTransportYes.TabIndex = 0;
             this.rbtTransportYes.TabStop = true;
             this.rbtTransportYes.Text = "ja";
@@ -117,33 +122,38 @@
             this.grbxPublicTransport.Controls.Add(this.rbtTransportNo);
             this.grbxPublicTransport.Controls.Add(this.rbtTransportYes);
             this.grbxPublicTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbxPublicTransport.Location = new System.Drawing.Point(17, 245);
+            this.grbxPublicTransport.Location = new System.Drawing.Point(8, 127);
+            this.grbxPublicTransport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grbxPublicTransport.Name = "grbxPublicTransport";
-            this.grbxPublicTransport.Size = new System.Drawing.Size(272, 72);
+            this.grbxPublicTransport.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxPublicTransport.Size = new System.Drawing.Size(136, 37);
             this.grbxPublicTransport.TabIndex = 44;
             this.grbxPublicTransport.TabStop = false;
             this.grbxPublicTransport.Text = "Openbaar vervoer:";
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(251, 12);
+            this.tbUsername.Location = new System.Drawing.Point(126, 6);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(300, 31);
+            this.tbUsername.Size = new System.Drawing.Size(152, 20);
             this.tbUsername.TabIndex = 43;
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(251, 48);
+            this.tbEmail.Location = new System.Drawing.Point(126, 25);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(300, 31);
+            this.tbEmail.Size = new System.Drawing.Size(152, 20);
             this.tbEmail.TabIndex = 42;
             // 
             // rbtCarYes
             // 
             this.rbtCarYes.AutoSize = true;
-            this.rbtCarYes.Location = new System.Drawing.Point(43, 30);
+            this.rbtCarYes.Location = new System.Drawing.Point(22, 16);
+            this.rbtCarYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtCarYes.Name = "rbtCarYes";
-            this.rbtCarYes.Size = new System.Drawing.Size(66, 35);
+            this.rbtCarYes.Size = new System.Drawing.Size(37, 21);
             this.rbtCarYes.TabIndex = 0;
             this.rbtCarYes.TabStop = true;
             this.rbtCarYes.Text = "ja";
@@ -151,18 +161,20 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(251, 84);
+            this.tbPassword.Location = new System.Drawing.Point(126, 44);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(300, 31);
+            this.tbPassword.Size = new System.Drawing.Size(152, 20);
             this.tbPassword.TabIndex = 41;
             // 
             // lbWachtwoord
             // 
             this.lbWachtwoord.AutoSize = true;
             this.lbWachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbWachtwoord.Location = new System.Drawing.Point(23, 84);
+            this.lbWachtwoord.Location = new System.Drawing.Point(12, 44);
+            this.lbWachtwoord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWachtwoord.Name = "lbWachtwoord";
-            this.lbWachtwoord.Size = new System.Drawing.Size(173, 31);
+            this.lbWachtwoord.Size = new System.Drawing.Size(90, 17);
             this.lbWachtwoord.TabIndex = 40;
             this.lbWachtwoord.Text = "Wachtwoord:";
             // 
@@ -170,9 +182,10 @@
             // 
             this.lbEmail.AutoSize = true;
             this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbEmail.Location = new System.Drawing.Point(23, 47);
+            this.lbEmail.Location = new System.Drawing.Point(12, 24);
+            this.lbEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(89, 31);
+            this.lbEmail.Size = new System.Drawing.Size(46, 17);
             this.lbEmail.TabIndex = 39;
             this.lbEmail.Text = "Email:";
             // 
@@ -180,24 +193,27 @@
             // 
             this.lbGebruikersnaam.AutoSize = true;
             this.lbGebruikersnaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbGebruikersnaam.Location = new System.Drawing.Point(23, 9);
+            this.lbGebruikersnaam.Location = new System.Drawing.Point(12, 5);
+            this.lbGebruikersnaam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbGebruikersnaam.Name = "lbGebruikersnaam";
-            this.lbGebruikersnaam.Size = new System.Drawing.Size(222, 31);
+            this.lbGebruikersnaam.Size = new System.Drawing.Size(117, 17);
             this.lbGebruikersnaam.TabIndex = 38;
             this.lbGebruikersnaam.Text = "Gebruikersnaam:";
             // 
             // tbPhonenumber
             // 
-            this.tbPhonenumber.Location = new System.Drawing.Point(251, 208);
+            this.tbPhonenumber.Location = new System.Drawing.Point(126, 108);
+            this.tbPhonenumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPhonenumber.Name = "tbPhonenumber";
-            this.tbPhonenumber.Size = new System.Drawing.Size(300, 31);
+            this.tbPhonenumber.Size = new System.Drawing.Size(152, 20);
             this.tbPhonenumber.TabIndex = 37;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(251, 125);
+            this.tbName.Location = new System.Drawing.Point(126, 65);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(300, 31);
+            this.tbName.Size = new System.Drawing.Size(152, 20);
             this.tbName.TabIndex = 34;
             // 
             // grbxDrivingLincense
@@ -205,9 +221,11 @@
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingNo);
             this.grbxDrivingLincense.Controls.Add(this.rbtDrivingYes);
             this.grbxDrivingLincense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbxDrivingLincense.Location = new System.Drawing.Point(17, 323);
+            this.grbxDrivingLincense.Location = new System.Drawing.Point(8, 168);
+            this.grbxDrivingLincense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grbxDrivingLincense.Name = "grbxDrivingLincense";
-            this.grbxDrivingLincense.Size = new System.Drawing.Size(272, 72);
+            this.grbxDrivingLincense.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbxDrivingLincense.Size = new System.Drawing.Size(136, 37);
             this.grbxDrivingLincense.TabIndex = 33;
             this.grbxDrivingLincense.TabStop = false;
             this.grbxDrivingLincense.Text = "Rijbewijs:";
@@ -217,9 +235,11 @@
             this.grpbxCar.Controls.Add(this.rbtCarNo);
             this.grpbxCar.Controls.Add(this.rbtCarYes);
             this.grpbxCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grpbxCar.Location = new System.Drawing.Point(17, 401);
+            this.grpbxCar.Location = new System.Drawing.Point(8, 209);
+            this.grpbxCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpbxCar.Name = "grpbxCar";
-            this.grpbxCar.Size = new System.Drawing.Size(272, 72);
+            this.grpbxCar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpbxCar.Size = new System.Drawing.Size(136, 37);
             this.grpbxCar.TabIndex = 32;
             this.grpbxCar.TabStop = false;
             this.grpbxCar.Text = "Auto:";
@@ -228,9 +248,10 @@
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPhoneNumber.Location = new System.Drawing.Point(23, 205);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(12, 107);
+            this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(226, 31);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(119, 17);
             this.lblPhoneNumber.TabIndex = 31;
             this.lblPhoneNumber.Text = "Telefoonnummer:";
             // 
@@ -238,9 +259,10 @@
             // 
             this.lblLocation.AutoSize = true;
             this.lblLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblLocation.Location = new System.Drawing.Point(23, 161);
+            this.lblLocation.Location = new System.Drawing.Point(12, 84);
+            this.lblLocation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLocation.Name = "lblLocation";
-            this.lblLocation.Size = new System.Drawing.Size(125, 31);
+            this.lblLocation.Size = new System.Drawing.Size(66, 17);
             this.lblLocation.TabIndex = 29;
             this.lblLocation.Text = "Location:";
             // 
@@ -248,9 +270,10 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblName.Location = new System.Drawing.Point(23, 124);
+            this.lblName.Location = new System.Drawing.Point(12, 64);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(94, 31);
+            this.lblName.Size = new System.Drawing.Size(49, 17);
             this.lblName.TabIndex = 28;
             this.lblName.Text = "Naam:";
             // 
@@ -258,25 +281,28 @@
             // 
             this.lbl_RFID.AutoSize = true;
             this.lbl_RFID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl_RFID.Location = new System.Drawing.Point(18, 480);
+            this.lbl_RFID.Location = new System.Drawing.Point(9, 250);
+            this.lbl_RFID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_RFID.Name = "lbl_RFID";
-            this.lbl_RFID.Size = new System.Drawing.Size(87, 31);
+            this.lbl_RFID.Size = new System.Drawing.Size(43, 17);
             this.lbl_RFID.TabIndex = 45;
             this.lbl_RFID.Text = "RFID:";
             // 
             // txtRFID
             // 
-            this.txtRFID.Location = new System.Drawing.Point(111, 480);
+            this.txtRFID.Location = new System.Drawing.Point(56, 250);
+            this.txtRFID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRFID.Name = "txtRFID";
-            this.txtRFID.Size = new System.Drawing.Size(440, 31);
+            this.txtRFID.Size = new System.Drawing.Size(222, 20);
             this.txtRFID.TabIndex = 46;
             // 
             // btRegister
             // 
             this.btRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRegister.Location = new System.Drawing.Point(17, 532);
+            this.btRegister.Location = new System.Drawing.Point(8, 277);
+            this.btRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btRegister.Name = "btRegister";
-            this.btRegister.Size = new System.Drawing.Size(534, 90);
+            this.btRegister.Size = new System.Drawing.Size(267, 47);
             this.btRegister.TabIndex = 47;
             this.btRegister.Text = "Registeer Hulpbehoevende";
             this.btRegister.UseVisualStyleBackColor = true;
@@ -289,16 +315,17 @@
             this.cbxLocation.Items.AddRange(new object[] {
             "Oes Hoes",
             "t Slotje"});
-            this.cbxLocation.Location = new System.Drawing.Point(251, 161);
+            this.cbxLocation.Location = new System.Drawing.Point(126, 84);
+            this.cbxLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxLocation.Name = "cbxLocation";
-            this.cbxLocation.Size = new System.Drawing.Size(300, 33);
+            this.cbxLocation.Size = new System.Drawing.Size(152, 21);
             this.cbxLocation.TabIndex = 48;
             // 
             // Needy_RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 679);
+            this.ClientSize = new System.Drawing.Size(287, 353);
             this.Controls.Add(this.cbxLocation);
             this.Controls.Add(this.btRegister);
             this.Controls.Add(this.txtRFID);
@@ -317,8 +344,10 @@
             this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.lblName);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Needy_RegisterForm";
             this.Text = "Needy_RegisterForm";
+            this.Load += new System.EventHandler(this.Needy_RegisterForm_Load);
             this.grbxPublicTransport.ResumeLayout(false);
             this.grbxPublicTransport.PerformLayout();
             this.grbxDrivingLincense.ResumeLayout(false);

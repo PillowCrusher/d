@@ -28,12 +28,7 @@ namespace ICT4Participation.Forms
         public Needy_RegisterForm()
         {
             InitializeComponent();
-            rfid = new RFID();
-            rfid.Attach += new AttachEventHandler(rfid_Attach);
-            rfid.Detach += new DetachEventHandler(rfid_Detach);
-            rfid.Error += new ErrorEventHandler(rfid_Error);
-            rfid.Tag += new TagEventHandler(rfid_Tag);
-            rfid.open();
+            
         }
 
         /// <summary>
@@ -152,6 +147,16 @@ namespace ICT4Participation.Forms
             MessageBox.Show("RFID ERROR " + e.Description);
             rfid.close();
             Close();
+        }
+
+        private void Needy_RegisterForm_Load(object sender, EventArgs e)
+        {
+            rfid = new RFID();
+            rfid.Attach += new AttachEventHandler(rfid_Attach);
+            rfid.Detach += new DetachEventHandler(rfid_Detach);
+            rfid.Error += new ErrorEventHandler(rfid_Error);
+            rfid.Tag += new TagEventHandler(rfid_Tag);
+            rfid.open();
         }
     }
 }
