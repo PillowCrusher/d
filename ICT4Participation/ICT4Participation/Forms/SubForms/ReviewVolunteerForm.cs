@@ -43,13 +43,20 @@ namespace ICT4Participation.Forms.SubForms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            string message = lbReviews.SelectedItem.ToString();
-            OracleParameter[] parameters =
+            if (txtComment.Text != "")
             {
-                new OracleParameter("reaction", txtComment.Text),
-                new OracleParameter("helpreview", message)
-            };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UpdateCommentReview"], parameters);
+                string message = lbReviews.SelectedItem.ToString();
+                OracleParameter[] parameters =
+                {
+                    new OracleParameter("reaction", txtComment.Text),
+                    new OracleParameter("helpreview", message)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UpdateCommentReview"], parameters);
+            }
+            else
+            {
+                MessageBox.Show("Voer AUB een reactie in.");
+            }
         }
 
         private void txtComment_KeyDown(object sender, KeyEventArgs e)

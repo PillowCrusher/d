@@ -36,9 +36,11 @@ namespace ICT4Participation.Forms
             HelpRequest h = (HelpRequest)lbHelpRequests.SelectedItem;
             lbHelpRequests.DataSource = _helpRequests;
             lbHelpRequests.DisplayMember = "Title";
-            lbHelpRequests.SelectedItem = h;
+            lbChats.DataSource = null;
+            lbChats.DisplayMember = "TotalString";
             tbTitle.Text = "";
             tbDescription.Text = "";
+            Refresh();
         }
 
         private void GetPersonalHelpRequests()
@@ -101,7 +103,8 @@ namespace ICT4Participation.Forms
                     hr.AddChatMessage(new ChatMessage((User)_administration.User, tbMessage.Text, DateTime.Now));
                     tbMessage.Text = "";
                     hr.GetChatMessages();
-                    RefreshAll();
+                    lbChats.DataSource = hr.ChatMessages;
+                    lbChats.DisplayMember = "TotalString";
                     break;
                 }
             }

@@ -40,6 +40,7 @@ namespace ICT4Participation.Forms.SubForms
                 Volunteer v = (Volunteer) lbVrijwilligers.SelectedItem;
                 _helpRequest.Accept(v);
                 _recensies.Clear();
+                lbRecensies.DataSource = null;
                 RefreshListBoxes();
             }
             else
@@ -55,6 +56,7 @@ namespace ICT4Participation.Forms.SubForms
                 Volunteer v = (Volunteer)lbVrijwilligers.SelectedItem;
                 _helpRequest.Decline(v);
                 _recensies.Clear();
+                lbRecensies.Items.Clear();
                 RefreshListBoxes();
             }
             else
