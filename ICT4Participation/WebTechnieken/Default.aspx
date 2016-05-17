@@ -8,12 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Webtechnieken Demo</title>
-    <!--<link rel="stylesheet" href="Styles/style.css"/> -->
+    <link rel="stylesheet" href="Styles/style.css"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
-   <!-- <script src="Scripts/voorbeeld.js"></script> -->
+    <script src="Scripts/voorbeeld.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container col-sm-4"></div>
+<div class="container col-sm-4">
     <form id="form1" runat="server" class="form-signin">
         
         
@@ -27,6 +28,7 @@
             <input value="remember-me" type="checkbox"> Remember me
           </label>
         </div>
+        <div class="container col-sm-4"></div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         
 
