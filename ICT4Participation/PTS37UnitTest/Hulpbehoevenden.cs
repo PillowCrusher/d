@@ -12,6 +12,7 @@ namespace PTS37UnitTest
     public class Hulpbehoevenden
     {
         private Administration _administration;
+        private Database _database;
         private List<HelpRequest> _helpRequests;
         [TestInitialize]
         public void Initialize()
