@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ICT4Participation.Classes.ClassObjects;
 using Oracle.ManagedDataAccess.Client;
+using Phidgets;
 
 namespace ICT4Participation.Classes.Database
 {
@@ -27,6 +28,50 @@ namespace ICT4Participation.Classes.Database
 
                 throw;
             }
+        }
+
+        public void BlockAccount(User user)
+        {
+            try
+            {
+                OracleParameter[] userParameter =
+                {
+                new OracleParameter("id", user.ID)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["BlockUser"], userParameter);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void SendWarning(string message, User user)
+        {
+            try
+            {
+                OracleParameter[] userParameter =
+                {
+                new OracleParameter("id", user.ID)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["WarnUser"], userParameter);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public void AddRfidToUser(Needy needy, string rfid)
+        {
+            OracleParameter[] userParameter =
+                {
+                new OracleParameter("rfid", rfid),
+                new OracleParameter("id", needy.ID)
+                };
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["AddRFIDToNeedy"], userParameter);
         }
     }
 }

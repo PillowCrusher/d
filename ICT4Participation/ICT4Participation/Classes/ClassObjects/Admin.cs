@@ -33,58 +33,20 @@ namespace ICT4Participation.Classes.ClassObjects
         /// Hiermee kan een admin een account blokeren indien nodig
         /// </summary>
         /// <param name="user"></param>
-        public void BlockAccount(User user)
-        {
-            try
-            {
-                OracleParameter[] userParameter =
-                {
-                new OracleParameter("id", user.ID)
-                };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["BlockUser"], userParameter);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        
 
         /// <summary>
         /// Hiermee kan een admin een account waarschuwen voor zijn acties indien nodig
         /// </summary>
         /// <param name="message"></param>
         /// <param name="user"></param>
-        public void SendWarning(string message, User user)
-        {
-            try
-            {
-                OracleParameter[] userParameter =
-                {
-                new OracleParameter("id", user.ID)
-                };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["WarnUser"], userParameter);
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-            
-        }
+       
 
         /// <summary>
         /// Hiermee kan een admin een RFID tag aan een hulpbehoevende koppelen
         /// </summary>
         /// <param name="needy"></param>
         /// <param name="rfid"></param>
-        public void AddRfidToUser(Needy needy, string rfid)
-        {
-            OracleParameter[] userParameter =
-                {
-                new OracleParameter("rfid", RFID),
-                new OracleParameter("id", needy.ID)
-                };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["AddRFIDToNeedy"], userParameter);
-        }
+        
     }
 }

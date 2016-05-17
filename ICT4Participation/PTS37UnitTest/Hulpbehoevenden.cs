@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
 using ICT4Participation.Classes.ClassObjects;
-using Oracle.ManagedDataAccess.Client;
+using System.Data.OracleClient;
 
 namespace PTS37UnitTest
 {
