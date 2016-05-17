@@ -429,21 +429,27 @@ namespace ICT4Participation.Classes.Intelligence
 
         public void BlockAccount(User user)
         {
-            Admin admin = ((Admin)User);
-            admin.BlockAccount(user);
-            GetAllVolunteers("GetAcceptedVolunteers");
+            if (User is Admin)
+            {
+                Database.BlockAccount(user);
+                GetAllVolunteers("GetAcceptedVolunteers");
+            }
         }
 
         public void SendWarning(string message, User user)
         {
-            Admin admin = ((Admin)User);
-            admin.SendWarning(message, user);
+            if (User is Admin)
+            {
+                Database.SendWarning(message, user);
+            }
         }
 
         public void AddRfidToUser(Needy needy, string rfid)
         {
-            Admin admin = ((Admin)User);
-            admin.AddRfidToUser(needy, rfid);
+            if (User is Admin)
+            {
+                Database.AddRfidToUser(needy, rfid);
+            }
         }
 
         public void UpdateVolunteer(string password, string adress, string city, string phonenumber, bool publicTransport, bool drivingLincence, bool hasCar, DateTime birhtDay, string photoFile, string VOGFile)
