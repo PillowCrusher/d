@@ -66,28 +66,5 @@ namespace ICT4Participation.Classes.ClassObjects
             this.HasCar = hasCar;
             this.IsWarned = isWarned;
         }
-
-
-        /// <summary>
-        /// Methode waarmee de user zichzelf kan uitschrijven
-        /// </summary>
-        public void UnSubscribe()
-        {
-            try
-            {
-                DeRegistrationDate = DateTime.Now;
-                OracleParameter[] userParameter =
-                {
-                new OracleParameter("deregistrationdate", DeRegistrationDate),
-                new OracleParameter("id", ID)
-                };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeUser"], userParameter);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
     }
 }

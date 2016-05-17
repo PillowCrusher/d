@@ -84,6 +84,7 @@
     <Compile Include="Classes\ClassObjects\TransportationType.cs" />
     <Compile Include="Classes\ClassObjects\User.cs" />
     <Compile Include="Classes\ClassObjects\Volunteer.cs" />
+    <Compile Include="Classes\Database\Database.cs" />
     <Compile Include="Classes\Intelligence\Administration.cs" />
     <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
