@@ -13,9 +13,11 @@ namespace ICT4Participation.Classes.Intelligence
     {
         //een field waar het ingelogde account in staat
         public Account User { get; private set; }
+        private Database.Database Database { get;  set; }
 
         public Administration()
         {
+            Database = new Database.Database();
            // User = new Admin(1, "Henk", "@F", "234567890");
         }
 
@@ -189,7 +191,7 @@ namespace ICT4Participation.Classes.Intelligence
         /// <param name="user"></param>
         public void Unsubscribe(User user)
         {
-            user.UnSubscribe();
+            Database.UnSubscribe(user);
         }
 
         /// <summary>
