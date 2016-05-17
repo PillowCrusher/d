@@ -372,22 +372,31 @@ namespace ICT4Participation.Classes.Intelligence
             }
 
             return riviews;
-        }
+        } 
 
         public void BlockAccount(User user)
         {
-            Database.BlockAccount(user);
-            GetAllVolunteers("GetAcceptedVolunteers");
+            if (User is Admin)
+            {
+                Database.BlockAccount(user);
+                GetAllVolunteers("GetAcceptedVolunteers");
+            }
         }
 
         public void SendWarning(string message, User user)
         {
-            Database.SendWarning(message, user);
+            if (User is Admin)
+            {
+                Database.SendWarning(message, user);
+            }
         }
 
         public void AddRfidToUser(Needy needy, string rfid)
         {
-            Database.AddRfidToUser(needy, rfid);
+            if (User is Admin)
+            {
+                Database.AddRfidToUser(needy, rfid);
+            }
         }
 
         public void UpdateVolunteer(string password, string adress, string city, string phonenumber,
