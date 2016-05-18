@@ -18,18 +18,13 @@
     <form id="form1" runat="server" class="form-signin">
         
         
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
+        <h2 class="form-signin-heading">Log alsjeblieft in</h2>
+        <label for="inputEmail" class="sr-only">E-mailadres</label>
         <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email">
-        <label for="inputPassword" class="sr-only">Password</label>
+        <label for="inputPassword" class="sr-only">Wachtwoord</label>
         <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password">
-        <div class="checkbox">
-          <label>
-            <input value="remember-me" type="checkbox"> Remember me
-          </label>
-        </div>
         <div class="container col-sm-4"></div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
         
 
     </form>

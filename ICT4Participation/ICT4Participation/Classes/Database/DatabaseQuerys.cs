@@ -11,7 +11,7 @@ namespace ICT4Participation.Classes.Database
             //AdminForm
             Query["WarnUser"] = "UPDATE \"User\" SET ISWARNED = 1 where ID = :id";
 
-            Query["BlockUser"] = "UPDATE \"Volunteer\" SET ISBLOCKED = 1 where ID = :id";
+            Query["BlockUser"] = "UPDATE \"Volunteer\" SET ISBLOCKED =   where ID = :id";
 
             Query["AddRFIDToNeedy"] = "UPDATE \"Needy\" set RFID = :rfid where ID = :id";
 
