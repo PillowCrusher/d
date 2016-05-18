@@ -42,9 +42,6 @@
                     <li>
                         <a class="page-scroll" href="#voorbeeld2">Voorbeeld 2</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#voorbeeld3">Voorbeeld 3</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -95,16 +92,6 @@
         </div>
     </section>
 
-    <!-- Voorbeeld 3 Section -->
-    <section id="voorbeeld3" class="voorbeeld3-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Voorbeeld 3</h1>
-                </div>
-            </div>
-        </div>
-    </section>
     
     <!-- jQuery -->
     <script src="Scripts/jquery-1.9.1.js"></script>
