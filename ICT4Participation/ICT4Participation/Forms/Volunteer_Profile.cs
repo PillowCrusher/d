@@ -30,8 +30,11 @@ namespace ICT4Participation.Forms
         public string VOGFile { get; private set; }
         public string password { get; private set; }
 
-        public Volunteer_Profile()
+        private Administration Administration { get; set; }
+
+        public Volunteer_Profile(Administration administration)
         {
+            Administration = administration;
             InitializeComponent();
         }
 
@@ -162,6 +165,7 @@ namespace ICT4Participation.Forms
                                     phonenumber = tbPhonenumber.Text;
                                     birhtDay = dtpBirthDate.Value.Date;
                                     password = tbPassword.Text;
+                                    Administration.UpdateVolunteer(password, adress, city, phonenumber, publicTransport, drivingLincence, hasCar, birhtDay, photoFile, VOGFile);
                                     //als alle waardes zijn ingevuld wordt dit Form verborgen
                                     this.Hide();
                                 }
@@ -209,7 +213,7 @@ namespace ICT4Participation.Forms
                 try
                 {
                     //Vrijwilliger wordt uitgeschreven
-                   // _volunteer.UnSubscribe();
+                    Administration.Unsubscribe(_volunteer);
                 }
                 catch (Exception ex)
                 {

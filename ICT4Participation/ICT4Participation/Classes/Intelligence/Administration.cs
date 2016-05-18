@@ -17,7 +17,7 @@ namespace ICT4Participation.Classes.Intelligence
 
         public Administration()
         {
-           // Database = new Database.Database();
+            Database = new Database.Database(this);
             // User = new Admin(1, "Henk", "@F", "234567890");
         }
 

@@ -24,7 +24,7 @@ namespace PTS37UnitTest
                 new OracleParameter("needyid", _administration.User.ID)
             };
 
-           // _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);
+          //  _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);
         }
         [TestMethod]
         public void Test_HulpvraagMaken()
