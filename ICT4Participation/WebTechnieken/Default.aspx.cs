@@ -20,11 +20,25 @@ namespace WebTechnieken
 
         protected void LogIn_Button_Click(object sender, EventArgs e)
         {
-            ICT4Participation.Classes.Intelligence.Administration administration = new Administration();
-            administration.Login(inputEmail.Text, inputPassword.Text);
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('"+administration.User.ToString()+"');</script>");
-            Response.Redirect("Voorbeeld.aspx");
-            
+            try
+            {
+                ICT4Participation.Classes.Intelligence.Administration administration = new Administration();
+                administration.Login(inputEmail.Text, inputPassword.Text);
+                if (administration.User != null)
+                {
+                    Response.Redirect("Voorbeeld.aspx");
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                   "<script>alert('Inloggen mislukt, controleer uw gebruikersnaam en wachtwoord.');</script>");
+                }
+            }
+            catch (Exception exception)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                   "<script>alert('" + exception.Message + "');</script>");
+            }
         }
     }
 }
