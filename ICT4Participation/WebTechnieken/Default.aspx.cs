@@ -22,8 +22,9 @@ namespace WebTechnieken
         {
             ICT4Participation.Classes.Intelligence.Administration administration = new Administration();
             administration.Login(inputEmail.Text, inputPassword.Text);
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('"+administration.User.Email+"');</script>");
-
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('"+administration.User.ToString()+"');</script>");
+            Response.Redirect("Voorbeeld.aspx");
+            
         }
     }
 }

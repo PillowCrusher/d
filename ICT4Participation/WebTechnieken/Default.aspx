@@ -18,13 +18,14 @@
     <form id="form1" runat="server" class="form-signin" onsubmit="return validateLoginForm()" method="post">
         
         
-        <h2 class="form-signin-heading">Log alsjeblieft in</h2>
+        <h2 class="form-signin-heading">Log in alsjeblieft</h2>
         <label  for="inputEmail" class="sr-only">Gebruikersnaam</label>
-        <asp:TextBox ID="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="text" runat="server"></asp:TextBox>
+        <asp:TextBox ID="inputEmail" class="form-control" placeholder="Gebruikersnaam" required="" autofocus="" type="text" runat="server"></asp:TextBox>
         <label for="inputPassword" class="sr-only">Wachtwoord</label>
-        <asp:TextBox id="inputPassword" class="form-control" placeholder="Password" required="" type="password" runat="server"></asp:TextBox>
+        <asp:TextBox id="inputPassword" class="form-control" placeholder="Wachtwoord" required="" type="password" runat="server"></asp:TextBox>
         <div class="container col-sm-4"></div>
         <asp:Button ID="LogIn" Text="Log in" class="btn btn-lg btn-primary btn-block" type="submit" runat="server" OnClick="LogIn_Button_Click"/>
+        
     </form>
     </div> <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
