@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="Styles/style.css"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
     <link href="Content/scrolling-nav.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="Scripts/Voorbeeld_Kevin_Soree.js"></script>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -85,6 +86,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Voorbeeld 2</h1>
+                    <p>Ook is het mogelijk om jquery te gebruiken om diversen UI tools te manipuleren, net zoals het voorbeeld van hieronder, wat de animate functie van jquery gebruikt.</p>
+                    <button id="btnMoveDiv" class="btn btn-default">Move!</button>
+                    <div style="background:#98bf21;height:100px;width:100px;position:absolute;" onclick="Voorbeeld2_Click" id="Voorbeeld2_div"></div>
+                    
                 </div>
             </div>
         </div>
@@ -100,7 +105,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- jQuery -->
     <script src="Scripts/jquery-1.9.1.js"></script>
 

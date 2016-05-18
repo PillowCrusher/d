@@ -12,3 +12,13 @@ function change() {
         x = 1;
     }
 }
+
+function Voorbeeld2_Click() {
+    $("#Voorbeeld2_div").animate({ left: '250px' });
+}
+
+$(document).ready(function () {
+    $("#btnMoveDiv").click(function () {
+        $("#Voorbeeld2_div").animate({ left: '250px' });
+    });
+});
