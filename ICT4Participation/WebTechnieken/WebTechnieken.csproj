@@ -99,6 +99,7 @@
     <Content Include="Scripts\jquery.easing.min.js" />
     <Content Include="Scripts\scrolling-nav.js" />
     <Content Include="Scripts\voorbeeld.js" />
+    <Content Include="Scripts\Voorbeeld_Kevin_Soree.js" />
     <Content Include="Styles\style.css" />
     <Content Include="Voorbeeld.aspx" />
     <Content Include="Web.config" />

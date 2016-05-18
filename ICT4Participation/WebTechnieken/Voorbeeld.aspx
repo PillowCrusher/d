@@ -10,12 +10,13 @@
     <title>Webtechnieken Demo</title>
     <link rel="stylesheet" href="Styles/style.css"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
-    <link href="Content/scrolling-nav.css" rel="stylesheet">
+    <link href="Content/scrolling-nav.css" rel="stylesheet"/>
+    <script src="Scripts/Voorbeeld_Kevin_Soree.js"></script>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="voorbeeld_navbar">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -68,7 +69,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Voorbeeld 1</h1>
+                    <form id="form1" runat="server">
+                        <h1>Voorbeeld 1</h1>
+                        <p>Hier in dit voorbeeld veranderd de kleur van de navigatie balk wanneer er op de knop hieronder wordt gedrukt.</p>
+                        <a id="btnVoorbeeld1" class="btn btn-default" onclick="Voorbeeld1_Click()">Klik hier!</a>
+                    </form>
                 </div>
             </div>
         </div>
