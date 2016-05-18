@@ -15,15 +15,17 @@
 <body>
 <div class="container col-sm-4"></div>
 <div class="container col-sm-4">
-    <form id="form1" runat="server" class="form-signin">
+    <form id="form1" runat="server" class="form-signin" onsubmit="return validateLoginForm()" method="post">
         
         
-        <h2 class="form-signin-heading">Log alsjeblieft in</h2>
+        <h2 class="form-signin-heading">Log alstublieft in</h2>
+        <br />
         <label for="inputEmail" class="sr-only">E-mailadres</label>
         <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email">
         <label for="inputPassword" class="sr-only">Wachtwoord</label>
         <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password">
         <div class="container col-sm-4"></div>
+        <br />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
         
 
