@@ -209,7 +209,7 @@ namespace ICT4Participation.Forms
                 try
                 {
                     //Vrijwilliger wordt uitgeschreven
-                    _volunteer.UnSubscribe();
+                   // _volunteer.UnSubscribe();
                 }
                 catch (Exception ex)
                 {
