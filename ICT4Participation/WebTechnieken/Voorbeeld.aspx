@@ -35,13 +35,13 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Voorbeeld 1</a>
+                        <a class="page-scroll" href="#voorbeeld1">Voorbeeld 1</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Voorbeeld 2</a>
+                        <a class="page-scroll" href="#voorbeeld2">Voorbeeld 2</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Voorbeeld 3</a>
+                        <a class="page-scroll" href="#voorbeeld3">Voorbeeld 3</a>
                     </li>
                 </ul>
             </div>
@@ -57,14 +57,14 @@
                 <div class="col-lg-12">
                     <h1>Welkom</h1>
                     <p>Welkom op de voorbeeld pagina van onze demo. Hieronder staan een aantal voorbeeld om aan te tonen wat er nu allemaal mogelijk is met <code>html5</code>, <code>css3</code> en <code>javascript</code>.</p>
-                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
+                    <a class="btn btn-default page-scroll" href="#voorbeeld1">Click Me to Scroll Down!</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Voorbeeld 1 Section -->
-    <section id="about" class="voorbeeld1-section">
+    <section id="voorbeeld1" class="voorbeeld1-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -75,7 +75,7 @@
     </section>
 
     <!-- voorbeeld 2 Section -->
-    <section id="services" class="voorbeeld2-section">
+    <section id="voorbeeld2" class="voorbeeld2-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -86,7 +86,7 @@
     </section>
 
     <!-- Voorbeeld 3 Section -->
-    <section id="contact" class="voorbeeld3-section">
+    <section id="voorbeeld3" class="voorbeeld3-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
