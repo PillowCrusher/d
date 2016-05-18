@@ -15,7 +15,7 @@
 <body>
 <div class="container col-sm-4"></div>
 <div class="container col-sm-4">
-    <form id="form1" runat="server" class="form-signin">
+    <form id="form1" runat="server" class="form-signin" onsubmit="return validateLoginForm()" method="post">
         
         
         <h2 class="form-signin-heading">Log alsjeblieft in</h2>
