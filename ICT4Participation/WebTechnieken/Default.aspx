@@ -19,13 +19,12 @@
         
         
         <h2 class="form-signin-heading">Log alsjeblieft in</h2>
-        <label for="inputEmail" class="sr-only">E-mailadres</label>
-        <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email">
+        <label  for="inputEmail" class="sr-only">E-mailadres</label>
+        <asp:TextBox ID="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email" runat="server"></asp:TextBox>
         <label for="inputPassword" class="sr-only">Wachtwoord</label>
-        <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password">
+        <asp:TextBox id="inputPassword" class="form-control" placeholder="Password" required="" type="password" runat="server"></asp:TextBox>
         <div class="container col-sm-4"></div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-
+        <asp:Button ID="LogIn" Text="Log in" class="btn btn-lg btn-primary btn-block" type="submit" runat="server" OnClick="LogIn_Button_Click"/>
     </form>
     </div> <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
