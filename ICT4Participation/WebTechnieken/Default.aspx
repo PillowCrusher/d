@@ -19,8 +19,8 @@
         
         
         <h2 class="form-signin-heading">Log alsjeblieft in</h2>
-        <label  for="inputEmail" class="sr-only">E-mailadres</label>
-        <asp:TextBox ID="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email" runat="server"></asp:TextBox>
+        <label  for="inputEmail" class="sr-only">Gebruikersnaam</label>
+        <asp:TextBox ID="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="text" runat="server"></asp:TextBox>
         <label for="inputPassword" class="sr-only">Wachtwoord</label>
         <asp:TextBox id="inputPassword" class="form-control" placeholder="Password" required="" type="password" runat="server"></asp:TextBox>
         <div class="container col-sm-4"></div>

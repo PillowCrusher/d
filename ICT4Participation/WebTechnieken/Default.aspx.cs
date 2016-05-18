@@ -21,7 +21,7 @@ namespace WebTechnieken
         protected void LogIn_Button_Click(object sender, EventArgs e)
         {
             ICT4Participation.Classes.Intelligence.Administration administration = new Administration();
-            administration.Login("Harrie", "HarriePotter");
+            administration.Login(inputEmail.Text, inputPassword.Text);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('"+administration.User.Email+"');</script>");
 
         }
