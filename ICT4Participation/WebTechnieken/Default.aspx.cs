@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ICT4Participation.Classes.Intelligence;
 
 namespace WebTechnieken
 {
@@ -11,7 +12,19 @@ namespace WebTechnieken
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+            }
+        }
+
+        protected void LogIn_Button_Click(object sender, EventArgs e)
+        {
+            ICT4Participation.Classes.Intelligence.Administration administration = new Administration();
+            administration.Login(inputEmail.Text, inputPassword.Text);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('"+administration.User.ToString()+"');</script>");
+            Response.Redirect("Voorbeeld.aspx");
+            
         }
     }
 }

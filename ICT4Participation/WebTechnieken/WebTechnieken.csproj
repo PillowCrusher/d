@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Content\scrolling-nav.css" />
     <Content Include="packages.config" />
+    <Content Include="PresentatiePage.html" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -120,6 +121,12 @@
     <Compile Include="Voorbeeld.aspx.designer.cs">
       <DependentUpon>Voorbeeld.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ICT4Participation\ICT4Participation.csproj">
+      <Project>{58b7c77a-2a2f-44d3-9fbb-39c891c91865}</Project>
+      <Name>ICT4Participation</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
