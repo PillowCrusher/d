@@ -1,7 +1,14 @@
-﻿body {
-
+﻿.form-signin-heading {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 35px;
 }
-
-#ex1Slider .slider-selection {
-	background: #BABABA;
+#inputEmail {
+    font-size: 16px;
+}
+#inputPassword {
+    font-size: 16px;
+}
+.btn-primary {
+    background-color: rgb(51, 122, 183);
+    background-color: rgba(51, 122, 183, 0.39);
 }
