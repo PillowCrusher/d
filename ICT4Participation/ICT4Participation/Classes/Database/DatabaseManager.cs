@@ -21,9 +21,9 @@ namespace ICT4Participation.Classes.Database
                     _connection.Open();
                     return _connection;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    Debug.WriteLine(ex.Message);
+                    throw new ArgumentException("Het is niet mogelijk een verbinding te maken Controleer of de VPN verbinding open staat");
                 }
                 return null;
             }
