@@ -22,7 +22,7 @@ namespace WebTechnieken
         {
             try
             {
-                ICT4Participation.Classes.Intelligence.Administration administration = new Administration();
+                Administration administration = new Administration();
                 administration.Login(inputEmail.Text, inputPassword.Text);
                 if (administration.User != null)
                 {
