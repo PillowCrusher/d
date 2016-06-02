@@ -161,6 +161,7 @@
     <Compile Include="Models\Database\DatabaseManager.cs" />
     <Compile Include="Models\Database\DatabaseQuerys.cs" />
     <Compile Include="Models\Database\InMemoryDatabase.cs" />
+    <Compile Include="Models\Database\OracleManager.cs" />
     <Compile Include="Models\Database\Repository.cs" />
     <Compile Include="Models\FormTools.cs" />
     <Compile Include="Models\HelpRequest.cs" />
