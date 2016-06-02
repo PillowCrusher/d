@@ -9,7 +9,7 @@ namespace ICT4_Participation_MVC.Models.Database
     public class Database : Repository
     {
         private Administration _administration;
-
+        
         public Database(Administration administration)
         {
             _administration = administration;

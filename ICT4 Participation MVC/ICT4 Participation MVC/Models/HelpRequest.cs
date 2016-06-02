@@ -7,29 +7,43 @@ namespace ICT4_Participation_MVC.Models
 {
     public class HelpRequest
     {
-        private DateTime dateTime1;
-        private DateTime dateTime2;
-        private TransportationType transportationType;
-        private int v1;
-        private string v2;
-        private string v3;
-        private string v4;
-        private string v5;
-        private bool v6;
-        private bool v7;
+        public List<Review> Reviews { get; set; }
+        public List<ChatMessage> ChatMessages { get; set; }
+        public List<Volunteer> Volunteers { get; set; }
 
-        public HelpRequest(int v1, string v2, string v3, string v4, string v5, bool v6, TransportationType transportationType, DateTime dateTime1, DateTime dateTime2, bool v7)
+        public int ID { get; protected set; }
+        public string Titel { get; protected set; }
+        public string Description { get; protected set; }
+        public string Location { get; protected set; }
+        public int TravelTime { get; protected set; }
+        public bool Urgent { get; protected set; }
+        public TransportationType TransportationType { get; protected set; }
+        public DateTime StartDate { get; protected set; }
+        public DateTime EndDate { get; protected set; }
+        public int VolunteersNumber { get; protected set; }
+        public bool Interview { get; protected set; }
+        public bool Completed { get; protected set; }
+        public List<Skill> Skills { get; protected set; }
+
+        public HelpRequest(int id, string titel, string description, string location, int travelTime, bool urgent, TransportationType transportationType, DateTime startDate, DateTime endDate, int volunteersNumbers, bool interview, bool completed, List<Skill> skills )
         {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            this.v4 = v4;
-            this.v5 = v5;
-            this.v6 = v6;
-            this.transportationType = transportationType;
-            this.dateTime1 = dateTime1;
-            this.dateTime2 = dateTime2;
-            this.v7 = v7;
+            ID = id;
+            Titel = titel;
+            Description = description;
+            Location = location;
+            TravelTime = travelTime;
+            Urgent = urgent;
+            TransportationType = transportationType;
+            StartDate = startDate;
+            EndDate = endDate;
+            VolunteersNumber = volunteersNumbers;
+            Interview = interview;
+            Completed = completed;
+            Skills = skills;
+
+            Reviews = new List<Review>();
+            ChatMessages = new List<ChatMessage>();
+            Volunteers = new List<Volunteer>();
         }
     }
 }
