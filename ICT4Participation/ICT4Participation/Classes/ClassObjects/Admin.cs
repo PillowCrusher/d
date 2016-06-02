@@ -85,6 +85,25 @@ namespace ICT4Participation.Classes.ClassObjects
                 new OracleParameter("id", needy.ID)
                 };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["AddRFIDToNeedy"], userParameter);
+
+            List<OracleParameter> parameters = new List<OracleParameter>();
+            parameters.Add();
+
+            
         }
+
+        /*
+        public List<OracleParameter> MaakOracleParameterList( List<object> Lijstvanparameters )
+        {
+            for (int i = 0; i < Lijstvanparameters.Count(); i++)
+            {
+                userParameter.Add(new OracleParameter("i", Lijstvanparameters[i]));
+            }
+        }
+
+        -------- Query
+
+            SELECT * FROM User WHERE parameter1 = :0 AND parameter2 = :1;
+        */
     }
 }
