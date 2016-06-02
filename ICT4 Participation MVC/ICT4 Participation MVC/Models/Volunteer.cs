@@ -13,11 +13,11 @@ namespace ICT4_Participation_MVC.Models
         /// <summary>
         /// De verjaardag van de volunteer
         /// </summary>
-        public DateTime BirthDate { get; private set; }
+        public DateTime BirthDate { get; set; }
         /// <summary>
         /// het file path van de foto van de volunteer
         /// </summary>
-        public string Photo { get; private set; }
+        public string Photo { get; set; }
         /// <summary>
         /// het file path van de VOG van de volunteer
         /// </summary>
