@@ -4,10 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ICT4Participation.Classes.ClassObjects;
-using ICT4Participation.Classes.Intelligence;
 using Oracle.ManagedDataAccess.Client;
-using Phidgets;
+using ICT4_Participation_MVC.Models;
 
 namespace ICT4Participation.Classes.Database
 {
