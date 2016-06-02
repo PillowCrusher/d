@@ -160,6 +160,7 @@
     <Compile Include="Models\Database\Database.cs" />
     <Compile Include="Models\Database\DatabaseManager.cs" />
     <Compile Include="Models\Database\DatabaseQuerys.cs" />
+    <Compile Include="Models\FormTools.cs" />
     <Compile Include="Models\HelpRequest.cs" />
     <Compile Include="Models\Needy.cs" />
     <Compile Include="Models\Review.cs" />
