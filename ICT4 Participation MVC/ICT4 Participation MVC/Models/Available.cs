@@ -7,11 +7,13 @@ namespace ICT4_Participation_MVC.Models
 {
     public class Available
     {
-        public DateTime TimeAvailable { get; protected set; }
+        public string DayName { get; protected set; }
+        public int DayPart { get; protected set; }
 
-        public Available(DateTime available)
+        public Available(string dayName, int dayPart)
         {
-            this.TimeAvailable = available;
+            this.DayName = dayName;
+            this.DayPart = dayPart;
         }
     }
 }

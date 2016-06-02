@@ -10,7 +10,7 @@ namespace ICT4_Participation_MVC.Models
         /// <summary>
         /// Geeft aan of de hulpbehoevende gebruik kan maken van het openbaar verveor
         /// </summary>
-        public bool OVPosible { get; private set; }
+        public bool OVPosible { get; set; }
         /// <summary>
         /// Een Barcode tag waarmee de needy kan inloggen
         /// </summary>
