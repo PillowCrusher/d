@@ -152,6 +152,9 @@
     </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Database\Database.cs" />
+    <Compile Include="Models\Database\DatabaseManager.cs" />
+    <Compile Include="Models\Database\DatabaseQuerys.cs" />
     <Compile Include="Models\Needy.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Volunteer.cs" />
@@ -183,7 +186,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49721</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
