@@ -25,7 +25,7 @@ namespace ICT4_Participation_MVC.Models.Database
                 new OracleParameter("deregistrationdate", deRegistrationDate),
                 new OracleParameter("id", user.ID)
                 };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["UnsubscribeUser"], userParameter);
+                OracleManager.ExecuteNonQuery(DatabaseQuerys.Query["UnsubscribeUser"], userParameter);
             }
             catch (Exception)
             {
@@ -42,7 +42,7 @@ namespace ICT4_Participation_MVC.Models.Database
                 {
                 new OracleParameter("id", user.ID)
                 };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["BlockUser"], userParameter);
+                OracleManager.ExecuteNonQuery(DatabaseQuerys.Query["BlockUser"], userParameter);
             }
             catch (Exception)
             {
@@ -58,7 +58,7 @@ namespace ICT4_Participation_MVC.Models.Database
                 {
                 new OracleParameter("id", user.ID)
                 };
-                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["WarnUser"], userParameter);
+                OracleManager.ExecuteNonQuery(DatabaseQuerys.Query["WarnUser"], userParameter);
             }
             catch (Exception)
             {
@@ -75,14 +75,14 @@ namespace ICT4_Participation_MVC.Models.Database
                 new OracleParameter("rfid", rfid),
                 new OracleParameter("id", needy.ID)
                 };
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.Query["AddRFIDToNeedy"], userParameter);
+            OracleManager.ExecuteNonQuery(DatabaseQuerys.Query["AddRFIDToNeedy"], userParameter);
         }
 
         public List<HelpRequest> GetHelpRequests(string querie, OracleParameter[] parameters)
         {
             List<HelpRequest> helpRequests = new List<HelpRequest>();
             
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[querie], parameters);
+            DataTable dt = OracleManager.ExecuteReadQuery(DatabaseQuerys.Query[querie], parameters);
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -111,7 +111,7 @@ namespace ICT4_Participation_MVC.Models.Database
         {
             List<Volunteer> volunteers = new List<Volunteer>();
 
-            DataTable dt = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.Query[queryName], null);
+            DataTable dt = OracleManager.ExecuteReadQuery(DatabaseQuerys.Query[queryName], null);
             foreach (DataRow dr in dt.Rows)
             {
                 volunteers.Add(
@@ -123,14 +123,13 @@ namespace ICT4_Participation_MVC.Models.Database
                         dr["Adress"].ToString(),
                         dr["City"].ToString(),
                         dr["Phonenumber"].ToString(),
-                        Convert.ToBoolean(dr["OVpossible"]),
                         Convert.ToBoolean(dr["HasDrivingLicence"]),
                         Convert.ToBoolean(dr["HasCar"]),
                         Convert.ToDateTime(dr["DateOfBirth"]),
                         dr["Photo"].ToString(),
                         dr["VOG"].ToString(),
                         Convert.ToBoolean(dr["ISWARNED"]),
-                        Convert.ToBoolean(dr["ISBLOCKED"]), _administration)
+                        Convert.ToBoolean(dr["ISBLOCKED"]))
                     );
 
             }
