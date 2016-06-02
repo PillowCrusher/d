@@ -155,10 +155,10 @@
     </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Administration.cs" />
     <Compile Include="Models\Available.cs" />
     <Compile Include="Models\ChatMessage.cs" />
     <Compile Include="Models\Database\Database.cs" />
-    <Compile Include="Models\Database\DatabaseManager.cs" />
     <Compile Include="Models\Database\DatabaseQuerys.cs" />
     <Compile Include="Models\Database\InMemoryDatabase.cs" />
     <Compile Include="Models\Database\OracleManager.cs" />
