@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ICT4Participation.Classes.Database;
 using ICT4Participation.Classes.Intelligence;
 using ICT4Participation.Classes.ClassObjects;
-using Oracle.ManagedDataAccess.Client;
+using System.Data.OracleClient;
 
 namespace PTS37UnitTest
 {
@@ -12,6 +12,7 @@ namespace PTS37UnitTest
     public class Hulpbehoevenden
     {
         private Administration _administration;
+        private Database _database;
         private List<HelpRequest> _helpRequests;
         [TestInitialize]
         public void Initialize()
@@ -23,7 +24,7 @@ namespace PTS37UnitTest
                 new OracleParameter("needyid", _administration.User.ID)
             };
 
-            _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);
+          //  _helpRequests = _administration.GetHelpRequests("GetUserHelpRequests", parameters);
         }
         [TestMethod]
         public void Test_HulpvraagMaken()

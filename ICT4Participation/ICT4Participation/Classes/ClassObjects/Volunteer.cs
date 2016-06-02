@@ -33,21 +33,9 @@ namespace ICT4Participation.Classes.ClassObjects
         /// </summary>
         public string VOG { get; private set; }
         /// <summary>
-        /// het adress van de volunteer
-        /// </summary>
-        public string Address { get; private set; }
-        /// <summary>
-        /// de woonplaats van de volunteer
-        /// </summary>
-        public string City { get; private set; }
-        /// <summary>
-        /// een bool of de volunteer is gewaarschuwd door de admin of niet
-        /// </summary>
-        public bool Warned { get; private set; }
-        /// <summary>
         /// een bool of de volunteer is geblokkeerd door de admin of niet
         /// </summary>
-        public bool Blocked { get; private set; }
+        public bool IsBlocked { get; private set; }
 
         /// <summary>
         /// een instancie van een Volunteer wat de id,username, email, name, address, city, phonenumber
@@ -57,10 +45,9 @@ namespace ICT4Participation.Classes.ClassObjects
         /// <param name="username"></param>
         /// <param name="email"></param>
         /// <param name="name"></param>
-        /// <param name="address"></param>
+        /// <param name="adres"></param>
         /// <param name="city"></param>
         /// <param name="phonenumber"></param>
-        /// <param name="publicTransport"></param>
         /// <param name="hasDrivingLincense"></param>
         /// <param name="hasCar"></param>
         /// <param name="birthDate"></param>
@@ -68,20 +55,14 @@ namespace ICT4Participation.Classes.ClassObjects
         /// <param name="vog"></param>
         /// <param name="warned"></param>
         /// <param name="blocked"></param>
-        public Volunteer(int id, string username, string email, string name, string address, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog, bool warned, bool blocked, Administration administration)
-            : base(id, username, email, name, phonenumber, publicTransport,  hasDrivingLincense, hasCar, warned)
+        /// <param name="administration"></param>
+        public Volunteer(int id, string username, string email, string name, string adres, string city, string phonenumber, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog, bool warned, bool blocked, Administration administration)
+            : base(id, username, email, name, adres, city, phonenumber,  hasDrivingLincense, hasCar, warned)
         {
-            PublicTransport = publicTransport;
-            HasDrivingLincense = hasDrivingLincense;
-            HasCar = hasCar;
-            VOG = vog;
-            Photo = photo;
             BirthDate = birthDate;
-            Address = address;
-            City = city;
-            Warned = warned;
-            Blocked = blocked;
-            Administration = administration;
+            Photo = photo;
+            VOG = vog;
+            IsBlocked = blocked;
         }
 
         public GroupBox NewVolunteer(int position, bool VOG)

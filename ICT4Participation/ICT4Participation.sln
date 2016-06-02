@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICT4Participation", "ICT4Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTS37UnitTest", "PTS37UnitTest\PTS37UnitTest.csproj", "{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTechnieken", "WebTechnieken\WebTechnieken.csproj", "{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}.Release|x64.ActiveCfg = Release|Any CPU
 		{1558BB6A-203D-4E27-ADAC-C8FE782F0C46}.Release|x64.Build.0 = Release|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Debug|x64.Build.0 = Debug|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Release|x64.ActiveCfg = Release|Any CPU
+		{8B536E6A-858B-47B4-BF89-25AB5BCE8BC5}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

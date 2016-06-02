@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Naam moet ingevuld zijn");
+        return false;
+    }
+}
+
+function ColorChange() {
+    document.getElementById("MyDiv").style.backgroundColor = "lightblue";
+}
+
+function SizeChange() {
+    document.getElementById("MyDiv").style.fontSize = 25;
+}
+    </script>
+</head>
+<body>
+    <div id="MyDiv">
+        <form name="myForm" 
+              onsubmit="return validateForm()">
+            Name: <input type="text" name="fname">
+            <input type="submit" value="Submit">
+            <br />
+            <br />
+        </form>
+            <button onclick="ColorChange()">Change background</button>
+        <br />
+        <br />
+        <button onclick="SizeChange()">Change size</button>
+        
+    </div>
+</body>
+</html>

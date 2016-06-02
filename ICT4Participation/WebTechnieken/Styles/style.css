@@ -1,0 +1,16 @@
+﻿.form-signin-heading {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 37px;
+}
+#inputEmail {
+    font-size: 18px;
+}
+#inputPassword {
+    font-size: 18px;
+}
+.btn-primary {
+    background-color: rgb(51, 122, 183);
+    background-color: rgba(51, 122, 183, 0.39);
+}
+
+
