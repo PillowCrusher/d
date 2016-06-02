@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ICT4Participation.Classes.Database;
 using Oracle.ManagedDataAccess.Client;
-using ICT4_Participation_MVC.Models;
-using ICT4_Participation_MVC.Models.Database;
 
-namespace ICT4Participation.Classes.Database
+namespace ICT4_Participation_MVC.Models.Database
 {
     public class Database
     {
