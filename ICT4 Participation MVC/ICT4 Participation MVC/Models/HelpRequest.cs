@@ -7,8 +7,6 @@ namespace ICT4_Participation_MVC.Models
 {
     public class HelpRequest
     {
-        //dit moet veranderd worden naar Properties, dit kwam door testen
-
         private DateTime dateTime1;
         private DateTime dateTime2;
         private TransportationType transportationType;
