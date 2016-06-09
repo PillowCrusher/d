@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="container col-lg-4">
     
     </div>
     </form>

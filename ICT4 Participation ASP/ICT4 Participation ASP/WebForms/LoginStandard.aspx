@@ -19,10 +19,12 @@
         <asp:TextBox id="inputUsername" class="form-control" placeholder="Username" required autofocus runat="server"></asp:TextBox>
         <label for="inputPassword" class="sr-only">Password</label>
         <asp:TextBox type="password" id="inputPassword" class="form-control" placeholder="Password" required runat="server"></asp:TextBox>
+        <label for="inputBarcode" class="sr-only">Password</label>
+        <asp:TextBox id="inputBarcode" class="form-control" placeholder="Barcode" required runat="server" ReadOnly="True"></asp:TextBox>
         <div class="checkbox">
           
         </div>
-        <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In"></asp:Button>
+        <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In" OnClick="btnLogin_OnClick"></asp:Button>
 
     </div>
     </form>
