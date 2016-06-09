@@ -48,9 +48,9 @@ namespace ICT4_Participation_ASP.Models.Database
             //LoginForm
             Query["GetUserLogin"] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where a.Username = :username and a.Password = :password AND Deregistrationdate IS NULL";
 
-            Query["GetUserLoginByRFID"] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where n.RFID = :rfid AND Deregistrationdate IS NULL";
+            Query["GetUserLoginByBarcode"] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"Needy\" n on u.ID = n.ID where n.BARCODE = :barcode AND Deregistrationdate IS NULL";
 
-            Query["GetAdminLogin"] = "select * from \"Account\" a left join \"Admin\" ad on a.ID = ad.ID where a.Username = :username and a.Password = :password and ad.RFID = :rfid";
+            Query["GetAdminLogin"] = "select * from \"Account\" a left join \"Admin\" ad on a.ID = ad.ID where a.Username = :username and a.Password = :password and ad.BARCODE = :barcode";
 
 
             //Administration
@@ -58,13 +58,13 @@ namespace ICT4_Participation_ASP.Models.Database
             
             Query["InsertAccount"] = "INSERT INTO \"Account\" (Username, Password, Email) values (:username, :password, :email)";
 
-            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, PHONENUMBER, HASDRIVINGLICENCE, HASCAR, OVPOSSIBLE) values (:id, :name, :phonenumber, :hasdrivinglicence, :hascar, :ovpossible)";
+            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRES, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR) values (:id, :name, :adres, :city, :phonenumber, :hasdrivinglicence, :hascar)";
 
-            Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG, ADRESS, CITY) values (:id, :dateofbirth, :photo, :vog, :adress, :city)";
+            Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:id, :dateofbirth, :photo, :vog)";
 
-            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, RFID, LOCATION) values (:id, :rfid, :location)";
+            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, BARCODE, OVPOSSIBLE) values (:id, :barcode, :ovPossible)";
 
-            Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, RFID) values (:id, :rfid)";
+            Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, BARCODE) values (:id, :barcode)";
 
             Query["GetAcceptedVolunteers"] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 1";
 
@@ -92,9 +92,9 @@ namespace ICT4_Participation_ASP.Models.Database
 
             Query["DenyVolunteer"] = "DELETE FROM \"Account\" WHERE ID = :id";
 
-            Query["UpdateUser"] = "update \"User\" SET Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar, OVPOSSIBLE = :ovpossible where ID = :id";
+            Query["UpdateUser"] = "update \"User\" SET Adres = :adres, City = :city, Phonenumber = :phonenumber, Hasdrivinglicence = :hasdrivinglicence, Hascar = :hascar where ID = :id";
             
-            Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, VOG = :vog, Adress = :adress, City = :city where ID = :id";
+            Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :dateofbirth, photo = :photo, VOG = :vog where ID = :id";
             
             Query["UpdateNeedy"] = "update \"Needy\" set RFID = :rfid, location = :location where ID = :id";
             

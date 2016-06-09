@@ -16,6 +16,14 @@ namespace ICT4_Participation_ASP.Models
             Message = message;
         }
 
+        public Review(int helpRequestId, int volunteerId, string message, string comment)
+        {
+            HelpRequestId = helpRequestId;
+            VolunteerId = volunteerId;
+            Message = message;
+            Comment = comment;
+        }
+
         public void AddComment(int volunteerId, string comment)
         {
             if (VolunteerId == volunteerId)
