@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ICT4_Participation_ASP.Models;
-using ICT4_Participation_ASP.Models.Administrations;
+using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP.WebForms
 {
@@ -13,18 +13,7 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void Page_Error(object sender, EventArgs e)
-        {
-            Exception exc = Server.GetLastError();
-            Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
-        }
-
-        protected void btnLogin_OnClick(object sender, EventArgs e)
-        {/*
-            Administration a = new Administration();
+            Handler a = new Handler();
             a.Login(inputUsername.Text, inputPassword.Text);
             if (a.User is Volunteer)
             {
@@ -34,10 +23,16 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 Response.Redirect("NeedyHome.aspx");
             }
-            if (a.User is Admin)
+            if(a.User is Admin)
             {
                 Response.Redirect("AdminHome.aspx");
-            }*/
+            }
+        }
+
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception exc = Server.GetLastError();
+            Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
         }
     }
 }

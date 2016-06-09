@@ -5,13 +5,13 @@ using System.Linq;
 using System.Web;
 using ICT4_Participation_ASP.Models.Database;
 
-namespace ICT4_Participation_ASP.Models.Administrations
+namespace ICT4_Participation_ASP.Models.Handlers
 {
-    public class Administration
+    public class Handler
     {
         private Repository db { get; }
 
-        public Administration()
+        public Handler()
         {
             OracleDatabase odb = new OracleDatabase();
             if (odb.CheckConnection())
