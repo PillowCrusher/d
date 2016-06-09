@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using ICT4_Participation_ASP.Models.Database;
 using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4_Participation_ASP.Models
@@ -9,13 +11,37 @@ namespace ICT4_Participation_ASP.Models
     public class Administration
     {
         public Account User { get; private set; }
-        private Database.Database Database { get; set; }
+        private Repository db { get; set; }
 
         public Administration()
         {
-            Database = new Database.Database(this);
+            OracleDatabase odb = new OracleDatabase();
+            if (odb.CheckConnection())
+            {
+                db = new OracleDatabase();
+            }
+            else
+            {
+                db = new InMemoryDatabase();
+            }
             // User = new Admin(1, "Henk", "@F", "234567890");
         }
+
+        public DataTable ExecuteReadQuery(List<object> parameters, string query)
+        {
+            return db.ExecuteReadQuery(parameters, query);
+        }
+
+        public void ExecuteNonQuery(List<object> parameters, string query)
+        {
+            db.ExecuteNonQuery(parameters, query);
+        }
+
+
+
+
+
+
 
         /// <summary>
         /// methode waarmee een gebruiker kan inloggen doormddel van een username en password
