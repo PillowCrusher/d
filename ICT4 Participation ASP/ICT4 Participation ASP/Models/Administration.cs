@@ -252,31 +252,5 @@ namespace ICT4_Participation_ASP.Models
         {
             return Database.GetHelpRequests(query, parameters);
         }
-
-        public void BlockAccount(User user)
-        {
-            if (User is Admin)
-            {
-                Database.BlockAccount(user);
-                GetAllVolunteers("GetAcceptedVolunteers");
-            }
-        }
-
-        public void SendWarning(string message, User user)
-        {
-            if (User is Admin)
-            {
-                Database.SendWarning(message, user);
-            }
-        }
-
-        public void AddRfidToUser(Needy needy, string rfid)
-        {
-            if (User is Admin)
-            {
-                Database.AddRfidToUser(needy, rfid);
-            }
-        }
-
     }
 }
