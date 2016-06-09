@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -29,15 +30,15 @@ namespace ICT4_Participation_ASP.Models.Accounts
         /// <param name="email"></param>
         public Account(int id, string username, string email)
         {
-            this.ID = id;
-            this.Username = username;
-            this.Email = email;
+            ID = id;
+            Username = username;
+            Email = email;
         }
 
-        public Account(string username, string email)
+        public Account(DataRow dr)
+            : this((int) dr[0], dr[1].ToString(), dr[2].ToString())
         {
-            this.Username = username;
-            this.Email = email;
+            
         }
     }
 }
