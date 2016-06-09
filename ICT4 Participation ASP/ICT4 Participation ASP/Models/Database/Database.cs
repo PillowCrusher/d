@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using ICT4Participation.Classes.Database;
 using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4_Participation_ASP.Models.Database
