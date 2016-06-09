@@ -7,9 +7,9 @@ namespace ICT4_Participation_ASP.Models
 {
     public class HelpRequest
     {
-        public List<Review> Reviews { get; set; }
-        public List<ChatMessage> ChatMessages { get; set; }
-        public List<Volunteer> Volunteers { get; set; }
+        public List<Review> Reviews { get; protected set; }
+        public List<ChatMessage> ChatMessages { get; protected set; }
+        public List<Volunteer> Volunteers { get; protected set; }
 
         public int ID { get; protected set; }
         public string Titel { get; protected set; }

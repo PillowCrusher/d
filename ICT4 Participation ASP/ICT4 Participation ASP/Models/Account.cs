@@ -10,15 +10,15 @@ namespace ICT4_Participation_ASP.Models
         /// <summary>
         /// Het ID van een Account
         /// </summary>
-        public int ID { get; set; }
+        public int ID { get; protected set; }
         /// <summary>
         /// De username van een account
         /// </summary>
-        public string Username { get; set; }
+        public string Username { get; protected set; }
         /// <summary>
         /// Het email adres van een account
         /// </summary>
-        public string Email { get; set; }
+        public string Email { get; protected set; }
 
         /// <summary>
         /// een instancie van een account 

@@ -48,8 +48,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Oracle.ManagedDataAccess">
-      <HintPath>D:\app\client\Kevin\product\12.1.0\client_1\ODP.NET\managed\common\Oracle.ManagedDataAccess.dll</HintPath>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\CForm Planner\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -69,26 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

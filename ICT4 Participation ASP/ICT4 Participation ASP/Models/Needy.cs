@@ -10,11 +10,11 @@ namespace ICT4_Participation_ASP.Models
         /// <summary>
         /// Geeft aan of de hulpbehoevende gebruik kan maken van het openbaar verveor
         /// </summary>
-        public bool OVPosible { get; set; }
+        public bool OVPosible { get; protected set; }
         /// <summary>
         /// Een Barcode tag waarmee de needy kan inloggen
         /// </summary>
-        public string Barcode { get; set; }
+        public string Barcode { get; protected set; }
 
         /// <summary>
         /// een instancie van een Needy wat de id,username, email, name, address, city, phonenumber
