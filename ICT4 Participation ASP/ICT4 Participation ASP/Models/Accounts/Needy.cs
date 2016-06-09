@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using ICT4_Participation_ASP.Models.Objects;
 
 namespace ICT4_Participation_ASP.Models.Accounts
 {
@@ -43,17 +45,14 @@ namespace ICT4_Participation_ASP.Models.Accounts
             HelpRequestsen = new List<HelpRequest>();
         }
 
-        public Needy(string username, string email, string name, string adres, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string barcode)
-            : base(username, email, name, adres, city, phonenumber, hasDrivingLincense, hasCar)
+        public Needy(DataRow dr)
+            : this((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), (bool)dr[7], (bool)dr[8], (bool)dr[9], dr[10].ToString(), (bool)dr[11])
         {
-            Barcode = barcode;
-            OVPosible = publicTransport;
-
             HelpRequestsen = new List<HelpRequest>();
         }
 
       public void AddHelpRequest(HelpRequest helpRequest)
-       {
+      {
           if (HelpRequestsen.Contains(helpRequest) == false)
           {
               HelpRequestsen.Add(helpRequest);
