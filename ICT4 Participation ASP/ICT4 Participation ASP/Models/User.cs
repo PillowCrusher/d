@@ -44,5 +44,20 @@ namespace ICT4_Participation_ASP.Models
             this.HasCar = hasCar;
             this.IsWarned = isWarned;
         }
+
+        public User(string username, string email, string name, string adres, string city, string phonenumber, bool hasDrivingLincense, bool hasCar)
+            : base(username, email)
+        {
+            if (name == null || phonenumber == null)
+            {
+                throw new ArgumentNullException("user", "please fill in all fields for the user");
+            }
+            this.Name = name;
+            this.Adres = adres;
+            this.City = city;
+            this.Phonenumber = phonenumber;
+            this.HasDrivingLincense = hasDrivingLincense;
+            this.HasCar = hasCar;
+        }
     }
 }

@@ -33,5 +33,11 @@ namespace ICT4_Participation_ASP.Models
             this.Username = username;
             this.Email = email;
         }
+
+        public Account(string username, string email)
+        {
+            this.Username = username;
+            this.Email = email;
+        }
     }
 }

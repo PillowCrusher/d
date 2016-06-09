@@ -126,7 +126,7 @@ namespace ICT4_Participation_ASP.Models.Database
         /// methode waarmee een needy kan inloggen doormddel van een rfid
         /// </summary>
         /// <param name="Barcode"></param>
-        public Needy LoginWithRfid(string Barcode)
+        public Needy LoginWithBarcode(string Barcode)
         {
             Needy needy = null;
             try
@@ -335,7 +335,7 @@ namespace ICT4_Participation_ASP.Models.Database
         }
 
 
-        public void UpdateVolunteer(Volunteer volunteer, string password)
+        public bool UpdateVolunteer(Volunteer volunteer, string password)
         {
             try
             {
@@ -361,6 +361,7 @@ namespace ICT4_Participation_ASP.Models.Database
                     new OracleParameter("id", volunteerId)
                 };
                 OracleManager.ExecuteNonQuery(DatabaseQuerys.Query["UpdateVolunteer"], volunteerParameter);
+                return true;
             }
             catch (Exception ex)
             {

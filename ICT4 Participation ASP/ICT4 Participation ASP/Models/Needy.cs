@@ -38,6 +38,13 @@ namespace ICT4_Participation_ASP.Models
             Barcode = barcode;
             OVPosible = publicTransport;
         }
+
+        public Needy(string username, string email, string name, string adres, string city, string phonenumber, bool publicTransport, bool hasDrivingLincense, bool hasCar, string barcode)
+            : base(username, email, name, adres, city, phonenumber, hasDrivingLincense, hasCar)
+        {
+            Barcode = barcode;
+            OVPosible = publicTransport;
+        }
     }
 
 }
