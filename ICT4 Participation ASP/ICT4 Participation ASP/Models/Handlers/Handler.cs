@@ -49,9 +49,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
 
 
-
-
-
         ///// <summary>
         ///// methode waarmee een gebruiker kan inloggen doormddel van een username en password
         ///// </summary>
