@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using ICT4_Participation_ASP.Models.Objects;
@@ -65,14 +66,9 @@ namespace ICT4_Participation_ASP.Models.Accounts
             Reviews = new List<Review>();
         }
 
-        public Volunteer(string username, string email, string name, string adres, string city, string phonenumber,
-            bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog)
-            : base(username, email, name, adres, city, phonenumber, hasDrivingLincense, hasCar)
+        public Volunteer(DataRow dr)
+            : this((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), (bool)dr[7], (bool)dr[8], Convert.ToDateTime(dr[9]), dr[10].ToString(), dr[11].ToString(), (bool)dr[12], (bool)dr[13])
         {
-            BirthDate = birthDate;
-            Photo = photo;
-            VOG = vog;
-
             Agenda = new List<Available>();
             Reviews = new List<Review>();
         }
