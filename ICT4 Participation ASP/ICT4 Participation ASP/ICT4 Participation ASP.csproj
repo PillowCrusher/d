@@ -113,7 +113,9 @@
     </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\Administrations\Administration.cs" />
+    <Compile Include="Models\Handlers\AdminHandler.cs" />
+    <Compile Include="Models\Handlers\Handler.cs" />
+    <Compile Include="Models\Handlers\NeedyHandler.cs" />
     <Compile Include="Models\Available.cs" />
     <Compile Include="Models\ChatMessage.cs" />
     <Compile Include="Models\Database\Database.cs" />
@@ -122,6 +124,7 @@
     <Compile Include="Models\Database\OracleDatabase.cs" />
     <Compile Include="Models\Database\Repository.cs" />
     <Compile Include="Models\FormTools.cs" />
+    <Compile Include="Models\Handlers\VolunteerHandler.cs" />
     <Compile Include="Models\HelpRequest.cs" />
     <Compile Include="Models\Needy.cs" />
     <Compile Include="Models\Review.cs" />
