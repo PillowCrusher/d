@@ -85,6 +85,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="WebForms\LoginStandard.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -119,14 +120,21 @@
     <Compile Include="Models\HelpRequest.cs" />
     <Compile Include="Models\Needy.cs" />
     <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\TransportationType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForms\LoginStandard.aspx.cs">
+      <DependentUpon>LoginStandard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\LoginStandard.aspx.designer.cs">
+      <DependentUpon>LoginStandard.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="WebForms\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

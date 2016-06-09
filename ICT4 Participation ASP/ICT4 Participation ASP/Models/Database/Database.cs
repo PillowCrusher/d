@@ -85,19 +85,23 @@ namespace ICT4_Participation_ASP.Models.Database
 
             foreach (DataRow dr in dt.Rows)
             {
-
+                //int volunteersNumbers, bool interview, bool completed, List<Skill> skills
                 helpRequests.Add(
                     new HelpRequest(
                         Convert.ToInt32(dr["ID"]),
-                        dr["Name"].ToString(),
                         dr["Title"].ToString(),
                         dr["Description"].ToString(),
                         dr["Location"].ToString(),
+                        Convert.ToInt32(dr["TravelTime"]),
                         Convert.ToBoolean(dr["Urgent"]),
                         (TransportationType)Enum.Parse(typeof(TransportationType), dr["TransportType"].ToString()),
                         Convert.ToDateTime(dr["StartDate"]),
                         Convert.ToDateTime(dr["EndDate"]),
-                        Convert.ToBoolean(dr["Interview"])
+                        Convert.ToInt32(dr["VolunteerNumbers"]),
+                        Convert.ToBoolean(dr["Interview"]),
+                        Convert.ToBoolean(dr["completed"]),
+                        GetAllSkills("GetSkills", new OracleParameter[] { (new OracleParameter("VolunteerID", Convert.ToInt32(dr["ID"]))) })
+                        
                         )
                     );
             }
@@ -133,6 +137,20 @@ namespace ICT4_Participation_ASP.Models.Database
 
             }
             return volunteers;
+        }
+
+        public List<Skill> GetAllSkills(string queryName, OracleParameter[] parameters)
+        {
+            List<Skill> skills = new List<Skill>();
+
+            DataTable dt = OracleManager.ExecuteReadQuery(DatabaseQuerys.Query[queryName], parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                skills.Add(
+                    new Skill(
+                        dr["Naam"].ToString()));
+            }
+            return skills;
         }
     }
 }
