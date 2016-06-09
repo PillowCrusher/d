@@ -112,27 +112,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Accounts\Account.cs" />
+    <Compile Include="Models\Accounts\Admin.cs" />
     <Compile Include="Models\Handlers\AdminHandler.cs" />
     <Compile Include="Models\Handlers\Handler.cs" />
     <Compile Include="Models\Handlers\NeedyHandler.cs" />
-    <Compile Include="Models\Available.cs" />
-    <Compile Include="Models\ChatMessage.cs" />
+    <Compile Include="Models\Objects\Available.cs" />
+    <Compile Include="Models\Objects\ChatMessage.cs" />
     <Compile Include="Models\Database\Database.cs" />
     <Compile Include="Models\Database\DatabaseQueries.cs" />
     <Compile Include="Models\Database\InMemoryDatabase.cs" />
     <Compile Include="Models\Database\OracleDatabase.cs" />
     <Compile Include="Models\Database\Repository.cs" />
-    <Compile Include="Models\FormTools.cs" />
+    <Compile Include="Models\Objects\FormTools.cs" />
     <Compile Include="Models\Handlers\VolunteerHandler.cs" />
-    <Compile Include="Models\HelpRequest.cs" />
-    <Compile Include="Models\Needy.cs" />
-    <Compile Include="Models\Review.cs" />
-    <Compile Include="Models\Skill.cs" />
-    <Compile Include="Models\TransportationType.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Models\Objects\HelpRequest.cs" />
+    <Compile Include="Models\Accounts\Needy.cs" />
+    <Compile Include="Models\Objects\Review.cs" />
+    <Compile Include="Models\Objects\Skill.cs" />
+    <Compile Include="Models\Objects\Enums.cs" />
+    <Compile Include="Models\Accounts\User.cs" />
+    <Compile Include="Models\Accounts\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForms\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
