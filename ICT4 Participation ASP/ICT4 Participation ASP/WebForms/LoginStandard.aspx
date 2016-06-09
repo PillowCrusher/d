@@ -6,15 +6,16 @@
 <head runat="server">
     <title></title>
     
-    <link href="/Scripts/bootstrap.min.js" rel="stylesheet" />
+    
+    <link href="../Content/bootstrap.min.css" rel="stylesheet"/>
 
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="container">
+    <div class="container col-sm-push-4 col-lg-4">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <asp:TextBox type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus runat="server"></asp:TextBox>
+        <asp:TextBox type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus runat="server"></asp:TextBox>
         <label for="inputPassword" class="sr-only">Password</label>
         <asp:TextBox type="password" id="inputPassword" class="form-control" placeholder="Password" required runat="server"></asp:TextBox>
         <div class="checkbox">
