@@ -21,7 +21,7 @@
         <div class="checkbox">
           
         </div>
-        <asp:Button runat="server" ID="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</asp:Button>
+        <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In"></asp:Button>
 
     </div> <!-- /container -->
     </form>
