@@ -4,10 +4,10 @@ namespace ICT4_Participation_ASP.Models
 {
     public class Review
     {
-        public int HelpRequestId { get; private set; }
-        public int VolunteerId { get; private set; }
-        public string Message { get; private set; }
-        public string Comment { get; private set; }
+        public int HelpRequestId { get; protected set; }
+        public int VolunteerId { get; protected set; }
+        public string Message { get; protected set; }
+        public string Comment { get; protected set; }
 
         public Review(int helpRequestId, int volunteerId, string message)
         {

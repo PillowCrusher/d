@@ -7,8 +7,8 @@ namespace ICT4_Participation_ASP.Models
 {
     public class Volunteer : User
     {
-        public List<Available> Agenda { get; private set; }
-        public List<Review> Reviews { get; private set; }
+        public List<Available> Agenda { get; protected set; }
+        public List<Review> Reviews { get; protected set; }
 
         /// <summary>
         /// De verjaardag van de volunteer

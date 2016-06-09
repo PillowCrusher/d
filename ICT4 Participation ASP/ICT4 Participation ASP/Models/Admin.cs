@@ -10,7 +10,7 @@ namespace ICT4_Participation_ASP.Models
         /// <summary>
         /// Een RFID tag waarmee de admin kan inloggen
         /// </summary>
-        public string Barcode { get; set; }
+        public string Barcode { get; protected set; }
 
         /// <summary>
         /// een instancie van een admin wat de id,username en email overneemt uit Account
