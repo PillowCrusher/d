@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ICT4_Participation_ASP.Models;
+using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP.WebForms
 {
@@ -12,7 +13,7 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Administration a = new Administration();
+            Handler a = new Handler();
             a.Login(inputUsername.Text, inputPassword.Text);
             if (a.User is Volunteer)
             {

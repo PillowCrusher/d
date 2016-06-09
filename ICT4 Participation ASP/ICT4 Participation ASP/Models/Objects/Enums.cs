@@ -1,4 +1,4 @@
-﻿namespace ICT4_Participation_ASP.Models
+﻿namespace ICT4_Participation_ASP.Models.Objects
 {
     public enum TransportationType
     {

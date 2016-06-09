@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICT4Participation.Classes.ClassObjects
+namespace ICT4_Participation_ASP.Models.Objects
 {
     public static class FormTools
     {
