@@ -2,11 +2,11 @@
 
 namespace ICT4_Participation_ASP.Models.Database
 {
-    public static class DatabaseQuerys
+    public static class DatabaseQueries
     {
         public static Dictionary<string, string> Query = new Dictionary<string, string>();
 
-        static DatabaseQuerys()
+        static DatabaseQueries()
         {
             //AdminForm
             Query["WarnUser"] = "UPDATE \"User\" SET ISWARNED = 1 where ID = :id";
