@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ICT4_Participation_ASP.Models;
+using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP.WebForms
