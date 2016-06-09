@@ -1,4 +1,5 @@
 ﻿using System;
+using ICT4_Participation_ASP.Models.Accounts;
 
 namespace ICT4_Participation_ASP.Models.Objects
 {

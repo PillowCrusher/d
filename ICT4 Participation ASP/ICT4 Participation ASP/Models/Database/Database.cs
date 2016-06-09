@@ -8,12 +8,12 @@ namespace ICT4_Participation_ASP.Models.Database
 {
     public class Database
     {
-        private Administration _administration;
+        //private Administration _administration;
         
-        public Database(Administration administration)
-        {
-            _administration = administration;
-        }
+        //public Database(Administration administration)
+        //{
+        //    _administration = administration;
+        //}
 
         //public Account Login(string username, string password)
         //{
