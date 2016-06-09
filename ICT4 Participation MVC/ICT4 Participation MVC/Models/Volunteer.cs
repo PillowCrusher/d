@@ -7,8 +7,8 @@ namespace ICT4_Participation_MVC.Models
 {
     public class Volunteer : User
     {
-        //public List<Available> Agenda { get; private set; }
-        //public List<Review> Reviews { get; private set; }
+        public List<Available> Agenda { get; private set; }
+        public List<Review> Reviews { get; private set; }
 
         /// <summary>
         /// De verjaardag van de volunteer
@@ -53,6 +53,16 @@ namespace ICT4_Participation_MVC.Models
             Photo = photo;
             VOG = vog;
             IsBlocked = blocked;
+        }
+
+        public void AddReview()
+        {
+            
+        }
+
+        public void AddAvailable()
+        {
+            
         }
     }
 
