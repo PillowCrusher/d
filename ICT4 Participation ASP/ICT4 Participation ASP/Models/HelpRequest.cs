@@ -25,7 +25,9 @@ namespace ICT4_Participation_ASP.Models
         public bool Completed { get; protected set; }
         public List<Skill> Skills { get; protected set; }
 
-        public HelpRequest(int id, string titel, string description, string location, int travelTime, bool urgent, TransportationType transportationType, DateTime startDate, DateTime endDate, int volunteersNumbers, bool interview, bool completed, List<Skill> skills )
+        public HelpRequest(int id, string titel, string description, string location, int travelTime, bool urgent,
+            TransportationType transportationType, DateTime startDate, DateTime endDate, int volunteersNumbers,
+            bool interview, bool completed, List<Skill> skills)
         {
             ID = id;
             Titel = titel;
@@ -44,6 +46,49 @@ namespace ICT4_Participation_ASP.Models
             Reviews = new List<Review>();
             ChatMessages = new List<ChatMessage>();
             Volunteers = new List<Volunteer>();
+        }
+
+        public void AddReview(Review review)
+        {
+            if (Reviews.Contains(review) == false)
+            {
+                Reviews.Add(review);
+            }
+            else
+            {
+                throw new ArgumentException("Deze review bestaat al");
+            }
+        }
+
+        public void AddChatMessages(ChatMessage chatMessage)
+        {
+            ChatMessages.Add(chatMessage);
+        }
+
+
+        public void AddVolunteer(Volunteer volunteer)
+        {
+            if (Volunteers.Contains(volunteer) == false)
+            {
+                Volunteers.Add(volunteer);
+            }
+            else
+            {
+                throw new ArgumentException("Deze vrijwilliger bestaat al");
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is HelpRequest)
+            {
+                HelpRequest other = ((HelpRequest)obj);
+                return this.ID == other.ID;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

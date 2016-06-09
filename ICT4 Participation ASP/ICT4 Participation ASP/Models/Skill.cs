@@ -13,5 +13,18 @@ namespace ICT4_Participation_ASP.Models
         {
             this.Naam = naam;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Skill)
+            {
+                Skill other = ((Skill)obj);
+                return this.Naam == other.Naam;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

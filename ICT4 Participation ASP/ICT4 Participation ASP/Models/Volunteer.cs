@@ -9,6 +9,7 @@ namespace ICT4_Participation_ASP.Models
     {
         public List<Available> Agenda { get; protected set; }
         public List<Review> Reviews { get; protected set; }
+        public List<Skill> Skills { get; protected set; }
 
         /// <summary>
         /// De verjaardag van de volunteer
@@ -53,6 +54,9 @@ namespace ICT4_Participation_ASP.Models
             Photo = photo;
             VOG = vog;
             IsBlocked = blocked;
+
+            Agenda = new List<Available>();
+            Reviews = new List<Review>();
         }
 
         public Volunteer(string username, string email, string name, string adres, string city, string phonenumber, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog)
@@ -61,16 +65,58 @@ namespace ICT4_Participation_ASP.Models
             BirthDate = birthDate;
             Photo = photo;
             VOG = vog;
+
+            Agenda = new List<Available>();
+            Reviews = new List<Review>();
         }
 
-        public void AddReview()
+        public void AddReview(Review review)
         {
-            
+            if (review.VolunteerId == ID)
+            {
+                Reviews.Add(review);
+            }
+            else
+            {
+                throw new ArgumentException("Deze review is niet voor deze vrijwilliger bedoeld");
+            }
         }
 
-        public void AddAvailable()
+        public void AddSkill(Skill skill)
         {
-            
+            if (Skills.Contains(skill) == false)
+            {
+                Skills.Add(skill);
+            }
+            else
+            {
+                throw new ArgumentException("Deze vrijwilliger heeft deze vaardigheid al");
+            }
+        }
+
+        public void AddAvailable(Available available)
+        {
+            if (Agenda.Contains(available) == false)
+            {
+                Agenda.Add(available);
+            }
+            else
+            {
+                throw new ArgumentException("Beschibaarheid bestaat al");
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is HelpRequest)
+            {
+                HelpRequest other = ((HelpRequest)obj);
+                return this.ID == other.ID;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
