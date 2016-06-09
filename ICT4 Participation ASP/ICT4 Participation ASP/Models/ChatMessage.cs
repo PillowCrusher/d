@@ -15,5 +15,20 @@ namespace ICT4_Participation_ASP.Models
             Message = message;
             Time = time;
         }
+
+        public override bool Equals(object obj)	 
+       {	 
+           if (obj is ChatMessage)	 
+           {	 
+               ChatMessage other = ((ChatMessage)obj);	 
+               return this.Sender == other.Sender	 
+                   && this.Message == other.Message	 
+                   && this.Time == other.Time;	 
+           }	 
+           else	 
+           {	 
+               return false;
+           }	 
+       }
     }
 }

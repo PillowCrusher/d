@@ -15,5 +15,19 @@ namespace ICT4_Participation_ASP.Models
             this.DayName = dayName;
             this.DayPart = dayPart;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Available)
+            {
+                Available other = ((Available) obj);
+                return this.DayName == other.DayName
+                       && this.DayPart == other.DayPart;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
