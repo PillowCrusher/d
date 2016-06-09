@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="RegisterVolunteer.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.RegisterVolunteer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
+    <form runat="server">
     <div class="container col-sm-push-4 col-lg-4">
         <h2 class="form-signin-heading">Vul je gegevens in</h2>
         <label for="inputUserName" class="sr-only">Gebruikersnaam</label>
@@ -31,4 +32,5 @@
         <asp:Button runat="server" ID="btnRegister" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In"></asp:Button>
   
     </div>
+        </form>
 </asp:Content>
