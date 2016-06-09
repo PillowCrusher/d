@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ICT4_Participation_ASP.Models;
 
 namespace ICT4_Participation_ASP.WebForms
 {
@@ -11,7 +12,14 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Administration a = new Administration();
+            a.Login("Henk","test");
+        }
 
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception exc = Server.GetLastError();
+            Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
         }
     }
 }
