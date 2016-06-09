@@ -88,6 +88,7 @@
     <Content Include="WebForms\Default.aspx" />
     <Content Include="WebForms\ErrorPage.aspx" />
     <Content Include="WebForms\LoginStandard.aspx" />
+    <Content Include="WebForms\NeedyHome.aspx" />
     <Content Include="WebForms\TestPage.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="WebForms\LoginStandard.aspx.designer.cs">
       <DependentUpon>LoginStandard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\NeedyHome.aspx.cs">
+      <DependentUpon>NeedyHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\NeedyHome.aspx.designer.cs">
+      <DependentUpon>NeedyHome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
