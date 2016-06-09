@@ -121,6 +121,11 @@ namespace ICT4_Participation_ASP.Models.Accounts
                 return false;
             }
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
 }
