@@ -19,11 +19,9 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <asp:TextBox type="password" id="inputPassword" class="form-control" placeholder="Password" required runat="server"></asp:TextBox>
         <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+          
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <asp:Button runat="server" ID="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</asp:Button>
 
     </div> <!-- /container -->
     </form>
