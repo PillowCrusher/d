@@ -48,7 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Oracle.ManagedDataAccess"/>
+    <Reference Include="Oracle.ManagedDataAccess" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
@@ -78,6 +78,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="obj\Debug\ICT4 Participation ASP.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ICT4 Participation ASP.dll" />
+    <Content Include="obj\Debug\ICT4 Participation ASP.pdb" />
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
@@ -92,7 +95,10 @@
     <Content Include="WebForms\ErrorPage.aspx" />
     <Content Include="WebForms\LoginStandard.aspx" />
     <Content Include="WebForms\NeedyHome.aspx" />
+    <Content Include="WebForms\RegisterVolunteer.aspx" />
     <Content Include="WebForms\TestPage.aspx" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\ICT4 Participation ASP.csprojResolveAssemblyReference.cache" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -114,24 +120,30 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\Administration.cs" />
-    <Compile Include="Models\Available.cs" />
-    <Compile Include="Models\ChatMessage.cs" />
+    <Compile Include="Models\Accounts\Account.cs" />
+    <Compile Include="Models\Accounts\Admin.cs" />
+    <Compile Include="Models\Accounts\Needy.cs" />
+    <Compile Include="Models\Accounts\User.cs" />
+    <Compile Include="Models\Accounts\Volunteer.cs" />
     <Compile Include="Models\Database\Database.cs" />
     <Compile Include="Models\Database\DatabaseQueries.cs" />
     <Compile Include="Models\Database\InMemoryDatabase.cs" />
     <Compile Include="Models\Database\OracleDatabase.cs" />
     <Compile Include="Models\Database\Repository.cs" />
-    <Compile Include="Models\FormTools.cs" />
-    <Compile Include="Models\HelpRequest.cs" />
-    <Compile Include="Models\Needy.cs" />
-    <Compile Include="Models\Review.cs" />
-    <Compile Include="Models\Skill.cs" />
-    <Compile Include="Models\TransportationType.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Models\Handlers\AdminHandler.cs" />
+    <Compile Include="Models\Handlers\Handler.cs" />
+    <Compile Include="Models\Handlers\NeedyHandler.cs" />
+    <Compile Include="Models\Handlers\VolunteerHandler.cs" />
+    <Compile Include="Models\Objects\Available.cs" />
+    <Compile Include="Models\Objects\ChatMessage.cs" />
+    <Compile Include="Models\Objects\Enums.cs" />
+    <Compile Include="Models\Objects\FormTools.cs" />
+    <Compile Include="Models\Objects\HelpRequest.cs" />
+    <Compile Include="Models\Objects\Review.cs" />
+    <Compile Include="Models\Objects\Skill.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForms\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -161,9 +173,17 @@
     <Compile Include="WebForms\NeedyHome.aspx.designer.cs">
       <DependentUpon>NeedyHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\RegisterVolunteer.aspx.cs">
+      <DependentUpon>RegisterVolunteer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\RegisterVolunteer.aspx.designer.cs">
+      <DependentUpon>RegisterVolunteer.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

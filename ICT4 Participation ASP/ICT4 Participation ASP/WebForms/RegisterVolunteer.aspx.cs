@@ -11,10 +11,13 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                Response.Redirect("~/RegisterVolunteer.aspx");
-            }
+            
+        }
+
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception exc = Server.GetLastError();
+            Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
         }
     }
 }
