@@ -48,7 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Oracle.ManagedDataAccess"/>
+    <Reference Include="Oracle.ManagedDataAccess" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
@@ -91,6 +91,7 @@
     <Content Include="WebForms\Default.aspx" />
     <Content Include="WebForms\ErrorPage.aspx" />
     <Content Include="WebForms\LoginStandard.aspx" />
+    <Content Include="WebForms\RegisterVolunteer.aspx" />
     <Content Include="WebForms\TestPage.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="WebForms\LoginStandard.aspx.designer.cs">
       <DependentUpon>LoginStandard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\RegisterVolunteer.aspx.cs">
+      <DependentUpon>RegisterVolunteer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\RegisterVolunteer.aspx.designer.cs">
+      <DependentUpon>RegisterVolunteer.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
