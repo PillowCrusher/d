@@ -23,7 +23,7 @@
         </div>
         <asp:Button runat="server" ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In"></asp:Button>
 
-    </div> <!-- /container -->
+    </div>
     </form>
 </body>
 </html>
