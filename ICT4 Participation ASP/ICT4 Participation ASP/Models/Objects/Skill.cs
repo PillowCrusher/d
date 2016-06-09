@@ -14,17 +14,22 @@ namespace ICT4_Participation_ASP.Models.Objects
             this.Naam = naam;
         }
 
-        public override bool Equals(object obj)	 
-       {	 
-           if (obj is Skill)	 
-           {	 
-               Skill other = ((Skill)obj);	 
-               return this.Naam == other.Naam;	 
-           }	 
-           else	 
-           {	 
-               return false;	 
-           }	 
-       }
+        public override bool Equals(object obj)
+        {
+            if (obj is Skill)
+            {
+                Skill other = ((Skill)obj);
+                return this.Naam == other.Naam;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
