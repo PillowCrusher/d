@@ -46,5 +46,47 @@ namespace ICT4_Participation_ASP.Models.Objects
             ChatMessages = new List<ChatMessage>();
             Volunteers = new List<Volunteer>();
         }
+
+        public void AddReview(Review review)	 
+       {	 
+           if (Reviews.Contains(review) == false)	 
+           {	 
+               Reviews.Add(review);	 
+           }	 
+           else	 
+           {	 
+               throw new ArgumentException("Deze review bestaat al");	 
+           }
+        }
+
+       public void AddChatMessages(ChatMessage chatMessage)	 
+       {	 
+           ChatMessages.Add(chatMessage);	 
+       }	 
+	 
+       public void AddVolunteer(Volunteer volunteer)	 
+       {	 
+           if (Volunteers.Contains(volunteer) == false)	 
+           {	 
+               Volunteers.Add(volunteer);	 
+           }	 
+           else	 
+           {	 
+               throw new ArgumentException("Deze vrijwilliger bestaat al");	 
+           }	 
+       }
+	 
+       public override bool Equals(object obj)	 
+       {	 
+           if (obj is HelpRequest)	 
+           {	 
+               HelpRequest other = ((HelpRequest)obj);	 
+               return this.ID == other.ID;	 
+           }	 
+           else	 
+           {
+               return false;	 
+           }	 
+       }
     }
 }

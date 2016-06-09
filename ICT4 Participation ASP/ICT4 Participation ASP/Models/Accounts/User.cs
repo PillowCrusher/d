@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -29,35 +30,26 @@ namespace ICT4_Participation_ASP.Models.Accounts
         /// <param name="hasDrivingLincense"></param>
         /// <param name="hasCar"></param>
         /// <param name="isWarned"></param>
-        public User(int id, string username, string email, string name, string adres, string city, string phonenumber, bool hasDrivingLincense, bool hasCar, bool isWarned)
+        protected User(int id, string username, string email, string name, string adres, string city, string phonenumber, bool hasDrivingLincense, bool hasCar, bool isWarned)
             : base(id, username, email)
         {
             if (name == null || phonenumber == null)
             {
                 throw new ArgumentNullException("user", "please fill in all fields for the user");
             }
-            this.Name = name;
-            this.Adres = adres;
-            this.City = city;
-            this.Phonenumber = phonenumber;
-            this.HasDrivingLincense = hasDrivingLincense;
-            this.HasCar = hasCar;
-            this.IsWarned = isWarned;
+            Name = name;
+            Adres = adres;
+            City = city;
+            Phonenumber = phonenumber;
+            HasDrivingLincense = hasDrivingLincense;
+            HasCar = hasCar;
+            IsWarned = isWarned;
         }
 
-        public User(string username, string email, string name, string adres, string city, string phonenumber, bool hasDrivingLincense, bool hasCar)
-            : base(username, email)
+        protected User(DataRow dr)
+            :this((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), (bool)dr[7], (bool)dr[8], (bool)dr[9])
         {
-            if (name == null || phonenumber == null)
-            {
-                throw new ArgumentNullException("user", "please fill in all fields for the user");
-            }
-            this.Name = name;
-            this.Adres = adres;
-            this.City = city;
-            this.Phonenumber = phonenumber;
-            this.HasDrivingLincense = hasDrivingLincense;
-            this.HasCar = hasCar;
+            
         }
     }
 }
