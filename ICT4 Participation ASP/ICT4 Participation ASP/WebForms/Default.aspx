@@ -51,7 +51,7 @@
     <form id="form1" runat="server">
     <div class="container col-sm-push-4 col-lg-4" style="padding-bottom: 10%; padding-top: 35%">
         <div class="">
-            <asp:Button runat="server" ID="btnToLoginPage" Text="Inloggen" CssClass="btn btn-lg btn-primary btn-block" />
+            <asp:Button runat="server" ID="btnLoginPage" Text="Inloggen" CssClass="btn btn-lg btn-primary btn-block" />
         </div>
     </div>
     </form>
