@@ -55,6 +55,14 @@ namespace ICT4_Participation_ASP.Models
             IsBlocked = blocked;
         }
 
+        public Volunteer(string username, string email, string name, string adres, string city, string phonenumber, bool hasDrivingLincense, bool hasCar, DateTime birthDate, string photo, string vog)
+            : base(username, email, name, adres, city, phonenumber, hasDrivingLincense, hasCar)
+        {
+            BirthDate = birthDate;
+            Photo = photo;
+            VOG = vog;
+        }
+
         public void AddReview()
         {
             
