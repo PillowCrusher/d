@@ -118,10 +118,10 @@ namespace ICT4_Participation_ASP.Models.Database
 
             //:HelprequestID, :UserID
             Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Status = 'Declined' WHERE(HelprequestID = :p AND UserID = :pp) ";
-            
+
             //:id
             Query["AcceptedVolunteer"] = "UPDATE \"Volunteer\" SET ACCEPTED = 1 WHERE ID = :p";
-            
+
             //:adres, :city, :phonenumber, :hasdrivinglicence, :hascar, :id";
             Query["UpdateUser"] = "update \"User\" SET Adres = :p, City = :pp, Phonenumber = :ppp, Hasdrivinglicence = :pppp, Hascar = :ppppp where ID = :pppppp";
 

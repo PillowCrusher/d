@@ -29,7 +29,7 @@ namespace ICT4_Participation_ASP.Models.Accounts
         public Admin(DataRow dr)
             : this((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString())
         {
-            
+
         }
     }
 

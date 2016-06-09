@@ -113,7 +113,7 @@ namespace ICT4_Participation_ASP.Models.Accounts
         {
             if (obj is HelpRequest)
             {
-                HelpRequest other = ((HelpRequest) obj);
+                HelpRequest other = ((HelpRequest)obj);
                 return this.ID == other.ID;
             }
             else
