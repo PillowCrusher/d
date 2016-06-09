@@ -88,12 +88,14 @@
     <Content Include="WebForms\Default.aspx" />
     <Content Include="WebForms\ErrorPage.aspx" />
     <Content Include="WebForms\LoginStandard.aspx" />
+    <Content Include="WebForms\TestPage.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="WebForms\NavbarMasterPage.master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
