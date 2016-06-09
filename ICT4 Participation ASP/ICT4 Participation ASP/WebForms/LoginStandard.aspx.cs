@@ -15,25 +15,31 @@ namespace ICT4_Participation_ASP.WebForms
         protected void Page_Load(object sender, EventArgs e)
         {
             Handler a = new Handler();
-            a.Login(inputUsername.Text, inputPassword.Text);
-            if (a.User is Volunteer)
-            {
-                Response.Redirect("VolunteerHome.aspx");
-            }
-            if (a.User is Needy)
-            {
-                Response.Redirect("NeedyHome.aspx");
-            }
-            if(a.User is Admin)
-            {
-                Response.Redirect("AdminHome.aspx");
-            }
+
+            //a.Login(inputUsername.Text, inputPassword.Text);
+            //if (a.User is Volunteer)
+            //{
+            //    Response.Redirect("VolunteerHome.aspx");
+            //}
+            //if (a.User is Needy)
+            //{
+            //    Response.Redirect("NeedyHome.aspx");
+            //}
+            //if(a.User is Admin)
+            //{
+            //    Response.Redirect("AdminHome.aspx");
+            //}
         }
 
         private void Page_Error(object sender, EventArgs e)
         {
             Exception exc = Server.GetLastError();
             Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
+        }
+
+        protected void btnLogin_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

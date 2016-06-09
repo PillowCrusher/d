@@ -54,5 +54,10 @@ namespace ICT4_Participation_ASP.Models.Objects
         {
             return "Helprequest: " + HelpRequestId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
