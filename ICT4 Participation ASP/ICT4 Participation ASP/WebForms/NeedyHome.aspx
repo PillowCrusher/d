@@ -8,6 +8,7 @@
     <link href="../Content/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">--%>
     <form id="form1" runat="server">
     <div class="container col-lg-4">
         
@@ -21,8 +22,11 @@
             <asp:CheckBox runat="server" ID="cbUrgent" CssClass="form-control" Text="Urgent"/>
             <label for="inputKennisMaken" class="sr-only">Kennis maken</label>
             <asp:CheckBox runat="server" ID="cbMeeting" CssClass="form-control" Text="Kennis maken"/>
+            <asp:TextBox runat="server" ID="inputStartDate" TextMode="DateTime"></asp:TextBox>
+            <asp:Button runat="server" ID="btnSendHelpRequest" CssClass="btn" />
         </div>
     </div>
     </form>
+<%--</asp:Content>--%>
 </body>
 </html>

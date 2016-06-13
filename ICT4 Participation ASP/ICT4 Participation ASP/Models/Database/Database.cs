@@ -9,7 +9,7 @@ namespace ICT4_Participation_ASP.Models.Database
     public class Database
     {
         //private Administration _administration;
-        
+
         //public Database(Administration administration)
         //{
         //    _administration = administration;
@@ -56,7 +56,7 @@ namespace ICT4_Participation_ASP.Models.Database
         //                {
         //                    if (accpeted)
         //                    {
-                               
+
         //                        account =  new Volunteer(id, userName, email, name, adres, city, phonenumber, drivingLicence, car,
         //                            birthdate, photo, vog, isWarned, blocked);
         //                    }
@@ -157,7 +157,7 @@ namespace ICT4_Participation_ASP.Models.Database
         //            bool ovPossible = Convert.ToBoolean(dr["OVPOSSIBLE"]);
         //            bool isWarned = Convert.ToBoolean(dr["ISWARNED"]);
         //            string barcode = dr["BARCODE"].ToString();
-                   
+
         //            //zet de gevonden user in het Field user
         //            needy = new Needy(id, userName, email, name, adres, city, phonenumber, ovPossible, drivingLicence, car, barcode, isWarned);
         //        }
@@ -524,7 +524,7 @@ namespace ICT4_Participation_ASP.Models.Database
         //public List<HelpRequest> GetHelpRequests(string querie, OracleParameter[] parameters)
         //{
         //    List<HelpRequest> helpRequests = new List<HelpRequest>();
-            
+
         //    DataTable dt = OracleDatabase.ExecuteReadQuery(DatabaseQueries.Query[querie], parameters);
 
         //    foreach (DataRow dr in dt.Rows)
@@ -545,7 +545,7 @@ namespace ICT4_Participation_ASP.Models.Database
         //                Convert.ToBoolean(dr["Interview"]),
         //                Convert.ToBoolean(dr["completed"]),
         //                GetAllSkills("GetSkills", new OracleParameter[] { (new OracleParameter("VolunteerID", Convert.ToInt32(dr["ID"]))) })
-                        
+
         //                )
         //            );
         //    }

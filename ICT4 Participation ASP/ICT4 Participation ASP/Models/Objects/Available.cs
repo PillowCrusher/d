@@ -29,5 +29,10 @@ namespace ICT4_Participation_ASP.Models.Objects
                 return false;
             }
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

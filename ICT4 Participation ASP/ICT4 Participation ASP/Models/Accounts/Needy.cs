@@ -51,17 +51,17 @@ namespace ICT4_Participation_ASP.Models.Accounts
             HelpRequestsen = new List<HelpRequest>();
         }
 
-      public void AddHelpRequest(HelpRequest helpRequest)
-      {
-          if (HelpRequestsen.Contains(helpRequest) == false)
-          {
-              HelpRequestsen.Add(helpRequest);
-          }
-          else
-          {
-              throw new ArgumentException("Deze helprequest bestaat al");
-          }
-       }
+        public void AddHelpRequest(HelpRequest helpRequest)
+        {
+            if (HelpRequestsen.Contains(helpRequest) == false)
+            {
+                HelpRequestsen.Add(helpRequest);
+            }
+            else
+            {
+                throw new ArgumentException("Deze helprequest bestaat al");
+            }
+        }
     }
 
 }
