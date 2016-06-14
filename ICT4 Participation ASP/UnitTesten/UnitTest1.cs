@@ -20,7 +20,7 @@ namespace UnitTesten
             parameters.Add("Homo");
             parameters.Add("1c00fcfa13");
 
-            string query = handler.ExcecuteSqlFunction(parameters, "LogIn").ToString();
+            string query = handler.ExecuteSqlFunction(parameters, "LogIn").ToString();
 
             const string goedeQuery = "SELECT a.ID, a.Username, a.email, a.Roll, ad.Barcode FROM \"Account\" a JOIN \"Admin\" ad ON a.ID = ad.ID WHERE a.ID = 3 AND ad.Barcode = 1c00fcfa13";
 

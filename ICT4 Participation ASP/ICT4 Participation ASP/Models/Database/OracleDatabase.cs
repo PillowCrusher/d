@@ -100,6 +100,14 @@ namespace ICT4_Participation_ASP.Models.Database
             }
         }
 
+        /// <summary>
+        /// execute the Sql function
+        /// use: (list parameters, "name function")
+        /// example: (parameters, "LogIn")
+        /// </summary>
+        /// <param name="parameterlist"></param>
+        /// <param name="function"></param>
+        /// <returns></returns>
         public object ExecuteSqlFunction(List<object> parameterlist, string function)
         {
             OracleParameter[] parameters = MakeParameters(parameterlist);
