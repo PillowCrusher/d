@@ -40,6 +40,51 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputText;
         
         /// <summary>
+        /// inputLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputLocation;
+        
+        /// <summary>
+        /// inputStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputStartDate;
+        
+        /// <summary>
+        /// inputStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputStartTime;
+        
+        /// <summary>
+        /// inputEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputEndDate;
+        
+        /// <summary>
+        /// inputEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputEndTime;
+        
+        /// <summary>
         /// cbDrivingLicence control.
         /// </summary>
         /// <remarks>
@@ -65,15 +110,6 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cbMeeting;
-        
-        /// <summary>
-        /// inputStartDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputStartDate;
         
         /// <summary>
         /// skillsList control.
