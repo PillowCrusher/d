@@ -13,13 +13,13 @@ namespace ICT4_Participation_ASP.WebForms {
     public partial class LoginStandard {
         
         /// <summary>
-        /// form1 control.
+        /// UsernameRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UsernameRequiredFieldValidator;
         
         /// <summary>
         /// inputUsername control.
@@ -29,6 +29,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputUsername;
+        
+        /// <summary>
+        /// PasswordRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequiredFieldValidator;
         
         /// <summary>
         /// inputPassword control.
