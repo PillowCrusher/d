@@ -46,7 +46,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
             db.ExecuteNonQuery(parameters, query);
         }
 
-
+        public object ExcecuteSqlFunction(List<object> parameters, string function)
+        {
+            return db.ExecuteSqlFunction(parameters, function);
+        }
 
 
         ///// <summary>

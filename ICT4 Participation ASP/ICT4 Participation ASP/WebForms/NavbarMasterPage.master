@@ -6,6 +6,21 @@
     <head runat="server">
         <link href="../Content/bootstrap.min.css" rel="stylesheet"/>
         <title>Test</title>
+        <style>
+            LeftSide {
+                float: left;
+            }
+            RightSide {
+                float: right;
+            }
+            tempImage {
+                width: auto;
+                height: auto;
+                max-height: 100px;
+                max-width: 100px;
+                float: right;
+            }
+        </style>
     </head>
 <body>
          <nav class="navbar navbar-default">
@@ -38,7 +53,7 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="RegisterAsVolunteer.aspx">Register als vrijwilliger</a></li>
+              <li><a href="RegisterVolunteer.aspx">Register als vrijwilliger</a></li>
               <li><a href="LoginStandard.aspx">Inloggen</a></li>
             </ul>
           </div><!--/.nav-collapse -->

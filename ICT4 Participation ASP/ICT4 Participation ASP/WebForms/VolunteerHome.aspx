@@ -1,12 +1,13 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="NeedyHome.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.NeedyHome" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="VolunteerHome.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.VolunteerHome" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
 <form id="form1" runat="server">
     <div class="container col-lg-4 pull-left">
         <label class="active">Menu</label>
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation"><a href="ProfileVolunteer.aspx">Hulpvraag maken</a></li>
-            <li role="presentation"><a href="NeedyReviews.aspx">Beoordelingen</a></li>
+            <li role="presentation"><a href="ProfileVolunteer.aspx">Profiel</a></li>
+            <li role="presentation"><a href="VolunteerReviews.aspx">Mijn Beoordelingen</a></li>
             <li role="presentation"><a href="#">???</a></li>
             <li role="presentation"><a href="#">???</a></li>
             <li role="presentation"><a href="#">???</a></li>
@@ -14,7 +15,7 @@
     </div>
     <div class="container col-lg-4">
         <div class="list-group">
-            <asp:ListView ID="lvList" runat="server" EmptyData="No data found!">
+            <asp:ListView ID="lvList" runat="server">
                 <LayoutTemplate>
                     <!-- <div id="containerDiv" runat="server" class="list-group"> -->
                     <h1 class="h3">Helprequests</h1>

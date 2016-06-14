@@ -34,17 +34,21 @@ namespace ICT4_Participation_ASP.Models.Database
 
         private OracleParameter[] MakeParameters(List<object> parameterlist)
         {
-            OracleParameter[] parameters = new OracleParameter[parameterlist.Count];
-            int i = 0;
-            string index = "p";
-
-            foreach (object o in parameterlist)
+            if (parameterlist != null)
             {
-                parameters[i] = new OracleParameter(index, o);
-                index += "p";
-                i++;
+                OracleParameter[] parameters = new OracleParameter[parameterlist.Count];
+                int i = 0;
+                string index = "p";
+
+                foreach (object o in parameterlist)
+                {
+                    parameters[i] = new OracleParameter(index, o);
+                    index += "p";
+                    i++;
+                }
+                return parameters;
             }
-            return parameters;
+            return null;
         }
 
         /// <summary>
@@ -96,6 +100,36 @@ namespace ICT4_Participation_ASP.Models.Database
             }
         }
 
+        public object ExecuteSqlFunction(List<object> parameterlist, string function)
+        {
+            OracleParameter[] parameters = MakeParameters(parameterlist);
+
+            using (OracleConnection connection = Connection)
+            {
+                OracleCommand command = new OracleCommand(function, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                
+                command.Parameters.Add("return", OracleDbType.NVarchar2, 32767);
+                command.Parameters["return"].Direction = ParameterDirection.ReturnValue;
+
+                /*
+                command.Parameters.Add("p_Username", OracleDbType.NVarchar2);
+                command.Parameters["p_Username"].Value = "Henkie";
+
+                command.Parameters.Add("p_Password", OracleDbType.NVarchar2);
+                command.Parameters["p_Password"].Value = "henkerd";
+                */
+
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                command.ExecuteNonQuery();
+
+                return command.Parameters["return"].Value;
+            }
+        }
 
         public bool CheckConnection()
         {

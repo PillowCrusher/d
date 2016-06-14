@@ -72,10 +72,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPage.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\random_person_by_vurtov.jpg" />
+    <Content Include="Content\rr-passfoto.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="obj\Debug\ICT4 Participation ASP.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ICT4 Participation ASP.dll" />
@@ -93,6 +96,7 @@
     <Content Include="WebForms\Default.aspx" />
     <Content Include="WebForms\ErrorPage.aspx" />
     <Content Include="WebForms\LoginStandard.aspx" />
+    <Content Include="WebForms\NeedyHelpRequest.aspx" />
     <Content Include="WebForms\NeedyHome.aspx" />
     <Content Include="WebForms\ProfileVolunteer.aspx" />
     <Content Include="WebForms\RegisterNeedy.aspx" />
@@ -100,6 +104,7 @@
     <Content Include="WebForms\TestPage.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\ICT4 Participation ASP.csprojResolveAssemblyReference.cache" />
+    <Content Include="WebForms\VolunteerHome.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,6 +123,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPage.aspx.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage.aspx.designer.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +179,13 @@
     <Compile Include="WebForms\LoginStandard.aspx.designer.cs">
       <DependentUpon>LoginStandard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\NeedyHelpRequest.aspx.cs">
+      <DependentUpon>NeedyHelpRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\NeedyHelpRequest.aspx.designer.cs">
+      <DependentUpon>NeedyHelpRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForms\NeedyHome.aspx.cs">
       <DependentUpon>NeedyHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,6 +213,13 @@
     </Compile>
     <Compile Include="WebForms\RegisterVolunteer.aspx.designer.cs">
       <DependentUpon>RegisterVolunteer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\VolunteerHome.aspx.cs">
+      <DependentUpon>VolunteerHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\VolunteerHome.aspx.designer.cs">
+      <DependentUpon>VolunteerHome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
