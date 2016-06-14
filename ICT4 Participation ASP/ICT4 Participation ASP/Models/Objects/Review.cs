@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ICT4_Participation_ASP.Models
+namespace ICT4_Participation_ASP.Models.Objects
 {
     public class Review
     {
@@ -36,9 +36,28 @@ namespace ICT4_Participation_ASP.Models
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Review)
+            {
+                Review other = ((Review) obj);
+                return this.HelpRequestId == other.HelpRequestId
+                       && this.VolunteerId == other.VolunteerId;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public override string ToString()
         {
             return "Helprequest: " + HelpRequestId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

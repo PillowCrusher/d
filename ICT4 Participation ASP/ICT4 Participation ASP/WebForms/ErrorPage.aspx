@@ -1,13 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ErrorPage.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.ErrorPage" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/WebForms/NavbarMasterPage.master" CodeBehind="ErrorPage.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.ErrorPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
+    <form runat="server">
     <div>
     <h2>Error:</h2>
     <p></p>
@@ -35,5 +28,4 @@
     </asp:Panel>
     </div>
     </form>
-</body>
-</html>
+</asp:Content>

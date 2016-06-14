@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace ICT4_Participation_ASP.Models
+namespace ICT4_Participation_ASP.Models.Accounts
 {
     public class Admin : Account
     {
@@ -23,6 +24,12 @@ namespace ICT4_Participation_ASP.Models
             : base(id, username, email)
         {
             Barcode = barcode;
+        }
+
+        public Admin(DataRow dr)
+            : this((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString())
+        {
+
         }
     }
 
