@@ -30,7 +30,7 @@ namespace ICT4_Participation_ASP.WebForms
             List<object> parameters = new List<object>();
             parameters.Add(inputUsername.Text); //TextBox Username
             parameters.Add(inputPassword.Text); //TextBox Password
-            parameters.Add(inputBarcode.Text);
+            parameters.Add(inputBarcode.Text);  //TextBox Barcode
 
             DataTable dt = handler.ExecuteReadQuery(null, handler.ExecuteSqlFunction(parameters, "LogIn").ToString());
 
@@ -48,19 +48,16 @@ namespace ICT4_Participation_ASP.WebForms
                 if (roll == "ADMIN")
                 {
                     loggedUser = new Admin(dr);
-                    Session["LoggedUser"] = loggedUser;
                     Response.Redirect("AdminHome.aspx");
                 }
                 else if (roll == "NEEDY")
                 {
                     loggedUser = new Needy(dr);
-                    Session["LoggedUser"] = loggedUser;
                     Response.Redirect("NeedyHome.aspx");
                 }
                 else if(roll == "VOLUNTEER")
                 {
                     loggedUser = new Volunteer(dr);
-                    Session["LoggedUser"] = loggedUser;
                     Response.Redirect("VolunteerHome.aspx");
                 }
                 else
@@ -70,21 +67,6 @@ namespace ICT4_Participation_ASP.WebForms
             }
 
             Session["LoggedUser"] = loggedUser;
-
-            
-            //handler.Login(inputUsername.Text, inputPassword.Text);
-            //if (a.User is Volunteer)
-            //{
-            //    Response.Redirect("VolunteerHome.aspx");
-            //}
-            //if (a.User is Needy)
-            //{
-            //    Response.Redirect("NeedyHome.aspx");
-            //}
-            //if (a.User is Admin)
-            //{
-            //    Response.Redirect("AdminHome.aspx");
-            //}
         }
     }
 }
