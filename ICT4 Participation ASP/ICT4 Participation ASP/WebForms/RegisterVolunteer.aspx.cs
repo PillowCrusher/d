@@ -11,12 +11,19 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnRegister_OnClick(object sender, EventArgs e)
         {
-            
+            string username = inputUserName.Text;
+            string password = inputPassword.Text;
+            string email = inputEmail.Text;
+            string name = inputName.Text;
+            DateTime birthdate = Convert.ToDateTime(inputBirthDate.Text);
+            string address = inputAdres.Text;
+            string city = inputCity.Text;
+
         }
 
 
