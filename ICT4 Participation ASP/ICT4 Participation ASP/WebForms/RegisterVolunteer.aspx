@@ -15,22 +15,22 @@
         <asp:TextBox ID="inputCity" class="form-control" placeholder="City" runat="server"></asp:TextBox>
         <label for="inputPhonenumber" class="sr-only">Telefoon nummer</label>
         <asp:TextBox ID="inputPhonenumber" class="form-control" placeholder="Phonenumber" runat="server"></asp:TextBox>
-        <label for="inputDrivingLincense" class="sr-only">Rijbewijs in bezit</label>
-        <asp:CheckBox ID="inputDrivingLincense"  runat="server" />
-        <label for="inputCar" class="sr-only">Auto in bezit</label>
-        <asp:CheckBox ID="inputCar"  runat="server" />
-        <label for="inputBirthDate" class="sr-only">Geboortedatum</label>
-        <asp:Calendar ID="inputBirthDate" runat="server"></asp:Calendar>
-        <label for="inputPhoto" class="sr-only">Photo</label>
+        <asp:Label ID="labelDrviningLincense" runat="server" Text="Rijbewijs in bezit"></asp:Label><br>
+        <asp:CheckBox ID="inputDrivingLincense"  runat="server" /><br>
+        <asp:Label ID="labelCar" runat="server" Text="Auto in bezit"></asp:Label><br>
+        <asp:CheckBox ID="inputCar"  runat="server" /><br>
+        <asp:Label ID="labelBirthDate" runat="server" Text="Geboortedatum"></asp:Label><br>
+        <asp:TextBox ID="inputBirthDate" runat="server" TextMode="Date"></asp:TextBox><br>
+        <asp:Label ID="labelPhoto" runat="server" Text="Foto"></asp:Label>
         <asp:FileUpload ID="inputPhoto" runat="server" />
-        <label for="inputVog" class="sr-only">Verklaring omtrent gedrag</label>
+        <asp:Label ID="labelVOG" runat="server" Text="Verklaring omtrent gedrag"></asp:Label>
         <asp:FileUpload ID="inputVog" runat="server" />
         <label for="inputPassword" class="sr-only">Password</label>
         <asp:TextBox type="password" ID="inputPassword" class="form-control" placeholder="Password" runat="server"></asp:TextBox>
         <div class="checkbox">
         </div>
         <asp:Button runat="server" ID="btnRegister" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In"></asp:Button>
-  
+
     </div>
         </form>
 </asp:Content>

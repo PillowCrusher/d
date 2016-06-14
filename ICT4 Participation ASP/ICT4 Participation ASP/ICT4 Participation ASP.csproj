@@ -95,6 +95,8 @@
     <Content Include="WebForms\ErrorPage.aspx" />
     <Content Include="WebForms\LoginStandard.aspx" />
     <Content Include="WebForms\NeedyHome.aspx" />
+    <Content Include="WebForms\ProfileVolunteer.aspx" />
+    <Content Include="WebForms\RegisterNeedy.aspx" />
     <Content Include="WebForms\RegisterVolunteer.aspx" />
     <Content Include="WebForms\TestPage.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -172,6 +174,20 @@
     </Compile>
     <Compile Include="WebForms\NeedyHome.aspx.designer.cs">
       <DependentUpon>NeedyHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\ProfileVolunteer.aspx.cs">
+      <DependentUpon>ProfileVolunteer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\ProfileVolunteer.aspx.designer.cs">
+      <DependentUpon>ProfileVolunteer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\RegisterNeedy.aspx.cs">
+      <DependentUpon>RegisterNeedy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\RegisterNeedy.aspx.designer.cs">
+      <DependentUpon>RegisterNeedy.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\RegisterVolunteer.aspx.cs">
       <DependentUpon>RegisterVolunteer.aspx</DependentUpon>

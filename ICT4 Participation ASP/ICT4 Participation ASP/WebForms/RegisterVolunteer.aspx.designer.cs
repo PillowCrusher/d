@@ -67,6 +67,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputPhonenumber;
         
         /// <summary>
+        /// labelDrviningLincense control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelDrviningLincense;
+        
+        /// <summary>
         /// inputDrivingLincense control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox inputDrivingLincense;
+        
+        /// <summary>
+        /// labelCar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelCar;
         
         /// <summary>
         /// inputCar control.
@@ -85,13 +103,31 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.CheckBox inputCar;
         
         /// <summary>
+        /// labelBirthDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelBirthDate;
+        
+        /// <summary>
         /// inputBirthDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar inputBirthDate;
+        protected global::System.Web.UI.WebControls.TextBox inputBirthDate;
+        
+        /// <summary>
+        /// labelPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelPhoto;
         
         /// <summary>
         /// inputPhoto control.
@@ -101,6 +137,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload inputPhoto;
+        
+        /// <summary>
+        /// labelVOG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelVOG;
         
         /// <summary>
         /// inputVog control.
