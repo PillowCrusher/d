@@ -10,7 +10,7 @@
 namespace ICT4_Participation_ASP.WebForms {
     
     
-    public partial class NeedyHome {
+    public partial class VolunteerHome {
         
         /// <summary>
         /// form1 control.
