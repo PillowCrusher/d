@@ -48,16 +48,19 @@ namespace ICT4_Participation_ASP.WebForms
                 if (roll == "ADMIN")
                 {
                     loggedUser = new Admin(dr);
+                    Session["LoggedUser"] = loggedUser;
                     Response.Redirect("AdminHome.aspx");
                 }
                 else if (roll == "NEEDY")
                 {
                     loggedUser = new Needy(dr);
+                    Session["LoggedUser"] = loggedUser;
                     Response.Redirect("NeedyHome.aspx");
                 }
                 else if(roll == "VOLUNTEER")
                 {
                     loggedUser = new Volunteer(dr);
+                    Session["LoggedUser"] = loggedUser;
                     Response.Redirect("VolunteerHome.aspx");
                 }
                 else
@@ -66,7 +69,7 @@ namespace ICT4_Participation_ASP.WebForms
                 }
             }
 
-            Session["LoggedUser"] = loggedUser;
+            
         }
     }
 }
