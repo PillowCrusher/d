@@ -101,6 +101,7 @@
     <Content Include="WebForms\TestPage.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\ICT4 Participation ASP.csprojResolveAssemblyReference.cache" />
+    <Content Include="WebForms\VolunteerHome.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="WebForms\RegisterVolunteer.aspx.designer.cs">
       <DependentUpon>RegisterVolunteer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\VolunteerHome.aspx.cs">
+      <DependentUpon>VolunteerHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\VolunteerHome.aspx.designer.cs">
+      <DependentUpon>VolunteerHome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
