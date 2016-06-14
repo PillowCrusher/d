@@ -20,7 +20,7 @@ namespace ICT4_Participation_ASP.WebForms
             }
             else
             {
-                Response.Redirect("~/LoginStandard.aspx");
+                Response.Redirect("LoginStandard.aspx");
             }
         }
 
