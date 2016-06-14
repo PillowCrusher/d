@@ -96,6 +96,15 @@ namespace ICT4_Participation_ASP.Models.Database
             }
         }
 
+        public object ExecuteSqlFunction(string function)
+        {
+            using (OracleConnection connection = Connection)
+            {
+                OracleCommand command = new OracleCommand(function, connection);
+                
+                return command.ExecuteScalar();
+            }
+        }
 
         public bool CheckConnection()
         {
