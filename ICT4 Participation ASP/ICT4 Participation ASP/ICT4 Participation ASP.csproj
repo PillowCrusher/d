@@ -98,9 +98,11 @@
     <Content Include="WebForms\ProfileVolunteer.aspx" />
     <Content Include="WebForms\RegisterNeedy.aspx" />
     <Content Include="WebForms\RegisterVolunteer.aspx" />
+    <Content Include="WebForms\SeeVolunteers.aspx" />
     <Content Include="WebForms\TestPage.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\ICT4 Participation ASP.csprojResolveAssemblyReference.cache" />
+    <Content Include="WebForms\VolunteerReviews.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,6 +197,20 @@
     </Compile>
     <Compile Include="WebForms\RegisterVolunteer.aspx.designer.cs">
       <DependentUpon>RegisterVolunteer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\SeeVolunteers.aspx.cs">
+      <DependentUpon>SeeVolunteers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\SeeVolunteers.aspx.designer.cs">
+      <DependentUpon>SeeVolunteers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\VolunteerReviews.aspx.cs">
+      <DependentUpon>VolunteerReviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\VolunteerReviews.aspx.designer.cs">
+      <DependentUpon>VolunteerReviews.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
