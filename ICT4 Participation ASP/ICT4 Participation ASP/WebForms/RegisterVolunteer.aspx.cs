@@ -18,22 +18,38 @@ namespace ICT4_Participation_ASP.WebForms
         {
             string username = inputUserName.Text;
             string password = inputPassword.Text;
+            string passwordconfirm = inputPasswordConfirm.Text;
             string email = inputEmail.Text;
             string name = inputName.Text;
             DateTime birthdate = Convert.ToDateTime(inputBirthDate.Text);
             string address = inputAdres.Text;
             string city = inputCity.Text;
             string phonenumber = inputPhonenumber.Text;
-            string s = inputPhoto.FileName;
-            string d = inputVog.FileName;
+            string photo = inputPhoto.FileName;
+            string vog = inputVog.FileName;
             bool haslicense = inputDrivingLincense.Checked;
             bool hascar = inputCar.Checked;
 
             if (password == inputPasswordConfirm.Text)
             {
-                
+                List<object> objects = new List<object>();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
+                objects.Add();
             }
-
+            else
+            {
+                throw new Exception("Wachtwoorden komen niet overeen.");
+            }
         }
 
 

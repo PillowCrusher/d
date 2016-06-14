@@ -256,15 +256,6 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.FileUpload inputVog;
         
         /// <summary>
-        /// vaardighedenLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label vaardighedenLabel;
-        
-        /// <summary>
         /// PasswordRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
