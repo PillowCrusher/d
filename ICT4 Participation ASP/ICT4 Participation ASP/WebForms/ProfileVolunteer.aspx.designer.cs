@@ -40,13 +40,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.Label EmailLabel;
         
         /// <summary>
-        /// NameLabel control.
+        /// AdresRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NameLabel;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AdresRequiredFieldValidator;
         
         /// <summary>
         /// inputAdres control.
@@ -58,6 +58,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputAdres;
         
         /// <summary>
+        /// CityRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CityRequiredFieldValidator;
+        
+        /// <summary>
         /// inputCity control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,24 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputCity;
+        
+        /// <summary>
+        /// PhonenumberRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PhonenumberRequiredFieldValidator;
+        
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
         /// inputPhonenumber control.
@@ -121,6 +148,24 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.Label labelBirthDate;
         
         /// <summary>
+        /// BirthDateRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator BirthDateRequiredFieldValidator;
+        
+        /// <summary>
+        /// inputBirthDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputBirthDate;
+        
+        /// <summary>
         /// labelPhoto control.
         /// </summary>
         /// <remarks>
@@ -128,6 +173,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labelPhoto;
+        
+        /// <summary>
+        /// FotoRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FotoRequiredFieldValidator;
         
         /// <summary>
         /// inputPhoto control.
@@ -148,6 +202,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.Label labelVOG;
         
         /// <summary>
+        /// VOGRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator VOGRequiredFieldValidator;
+        
+        /// <summary>
         /// inputVog control.
         /// </summary>
         /// <remarks>
@@ -155,6 +218,42 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload inputVog;
+        
+        /// <summary>
+        /// vaardighedenLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label vaardighedenLabel;
+        
+        /// <summary>
+        /// checkBoxPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel checkBoxPanel;
+        
+        /// <summary>
+        /// CheckBoxList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
+        
+        /// <summary>
+        /// PasswordRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequiredFieldValidator;
         
         /// <summary>
         /// inputPassword control.

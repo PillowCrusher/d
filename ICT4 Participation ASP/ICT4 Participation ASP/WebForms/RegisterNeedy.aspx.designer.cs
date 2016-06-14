@@ -13,15 +13,6 @@ namespace ICT4_Participation_ASP.WebForms {
     public partial class RegisterNeedy {
         
         /// <summary>
-        /// inputUserName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputUserName;
-        
-        /// <summary>
         /// UsernNameRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
@@ -31,13 +22,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UsernNameRequiredFieldValidator;
         
         /// <summary>
-        /// inputEmail control.
+        /// inputUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputEmail;
+        protected global::System.Web.UI.WebControls.TextBox inputUserName;
         
         /// <summary>
         /// EmailRequiredFieldValidator control.
@@ -58,13 +49,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator Reg_Email_RegularExpressionValidator;
         
         /// <summary>
-        /// inputName control.
+        /// inputEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputName;
+        protected global::System.Web.UI.WebControls.TextBox inputEmail;
         
         /// <summary>
         /// NameRequiredFieldValidator control.
@@ -76,13 +67,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator NameRequiredFieldValidator;
         
         /// <summary>
-        /// inputAdres control.
+        /// inputName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputAdres;
+        protected global::System.Web.UI.WebControls.TextBox inputName;
         
         /// <summary>
         /// AdresRequiredFieldValidator control.
@@ -94,13 +85,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator AdresRequiredFieldValidator;
         
         /// <summary>
-        /// inputCity control.
+        /// inputAdres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCity;
+        protected global::System.Web.UI.WebControls.TextBox inputAdres;
         
         /// <summary>
         /// CityRequiredFieldValidator control.
@@ -112,13 +103,22 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator CityRequiredFieldValidator;
         
         /// <summary>
-        /// inputPhonenumber control.
+        /// inputCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputPhonenumber;
+        protected global::System.Web.UI.WebControls.TextBox inputCity;
+        
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
         /// PhonenumberRequiredFieldValidator control.
@@ -130,13 +130,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PhonenumberRequiredFieldValidator;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// inputPhonenumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.TextBox inputPhonenumber;
         
         /// <summary>
         /// LabelOpenbaarVervoer control.
@@ -202,15 +202,6 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputBarcode;
         
         /// <summary>
-        /// inputPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputPassword;
-        
-        /// <summary>
         /// PasswordRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
@@ -218,6 +209,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequiredFieldValidator;
+        
+        /// <summary>
+        /// inputPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputPassword;
         
         /// <summary>
         /// btnRegister control.
