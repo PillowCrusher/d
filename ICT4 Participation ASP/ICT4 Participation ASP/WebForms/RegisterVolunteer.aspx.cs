@@ -23,6 +23,16 @@ namespace ICT4_Participation_ASP.WebForms
             DateTime birthdate = Convert.ToDateTime(inputBirthDate.Text);
             string address = inputAdres.Text;
             string city = inputCity.Text;
+            string phonenumber = inputPhonenumber.Text;
+            string s = inputPhoto.FileName;
+            string d = inputVog.FileName;
+            bool haslicense = inputDrivingLincense.Checked;
+            bool hascar = inputCar.Checked;
+
+            if (password == inputPasswordConfirm.Text)
+            {
+                
+            }
 
         }
 
