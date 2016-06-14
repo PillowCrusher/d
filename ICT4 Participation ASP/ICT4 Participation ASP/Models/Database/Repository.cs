@@ -13,6 +13,6 @@ namespace ICT4_Participation_ASP.Models.Database
 
         void ExecuteNonQuery(List<object> parameters, string query);
 
-        object ExecuteSqlFunction(string function);
+        object ExecuteSqlFunction(List<object> parameters, string function);
     }
 }
