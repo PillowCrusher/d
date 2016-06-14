@@ -14,6 +14,12 @@ namespace ICT4_Participation_ASP.WebForms
             
         }
 
+        protected void btnRegister_OnClick(object sender, EventArgs e)
+        {
+            
+        }
+
+
         private void Page_Error(object sender, EventArgs e)
         {
             Exception exc = Server.GetLastError();
