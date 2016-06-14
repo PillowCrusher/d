@@ -13,7 +13,7 @@ namespace ICT4_Participation_ASP.WebForms
         private Needy _currentNeedy;
 
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {/*
             if (Session["LoggedUser"] is Needy)
             {
                 
@@ -21,7 +21,7 @@ namespace ICT4_Participation_ASP.WebForms
             else
             {
                 Response.Redirect("LoginStandard.aspx");
-            }
+            }*/
         }
 
         private void Page_Error(object sender, EventArgs e)
