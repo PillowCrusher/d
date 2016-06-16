@@ -7,7 +7,7 @@
         <label class="active">Menu</label>
         <ul class="nav nav-pills nav-stacked">
                     <li role="presentation">
-                        <a href="ProfileVolunteer.aspx">Hulpvraag maken</a>
+                        <a href="NeedyHelpRequest.aspx">Hulpvraag maken</a>
                     </li>
                     <li role="presentation">
                         <a href="NeedyReview.aspx">Beoordelingen</a>

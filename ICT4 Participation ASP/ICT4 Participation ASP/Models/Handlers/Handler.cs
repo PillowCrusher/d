@@ -97,6 +97,24 @@ namespace ICT4_Participation_ASP.Models.Handlers
             return (Needy) loggedAccount;
         }
 
+        public void AddVolunteer(string username, string email, string name, DateTime birthdate, string address, string city,string phonenumber, string photo,string vog, bool haslicense, bool hascar, string password)
+        {
+            List<object> objects = new List<object>();
+            objects.Add(username);
+            objects.Add(email);
+            objects.Add(name);
+            objects.Add(address);
+            objects.Add(city);
+            objects.Add(phonenumber);
+            objects.Add(birthdate);
+            objects.Add(photo);
+            objects.Add(vog);
+            objects.Add(haslicense);
+            objects.Add(hascar);
+            objects.Add(password);
+          //  Db.ExecuteNonQuery(objects, DatabaseQueries.Query[""]);
+        }
+
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
         ///// </summary>

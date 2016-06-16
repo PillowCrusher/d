@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ICT4_Participation_ASP.Models.Database;
+using ICT4_Participation_ASP.Models.Objects;
 
 namespace ICT4_Participation_ASP.Models.Handlers
 {
@@ -28,7 +29,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(car);
             objects.Add(barcode);
             objects.Add(password);
-            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[""]);
+            //Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId]);
         }
 
         public bool DeleteHelprequest()

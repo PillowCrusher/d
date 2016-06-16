@@ -13,6 +13,15 @@ namespace ICT4_Participation_ASP.WebForms {
     public partial class NeedyHelpRequest {
         
         /// <summary>
+        /// TitelValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TitelValidator;
+        
+        /// <summary>
         /// inputTitle control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputTitle;
+        
+        /// <summary>
+        /// TextValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TextValidator;
         
         /// <summary>
         /// inputText control.
@@ -31,6 +49,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputText;
         
         /// <summary>
+        /// LocationFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LocationFieldValidator;
+        
+        /// <summary>
         /// inputLocation control.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputLocation;
+        
+        /// <summary>
+        /// inputStartDateValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator inputStartDateValidator;
         
         /// <summary>
         /// inputStartDate control.
@@ -49,6 +85,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputStartDate;
         
         /// <summary>
+        /// RequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator;
+        
+        /// <summary>
         /// inputStartTime control.
         /// </summary>
         /// <remarks>
@@ -58,6 +103,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputStartTime;
         
         /// <summary>
+        /// inputEndDateValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator inputEndDateValidator;
+        
+        /// <summary>
         /// inputEndDate control.
         /// </summary>
         /// <remarks>
@@ -65,6 +119,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputEndDate;
+        
+        /// <summary>
+        /// inputEndTimeValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator inputEndTimeValidator;
         
         /// <summary>
         /// inputEndTime control.
@@ -103,13 +166,31 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.CheckBox cbMeeting;
         
         /// <summary>
-        /// skillsList control.
+        /// vaardighedenLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList skillsList;
+        protected global::System.Web.UI.WebControls.Label vaardighedenLabel;
+        
+        /// <summary>
+        /// checkBoxPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel checkBoxPanel;
+        
+        /// <summary>
+        /// SkillCheckBoxList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList SkillCheckBoxList;
         
         /// <summary>
         /// btnSendHelpRequest control.
