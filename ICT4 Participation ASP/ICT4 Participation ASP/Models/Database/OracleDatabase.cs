@@ -71,10 +71,19 @@ namespace ICT4_Participation_ASP.Models.Database
                 }
                 DataTable dt = new DataTable();
 
-                using (OracleDataReader reader = command.ExecuteReader())
+                try
                 {
-                    dt.Load(reader);
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    
+                    throw ex;
+                }
+                
                 return dt;
             }
         }
@@ -96,7 +105,15 @@ namespace ICT4_Participation_ASP.Models.Database
                 {
                     command.Parameters.AddRange(parameters);
                 }
-                command.ExecuteNonQuery();
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 
@@ -125,9 +142,42 @@ namespace ICT4_Participation_ASP.Models.Database
                     command.Parameters.AddRange(parameters);
                 }
 
-                command.ExecuteNonQuery();
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                
 
                 return command.Parameters["return"].Value;
+            }
+        }
+
+        public void ExecuteSqlProcedure(List<object> parameterlist, string function)
+        {
+            OracleParameter[] parameters = MakeParameters(parameterlist);
+
+            using (OracleConnection connection = Connection)
+            {
+                OracleCommand command = new OracleCommand(function, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 

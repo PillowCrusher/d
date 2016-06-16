@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP.WebForms
 {
     public partial class RegisterVolunteer : System.Web.UI.Page
     {
+        private  Handler Handler { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Handler = new Handler();
         }
 
         protected void btnRegister_OnClick(object sender, EventArgs e)
@@ -32,19 +35,7 @@ namespace ICT4_Participation_ASP.WebForms
 
             if (password == inputPasswordConfirm.Text)
             {
-                List<object> objects = new List<object>();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
-                //objects.Add();
+                Handler.AddVolunteer(username, email, name, birthdate, address, city, phonenumber, photo, vog, haslicense, hascar, password);   
             }
             else
             {

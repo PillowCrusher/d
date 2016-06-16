@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using ICT4_Participation_ASP.Models.Objects;
 
 namespace ICT4_Participation_ASP.Models.Database
 {
     public static class DatabaseQueries
     {
-        public static readonly Dictionary<string, string> Query = new Dictionary<string, string>();
+        public static readonly Dictionary<QueryId, string> Query = new Dictionary<QueryId, string>();
 
         static DatabaseQueries()
         {
             //GET
-            Query["GetAllHelpRequests"] =
+            Query[QueryId.GetAllHelpRequests] =
                 "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
                 "FROM \"Needy\" n " +
                 " JOIN \"Helprequest\" h" +
@@ -19,7 +20,7 @@ namespace ICT4_Participation_ASP.Models.Database
                 " WHERE h.COMPLETED = 0";
 
             //:needyid
-            Query["GetUserHelpRequests"] =
+            Query[QueryId.GetUserHelpRequests] =
                 "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
                 "FROM \"Needy\" n " +
                 " JOIN \"Helprequest\" h" +
@@ -29,54 +30,60 @@ namespace ICT4_Participation_ASP.Models.Database
                 " WHERE n.ID = :p" +
                 " AND h.COMPLETED = 0";
 
-            //:username, :password
-            Query["GetUserLogin"] =
-                "select * " +
-                "from \"Account\" a " +
-                "left join \"User\" u " +
-                "on a.ID = u.ID " +
-                "left join \"Volunteer\" v " +
-                "on u.ID = v.ID " +
-                "left join \"Needy\" n " +
-                "on u.ID = n.ID " +
-                "where a.Username = :p " +
-                "and a.Password = :pp " +
-                "AND Deregistrationdate IS NULL";
+            //:Username, :Password, :Barcode
+            Query[QueryId.GetUserLogin] = "LogIn";
 
             //:barcode
-            Query["GetUserLoginByBarcode"] =
-                "select * " +
-                "from \"Account\" a " +
-                "left join \"User\" u " +
-                "on a.ID = u.ID " +
-                "left join \"Volunteer\" v " +
-                "on u.ID = v.ID " +
-                "left join \"Needy\" n " +
-                "on u.ID = n.ID " +
-                "where n.BARCODE = :p " +
-                "AND Deregistrationdate IS NULL";
+            Query[QueryId.GetUserLoginByBarcode] = "SELECT * FROM TABLE(LogInBar(:p))";
+
+            //:username, :password
+            //Query[QueryId.GetUserLogin] =
+            //    "select * " +
+            //    "from \"Account\" a " +
+            //    "left join \"User\" u " +
+            //    "on a.ID = u.ID " +
+            //    "left join \"Volunteer\" v " +
+            //    "on u.ID = v.ID " +
+            //    "left join \"Needy\" n " +
+            //    "on u.ID = n.ID " +
+            //    "where a.Username = :p " +
+            //    "and a.Password = :pp " +
+            //    "AND Deregistrationdate IS NULL";
+
+            //:barcode
+            //Query[QueryId.GetUserLoginByBarcode] =
+            //    "select * " +
+            //    "from \"Account\" a " +
+            //    "left join \"User\" u " +
+            //    "on a.ID = u.ID " +
+            //    "left join \"Volunteer\" v " +
+            //    "on u.ID = v.ID " +
+            //    "left join \"Needy\" n " +
+            //    "on u.ID = n.ID " +
+            //    "where n.BARCODE = :p " +
+            //    "AND Deregistrationdate IS NULL";
 
             //:username, :password, :barcode
-            Query["GetAdminLogin"] =
-                "select * " +
-                "from \"Account\" a " +
-                "left join \"Admin\" ad " +
-                "on a.ID = ad.ID " +
-                "where a.Username = :p " +
-                "and a.Password = :pp " +
-                "and ad.BARCODE = :ppp";
+            //Query[QueryId.GetAdminLogin] =
+            //    "select * " +
+            //    "from \"Account\" a " +
+            //    "left join \"Admin\" ad " +
+            //    "on a.ID = ad.ID " +
+            //    "where a.Username = :p " +
+            //    "and a.Password = :pp " +
+            //    "and ad.BARCODE = :ppp";
 
             //:username
-            Query["GetAccountID"] = "SELECT ID from \"Account\" where Username = :p";
+            //Query[QueryId.GetAccountID] = "SELECT ID from \"Account\" where Username = :p";
 
-            Query["GetAcceptedVolunteers"] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 1";
+            Query[QueryId.GetAcceptedVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 1";
 
-            Query["GetVOGVolunteers"] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 0";
+            Query[QueryId.GetVOGVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 0";
 
-            Query["GetAllReviews"] = "SELECT * FROM \"Review\"";
+            Query[QueryId.GetAllReviews] = "SELECT * FROM \"Review\"";
 
             //:helprequestid
-            Query["GetChatMessagesFromHelprequest"] =
+            Query[QueryId.GetChatMessagesFromHelprequest] =
                 "SELECT * FROM \"ChatMessage\" c " +
                 "left join \"Account\" a " +
                 "on c.USERID = a.ID " +
@@ -85,10 +92,10 @@ namespace ICT4_Participation_ASP.Models.Database
                 "WHERE c.HELPREQUESTID = :p";
 
             //:id
-            Query["GetAllReviewsVolunteer"] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :p";
+            Query[QueryId.GetAllReviewsVolunteer] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :p";
 
             //:id
-            Query["GetVolunteersHelprequest"] =
+            Query[QueryId.GetVolunteersHelprequest] =
                 "select * " +
                 "from \"UserHelprequest\" h, \"Volunteer\" v " +
                 "left join \"User\" u " +
@@ -99,88 +106,88 @@ namespace ICT4_Participation_ASP.Models.Database
                 "AND h.HELPREQUESTID = :p";
 
             //:userid
-            Query["GetAcceptedHelpRequests"] = "SELECT HELPREQUESTID FROM \"UserHelprequest\" WHERE USERID = :p AND STATUS = 'Accepted'";
+            Query[QueryId.GetAcceptedHelpRequests] = "SELECT HELPREQUESTID FROM \"UserHelprequest\" WHERE USERID = :p AND STATUS = 'Accepted'";
 
 
 
             //UPDATE
             //:id
-            Query["WarnUser"] = "UPDATE \"User\" SET ISWARNED = 1 where ID = :p";
+            Query[QueryId.WarnUser] = "UPDATE \"User\" SET ISWARNED = 1 where ID = :p";
 
             //:id
-            Query["BlockUser"] = "UPDATE \"Volunteer\" SET ISBLOCKED = 1 where ID = :p";
+            Query[QueryId.BlockUser] = "UPDATE \"Volunteer\" SET ISBLOCKED = 1 where ID = :p";
 
             //:id
-            Query["CompleteHelpRequest"] = "UPDATE \"Helprequest\" SET COMPLETED = 1 WHERE ID = :p";
+            Query[QueryId.CompleteHelpRequest] = "UPDATE \"Helprequest\" SET COMPLETED = 1 WHERE ID = :p";
 
             //:HelprequestID, :UserID
-            Query["HelpRequestAccept"] = "UPDATE \"UserHelprequest\" SET Status = 'Accepted' WHERE(HelprequestID = :p AND UserID = :pp)";
+            Query[QueryId.HelpRequestAccept] = "UPDATE \"UserHelprequest\" SET Status = 'Accepted' WHERE(HelprequestID = :p AND UserID = :pp)";
 
             //:HelprequestID, :UserID
-            Query["HelpRequestDecline"] = "UPDATE \"UserHelprequest\" SET Status = 'Declined' WHERE(HelprequestID = :p AND UserID = :pp) ";
+            Query[QueryId.HelpRequestDecline] = "UPDATE \"UserHelprequest\" SET Status = 'Declined' WHERE(HelprequestID = :p AND UserID = :pp) ";
 
             //:id
-            Query["AcceptedVolunteer"] = "UPDATE \"Volunteer\" SET ACCEPTED = 1 WHERE ID = :p";
+            Query[QueryId.AcceptedVolunteer] = "UPDATE \"Volunteer\" SET ACCEPTED = 1 WHERE ID = :p";
 
             //:adres, :city, :phonenumber, :hasdrivinglicence, :hascar, :id";
-            Query["UpdateUser"] = "update \"User\" SET Adres = :p, City = :pp, Phonenumber = :ppp, Hasdrivinglicence = :pppp, Hascar = :ppppp where ID = :pppppp";
+            Query[QueryId.UpdateUser] = "update \"User\" SET Adres = :p, City = :pp, Phonenumber = :ppp, Hasdrivinglicence = :pppp, Hascar = :ppppp where ID = :pppppp";
 
-            //:dateofbirth, photo = :photo, VOG = :vog where ID = :id"
-            Query["UpdateVolunteer"] = "update \"Volunteer\" set DateOfBirth = :p, photo = :pp, VOG = :ppp where ID = :pppp";
+            //:ID, :Adres, :City, :phonenumber, :hasdrivinglicence, :hascar, :photo, :vog
+            Query[QueryId.UpdateVolunteer] = "UpdateVolunteer";
 
             //:reaction, :review, :id
-            Query["UpdateCommentReview"] = "UPDATE \"Review\" SET COMMENTS = :p WHERE MESSAGE = :pp AND VOLUNTEERID = :ppp";
+            Query[QueryId.UpdateCommentReview] = "UPDATE \"Review\" SET COMMENTS = :p WHERE MESSAGE = :pp AND VOLUNTEERID = :ppp";
 
             //:id
-            Query["UnWarnUser"] = "UPDATE \"User\" SET ISWARNED = 0 where ID = :p";
+            Query[QueryId.UnWarnUser] = "UPDATE \"User\" SET ISWARNED = 0 where ID = :p";
 
             //:deregistrationdate, :id
-            Query["UnsubscribeUser"] = "UPDATE \"User\" set Deregistrationdate = :p where ID = :pp";
+            Query[QueryId.UnsubscribeUser] = "UPDATE \"User\" set Deregistrationdate = :p where ID = :pp";
 
 
 
             //DELETE
             //:id
-            Query["DenyVolunteer"] = "DELETE FROM \"Account\" WHERE ID = :p";
+            Query[QueryId.DenyVolunteer] = "DELETE FROM \"Account\" WHERE ID = :p";
 
             //:helprequestid, :volunteerid, :message
-            Query["DeleteReview"] = "DELETE FROM \"Review\" WHERE HelpRequestID = :p AND VolunteerID = :pp AND message = :pp";
+            Query[QueryId.DeleteReview] = "DELETE FROM \"Review\" WHERE HelpRequestID = :p AND VolunteerID = :pp AND message = :pp";
 
             //:id
-            Query["DeleteHelpRequest"] = "DELETE FROM \"Helprequest\" where ID = :p";
+            Query[QueryId.DeleteHelpRequest] = "DELETE FROM \"Helprequest\" where ID = :p";
 
 
 
             //INSERT
-            //:needyid, :title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview
-            Query["InsertHelprequest"] = "INSERT INTO \"Helprequest\" (NeedyID, Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp, :pppppppp, :ppppppppp)";
+            //:needyid, :title, :description, :location, :traveltime, :urgent, :transporttype, :startdate, :enddate, :volunteersnumber, :interview
+            Query[QueryId.InsertHelprequest] = "INSERT INTO \"Helprequest\" (NeedyID, Title, Description, Location, TravelTime, Urgent, TransportType, StartDate, EndDate, VolunteersNumber, Interview) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp, :pppppppp, :ppppppppp, :pppppppppp, :ppppppppppp)";
 
             //:helprequestid, :volunteerid, :message
-            Query["InsertReview"] = "INSERT INTO \"Review\" (HelpRequestID, VolunteerID, Message) values (:p, :pp, :ppp)";
+            Query[QueryId.InsertReview] = "INSERT INTO \"Review\" (HelpRequestID, VolunteerID, Message) values (:p, :pp, :ppp)";
 
             //:username, :password, :email
-            Query["InsertAccount"] = "INSERT INTO \"Account\" (Username, Password, Email) values (:p, :pp, :ppp)";
+            //Query[QueryId.InsertAccount] = "INSERT INTO \"Account\" (Username, Password, Email) values (:p, :pp, :ppp)";
 
             //:id, :name, :adres, :city, :phonenumber, :hasdrivinglicence, :hascar
-            Query["InsertUser"] = "INSERT INTO \"User\" (ID, NAME, ADRES, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp)";
+            //Query[QueryId.InsertUser] = "INSERT INTO \"User\" (ID, NAME, ADRES, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp)";
 
-            //:id, :dateofbirth, :photo, :vog
-            Query["InsertVolunteer"] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:p, :pp, :ppp, :pppp)";
+            //:username, :password, :email, :name, :adres, :city, :phonenumber, :hasdrivinglicence, :hascar, :dateofbirth, :photo, :vog
+            Query[QueryId.InsertVolunteer] = "CreateVolunteer";
 
-            //:id, :barcode, :ovPossible
-            Query["InsertNeedy"] = "INSERT INTO \"Needy\" (ID, BARCODE, OVPOSSIBLE) values (:p, :pp, :ppp)";
+            //:username, :password, :email, :name, :adres, :city, :phonenumber, :hasdrivinglicence, :hascar, :ovPossible, :barcode
+            Query[QueryId.InsertNeedy] = "CreateNeedy";
 
             //:id, :barcode
-            Query["InsertAdmin"] = "INSERT INTO \"Admin\" (ID, BARCODE) values (:p, :pp)";
+            Query[QueryId.InsertAdmin] = "INSERT INTO \"Admin\" (ID, BARCODE) values (:p, :pp)";
 
             //:userid, :helprequestid, :time, :message
-            Query["InsertChatMessage"] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:p, :pp, :ppp, :pppp)";
+            Query[QueryId.InsertChatMessage] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:p, :pp, :ppp, :pppp)";
 
             //:userid, :helprequestid
-            Query["InsertUserHelprequest"] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:p, :pp)";
+            Query[QueryId.InsertUserHelprequest] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:p, :pp)";
 
             //:reporter, :reported, :reason
-            Query["InsertReport"] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:p, :pp, :ppp)";
+            Query[QueryId.InsertReport] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:p, :pp, :ppp)";
 
 
 
@@ -190,14 +197,14 @@ namespace ICT4_Participation_ASP.Models.Database
 
             //NOG NAAR KIJKEN!!!!!!!!
             //
-            //Query["AddRFIDToNeedy"] = "UPDATE \"Needy\" set RFID = :rfid where ID = :id";
+            //Query[QueryId.AddRFIDToNeedy] = "UPDATE \"Needy\" set RFID = :rfid where ID = :id";
             //
             //:userid, :helprequestid
-            //Query["CheckifUserHelprequestExists"] = "SELECT * FROM \"UserHelprequest\" WHERE USERID = :p AND HelprequestID = :pp";
+            //Query[QueryId.CheckifUserHelprequestExists] = "SELECT * FROM \"UserHelprequest\" WHERE USERID = :p AND HelprequestID = :pp";
             //
-            //Query["UpdateNeedy"] = "update \"Needy\" set RFID = :rfid, location = :location where ID = :id";
+            //Query[QueryId.UpdateNeedy] = "update \"Needy\" set RFID = :rfid, location = :location where ID = :id";
             //
-            //Query["UpdateHelpRequest"] = "UPDATE \"UserHelprequest\" SET  ";
+            //Query[QueryId.UpdateHelpRequest] = "UPDATE \"UserHelprequest\" SET  ";
         }
     }
 }
