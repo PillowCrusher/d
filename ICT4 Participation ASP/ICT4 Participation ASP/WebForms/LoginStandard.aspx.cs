@@ -15,15 +15,13 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                
-            }
+            Session["LoggedUser"] = null;
+            
         }
 
         private void Page_Error(object sender, EventArgs e)
         {
-           Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
+            Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
         }
 
         protected void btnLogin_OnClick(object sender, EventArgs e)

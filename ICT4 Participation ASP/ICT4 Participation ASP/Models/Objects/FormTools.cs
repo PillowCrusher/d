@@ -12,9 +12,7 @@ namespace ICT4_Participation_ASP.Models.Objects
     {
         public static string ConvertBoolToString(bool toConvert)
         {
-            string converted;
-
-            converted = toConvert ? "Ja" : "Nee";
+            var converted = toConvert ? "Ja" : "Nee";
 
             return converted;
         }
