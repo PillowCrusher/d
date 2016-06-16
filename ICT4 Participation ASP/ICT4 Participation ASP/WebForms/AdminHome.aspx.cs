@@ -35,6 +35,15 @@ namespace ICT4_Participation_ASP
             ListBox2.Items.Add("test");
             ListBox2.Items.Add("test");
             ListBox2.Items.Add("test");
+
+            ListBox3.Items.Add("test");
+            ListBox3.Items.Add("test");
+            ListBox3.Items.Add("test");
+            ListBox3.Items.Add("test");
+            ListBox3.Items.Add("test");
+            ListBox3.Items.Add("test");
+            ListBox3.Items.Add("test");
+            ListBox3.Items.Add("test");
         }
     }
 }
