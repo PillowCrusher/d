@@ -11,39 +11,42 @@ namespace ICT4_Participation_ASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
+            
+        }
 
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
+        protected void ListBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void ListBox2_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void ListBox3_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button1_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button2_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button4_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button3_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
