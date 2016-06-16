@@ -50,7 +50,7 @@ namespace ICT4_Participation_ASP.WebForms
             }
             catch (Exception ex)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('sad face');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('Er ging iets mis tijdens het inloggen, controleer of uw gebruikersnaam en wachtwoord kloppen');</script>");
             }
 
 
