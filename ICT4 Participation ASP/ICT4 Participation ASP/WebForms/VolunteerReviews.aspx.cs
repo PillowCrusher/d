@@ -13,5 +13,11 @@ namespace ICT4_Participation_ASP.WebForms
         {
 
         }
+
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
+        }
+
     }
 }

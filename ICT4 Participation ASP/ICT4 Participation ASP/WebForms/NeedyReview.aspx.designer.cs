@@ -10,69 +10,51 @@
 namespace ICT4_Participation_ASP.WebForms {
     
     
-    public partial class VolunteerReviews1 {
+    public partial class NeedyReview {
         
         /// <summary>
-        /// form1 control.
+        /// VrijwilligerLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label VrijwilligerLabel;
         
         /// <summary>
-        /// ReviewLabel control.
+        /// VrijwilligerListBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ReviewLabel;
+        protected global::System.Web.UI.WebControls.ListBox VrijwilligerListBox;
         
         /// <summary>
-        /// ReviewsListBox control.
+        /// inputReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ReviewsListBox;
+        protected global::System.Web.UI.WebControls.TextBox inputReview;
         
         /// <summary>
-        /// ReviewTextBox control.
+        /// btnPlaats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ReviewTextBox;
+        protected global::System.Web.UI.WebControls.Button btnPlaats;
         
         /// <summary>
-        /// CommentRequiredFieldValidator control.
+        /// btnAfsluiten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator CommentRequiredFieldValidator;
-        
-        /// <summary>
-        /// inputComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputComment;
-        
-        /// <summary>
-        /// postComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button postComment;
+        protected global::System.Web.UI.WebControls.Button btnAfsluiten;
     }
 }

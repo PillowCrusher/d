@@ -98,6 +98,7 @@
     <Content Include="WebForms\LoginStandard.aspx" />
     <Content Include="WebForms\NeedyHelpRequest.aspx" />
     <Content Include="WebForms\NeedyHome.aspx" />
+    <Content Include="WebForms\NeedyReview.aspx" />
     <Content Include="WebForms\ProfileVolunteer.aspx" />
     <Content Include="WebForms\RegisterNeedy.aspx" />
     <Content Include="WebForms\RegisterVolunteer.aspx" />
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="WebForms\NeedyHome.aspx.designer.cs">
       <DependentUpon>NeedyHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\NeedyReview.aspx.cs">
+      <DependentUpon>NeedyReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\NeedyReview.aspx.designer.cs">
+      <DependentUpon>NeedyReview.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\ProfileVolunteer.aspx.cs">
       <DependentUpon>ProfileVolunteer.aspx</DependentUpon>
