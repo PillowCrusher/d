@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="NeedyHome.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.NeedyHome" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-    <form id="form1" runat="server">
         <div class="container">
             <div class="container col-sm-2 pull-left">
         <label class="active">Menu</label>
