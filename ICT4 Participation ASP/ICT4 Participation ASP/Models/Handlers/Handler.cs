@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Database;
+using ICT4_Participation_ASP.Models.Objects;
 
 namespace ICT4_Participation_ASP.Models.Handlers
 {
@@ -33,7 +34,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         /// <param name="password"></param>
         public Account Login(List<object> parameters)
         {
-            DataTable dt = Db.ExecuteReadQuery(null, Db.ExecuteSqlFunction(parameters, "LogIn").ToString());
+            DataTable dt = Db.ExecuteReadQuery(null, Db.ExecuteSqlFunction(parameters, DatabaseQueries.Query[QueryId.GetUserLogin]).ToString());
 
             Account loggedAccount = null;
 
@@ -80,7 +81,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         {
             if(parameters.Count != 1) throw new Exception("Er zijn meer dan 1 accounts gevonden, neem contact op met de systeem beheerder.");
 
-            DataTable dt = Db.ExecuteReadQuery(parameters, "SELECT * FROM TABLE(LogInBar(:p))");
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserLoginByBarcode]);
 
             Account loggedAccount = null;
 
@@ -112,7 +113,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(haslicense);
             objects.Add(hascar);
             objects.Add(password);
-            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[""]);
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.InsertVolunteer]);
         }
 
         ///// <summary>
