@@ -32,7 +32,7 @@
         <asp:FileUpload ID="inputVog" runat="server" />
         <asp:Label ID="vaardighedenLabel" runat="server" Text="Vaardigheden"></asp:Label><br/>
         <asp:Panel ID="checkBoxPanel" runat="server" CssClass="scrollingControlContainer scrollingCheckBoxList">
-        <asp:CheckBoxList ID="CheckBoxList1"  runat="server"></asp:CheckBoxList>
+        <asp:CheckBoxList ID="SkillCheckBoxList"  runat="server"></asp:CheckBoxList>
              </asp:Panel>
         <label for="inputPassword" class="sr-only">Vul uw wachtwoord in voor bevesteging</label>
         <asp:RequiredFieldValidator ID="PasswordRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputPassword" ErrorMessage="Je moet een wachtwoord" ForeColor="Red" ></asp:RequiredFieldValidator>
