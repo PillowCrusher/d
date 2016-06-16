@@ -7,10 +7,10 @@
         <label class="active">Menu</label>
         <ul class="nav nav-pills nav-stacked">
                     <li role="presentation">
-                        <a href="ProfileVolunteer.aspx">Hulpvraag maken</a>
+                        <a href="NeedyHelpRequest.aspx">Hulpvraag maken</a>
                     </li>
                     <li role="presentation">
-                        <a href="NeedyReviews.aspx">Beoordelingen</a>
+                        <a href="NeedyReview.aspx">Beoordelingen</a>
                     </li>
                     <li role="presentation">
                         <a href="#">???</a>
@@ -41,9 +41,10 @@
                     </li>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    <div class="container">
+                    <h3>Hulpvragen</h3>
+                    <p>
                         Helprequests kunnen niet worden gevonden.
-                    </div>
+                    </p>
                 </EmptyDataTemplate>
             </asp:ListView>
         </div>

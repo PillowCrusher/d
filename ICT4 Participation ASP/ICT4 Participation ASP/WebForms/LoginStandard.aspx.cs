@@ -15,7 +15,10 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                
+            }
         }
 
         private void Page_Error(object sender, EventArgs e)
@@ -34,14 +37,20 @@ namespace ICT4_Participation_ASP.WebForms
             parameters.Add(inputBarcode.Text);  //TextBox Barcode
 
             Account loggedAccount = null;
-
-            if (parameters.Count == 1)
+            try
             {
-                loggedAccount = handler.LoginBar(parameters);
+                if (parameters.Count == 1)
+                {
+                    loggedAccount = handler.LoginBar(parameters);
+                }
+                else
+                {
+                    loggedAccount = handler.Login(parameters);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                loggedAccount = handler.Login(parameters);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('Er ging iets mis tijdens het inloggen, controleer of uw gebruikersnaam en wachtwoord kloppen');</script>");
             }
 
 

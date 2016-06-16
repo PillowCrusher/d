@@ -71,10 +71,19 @@ namespace ICT4_Participation_ASP.Models.Database
                 }
                 DataTable dt = new DataTable();
 
-                using (OracleDataReader reader = command.ExecuteReader())
+                try
                 {
-                    dt.Load(reader);
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    
+                    throw ex;
+                }
+                
                 return dt;
             }
         }
@@ -96,7 +105,15 @@ namespace ICT4_Participation_ASP.Models.Database
                 {
                     command.Parameters.AddRange(parameters);
                 }
-                command.ExecuteNonQuery();
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 
@@ -125,7 +142,15 @@ namespace ICT4_Participation_ASP.Models.Database
                     command.Parameters.AddRange(parameters);
                 }
 
-                command.ExecuteNonQuery();
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                
 
                 return command.Parameters["return"].Value;
             }

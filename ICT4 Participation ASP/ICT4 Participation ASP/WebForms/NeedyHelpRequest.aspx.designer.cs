@@ -13,6 +13,15 @@ namespace ICT4_Participation_ASP.WebForms {
     public partial class NeedyHelpRequest {
         
         /// <summary>
+        /// TitelValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TitelValidator;
+        
+        /// <summary>
         /// inputTitle control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputTitle;
         
         /// <summary>
+        /// TextValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TextValidator;
+        
+        /// <summary>
         /// inputText control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputText;
+        
+        /// <summary>
+        /// LocationFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LocationFieldValidator;
         
         /// <summary>
         /// inputLocation control.
