@@ -98,13 +98,16 @@
     <Content Include="WebForms\LoginStandard.aspx" />
     <Content Include="WebForms\NeedyHelpRequest.aspx" />
     <Content Include="WebForms\NeedyHome.aspx" />
+    <Content Include="WebForms\NeedyReview.aspx" />
     <Content Include="WebForms\ProfileVolunteer.aspx" />
     <Content Include="WebForms\RegisterNeedy.aspx" />
     <Content Include="WebForms\RegisterVolunteer.aspx" />
+    <Content Include="WebForms\SeeVolunteers.aspx" />
     <Content Include="WebForms\TestPage.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\ICT4 Participation ASP.csprojResolveAssemblyReference.cache" />
     <Content Include="WebForms\VolunteerHome.aspx" />
+    <Content Include="WebForms\VolunteerReviews.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -193,6 +196,13 @@
     <Compile Include="WebForms\NeedyHome.aspx.designer.cs">
       <DependentUpon>NeedyHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\NeedyReview.aspx.cs">
+      <DependentUpon>NeedyReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\NeedyReview.aspx.designer.cs">
+      <DependentUpon>NeedyReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForms\ProfileVolunteer.aspx.cs">
       <DependentUpon>ProfileVolunteer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +230,20 @@
     </Compile>
     <Compile Include="WebForms\VolunteerHome.aspx.designer.cs">
       <DependentUpon>VolunteerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\SeeVolunteers.aspx.cs">
+      <DependentUpon>SeeVolunteers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\SeeVolunteers.aspx.designer.cs">
+      <DependentUpon>SeeVolunteers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\VolunteerReviews.aspx.cs">
+      <DependentUpon>VolunteerReviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\VolunteerReviews.aspx.designer.cs">
+      <DependentUpon>VolunteerReviews.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

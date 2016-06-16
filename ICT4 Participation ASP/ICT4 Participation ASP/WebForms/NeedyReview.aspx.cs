@@ -7,14 +7,19 @@ using System.Web.UI.WebControls;
 
 namespace ICT4_Participation_ASP.WebForms
 {
-    public partial class ProfileVolunteer : System.Web.UI.Page
+    public partial class NeedyReview : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnUpdate_Click(object sender, EventArgs e)
+        protected void btnPlaats_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAfsluiten_Click(object sender, EventArgs e)
         {
 
         }

@@ -30,7 +30,7 @@
         </div>
         <asp:DropDownList runat="server" ID="skillsList" placeholder="Skills" CssClass="form-control" />
 
-        <asp:Button runat="server" ID="btnSendHelpRequest" CssClass="btn btn-lg btn-primary btn-block" Text="Versturen" />
+        <asp:Button runat="server" ID="btnSendHelpRequest" CssClass="btn btn-lg btn-primary btn-block" Text="Versturen" OnClick="btnSendHelpRequest_Click" />
     </div>
     </form>
     </asp:Content>
