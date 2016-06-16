@@ -23,7 +23,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 

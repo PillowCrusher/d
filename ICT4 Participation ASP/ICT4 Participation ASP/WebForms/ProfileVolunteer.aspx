@@ -18,10 +18,8 @@
         <p>Auto in bezit: <asp:CheckBox ID="inputCar"  runat="server" /></p>
         <p>Geboortedatum: <asp:Label ID="birthdDateLabel" runat="server" Text="Label"></asp:Label></p>
         <asp:Label ID="labelPhoto" runat="server" Text="Foto"></asp:Label>
-        <asp:RequiredFieldValidator ID="FotoRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputPhoto" ErrorMessage="Je moet een Foto toevoegen" ForeColor="Red" ></asp:RequiredFieldValidator>
         <asp:FileUpload ID="inputPhoto" runat="server" />
         <asp:Label ID="labelVOG" runat="server" Text="Verklaring omtrent gedrag"></asp:Label>
-        <asp:RequiredFieldValidator ID="VOGRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputVog" ErrorMessage="Je moet een Verklaring omtrent gedrag toevoegen" ForeColor="Red" ></asp:RequiredFieldValidator>
         <asp:FileUpload ID="inputVog" runat="server" />
         <asp:Label ID="vaardighedenLabel" runat="server" Text="Vaardigheden"></asp:Label><br/>
         <asp:Panel ID="checkBoxPanel" runat="server" CssClass="scrollingControlContainer scrollingCheckBoxList">
