@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ICT4_Participation_ASP.Models.Database;
 
 namespace ICT4_Participation_ASP.Models.Handlers
 {
@@ -13,9 +14,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
             
         }
 
-        public bool AddNeedy()
+        public void AddNeedy()
         {
-            throw new NotImplementedException();
+            List<object> objects = new List<object>();
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[""]);
         }
 
         public bool DeleteHelprequest()
