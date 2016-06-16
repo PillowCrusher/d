@@ -25,7 +25,7 @@
     </div>
             <div class="container col-sm-3">
         <div class="list-group">
-            <asp:ListView ID="lvList" runat="server">
+            <asp:ListView ID="lvList" runat="server" OnItemCommand="HelpRequestsListView_OnItemCommand">
                 <LayoutTemplate>
                     <!-- <div id="containerDiv" runat="server" class="list-group"> -->
                     <h1 class="h3">Helprequests</h1>
@@ -37,7 +37,7 @@
 
                 <ItemTemplate>
                     <li class="list-group-item">
-                        <span ID="HelpRequestTitle" runat="server"><%#DataBinder.Eval(Container.DataItem, "Titel") %></span>
+                        <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> <asp:LinkButton runat="server" ID="SelectEmployeeButton" Text="Open Chat" CommandName="AddToChat" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /></span>
                     </li>
                 </ItemTemplate>
                 <EmptyDataTemplate>
