@@ -119,15 +119,7 @@ namespace ICT4_Participation_ASP.Models.Database
                 
                 command.Parameters.Add("return", OracleDbType.NVarchar2, 32767);
                 command.Parameters["return"].Direction = ParameterDirection.ReturnValue;
-
-                /*
-                command.Parameters.Add("p_Username", OracleDbType.NVarchar2);
-                command.Parameters["p_Username"].Value = "Henkie";
-
-                command.Parameters.Add("p_Password", OracleDbType.NVarchar2);
-                command.Parameters["p_Password"].Value = "henkerd";
-                */
-
+                
                 if (parameters != null)
                 {
                     command.Parameters.AddRange(parameters);

@@ -13,5 +13,10 @@ namespace ICT4_Participation_ASP.WebForms
         {
 
         }
+
+        protected void btnSendHelpRequest_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace ICT4_Participation_ASP.WebForms
         private VolunteerHandler _volunteerHandler;
         private Volunteer _currentVolunteer;
 
+        private List<HelpRequest> _theList = new List<HelpRequest>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["LoggedUser"] is Volunteer)
@@ -27,16 +29,8 @@ namespace ICT4_Participation_ASP.WebForms
                 Response.Redirect("LoginStandard.aspx");
             }
 
-
-            List<HelpRequest> theList = new List<HelpRequest>
-            {
-                new HelpRequest(0, "MIJN COMPUTER IS KAPOT! T_______T", "Harryland", "Eindhoven", 100, true, TransportationType.Auto, DateTime.Today, DateTime.Now, 2, true, false, new List<Skill> {new Skill("Bob de bouwer")}),
-                new HelpRequest(1, "FUS RO DAH!", "Skyrim", "Dragonlane 40", 50, false, TransportationType.Trein, DateTime.Today, DateTime.Now, 2, true, false, new List<Skill> { new Skill("Bam") }),
-                new HelpRequest(2, "WAT EEN **** SITE ZEG!", "Skyrim", "Dragonlane 40", 50, false, TransportationType.Trein, DateTime.Today, DateTime.Now, 2, true, false, new List<Skill> { new Skill("Webdesign") })
-            };
-
             //populate members of list
-            lvList.DataSource = theList;
+            lvList.DataSource = _theList;
             lvList.DataBind();
         }
     }

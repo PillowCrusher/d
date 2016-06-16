@@ -3,95 +3,99 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Database;
 
 namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class Handler
     {
-        private Repository db { get; }
+        protected Repository Db { get; }
 
         public Handler()
         {
             OracleDatabase odb = new OracleDatabase();
             if (odb.CheckConnection())
             {
-                db = odb;
+                Db = odb;
             }
             else
             {
-                db = new InMemoryDatabase();
+                Db = new InMemoryDatabase();
             }
             // User = new Admin(1, "Henk", "@F", "234567890");
         }
 
         /// <summary>
-        /// Haalt de data op van een select query.
+        /// methode waarmee een gebruiker kan inloggen doormddel van een username en password
         /// </summary>
-        /// <param name="parameters">Een lijst van parameters</param>
-        /// <param name="query">De query die moet worden uitgevoerd</param>
-        /// <returns></returns>
-        public DataTable ExecuteReadQuery(List<object> parameters, string query)
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        public Account Login(List<object> parameters)
         {
-            return db.ExecuteReadQuery(parameters, query);
+            DataTable dt = Db.ExecuteReadQuery(null, Db.ExecuteSqlFunction(parameters, "LogIn").ToString());
+
+            Account loggedAccount = null;
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dt.Rows.Count > 1)
+                {
+                    throw new Exception("Er zijn meer dan 1 Accounts gevonden.. Neem contact op met de beheerder");
+                }
+
+                string roll = dr["Roll"].ToString();
+
+                if (roll == "ADMIN")
+                {
+                    loggedAccount = new Admin(dr);
+
+                }
+                else if (roll == "NEEDY")
+                {
+                    loggedAccount = new Needy(dr);
+
+                }
+                else if (roll == "VOLUNTEER")
+                {
+                    loggedAccount = new Volunteer(dr);
+
+                }
+                else
+                {
+                    throw new Exception("Kan de gegevens niet ophalen, meld dit aan de beheerder");
+                }
+            }
+
+            return loggedAccount;
         }
 
         /// <summary>
-        /// Voert een non query uit.
+        /// methode waarmee een admin kan inloggen doormddel van een username, password en barcode
         /// </summary>
-        /// <param name="parameters">Een lijst van parameters</param>
-        /// <param name="query">De query die moet worden uitgevoerd</param>
-        public void ExecuteNonQuery(List<object> parameters, string query)
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="Barcode"></param>
+        public Needy LoginBar(List<object> parameters)
         {
-            db.ExecuteNonQuery(parameters, query);
+            if(parameters.Count != 1) throw new Exception("Er zijn meer dan 1 accounts gevonden, neem contact op met de systeem beheerder.");
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, "SELECT * FROM TABLE(LogInBar(:p))");
+
+            Account loggedAccount = null;
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dt.Rows.Count > 1)
+                {
+                    throw new Exception("Er zijn meer dan 1 Accounts gevonden.. Neem contact op met de beheerder");
+                }
+
+                loggedAccount = new Needy(dr);
+            }
+
+            return (Needy) loggedAccount;
         }
-
-        public object ExecuteSqlFunction(List<object> parameters, string function)
-        {
-            return db.ExecuteSqlFunction(parameters, function);
-        }
-
-
-        ///// <summary>
-        ///// methode waarmee een gebruiker kan inloggen doormddel van een username en password
-        ///// </summary>
-        ///// <param name="username"></param>
-        ///// <param name="password"></param>
-        //public void Login(string username, string password)
-        //{
-        //    try
-        //    {
-        //        if (username != null && password != null)
-        //        {
-        //            User = Database.Login(username, password);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-
-        ///// <summary>
-        ///// methode waarmee een admin kan inloggen doormddel van een username, password en barcode
-        ///// </summary>
-        ///// <param name="username"></param>
-        ///// <param name="password"></param>
-        ///// <param name="Barcode"></param>
-        //public void Login(string username, string password, string barcode)
-        //{
-        //    try
-        //    {
-        //        if (username != null && password != null && barcode != null)
-        //        {
-        //            User = Database.Login(username, password, barcode);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
 
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
@@ -222,7 +226,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         //    }
         //    catch (Exception)
         //    {
-                
+
         //        throw;
         //    }
         //}

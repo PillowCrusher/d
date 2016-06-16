@@ -13,5 +13,15 @@ namespace ICT4_Participation_ASP.WebForms
         {
 
         }
+
+        protected void btnPlaats_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAfsluiten_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

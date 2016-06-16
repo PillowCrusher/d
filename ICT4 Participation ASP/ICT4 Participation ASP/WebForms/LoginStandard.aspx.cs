@@ -15,7 +15,7 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Page_Error(object sender, EventArgs e)
@@ -28,48 +28,40 @@ namespace ICT4_Participation_ASP.WebForms
             Handler handler = new Handler();
 
             List<object> parameters = new List<object>();
-            parameters.Add(inputUsername.Text); //TextBox Username
-            parameters.Add(inputPassword.Text); //TextBox Password
+
+            if (inputUsername.Text != string.Empty) parameters.Add(inputUsername.Text); //TextBox Username
+            if (inputPassword.Text != string.Empty) parameters.Add(inputPassword.Text); //TextBox Password
             parameters.Add(inputBarcode.Text);  //TextBox Barcode
 
-            DataTable dt = handler.ExecuteReadQuery(null, handler.ExecuteSqlFunction(parameters, "LogIn").ToString());
+            Account loggedAccount = null;
 
-            Account loggedUser = null;
-
-            foreach (DataRow dr in dt.Rows)
+            if (parameters.Count == 1)
             {
-                if (dt.Rows.Count > 1)
-                {
-                    throw new Exception("Er zijn meer dan 1 Accounts gevonden.. Neem contact op met de beheerder");
-                }
-
-                string roll = dr["Roll"].ToString();
-
-                if (roll == "ADMIN")
-                {
-                    loggedUser = new Admin(dr);
-                    Session["LoggedUser"] = loggedUser;
-                    Response.Redirect("AdminHome.aspx");
-                }
-                else if (roll == "NEEDY")
-                {
-                    loggedUser = new Needy(dr);
-                    Session["LoggedUser"] = loggedUser;
-                    Response.Redirect("NeedyHome.aspx");
-                }
-                else if(roll == "VOLUNTEER")
-                {
-                    loggedUser = new Volunteer(dr);
-                    Session["LoggedUser"] = loggedUser;
-                    Response.Redirect("VolunteerHome.aspx");
-                }
-                else
-                {
-                    throw new Exception("Kan de gegevens niet ophalen, meld dit aan de beheerder");
-                }
+                loggedAccount = handler.LoginBar(parameters);
+            }
+            else
+            {
+                loggedAccount = handler.Login(parameters);
             }
 
-            
+
+            if (loggedAccount is Admin)
+            {
+                Session["LoggedUser"] = loggedAccount;
+                Response.Redirect("AdminHome.aspx");
+            }
+
+            if (loggedAccount is Needy)
+            {
+                Session["LoggedUser"] = loggedAccount;
+                Response.Redirect("NeedyHome.aspx");
+            }
+
+            if (loggedAccount is Volunteer)
+            {
+                Session["LoggedUser"] = loggedAccount;
+                Response.Redirect("VolunteerHome.aspx");
+            }
         }
     }
 }

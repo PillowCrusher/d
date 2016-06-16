@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Handlers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,21 +11,38 @@ namespace UnitTesten
     public class UnitTest1
     {
         [TestMethod]
-        public void Test_SqlFunction()
+        public void Test_Needy()
         {
             Handler handler = new Handler();
 
             List<object> parameters = new List<object>();
 
-            parameters.Add("Badman");
-            parameters.Add("Homo");
-            parameters.Add("1c00fcfa13");
+            parameters.Add("Henkie");
+            parameters.Add("henkerd");
+            parameters.Add("");
 
-            string query = handler.ExecuteSqlFunction(parameters, "LogIn").ToString();
+            Account account = handler.Login(parameters);
+            Needy needy = (Needy) account;
+            
+            Assert.AreEqual(needy.Username, "Henkie");
+            Assert.AreEqual(needy.Barcode, "2800a7c372");
+        }
 
-            const string goedeQuery = "SELECT a.ID, a.Username, a.email, a.Roll, ad.Barcode FROM \"Account\" a JOIN \"Admin\" ad ON a.ID = ad.ID WHERE a.ID = 3 AND ad.Barcode = 1c00fcfa13";
+        [TestMethod]
+        public void Test_Volunteer()
+        {
+            Handler handler = new Handler();
 
-            Assert.AreEqual(query, goedeQuery);
+            List<object> parameters = new List<object>();
+
+            parameters.Add("Harrie");
+            parameters.Add("HarriePotter");
+            parameters.Add("");
+
+            Account account = handler.Login(parameters);
+            Volunteer volunteer = (Volunteer)account;
+
+            Assert.AreEqual(volunteer.Username, "Harrie");
         }
 
         [TestMethod]
@@ -32,9 +50,15 @@ namespace UnitTesten
         {
             Handler handler = new Handler();
             
-            DataTable dt = handler.ExecuteReadQuery(null, "SELECT * FROM TABLE(LogInBar('2800a7c372'))");
+            List<object> parameters = new List<object>();
 
-            Assert.AreEqual(dt.Rows.Count, 1);
+            parameters.Add("2800a7c372");
+
+            //DataTable dt = handler.ExecuteReadQuery(null, "SELECT * FROM TABLE(LogInBar('2800a7c372'))");
+
+            Needy needy = handler.LoginBar(parameters);
+
+            Assert.AreEqual(needy.Barcode, parameters[0]);
         }
     }
 }
