@@ -54,7 +54,7 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><asp:LinkButton ID="LinkNeedyRegister" runat="server" Visible="False" ValidationGroup="RegisterNeedy" OnClick="LinkNeedyRegister_Click">LinkButton</asp:LinkButton></li>
+                <li><asp:LinkButton ID="LinkNeedyRegister" runat="server" Visible="False" ValidationGroup="RegisterNeedy" OnClick="LinkNeedyRegister_Click">Registreer vrijwilliger</asp:LinkButton></li>
               <li><asp:LinkButton ID="LinkRegister" runat="server" Visible="True" ValidationGroup="Register" OnClick="LinkRegister_Click">Register als vrijwilliger</asp:LinkButton></li>
               <li><asp:LinkButton ID="LinkLogin" runat="server" Visible="True" ValidationGroup="login"  OnClick="LinkLogin_Click">Inloggen</asp:LinkButton></li>
                 <li><asp:LinkButton ID="LinkLogout" runat="server" Visible="False" ValidationGroup="logout" OnClick="LinkLogout_Click">Log uit</asp:LinkButton></li>
