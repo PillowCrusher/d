@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ICT4_Participation_ASP.Models.Accounts;
 
 namespace ICT4_Participation_ASP.WebForms
 {
@@ -11,7 +12,49 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Account loggedAccount = (Account) Session["LoggedUser"];
+            if (loggedAccount == null)
+            {
+                LinkLogin.Visible = true;
+                LinkRegister.Visible = true;
 
+            }
+            else
+            {
+                LinkLogin.Visible = false;
+                LinkLogout.Visible = true;
+                LinkRegister.Visible = false;
+                if (loggedAccount is Admin)
+                {
+
+                }
+
+                if (loggedAccount is Needy)
+                {
+
+                }
+
+                if (loggedAccount is Volunteer)
+                {
+
+                }
+            }
+        }
+
+        protected void LinkLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginStandard.aspx");
+        }
+
+        protected void LinkLogout_Click(object sender, EventArgs e)
+        {
+            Session["LoggedUser"] = null;
+            Response.Redirect("LoginStandard.aspx");
+        }
+
+        protected void LinkRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegisterVolunteer.aspx");
         }
     }
 }
