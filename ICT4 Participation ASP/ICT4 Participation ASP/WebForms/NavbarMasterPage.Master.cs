@@ -24,19 +24,10 @@ namespace ICT4_Participation_ASP.WebForms
                 LinkLogin.Visible = false;
                 LinkLogout.Visible = true;
                 LinkRegister.Visible = false;
+
                 if (loggedAccount is Admin)
                 {
-
-                }
-
-                if (loggedAccount is Needy)
-                {
-
-                }
-
-                if (loggedAccount is Volunteer)
-                {
-
+                    
                 }
             }
         }
