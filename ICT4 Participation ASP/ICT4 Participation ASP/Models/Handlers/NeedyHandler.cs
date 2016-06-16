@@ -10,6 +10,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class NeedyHandler : Handler
     {
+
         public void AddHelprequest(string titel, string description, string location, DateTime startTime, DateTime endTime, bool DrivingLicence, bool urgent, bool meeting, string skills)
         {
             List<object> objects = new List<object>();

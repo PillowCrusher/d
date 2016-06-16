@@ -35,7 +35,7 @@ namespace ICT4_Participation_ASP.WebForms
 
             if (password == inputPasswordConfirm.Text)
             {
-                Handler.AddVolunteer(username, email, name, birthdate, address, city, phonenumber, photo, vog, haslicense, hascar, password);   
+                Handler.AddVolunteer(username, email, name, birthdate, address, city, phonenumber, photo, vog, Convert.ToInt32(haslicense), Convert.ToInt32(hascar), password);   
             }
             else
             {
