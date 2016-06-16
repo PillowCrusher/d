@@ -75,7 +75,7 @@ namespace ICT4_Participation_ASP.Models.Accounts
 
         public void AddReview(Review review)
         {
-            if (review.VolunteerId == ID)
+            if (review.Volunteer.ID == ID)
             {
                 Reviews.Add(review);
             }

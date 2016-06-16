@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Handlers;
 using ICT4_Participation_ASP.Models.Objects;
 
@@ -12,27 +13,34 @@ namespace ICT4_Participation_ASP.WebForms
     public partial class NeedyHelpRequest : System.Web.UI.Page
     {
         private NeedyHandler NeedyHandler { get; set; }
+        private Needy Needy { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Needy = (Needy)Session["LoggedUser"];
             NeedyHandler = new NeedyHandler();
+            DdlTransport.Items.Clear();
+            foreach (TransportationType r in Enum.GetValues(typeof(TransportationType)))
+            {
+                ListItem item = new ListItem(Enum.GetName(typeof(TransportationType), r), r.ToString());
+                DdlTransport.Items.Add(item);
+            }
+
         }
 
         protected void btnSendHelpRequest_Click(object sender, EventArgs e)
         {
-            
+            Needy = (Needy)Session["LoggedUser"];
             string titel = inputTitle.Text;
             string description = inputText.Text;
             string location = inputLocation.Text;
+            int traveltime = Convert.ToInt32(inputRijsTijd.Text);
             string start = inputStartDate.Text +" "+ inputStartTime.Text;
             DateTime startTime = Convert.ToDateTime(start);
             string end = inputEndDate.Text +" "+ inputEndTime.Text;
             DateTime endTime = Convert.ToDateTime(end);
-            bool DrivingLicence = false;
-            if (cbDrivingLicence.Checked)
-            {
-                DrivingLicence = true;
-            }
+            string transportation = DdlTransport.Text;
+            int ammount = Convert.ToInt32(inputAantalVrijwilliger.Text);
             bool urgent = false;
             if (cbUrgent.Checked)
             {
@@ -53,7 +61,8 @@ namespace ICT4_Participation_ASP.WebForms
             }
             if (startTime < endTime)
             {
-                NeedyHandler.AddHelprequest(titel, description, location, startTime, endTime, DrivingLicence, urgent, meeting, skills);
+                NeedyHandler.AddHelprequest(Needy, titel, description, location, traveltime, Convert.ToInt32(urgent), transportation, startTime, endTime, ammount, Convert.ToInt32(meeting));
+                Response.Redirect("NeedyHome.aspx");
             }
             else
             {

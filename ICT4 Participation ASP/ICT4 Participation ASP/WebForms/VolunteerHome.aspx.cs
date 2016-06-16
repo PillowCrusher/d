@@ -38,7 +38,7 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 var h = new HelpRequest(0, "ja", "kekef", "locatie", 100, true, TransportationType.Auto,
                     DateTime.Today,
-                    DateTime.Now, 5, true, false, new List<Skill>());
+                    DateTime.Now, 5, true, new List<Skill>());
                 _acceptedHelpRequests.Add(h);
                 Session["_acceptedHelpRequests"] = _acceptedHelpRequests;
 

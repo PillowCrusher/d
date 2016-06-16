@@ -27,6 +27,7 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 _currentNeedy = (Needy) Session["LoggedUser"];
                 _needyHandler = new NeedyHandler();
+
             }
             else
             {
@@ -34,9 +35,10 @@ namespace ICT4_Participation_ASP.WebForms
             }
             if (!IsPostBack)
             {
-                var h = new HelpRequest(0, "ja", "kekef", "locatie", 100, true, TransportationType.Auto,
+                var h = 
+                new HelpRequest(0, "ja", "kekef", "locatie", 100, true, TransportationType.Auto,
                     DateTime.Today,
-                    DateTime.Now, 5, true, false, new List<Skill>());
+                    DateTime.Now, 5, true, new List<Skill>());
                 theList.Add(h);
                 _currentNeedy.AddHelpRequest(h);
 
