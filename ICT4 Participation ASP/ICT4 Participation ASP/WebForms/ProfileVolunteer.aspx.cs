@@ -32,7 +32,14 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (inputPassword.Text == string.Empty)
+            {
+                throw new Exception("Vul je wachtwoord in om door te gaan!");
+            }
 
+            List<object> parameters = new List<object>();
+
+            //parameters.Add();
 
             Response.Redirect("VolunteerHome.aspx");
         }
