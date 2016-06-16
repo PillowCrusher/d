@@ -159,23 +159,23 @@ namespace ICT4_Participation_ASP.Models.Database
 
 
             //INSERT
-            //:needyid, :title, :description, :location, :urgent, :transporttype, :startdate, :enddate, :interview
-            Query[QueryId.InsertHelprequest] = "INSERT INTO \"Helprequest\" (NeedyID, Title, Description, Location, Urgent, TransportType, StartDate, EndDate, Interview) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp, :pppppppp, :ppppppppp)";
+            //:needyid, :title, :description, :location, :traveltime, :urgent, :transporttype, :startdate, :enddate, :volunteersnumber, :interview
+            Query[QueryId.InsertHelprequest] = "INSERT INTO \"Helprequest\" (NeedyID, Title, Description, Location, TravelTime, Urgent, TransportType, StartDate, EndDate, VolunteersNumber, Interview) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp, :pppppppp, :ppppppppp, :pppppppppp, :ppppppppppp)";
 
             //:helprequestid, :volunteerid, :message
             Query[QueryId.InsertReview] = "INSERT INTO \"Review\" (HelpRequestID, VolunteerID, Message) values (:p, :pp, :ppp)";
 
             //:username, :password, :email
-            Query[QueryId.InsertAccount] = "INSERT INTO \"Account\" (Username, Password, Email) values (:p, :pp, :ppp)";
+            //Query[QueryId.InsertAccount] = "INSERT INTO \"Account\" (Username, Password, Email) values (:p, :pp, :ppp)";
 
             //:id, :name, :adres, :city, :phonenumber, :hasdrivinglicence, :hascar
-            Query[QueryId.InsertUser] = "INSERT INTO \"User\" (ID, NAME, ADRES, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp)";
+            //Query[QueryId.InsertUser] = "INSERT INTO \"User\" (ID, NAME, ADRES, CITY, PHONENUMBER, HASDRIVINGLICENCE, HASCAR) values (:p, :pp, :ppp, :pppp, :ppppp, :pppppp, :ppppppp)";
 
-            //:id, :dateofbirth, :photo, :vog
-            Query[QueryId.InsertVolunteer] = "INSERT INTO \"Volunteer\" (ID, DATEOFBIRTH, PHOTO, VOG) values (:p, :pp, :ppp, :pppp)";
+            //:username, :password, :email, :name, :adres, :city, :phonenumber, :hasdrivinglicence, :hascar, :dateofbirth, :photo, :vog
+            Query[QueryId.InsertVolunteer] = "CreateVolunteer";
 
-            //:id, :barcode, :ovPossible
-            Query[QueryId.InsertNeedy] = "INSERT INTO \"Needy\" (ID, BARCODE, OVPOSSIBLE) values (:p, :pp, :ppp)";
+            //:username, :password, :email, :name, :adres, :city, :phonenumber, :hasdrivinglicence, :hascar, :ovPossible, :barcode
+            Query[QueryId.InsertNeedy] = "CreateNeedy";
 
             //:id, :barcode
             Query[QueryId.InsertAdmin] = "INSERT INTO \"Admin\" (ID, BARCODE) values (:p, :pp)";

@@ -54,7 +54,7 @@ namespace ICT4_Participation_ASP.WebForms
             inputPhonenumber.Text = _currentVolunteer.Phonenumber;
             inputDrivingLincense.Checked = _currentVolunteer.HasDrivingLincense;
             inputCar.Checked = _currentVolunteer.HasCar;
-            inputBirthDate.Text = _currentVolunteer.BirthDate.ToString("d");
+            birthdDateLabel.Text = _currentVolunteer.BirthDate.ToString("d");
             //foto
             //vog
             //vaardigheden
