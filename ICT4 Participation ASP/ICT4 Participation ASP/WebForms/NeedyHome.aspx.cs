@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -46,6 +47,11 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void btnSendMessage_OnClick(object sender, EventArgs e)
         {
+            
+        }
+        protected void templateButton_OnClick(object sender, EventArgs e)
+        {
+            Button myButton = (Button)sender;
             
         }
     }
