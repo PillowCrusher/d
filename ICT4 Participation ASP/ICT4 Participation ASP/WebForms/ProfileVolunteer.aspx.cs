@@ -40,13 +40,15 @@ namespace ICT4_Participation_ASP.WebForms
             List<object> parameters = new List<object>();
 
             parameters.Add(_currentVolunteer.ID);
-            parameters.Add(_currentVolunteer.Adres);
-            parameters.Add(_currentVolunteer.City);
-            parameters.Add(_currentVolunteer.Phonenumber);
-            parameters.Add(Convert.ToInt32(_currentVolunteer.HasDrivingLincense));
-            parameters.Add(Convert.ToInt32(_currentVolunteer.HasCar));
-            parameters.Add(_currentVolunteer.Photo);
-            parameters.Add(_currentVolunteer.VOG);
+            parameters.Add(inputAdres.Text);
+            parameters.Add(inputCity.Text);
+            parameters.Add(inputPhonenumber.Text);
+            parameters.Add(Convert.ToInt32(inputDrivingLincense.Checked));
+            parameters.Add(Convert.ToInt32(inputCar.Checked));
+
+            parameters.Add(inputPhoto.HasFile ? inputPhoto.FileName : _currentVolunteer.Photo);
+
+            parameters.Add(inputVog.HasFile ? inputVog.FileName : _currentVolunteer.VOG);
 
             _volunteerHandler.UpdateProfileData(parameters);
 
@@ -54,7 +56,7 @@ namespace ICT4_Participation_ASP.WebForms
 
             parameters.Add(_currentVolunteer.Username);
             parameters.Add(inputPassword.Text);
-            parameters.Add("");
+            parameters.Add(string.Empty);
 
             Session["LoggedUser"] = _volunteerHandler.Login(parameters);
 
