@@ -5,7 +5,7 @@ namespace ICT4_Participation_ASP.Models.Database
 {
     public static class DatabaseQueries
     {
-        private static readonly Dictionary<QueryId, string> Query = new Dictionary<QueryId, string>();
+        public static readonly Dictionary<QueryId, string> Query = new Dictionary<QueryId, string>();
 
         static DatabaseQueries()
         {
