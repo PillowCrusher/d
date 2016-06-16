@@ -49,13 +49,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputText;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// LocationFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LocationFieldValidator;
         
         /// <summary>
         /// inputLocation control.
