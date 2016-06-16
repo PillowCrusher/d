@@ -33,5 +33,10 @@ namespace ICT4_Participation_ASP.WebForms
             lvList.DataSource = _theList;
             lvList.DataBind();
         }
+
+        protected void btnSendMessage_OnClick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

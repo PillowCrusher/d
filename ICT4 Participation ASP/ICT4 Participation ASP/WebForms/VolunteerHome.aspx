@@ -2,7 +2,6 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-    <form id="form1" runat="server">
         <div class="container">
             <div class="container col-sm-2 pull-left">
         <label class="active">Menu</label>
@@ -56,5 +55,4 @@
                 <asp:Button runat="server" ID="btnSendMessage" OnClick="btnSendMessage_OnClick" CssClass="btn btn-block" Text="Versturen"/>
             </div>
         </div>
-    </form>
     </asp:Content>
