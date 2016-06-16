@@ -13,6 +13,33 @@ namespace ICT4_Participation_ASP.WebForms {
     public partial class NavbarMasterPage {
         
         /// <summary>
+        /// LinkRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkRegister;
+        
+        /// <summary>
+        /// LinkLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkLogin;
+        
+        /// <summary>
+        /// LinkLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkLogout;
+        
+        /// <summary>
         /// Master control.
         /// </summary>
         /// <remarks>
