@@ -39,7 +39,16 @@ namespace ICT4_Participation_ASP.WebForms
 
             List<object> parameters = new List<object>();
 
-            //parameters.Add();
+            parameters.Add(_currentVolunteer.ID);
+            parameters.Add(_currentVolunteer.Adres);
+            parameters.Add(_currentVolunteer.City);
+            parameters.Add(_currentVolunteer.Phonenumber);
+            parameters.Add(Convert.ToInt32(_currentVolunteer.HasDrivingLincense));
+            parameters.Add(Convert.ToInt32(_currentVolunteer.HasCar));
+            parameters.Add(_currentVolunteer.Photo);
+            parameters.Add(_currentVolunteer.VOG);
+
+            _volunteerHandler.UpdateProfileData(parameters);
 
             Response.Redirect("VolunteerHome.aspx");
         }

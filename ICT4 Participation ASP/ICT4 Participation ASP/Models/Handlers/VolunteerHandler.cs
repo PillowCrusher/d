@@ -19,7 +19,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         {
             try
             {
-                Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.UpdateVolunteer]);
+                Db.ExecuteSqlProcedure(parameters, DatabaseQueries.Query[QueryId.UpdateVolunteer]);
             }
             catch (Exception ex)
             {
