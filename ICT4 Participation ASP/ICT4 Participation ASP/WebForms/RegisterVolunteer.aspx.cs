@@ -33,18 +33,18 @@ namespace ICT4_Participation_ASP.WebForms
             if (password == inputPasswordConfirm.Text)
             {
                 List<object> objects = new List<object>();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
-                objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
+                //objects.Add();
             }
             else
             {
