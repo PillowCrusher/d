@@ -10,7 +10,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class Handler
     {
-        protected Repository Db { get; }
+        protected Repository Db { get; private set; }
 
         public Handler()
         {
