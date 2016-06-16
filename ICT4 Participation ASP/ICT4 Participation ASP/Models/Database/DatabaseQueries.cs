@@ -30,45 +30,51 @@ namespace ICT4_Participation_ASP.Models.Database
                 " WHERE n.ID = :p" +
                 " AND h.COMPLETED = 0";
 
-            //:username, :password
-            Query[QueryId.GetUserLogin] =
-                "select * " +
-                "from \"Account\" a " +
-                "left join \"User\" u " +
-                "on a.ID = u.ID " +
-                "left join \"Volunteer\" v " +
-                "on u.ID = v.ID " +
-                "left join \"Needy\" n " +
-                "on u.ID = n.ID " +
-                "where a.Username = :p " +
-                "and a.Password = :pp " +
-                "AND Deregistrationdate IS NULL";
+            //:Username, :Password, :Barcode
+            Query[QueryId.GetUserLogin] = "LogIn";
 
             //:barcode
-            Query[QueryId.GetUserLoginByBarcode] =
-                "select * " +
-                "from \"Account\" a " +
-                "left join \"User\" u " +
-                "on a.ID = u.ID " +
-                "left join \"Volunteer\" v " +
-                "on u.ID = v.ID " +
-                "left join \"Needy\" n " +
-                "on u.ID = n.ID " +
-                "where n.BARCODE = :p " +
-                "AND Deregistrationdate IS NULL";
+            Query[QueryId.GetUserLoginByBarcode] = "SELECT * FROM TABLE(LogInBar(:p))";
+
+            //:username, :password
+            //Query[QueryId.GetUserLogin] =
+            //    "select * " +
+            //    "from \"Account\" a " +
+            //    "left join \"User\" u " +
+            //    "on a.ID = u.ID " +
+            //    "left join \"Volunteer\" v " +
+            //    "on u.ID = v.ID " +
+            //    "left join \"Needy\" n " +
+            //    "on u.ID = n.ID " +
+            //    "where a.Username = :p " +
+            //    "and a.Password = :pp " +
+            //    "AND Deregistrationdate IS NULL";
+
+            //:barcode
+            //Query[QueryId.GetUserLoginByBarcode] =
+            //    "select * " +
+            //    "from \"Account\" a " +
+            //    "left join \"User\" u " +
+            //    "on a.ID = u.ID " +
+            //    "left join \"Volunteer\" v " +
+            //    "on u.ID = v.ID " +
+            //    "left join \"Needy\" n " +
+            //    "on u.ID = n.ID " +
+            //    "where n.BARCODE = :p " +
+            //    "AND Deregistrationdate IS NULL";
 
             //:username, :password, :barcode
-            Query[QueryId.GetAdminLogin] =
-                "select * " +
-                "from \"Account\" a " +
-                "left join \"Admin\" ad " +
-                "on a.ID = ad.ID " +
-                "where a.Username = :p " +
-                "and a.Password = :pp " +
-                "and ad.BARCODE = :ppp";
+            //Query[QueryId.GetAdminLogin] =
+            //    "select * " +
+            //    "from \"Account\" a " +
+            //    "left join \"Admin\" ad " +
+            //    "on a.ID = ad.ID " +
+            //    "where a.Username = :p " +
+            //    "and a.Password = :pp " +
+            //    "and ad.BARCODE = :ppp";
 
             //:username
-            Query[QueryId.GetAccountID] = "SELECT ID from \"Account\" where Username = :p";
+            //Query[QueryId.GetAccountID] = "SELECT ID from \"Account\" where Username = :p";
 
             Query[QueryId.GetAcceptedVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 1";
 
@@ -126,8 +132,8 @@ namespace ICT4_Participation_ASP.Models.Database
             //:adres, :city, :phonenumber, :hasdrivinglicence, :hascar, :id";
             Query[QueryId.UpdateUser] = "update \"User\" SET Adres = :p, City = :pp, Phonenumber = :ppp, Hasdrivinglicence = :pppp, Hascar = :ppppp where ID = :pppppp";
 
-            //:dateofbirth, photo = :photo, VOG = :vog where ID = :id"
-            Query[QueryId.UpdateVolunteer] = "update \"Volunteer\" set DateOfBirth = :p, photo = :pp, VOG = :ppp where ID = :pppp";
+            //:ID, :Adres, :City, :phonenumber, :hasdrivinglicence, :hascar, :photo, :vog
+            Query[QueryId.UpdateVolunteer] = "UpdateVolunteer";
 
             //:reaction, :review, :id
             Query[QueryId.UpdateCommentReview] = "UPDATE \"Review\" SET COMMENTS = :p WHERE MESSAGE = :pp AND VOLUNTEERID = :ppp";

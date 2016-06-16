@@ -42,7 +42,9 @@ namespace ICT4_Participation_ASP.WebForms
 
             if (password == passwordconfirm)
             {
-                ah.AddNeedy(username, email, name, address, city, phonenumber, ov, drivinglicense, car, barcode, password);
+                ah.AddNeedy(username, email, name, address, city, phonenumber, Convert.ToInt32(ov), Convert.ToInt32(drivinglicense), Convert.ToInt32(car), barcode, password);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('Hulpbehoevende is toegevoegd');</script>");
+                Response.Redirect("AdminHome.aspx");
             }
         }
     }

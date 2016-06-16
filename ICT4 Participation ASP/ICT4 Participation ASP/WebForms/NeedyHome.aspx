@@ -25,7 +25,7 @@
     </div>
             <div class="container col-sm-3">
         <div class="list-group">
-            <asp:ListView ID="lvList" runat="server" EmptyData="No data found!">
+            <asp:ListView ID="lvList" runat="server" EmptyData="No data found!" OnItemCommand="EmployeesListView_OnItemCommand">
                 <LayoutTemplate>
                     <!-- <div id="containerDiv" runat="server" class="list-group"> -->
                             <h3>Helprequests</h3>
@@ -37,7 +37,7 @@
 
                 <ItemTemplate>
                     <li class="list-group-item">
-                                <a href="NeedyHome.aspx?"></a><span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> <asp:Button runat="server" CommandArgument="<%#Container.DataItem %>" /></span>
+                        <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> <asp:LinkButton runat="server" ID="SelectEmployeeButton" Text="Open Chat" CommandName="AddToChat" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /></span>
                     </li>
                 </ItemTemplate>
                 <EmptyDataTemplate>

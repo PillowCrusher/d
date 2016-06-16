@@ -156,6 +156,31 @@ namespace ICT4_Participation_ASP.Models.Database
             }
         }
 
+        public void ExecuteSqlProcedure(List<object> parameterlist, string function)
+        {
+            OracleParameter[] parameters = MakeParameters(parameterlist);
+
+            using (OracleConnection connection = Connection)
+            {
+                OracleCommand command = new OracleCommand(function, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
         public bool CheckConnection()
         {
             try

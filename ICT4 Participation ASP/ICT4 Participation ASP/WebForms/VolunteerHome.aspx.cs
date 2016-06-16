@@ -14,11 +14,17 @@ namespace ICT4_Participation_ASP.WebForms
     {
         private VolunteerHandler _volunteerHandler;
         private Volunteer _currentVolunteer;
+        private HelpRequest _currentHelpRequest;
 
-        private List<HelpRequest> _theList = new List<HelpRequest>();
+        private List<HelpRequest> _acceptedHelpRequests = new List<HelpRequest>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
+                _acceptedHelpRequests = HttpContext.Current.Session["_acceptedHelpRequests"] as List<HelpRequest>;
+            }
             if (Session["LoggedUser"] is Volunteer)
             {
                 _currentVolunteer = (Volunteer)Session["LoggedUser"];
@@ -28,15 +34,48 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 Response.Redirect("LoginStandard.aspx");
             }
+            if (!IsPostBack)
+            {
+                var h = new HelpRequest(0, "ja", "kekef", "locatie", 100, true, TransportationType.Auto,
+                    DateTime.Today,
+                    DateTime.Now, 5, true, false, new List<Skill>());
+                _acceptedHelpRequests.Add(h);
+                Session["_acceptedHelpRequests"] = _acceptedHelpRequests;
 
-            //populate members of list
-            lvList.DataSource = _theList;
-            lvList.DataBind();
+                //populate members of list
+                lvList.DataSource = _acceptedHelpRequests;
+                lvList.DataBind();
+            }
+        }
+
+        protected void HelpRequestsListView_OnItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if (string.Equals(e.CommandName, "AddToChat"))
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                _currentHelpRequest = _acceptedHelpRequests.Find(x => x.ID == ID);
+                Session["_currentHelpRequest"] = _currentHelpRequest;
+                
+                RefreshChatMessages();
+            }
         }
 
         protected void btnSendMessage_OnClick(object sender, EventArgs e)
         {
-            
+            var message = inputMessage.Text;
+            _currentHelpRequest.AddChatMessages(new ChatMessage(_currentVolunteer, message, DateTime.Now));
+            inputMessage.Text = String.Empty;
+            Session["_acceptedHelpRequests"] = _acceptedHelpRequests;
+            RefreshChatMessages();
+        }
+
+        protected void RefreshChatMessages()
+        {
+            inputChat.Text = String.Empty;
+            foreach (var c in _currentHelpRequest.ChatMessages)
+            {
+                inputChat.Text += Environment.NewLine + c.Sender.Name + ": " + c.Message;
+            }
         }
     }
 }

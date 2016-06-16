@@ -4,46 +4,61 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ICT4_Participation_ASP.Models.Accounts;
+using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP
 {
     public partial class AdminPage : System.Web.UI.Page
     {
+        private Admin _currentAdmin;
+        private AdminHandler _currentAdminHandler;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox1.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
-            ListBox2.Items.Add("test");
+            if (Session["LoggedUser"] is Admin||Session["LoggedUser"]==null)
+            {
+                _currentAdmin = (Admin) Session["LoggedUser"];
+                _currentAdminHandler = new AdminHandler();
+            }
+            else
+            {
+                Response.Redirect("~/WebForms/LoginStandard.aspx");
+            }
+        }
 
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
-            ListBox3.Items.Add("test");
+        protected void ListBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void ListBox2_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void ListBox3_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button1_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button2_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button4_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void Button3_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
