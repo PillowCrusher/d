@@ -70,7 +70,7 @@
             <label for="inputPasswordConfirm" class="sr-only">Confirm Password</label>
         <asp:RequiredFieldValidator ID="ConfirmPasswordRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputPasswordConfirm" ErrorMessage="Je moet je wachtwoord nog een keer invullen voor controle" ForeColor="Red" ></asp:RequiredFieldValidator>
         <asp:TextBox type="password" ID="inputPasswordConfirm" class="form-control" placeholder="Bevestig wachtwoord" runat="server"></asp:TextBox>
-        <asp:Button runat="server" ID="btnRegister" type="submit" CssClass="btn btn-lg btn-primary btn-block" Text="Registreer hulpbehoevende"></asp:Button>
+        <asp:Button runat="server" ID="btnRegister" type="submit" CssClass="btn btn-lg btn-primary btn-block" Text="Registreer hulpbehoevende" OnClick="btnRegister_Click"></asp:Button>
         </div>
     </div>
         

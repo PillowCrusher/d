@@ -20,5 +20,24 @@ namespace ICT4_Participation_ASP.WebForms
             Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
         }
 
+        protected void vrijwilligersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RecensiesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void AcceptButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DenyButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

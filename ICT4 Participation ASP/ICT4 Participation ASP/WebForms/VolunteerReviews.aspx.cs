@@ -14,10 +14,21 @@ namespace ICT4_Participation_ASP.WebForms
 
         }
 
+
+
+        protected void postComment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ReviewsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void Page_Error(object sender, EventArgs e)
         {
             Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
         }
-
     }
 }

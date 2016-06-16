@@ -38,7 +38,7 @@
         <label for="inputPassword" class="sr-only">Vul uw wachtwoord in voor bevesteging</label>
         <asp:RequiredFieldValidator ID="PasswordRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputPassword" ErrorMessage="Je moet een wachtwoord" ForeColor="Red" ></asp:RequiredFieldValidator>
         <asp:TextBox type="password" ID="inputPassword" class="form-control" placeholder="Wachtwoord" runat="server"></asp:TextBox>
-        <asp:Button runat="server" ID="btnUpdate" CssClass="btn btn-lg btn-primary btn-block" Text="Update profiel gegevens"></asp:Button>
+        <asp:Button runat="server" ID="btnUpdate" CssClass="btn btn-lg btn-primary btn-block" Text="Update profiel gegevens" OnClick="btnUpdate_Click"></asp:Button>
                     <style>
             .scrollingControlContainer
 {
