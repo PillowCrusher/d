@@ -21,7 +21,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(urgent);
             objects.Add(meeting);
             objects.Add(skills);
-         //   Db.ExecuteNonQuery(objects, DatabaseQueries.Query[""]);
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[]);
         }
 
     }
