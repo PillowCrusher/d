@@ -19,10 +19,13 @@ namespace ICT4_Participation_ASP.WebForms
         {
             if (Session["LoggedUser"] is Volunteer)
             {
-                _currentVolunteer = (Volunteer) Session["LoggedUser"];
+                _currentVolunteer = (Volunteer)Session["LoggedUser"];
                 _volunteerHandler = new VolunteerHandler();
 
-                UpdateGui();
+                if (!IsPostBack)
+                {
+                    UpdateGui();
+                }
             }
             else
             {
