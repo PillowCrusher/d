@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="NeedyHome.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.NeedyHome" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="NeedyHome.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.NeedyHome" EnableEventValidation="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-    
+   
         <div class="container">
             <div class="container col-sm-2 pull-left">
         <label class="active">Menu</label>
@@ -37,7 +37,7 @@
 
                 <ItemTemplate>
                     <li class="list-group-item">
-                                <span ID="HelpRequestTitle" runat="server" <%#DataBinder.Eval(Container.DataItem, "Titel") %>></span>
+                                <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> <asp:Button runat="server" CommandArgument="<%#Container.DataItem %>" /></span>
                     </li>
                 </ItemTemplate>
                 <EmptyDataTemplate>
@@ -55,5 +55,4 @@
                 <asp:Button runat="server" ID="btnSendMessage" OnClick="btnSendMessage_OnClick" CssClass="btn btn-block" Text="Versturen" />
             </div>
         </div>
-    
     </asp:Content>
