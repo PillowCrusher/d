@@ -23,5 +23,10 @@ namespace ICT4_Participation_ASP.WebForms
         {
 
         }
+
+        protected void VrijwilligerListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

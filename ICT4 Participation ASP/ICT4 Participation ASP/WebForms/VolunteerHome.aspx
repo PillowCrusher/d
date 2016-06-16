@@ -41,9 +41,10 @@
                     </li>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    <div class="container">
+                    <h3>Hulpvragen</h3>
+                    <p>
                         Helprequests kunnen niet worden gevonden.
-                    </div>
+                    </p>
                 </EmptyDataTemplate>
             </asp:ListView>
         </div>
