@@ -31,6 +31,15 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.Label EmailLabel;
         
         /// <summary>
+        /// NameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NameLabel;
+        
+        /// <summary>
         /// AdresRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputPhonenumber;
         
         /// <summary>
-        /// labelDrviningLincense control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelDrviningLincense;
-        
-        /// <summary>
         /// inputDrivingLincense control.
         /// </summary>
         /// <remarks>
@@ -110,15 +110,6 @@ namespace ICT4_Participation_ASP.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox inputDrivingLincense;
-        
-        /// <summary>
-        /// labelCar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelCar;
         
         /// <summary>
         /// inputCar control.
@@ -130,31 +121,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.CheckBox inputCar;
         
         /// <summary>
-        /// labelBirthDate control.
+        /// birthdDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelBirthDate;
-        
-        /// <summary>
-        /// BirthDateRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator BirthDateRequiredFieldValidator;
-        
-        /// <summary>
-        /// inputBirthDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputBirthDate;
+        protected global::System.Web.UI.WebControls.Label birthdDateLabel;
         
         /// <summary>
         /// labelPhoto control.

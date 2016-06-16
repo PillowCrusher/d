@@ -29,7 +29,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(car);
             objects.Add(barcode);
             objects.Add(password);
-            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId]);
+            //Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId]);
         }
 
         public bool DeleteHelprequest()

@@ -112,7 +112,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(haslicense);
             objects.Add(hascar);
             objects.Add(password);
-            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[""]);
+          //  Db.ExecuteNonQuery(objects, DatabaseQueries.Query[""]);
         }
 
         ///// <summary>
