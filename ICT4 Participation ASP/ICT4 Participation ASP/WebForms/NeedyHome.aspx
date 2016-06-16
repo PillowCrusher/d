@@ -37,7 +37,7 @@
 
                 <ItemTemplate>
                     <li class="list-group-item">
-                                <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> <asp:Button runat="server" CommandArgument="<%#Container.DataItem %>" /></span>
+                                <a href="NeedyHome.aspx?"></a><span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> <asp:Button runat="server" CommandArgument="<%#Container.DataItem %>" /></span>
                     </li>
                 </ItemTemplate>
                 <EmptyDataTemplate>

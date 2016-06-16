@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="ICT4_Participation_ASP.AdminPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="ICT4_Participation_ASP.AdminPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-<form runat="server" style="height: 100%" >
     <div style="width: 100%; height: 100%;overflow: hidden"  >
         <div style="float: right; width: 20%; height: 100%; display: inline;"  >
     <asp:ListBox ID="ListBox1" runat="server" Rows="28" Width="100%" Font-Size="21px" Height="100%">
@@ -20,6 +19,5 @@
  </div>
         </div>
         </div>
-    </form>
 </asp:Content>
     
