@@ -10,18 +10,18 @@ namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class Handler
     {
-        private Repository db { get; }
+        protected Repository Db { get; private set; }
 
         public Handler()
         {
             OracleDatabase odb = new OracleDatabase();
             if (odb.CheckConnection())
             {
-                db = odb;
+                Db = odb;
             }
             else
             {
-                db = new InMemoryDatabase();
+                Db = new InMemoryDatabase();
             }
             // User = new Admin(1, "Henk", "@F", "234567890");
         }
@@ -33,7 +33,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         /// <param name="password"></param>
         public Account Login(List<object> parameters)
         {
-            DataTable dt = db.ExecuteReadQuery(null, db.ExecuteSqlFunction(parameters, "LogIn").ToString());
+            DataTable dt = Db.ExecuteReadQuery(null, Db.ExecuteSqlFunction(parameters, "LogIn").ToString());
 
             Account loggedAccount = null;
 
@@ -80,7 +80,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         {
             if(parameters.Count != 1) throw new Exception("Er zijn meer dan 1 accounts gevonden, neem contact op met de systeem beheerder.");
 
-            DataTable dt = db.ExecuteReadQuery(parameters, "SELECT * FROM TABLE(LogInBar(:p))");
+            DataTable dt = Db.ExecuteReadQuery(parameters, "SELECT * FROM TABLE(LogInBar(:p))");
 
             Account loggedAccount = null;
 

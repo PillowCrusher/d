@@ -46,6 +46,24 @@ namespace UnitTesten
         }
 
         [TestMethod]
+        public void Test_Admin()
+        {
+            Handler handler = new Handler();
+
+            List<object> parameters = new List<object>();
+
+            parameters.Add("Badman");
+            parameters.Add("Homo");
+            parameters.Add("1c00fcfa13");
+
+            Account account = handler.Login(parameters);
+            Admin admin = (Admin)account;
+
+            Assert.AreEqual(admin.Username, "Badman");
+            Assert.AreEqual(admin.Barcode, "1c00fcfa13");
+        }
+
+        [TestMethod]
         public void Test_BarcodeLogin()
         {
             Handler handler = new Handler();

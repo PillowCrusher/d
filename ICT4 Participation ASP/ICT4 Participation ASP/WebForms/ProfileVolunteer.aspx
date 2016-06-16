@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master"  AutoEventWireup="true" CodeBehind="ProfileVolunteer.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.ProfileVolunteer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-    <form id="form1" runat="server">
         <div class="container col-sm-push-4 col-lg-4">
         <p>Gebruikersnaam: </p>
         <asp:Label ID="UserNameLabel" runat="server" Text="Label"></asp:Label>
@@ -55,6 +54,5 @@
         </style>
 
     </div>
-    </form>
 </asp:Content>
 

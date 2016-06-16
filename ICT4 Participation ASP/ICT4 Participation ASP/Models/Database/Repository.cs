@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ICT4_Participation_ASP.Models.Database
 {
-    interface Repository
+    public interface Repository
     {
         DataTable ExecuteReadQuery(List<object> parameters, string query);
 
