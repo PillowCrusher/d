@@ -24,10 +24,9 @@ namespace ICT4_Participation_ASP.WebForms
                 LinkLogin.Visible = false;
                 LinkLogout.Visible = true;
                 LinkRegister.Visible = false;
-
                 if (loggedAccount is Admin)
                 {
-                    
+                    LinkNeedyRegister.Visible = true;
                 }
             }
         }
@@ -46,6 +45,11 @@ namespace ICT4_Participation_ASP.WebForms
         protected void LinkRegister_Click(object sender, EventArgs e)
         {
             Response.Redirect("RegisterVolunteer.aspx");
+        }
+
+        protected void LinkNeedyRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegisterNeedy.aspx");
         }
     }
 }
