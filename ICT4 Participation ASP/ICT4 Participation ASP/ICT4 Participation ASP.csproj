@@ -114,7 +114,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="WebForms\NavbarMasterPage.master" />
+    <Content Include="WebForms\NavbarMasterPage.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -181,6 +181,13 @@
     </Compile>
     <Compile Include="WebForms\LoginStandard.aspx.designer.cs">
       <DependentUpon>LoginStandard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\NavbarMasterPage.Master.cs">
+      <DependentUpon>NavbarMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\NavbarMasterPage.Master.designer.cs">
+      <DependentUpon>NavbarMasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="WebForms\NeedyHelpRequest.aspx.cs">
       <DependentUpon>NeedyHelpRequest.aspx</DependentUpon>

@@ -2,7 +2,6 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-<form id="form1" runat="server">
     <div class="container col-lg-4 pull-left">
         <label class="active">Menu</label>
         <ul class="nav nav-pills nav-stacked">
@@ -39,5 +38,4 @@
         </div>
     </div>
     
-</form>
     </asp:Content>

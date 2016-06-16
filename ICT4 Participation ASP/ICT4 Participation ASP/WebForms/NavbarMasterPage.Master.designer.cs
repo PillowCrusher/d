@@ -10,15 +10,15 @@
 namespace ICT4_Participation_ASP.WebForms {
     
     
-    public partial class VolunteerHome {
+    public partial class NavbarMasterPage {
         
         /// <summary>
-        /// lvList control.
+        /// Master control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvList;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Master;
     }
 }
