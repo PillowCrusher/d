@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="RegisterNeedy.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.RegisterNeedy" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-    <form runat="server">
     <div class="container col-sm-push-4 col-lg-4">
         <h2 class="form-signin-heading">Vul je gegevens in</h2>
         <div>
@@ -74,6 +73,5 @@
         </div>
     </div>
         
-        </form>
 </asp:Content>
 

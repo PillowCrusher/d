@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="NeedyHelpRequest.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.NeedyHelpRequest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-    <form id="form1" runat="server">
     <div class="container col-lg-4">
         
         <asp:TextBox id="inputTitle" CssClass="form-control" placeholder="Titel" required autofocus runat="server"></asp:TextBox>
@@ -32,5 +31,4 @@
 
         <asp:Button runat="server" ID="btnSendHelpRequest" CssClass="btn btn-lg btn-primary btn-block" Text="Versturen" OnClick="btnSendHelpRequest_Click" />
     </div>
-    </form>
     </asp:Content>

@@ -10,42 +10,42 @@
 namespace ICT4_Participation_ASP.WebForms {
     
     
-    public partial class VolunteerHome {
+    public partial class NavbarMasterPage {
         
         /// <summary>
-        /// lvList control.
+        /// LinkRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvList;
+        protected global::System.Web.UI.WebControls.LinkButton LinkRegister;
         
         /// <summary>
-        /// inputChat control.
+        /// LinkLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputChat;
+        protected global::System.Web.UI.WebControls.LinkButton LinkLogin;
         
         /// <summary>
-        /// inputMessage control.
+        /// LinkLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputMessage;
+        protected global::System.Web.UI.WebControls.LinkButton LinkLogout;
         
         /// <summary>
-        /// btnSendMessage control.
+        /// Master control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSendMessage;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Master;
     }
 }

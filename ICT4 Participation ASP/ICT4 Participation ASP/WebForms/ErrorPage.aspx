@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/WebForms/NavbarMasterPage.master" CodeBehind="ErrorPage.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.ErrorPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-    <form runat="server">
     <div>
     <h2>Error:</h2>
     <p></p>
@@ -27,5 +26,4 @@
         </p>
     </asp:Panel>
     </div>
-    </form>
 </asp:Content>
