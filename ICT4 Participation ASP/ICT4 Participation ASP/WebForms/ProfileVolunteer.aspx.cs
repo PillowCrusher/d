@@ -67,7 +67,7 @@ namespace ICT4_Participation_ASP.WebForms
         {
             UserNameLabel.Text = _currentVolunteer.Username;
             EmailLabel.Text = _currentVolunteer.Email;
-            //naam
+            NameLabel.Text = _currentVolunteer.Name;
             inputAdres.Text = _currentVolunteer.Adres;
             inputCity.Text = _currentVolunteer.City;
             inputPhonenumber.Text = _currentVolunteer.Phonenumber;
