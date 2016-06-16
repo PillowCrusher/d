@@ -50,6 +50,14 @@ namespace ICT4_Participation_ASP.WebForms
 
             _volunteerHandler.UpdateProfileData(parameters);
 
+            parameters.Clear();
+
+            parameters.Add(_currentVolunteer.Username);
+            parameters.Add(inputPassword.Text);
+            parameters.Add("");
+
+            Session["LoggedUser"] = _volunteerHandler.Login(parameters);
+
             Response.Redirect("VolunteerHome.aspx");
         }
 

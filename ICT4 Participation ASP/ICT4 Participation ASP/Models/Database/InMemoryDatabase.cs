@@ -23,7 +23,7 @@ namespace ICT4_Participation_ASP.Models.Database
             throw new NotImplementedException();
         }
 
-        public object ExecuteSqlFunction(string function)
+        public void ExecuteSqlProcedure(List<object> parameters, string function)
         {
             throw new NotImplementedException();
         }
