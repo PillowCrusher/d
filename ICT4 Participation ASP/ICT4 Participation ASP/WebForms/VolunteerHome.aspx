@@ -2,7 +2,6 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
-
         <div class="container">
             <div class="container col-sm-2 pull-left">
         <label class="active">Menu</label>
