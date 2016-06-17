@@ -36,7 +36,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             List<object> parameters = new List<object>();
             parameters.Add(user.ID);
 
-            DataTable dt = Db.ExecuteReadQuery(null, Db.ExecuteSqlFunction(parameters, DatabaseQueries.Query[QueryId.GetUserHelpRequests]).ToString());
+            DataTable dt =  Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserHelpRequests]);
             
             List<HelpRequest> requestses = new List<HelpRequest>();
             foreach (DataRow dr in dt.Rows)

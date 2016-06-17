@@ -91,8 +91,14 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 {
                     throw new Exception("Er zijn meer dan 1 Accounts gevonden.. Neem contact op met de beheerder");
                 }
-
-                loggedAccount = new Needy(dr);
+                try
+                {
+                    loggedAccount = new Needy(dr);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
 
             return (Needy) loggedAccount;

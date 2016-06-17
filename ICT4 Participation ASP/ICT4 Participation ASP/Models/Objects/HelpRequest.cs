@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using ICT4_Participation_ASP.Models.Accounts;
@@ -42,6 +43,19 @@ namespace ICT4_Participation_ASP.Models.Objects
             Interview = interview;
             Skills = skills;
 
+            Reviews = new List<Review>();
+            ChatMessages = new List<ChatMessage>();
+            Pending = new List<Volunteer>();
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
+        }
+
+        public HelpRequest(DataRow dr): 
+            this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),
+                Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), (TransportationType)Enum.Parse(typeof(TransportationType),dr[6].ToString()), 
+                Convert.ToDateTime(dr[7]), Convert.ToDateTime(dr[8]), Convert.ToInt32(dr[9]),
+                Convert.ToBoolean(dr[10]), new List<Skill>())
+        {
             Reviews = new List<Review>();
             ChatMessages = new List<ChatMessage>();
             Pending = new List<Volunteer>();

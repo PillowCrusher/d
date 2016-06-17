@@ -43,7 +43,7 @@ namespace ICT4_Participation_ASP.WebForms
                 _currentNeedy.AddHelpRequest(h);
 
                 //populate members of list
-                lvList.DataSource = theList;
+                lvList.DataSource = _needyHandler.GetHelprequests(_currentNeedy);
                 lvList.DataBind();
             }
         }
