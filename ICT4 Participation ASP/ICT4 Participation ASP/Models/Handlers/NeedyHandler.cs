@@ -15,6 +15,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AddHelprequest(Needy user, string titel, string description, string location, int traveltime,  int urgent, string Transportation, DateTime startTime, DateTime endTime, int ammount, int meeting)//string skills)
         {
+            // Todo 
+            // Helprequest moet uniek zijn door bijvoorbeeld titel of combinatie van attributen
+            // dan ophalen en toevoegen aan de lijst in de Needy
+            //user.AddHelpRequest();
+
             List<object> objects = new List<object>();
             objects.Add(user.ID);
             objects.Add(titel);
@@ -32,7 +37,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         }
 
         public List<HelpRequest> GetHelprequests(Needy user)
-        {
+        {           
             List<object> parameters = new List<object>();
             parameters.Add(user.ID);
 
