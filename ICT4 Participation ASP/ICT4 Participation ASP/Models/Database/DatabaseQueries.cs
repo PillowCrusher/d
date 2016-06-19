@@ -28,6 +28,18 @@ namespace ICT4_Participation_ASP.Models.Database
                 " WHERE n.ID = :p " +
                 " AND h.COMPLETED = 0 ";
 
+            //:needyid, :title, :startdate, :enddate
+            Query[QueryId.GetUserHelpRequest] =
+            "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " +
+            " FROM \"Needy\" n " +
+            " JOIN \"Helprequest\" h " +
+            " ON h.NeedyID = n.ID " +
+            " WHERE n.ID = :p " +
+            " AND h.TITLE = :pp "+
+            " AND h.STARTDATE = :ppp "+
+            " AND h.ENDDATE = :pppp "+
+            " AND h.COMPLETED = 0 ";
+
             //:Username, :Password, :Barcode
             Query[QueryId.GetUserLogin] = "LogIn";
 

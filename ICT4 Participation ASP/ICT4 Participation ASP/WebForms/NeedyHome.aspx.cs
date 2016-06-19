@@ -14,9 +14,6 @@ namespace ICT4_Participation_ASP.WebForms
         private Needy _currentNeedy;
         private NeedyHandler _needyHandler;
 
-
-        private readonly List<HelpRequest> theList = new List<HelpRequest>();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
@@ -27,7 +24,10 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 _currentNeedy = (Needy) Session["LoggedUser"];
                 _needyHandler = new NeedyHandler();
-
+                if (_currentNeedy.HelpRequestsen.Count == 0)
+                {
+                    _needyHandler.GetHelprequests(_currentNeedy);
+                }
             }
             else
             {
@@ -35,15 +35,8 @@ namespace ICT4_Participation_ASP.WebForms
             }
             if (!IsPostBack)
             {
-                var h = 
-                new HelpRequest(0, "ja", "kekef", "locatie", 100, true, TransportationType.Auto,
-                    DateTime.Today,
-                    DateTime.Now, 5, true, new List<Skill>());
-                theList.Add(h);
-                _currentNeedy.AddHelpRequest(h);
-
                 //populate members of list
-                lvList.DataSource = _needyHandler.GetHelprequests(_currentNeedy);
+                lvList.DataSource =_currentNeedy.HelpRequestsen;
                 lvList.DataBind();
             }
         }

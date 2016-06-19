@@ -34,6 +34,19 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(meeting);
            // objects.Add(skills);
             Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.InsertHelprequest]);
+
+            objects.Clear();
+            objects.Add(user.ID);
+            objects.Add(titel);
+            objects.Add(startTime);
+            objects.Add(endTime);
+            DataTable dt = Db.ExecuteReadQuery(objects, DatabaseQueries.Query[QueryId.GetUserHelpRequest]);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                HelpRequest request = new HelpRequest(dr);
+                user.AddHelpRequest(request);
+            }
         }
 
         public List<HelpRequest> GetHelprequests(Needy user)
@@ -47,7 +60,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             foreach (DataRow dr in dt.Rows)
             {
                 HelpRequest request = new HelpRequest(dr);
-                requestses.Add(request);
+                user.AddHelpRequest(request);
             }
             return requestses;
         }

@@ -14,6 +14,7 @@
     {
         GetAllHelpRequests,
         GetUserHelpRequests,
+        GetUserHelpRequest,
         GetUserLogin,
         GetUserLoginByBarcode,
         GetAdminLogin,
