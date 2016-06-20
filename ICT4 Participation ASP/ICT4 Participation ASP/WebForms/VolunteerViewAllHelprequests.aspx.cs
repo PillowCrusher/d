@@ -16,18 +16,20 @@ namespace ICT4_Participation_ASP.WebForms
         private Volunteer _currentVolunteer;
         private HelpRequest _currentHelpRequest;
 
-        private List<HelpRequest> _acceptedHelpRequests = new List<HelpRequest>();
+        public List<HelpRequest> AllHelpRequests; 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
             {
                 _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
-                _acceptedHelpRequests = HttpContext.Current.Session["_acceptedHelpRequests"] as List<HelpRequest>;
             }
             if (Session["LoggedUser"] is Volunteer)
             {
                 _currentVolunteer = (Volunteer)Session["LoggedUser"];
                 _volunteerHandler = new VolunteerHandler();
+
+                AllHelpRequests = _volunteerHandler.GetHelpRequests();
             }
             else
             {
@@ -35,14 +37,8 @@ namespace ICT4_Participation_ASP.WebForms
             }
             if (!IsPostBack)
             {
-                var h = new HelpRequest(0, "ja", "kekef", "locatie", 100, true, TransportationType.Auto,
-                    DateTime.Today,
-                    DateTime.Now, 5, true, new List<Skill>());
-                _acceptedHelpRequests.Add(h);
-                Session["_acceptedHelpRequests"] = _acceptedHelpRequests;
-
                 //populate members of list
-                lvList.DataSource = _acceptedHelpRequests;
+                lvList.DataSource = AllHelpRequests;
                 lvList.DataBind();
             }
         }
@@ -51,13 +47,7 @@ namespace ICT4_Participation_ASP.WebForms
             if (string.Equals(e.CommandName, "Accept"))
             {
                 var ID = Convert.ToInt32(e.CommandArgument);
-                _currentHelpRequest = _acceptedHelpRequests.Find(x => x.ID == ID);
-                Session["_currentHelpRequest"] = _currentHelpRequest;
-            }
-            if (string.Equals(e.CommandName, "Decline"))
-            {
-                var ID = Convert.ToInt32(e.CommandArgument);
-                _currentHelpRequest = _acceptedHelpRequests.Find(x => x.ID == ID);
+                _currentHelpRequest = _currentVolunteer.HelpRequestsen.Find(x => x.ID == ID);
                 Session["_currentHelpRequest"] = _currentHelpRequest;
             }
         }

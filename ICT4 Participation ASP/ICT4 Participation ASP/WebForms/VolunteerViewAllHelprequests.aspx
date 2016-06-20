@@ -36,8 +36,7 @@
                     <ItemTemplate>
                         <li class="list-group-item">
                             <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> 
-                                <asp:LinkButton runat="server" ID="AcceptHelpRequest" Text="Accept" CommandName="Accept" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /> /
-                                <asp:LinkButton runat="server" ID="DeclineHelpRequest" Text="Decline" CommandName="Decline" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /></span>
+                                <asp:LinkButton runat="server" ID="AcceptHelpRequest" Text="Accept" CommandName="Accept" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /></span>
                         </li>
                     </ItemTemplate>
                     <EmptyDataTemplate>

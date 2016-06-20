@@ -28,7 +28,7 @@ namespace ICT4_Participation_ASP.WebForms
                 _volunteerHandler = new VolunteerHandler();
                 if (_currentVolunteer.HelpRequestsen.Count == 0)
                 {
-                    _volunteerHandler.GetHelprequests(_currentVolunteer);
+                    _volunteerHandler.GetAcceptedHelprequests(_currentVolunteer);
                 }
 
                 inputMessage.Visible = false;
