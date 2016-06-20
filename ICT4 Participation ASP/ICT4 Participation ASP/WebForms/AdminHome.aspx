@@ -30,13 +30,13 @@
         </div>
         <asp:TextBox ID="TextBox1" runat="server" Width="33%" Height="40%" Rows="13" TextMode="MultiLine" Font-Size="18"></asp:TextBox>
         <div>
-            <asp:Button ID="Button1" runat="server" Text="Block" Font-Size="21" Width="12%" OnClick="Button1_OnClick" />
+            <asp:Button ID="Button1" runat="server" Text="Block" Font-Size="21" Width="12%" OnClientClick="return confirm('Weet je het zeker?')" OnClick="Button1_OnClick" />
             <asp:Label ID="Label1" runat="server" Text="Label" Visible="False">........</asp:Label>
-            <asp:Button ID="Button2" runat="server" Text="Waarschuwing" Font-Size="21" Width="20%" OnClick="Button2_OnClick" />
+            <asp:Button ID="Button2" runat="server" Text="Waarschuwing" Font-Size="21" Width="20%" OnClientClick="return confirm('Weet je het zeker?')" OnClick="Button2_OnClick" />
             <asp:Label ID="Label2" runat="server" Text="Label" Visible="True">........</asp:Label>
             <asp:Button ID="Button4" runat="server" Text="Vrijwilliger activeren" Font-Size="21" Width="31%" OnClick="Button4_OnClick" />
             <asp:Label ID="Label3" runat="server" Text="Label" Visible="True">......</asp:Label>
-            <asp:Button ID="Button3" runat="server" Text="Verwijderen" Font-Size="21" Width="31%" OnClick="Button3_OnClick" />
+            <asp:Button ID="Button3" runat="server" Text="Verwijderen" Font-Size="21" Width="31%" OnClientClick="return confirm('Weet je het zeker?')" OnClick="Button3_OnClick" />
         </div>
     </div>
 </asp:Content>

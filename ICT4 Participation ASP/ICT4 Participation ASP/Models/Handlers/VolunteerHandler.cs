@@ -66,5 +66,39 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertUserHelprequest]);
         }
+
+        public void Unsubscribe(DateTime time, Volunteer volunteer)
+        {
+            try
+            {
+                List<object> parameters = new List<object>();
+                parameters.Add(time);
+                parameters.Add(volunteer.ID);
+                Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.UnsubscribeUser]);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void PlaceComment(Review review, Volunteer volunteer, string comment)
+        {
+            try
+            {
+                review.AddComment(volunteer, comment);
+                List<object> parameters = new List<object>();
+                parameters.Add(comment);
+                parameters.Add(review.Message);
+                parameters.Add(volunteer.ID);
+                Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.UpdateCommentReview]);
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+
     }
 }

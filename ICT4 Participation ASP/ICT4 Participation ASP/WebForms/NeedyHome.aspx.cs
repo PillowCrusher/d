@@ -30,6 +30,7 @@ namespace ICT4_Participation_ASP.WebForms
                 }
                 inputMessage.Visible = false;
                 btnSendMessage.Visible = false;
+                LinkReview.Visible = false;
             }
             else
             {
@@ -61,6 +62,8 @@ namespace ICT4_Participation_ASP.WebForms
                 _needyHandler.GetChatMessages(_currentHelpRequest);
 
 
+                LinkReview.Visible = true;
+                _currentHelpRequest.GetPreviousChatMessages();
                 RefreshChatMessages();
             }
         }
