@@ -137,11 +137,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
             Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.InsertChatMessage]);
         }
 
-        public List<ChatMessage> GetChatMessages(int helprequestId)
+        public void GetChatMessages(HelpRequest helpRequest)
         {
             List<object> parameters = new List<object>();
 
-            parameters.Add(helprequestId);
+            parameters.Add(helpRequest.ID);
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetChatMessagesFromHelprequest]);
 
@@ -152,7 +152,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 chatMessages.Add(new ChatMessage(dr));
             }
 
-            return chatMessages;
+            helpRequest.ChatMessages.AddRange(chatMessages);
         }
 
         public List<Volunteer> GetUsersFromHelprequest(int helprequestId)
@@ -173,8 +173,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             return acceptedVolunteers;
         }
-
-
 
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
@@ -344,5 +342,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
         //{
         //    return Database.GetHelpRequests(query, parameters);
         //}
+
     }
 }

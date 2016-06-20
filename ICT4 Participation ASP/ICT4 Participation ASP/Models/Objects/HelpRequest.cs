@@ -10,7 +10,7 @@ namespace ICT4_Participation_ASP.Models.Objects
 {
     public class HelpRequest
     {
-        private Handler handler;
+        private readonly Handler _handler;
 
         public List<Review> Reviews { get; protected set; }
         public List<ChatMessage> ChatMessages { get; protected set; }
@@ -52,7 +52,7 @@ namespace ICT4_Participation_ASP.Models.Objects
             Accepted = new List<Volunteer>();
             Declined = new List<Volunteer>();
 
-            handler = new Handler();
+            _handler = new Handler();
         }
 
         public HelpRequest(DataRow dr): 
@@ -83,11 +83,6 @@ namespace ICT4_Participation_ASP.Models.Objects
         public void AddChatMessages(ChatMessage chatMessage)
         {
             ChatMessages.Add(chatMessage);
-        }
-
-        public void GetPreviousChatMessages()
-        {
-            ChatMessages.AddRange(handler.GetChatMessages(ID));
         }
 
         public void AcceptVolunteer(Volunteer volunteer)
