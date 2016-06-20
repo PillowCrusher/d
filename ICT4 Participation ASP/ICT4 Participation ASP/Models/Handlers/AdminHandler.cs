@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Database;
 using ICT4_Participation_ASP.Models.Objects;
 
@@ -45,6 +46,17 @@ namespace ICT4_Participation_ASP.Models.Handlers
         public bool WarnUser()
         {
             throw new NotImplementedException();
+        }
+
+        public List<Volunteer> FillVolunteerList()
+        {
+            return null;
+        }
+
+        public List<Volunteer> FillUnaccepted()
+        {
+
+            return null;
         }
     }
 }
