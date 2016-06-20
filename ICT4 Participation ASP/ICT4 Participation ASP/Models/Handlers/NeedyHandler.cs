@@ -110,6 +110,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             parameters.Add(volunteer.ID);
             Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
         }
+
         public void DeclineVolunteer(Volunteer volunteer, HelpRequest helpRequest)
         {
             helpRequest.DeclineVolunteer(volunteer);

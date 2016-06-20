@@ -85,18 +85,6 @@ namespace ICT4_Participation_ASP.Models.Objects
             ChatMessages.Add(chatMessage);
         }
 
-        public void AcceptVolunteer(Volunteer volunteer)
-        {
-            if (Accepted.Contains(volunteer) == false && Declined.Contains(volunteer) == false)
-            {
-                Accepted.Add(volunteer);
-            }
-            else
-            {
-                throw new ArgumentException("Deze vrijwilliger bestaat al");
-            }
-        }
-
         public void GetPreviousChatMessages()
         {
             ChatMessages.AddRange(handler.GetChatMessages(ID));
@@ -108,6 +96,7 @@ namespace ICT4_Participation_ASP.Models.Objects
             Accepted.Add(v);
             Pending.Remove(v);
         }
+
         public void DeclineVolunteer(Volunteer volunteer)
         {
             Volunteer v = Pending.Find(x => x.ID == volunteer.ID);
