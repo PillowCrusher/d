@@ -18,10 +18,10 @@ namespace ICT4_Participation_ASP.Models.Objects
             Time = time;
         }
 
-        public ChatMessage(DataRow dr) : this(new User(dr), dr[1].ToString(), Convert.ToDateTime(dr[2]))
+      /*  public ChatMessage(DataRow dr) : this(new User(dr), dr[1].ToString(), Convert.ToDateTime(dr[2]))
         {
             
-        }
+        }*/
             
 
         public override bool Equals(object obj)

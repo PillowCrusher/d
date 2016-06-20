@@ -29,6 +29,8 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 _currentVolunteer = (Volunteer)Session["LoggedUser"];
                 _volunteerHandler = new VolunteerHandler();
+                inputMessage.Visible = false;
+                btnSendMessage.Visible = false;
             }
             else
             {
@@ -55,7 +57,8 @@ namespace ICT4_Participation_ASP.WebForms
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _acceptedHelpRequests.Find(x => x.ID == ID);
                 Session["_currentHelpRequest"] = _currentHelpRequest;
-                
+                inputMessage.Visible = true;
+                btnSendMessage.Visible = true;
                 RefreshChatMessages();
             }
         }

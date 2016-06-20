@@ -28,6 +28,8 @@ namespace ICT4_Participation_ASP.WebForms
                 {
                     _needyHandler.GetHelprequests(_currentNeedy);
                 }
+                inputMessage.Visible = false;
+                btnSendMessage.Visible = false;
             }
             else
             {
@@ -56,6 +58,8 @@ namespace ICT4_Participation_ASP.WebForms
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _currentNeedy.HelpRequestsen.Find(x => x.ID == ID);
                 Session["_currentHelpRequest"] = _currentHelpRequest;
+                inputMessage.Visible = true;
+                btnSendMessage.Visible = true;
                 RefreshChatMessages();
             }
         }
@@ -75,6 +79,12 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 inputChat.Text += Environment.NewLine + c.Sender.Name + ": " + c.Message;
             }
+        }
+
+        protected void LinkReview_Click(object sender, EventArgs e)
+        {
+            Session["_currentHelpRequest"] = _currentHelpRequest;
+            Response.Redirect("NeedyReview.aspx");
         }
     }
 }

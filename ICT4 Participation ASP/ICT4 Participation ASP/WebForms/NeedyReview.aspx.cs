@@ -33,6 +33,7 @@ namespace ICT4_Participation_ASP.WebForms
             }
             if (!IsPostBack)
             {
+                _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
                 if (_currentHelpRequest != null)
                 {
                     foreach (Volunteer v in _currentHelpRequest.Accepted)

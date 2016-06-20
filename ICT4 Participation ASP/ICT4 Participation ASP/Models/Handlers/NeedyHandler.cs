@@ -80,5 +80,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
             parameters.Add(message);
             Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertReview]);
         }
+
+        public void CompleteHelprequest()
+        {
+            Db.ExecuteNonQuery(null, DatabaseQueries.Query[QueryId.CompleteHelpRequest]);
+        }
     }
 }

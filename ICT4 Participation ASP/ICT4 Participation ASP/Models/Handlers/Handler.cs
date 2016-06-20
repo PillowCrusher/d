@@ -130,8 +130,8 @@ namespace ICT4_Participation_ASP.Models.Handlers
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetChatMessagesFromHelprequest]);
             foreach (DataRow dr in dt.Rows)
             {
-                ChatMessage message = new ChatMessage(dr);
-                helpRequest.AddChatMessages(message);
+             //   ChatMessage message = new ChatMessage(dr);
+            //    helpRequest.AddChatMessages(message);
             }
         }
 
