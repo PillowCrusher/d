@@ -102,6 +102,18 @@ namespace ICT4_Participation_ASP.Models.Objects
             ChatMessages.AddRange(handler.GetChatMessages(ID));
         }
 
+        public void AcceptVolunteer(Volunteer volunteer)
+        {
+            Volunteer v = Pending.Find(x => x.ID == volunteer.ID);
+            Accepted.Add(v);
+            Pending.Remove(v);
+        }
+        public void DeclineVolunteer(Volunteer volunteer)
+        {
+            Volunteer v = Pending.Find(x => x.ID == volunteer.ID);
+            Declined.Add(v);
+            Pending.Remove(v);
+        }
         public override bool Equals(object obj)
         {
             if (obj is HelpRequest)
