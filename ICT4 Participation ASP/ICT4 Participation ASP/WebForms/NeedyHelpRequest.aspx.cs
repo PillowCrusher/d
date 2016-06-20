@@ -41,16 +41,8 @@ namespace ICT4_Participation_ASP.WebForms
             DateTime endTime = Convert.ToDateTime(end);
             string transportation = DdlTransport.Text;
             int ammount = Convert.ToInt32(inputAantalVrijwilliger.Text);
-            bool urgent = false;
-            if (cbUrgent.Checked)
-            {
-                urgent = true;
-            }
-            bool meeting = false;
-            if (cbMeeting.Checked)
-            {
-                meeting = true;
-            }
+            bool urgent = cbUrgent.Checked;
+            bool meeting = cbMeeting.Checked;
             string skills = null;
             foreach (ListItem item in SkillCheckBoxList.Items)
             {
@@ -59,7 +51,7 @@ namespace ICT4_Participation_ASP.WebForms
                     skills+="$"+item.Value;
                 }
             }
-            if (startTime < endTime)
+            if (startTime < endTime && traveltime >= 0)
             {
                 NeedyHandler.AddHelprequest(Needy, titel, description, location, traveltime, Convert.ToInt32(urgent), transportation, startTime, endTime, ammount, Convert.ToInt32(meeting));
                 Response.Redirect("NeedyHome.aspx");

@@ -147,6 +147,8 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             List<ChatMessage> chatMessages = new List<ChatMessage>();
 
+            helpRequest.ChatMessages.Clear();
+
             foreach (DataRow dr in dt.Rows)
             {
                 chatMessages.Add(new ChatMessage(dr));
