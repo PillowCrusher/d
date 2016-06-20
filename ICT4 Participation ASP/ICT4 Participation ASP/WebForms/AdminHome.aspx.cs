@@ -30,22 +30,12 @@ namespace ICT4_Participation_ASP
             {
                 ListBox1.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString()));
             }
+            foreach (Volunteer volunteer in _currentAdminHandler.FillUnaccepted())
+            {
+                ListBox2.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString()));
+            }
         }
 
-        protected void ListBox1_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected void ListBox2_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected void ListBox3_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         protected void Button1_OnClick(object sender, EventArgs e)
         {

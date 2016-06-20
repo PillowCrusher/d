@@ -60,7 +60,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             List<object> parameters = new List<object>();
 
 
-            DataTable dt = Db.ExecuteReadQuery(parameters,DatabaseQueries.Query[QueryId.GetAcceptedVolunteers]);
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAcceptedVolunteers]);
 
 
             List<Volunteer> acceptedVolunteers = new List<Volunteer>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICT4_Participation_ASP.Models.Objects;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace ICT4_Participation_ASP.Models.Accounts
     //een User erft van Account
     public class User : Account
     {
+        public List<HelpRequest> HelpRequestsen { get; protected set; }
+
         public string Name { get; protected set; }
         public string Adres { get; protected set; }
         public string City { get; protected set; }
@@ -44,12 +47,26 @@ namespace ICT4_Participation_ASP.Models.Accounts
             HasDrivingLincense = hasDrivingLincense;
             HasCar = hasCar;
             IsWarned = isWarned;
+
+            HelpRequestsen = new List<HelpRequest>();
         }
 
         public User(DataRow dr)
-            : this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToBoolean(dr[7]), Convert.ToBoolean(dr[8]), Convert.ToBoolean(dr[9]))
+            : this(Convert.ToInt32(dr["ID"]), dr["Username"].ToString(), dr["email"].ToString(), dr["Name"].ToString(), dr["adres"].ToString(), dr["city"].ToString(), dr["phonenumber"].ToString(), Convert.ToBoolean(dr["hasdrivinglicence"]), Convert.ToBoolean(dr["HasCar"]), Convert.ToBoolean(dr["IsWarned"]))
         {
 
+        }
+
+        public void AddHelpRequest(HelpRequest helpRequest)
+        {
+            if (HelpRequestsen.Contains(helpRequest) == false)
+            {
+                HelpRequestsen.Add(helpRequest);
+            }
+            else
+            {
+                throw new ArgumentException("Deze helprequest bestaat al");
+            }
         }
     }
 }
