@@ -190,7 +190,7 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.InsertAdmin] = "INSERT INTO \"Admin\" (ID, BARCODE) values (:p, :pp)";
 
             //:userid, :helprequestid, :time, :message
-            Query[QueryId.InsertChatMessage] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:p, :pp, :ppp, :pppp)";
+            Query[QueryId.InsertChatMessage] = "INSERT INTO \"ChatMessage\" (UserID, SenderName, HelpRequestID, Time, Message) values (:p, :pp, :ppp, :pppp, :ppppp)";
 
             //:userid, :helprequestid
             Query[QueryId.InsertUserHelprequest] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:p, :pp)";

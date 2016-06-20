@@ -63,7 +63,7 @@ namespace ICT4_Participation_ASP.WebForms
         protected void btnSendMessage_OnClick(object sender, EventArgs e)
         {
             var message = inputMessage.Text;
-            _currentHelpRequest.AddChatMessages(new ChatMessage(_currentVolunteer, message, DateTime.Now));
+            _currentHelpRequest.AddChatMessages(new ChatMessage(_currentVolunteer.ID, _currentVolunteer.Name, _currentHelpRequest.ID, DateTime.Now, message));
             inputMessage.Text = String.Empty;
             Session["_acceptedHelpRequests"] = _acceptedHelpRequests;
             RefreshChatMessages();
@@ -74,7 +74,7 @@ namespace ICT4_Participation_ASP.WebForms
             inputChat.Text = String.Empty;
             foreach (var c in _currentHelpRequest.ChatMessages)
             {
-                inputChat.Text += Environment.NewLine + c.Sender.Name + ": " + c.Message;
+                inputChat.Text += Environment.NewLine + c.TotalString;
             }
         }
     }
