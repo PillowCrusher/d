@@ -63,7 +63,6 @@ namespace ICT4_Participation_ASP.WebForms
 
 
                 LinkReview.Visible = true;
-                _currentHelpRequest.GetPreviousChatMessages();
                 RefreshChatMessages();
             }
         }
