@@ -127,6 +127,25 @@ namespace ICT4_Participation_ASP.Models.Handlers
             
         }
 
+        private List<User> GetUsersFromHelprequest(int id)
+        {
+            List<object> parameters = new List<object>();
+
+            parameters.Add(id);
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetVolunteersHelprequest]);
+
+
+            List<User> acceptedUsers = new List<User>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                acceptedUsers.Add(new Volunteer(dr));
+            }
+
+            return acceptedUsers;
+        } 
+
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
         ///// </summary>

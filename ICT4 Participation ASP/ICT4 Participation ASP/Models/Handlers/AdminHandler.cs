@@ -53,5 +53,16 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(u.ID);
             Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.WarnUser]);
         }
+
+        public List<Volunteer> FillVolunteerList()
+        {
+            return null;
+        }
+
+        public List<Volunteer> FillUnaccepted()
+        {
+
+            return null;
+        }
     }
 }
