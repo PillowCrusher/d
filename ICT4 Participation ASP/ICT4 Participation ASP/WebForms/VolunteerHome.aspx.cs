@@ -54,10 +54,9 @@ namespace ICT4_Participation_ASP.WebForms
         {
             if (string.Equals(e.CommandName, "AddToChat"))
             {
+                var dataItem = (ListViewDataItem)e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _acceptedHelpRequests.Find(x => x.ID == ID);
-
-                
                 Session["_currentHelpRequest"] = _currentHelpRequest;
                 inputMessage.Visible = true;
                 btnSendMessage.Visible = true;

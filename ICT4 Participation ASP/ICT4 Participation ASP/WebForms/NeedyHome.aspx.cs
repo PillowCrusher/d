@@ -52,8 +52,6 @@ namespace ICT4_Participation_ASP.WebForms
         {
             if (string.Equals(e.CommandName, "AddToChat"))
             {
-                // Verify that the employee ID is not already in the list. If not, add the
-                // employee to the list.
                 var dataItem = (ListViewDataItem) e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _currentNeedy.HelpRequestsen.Find(x => x.ID == ID);
