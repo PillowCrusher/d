@@ -46,8 +46,8 @@ namespace ICT4_Participation_ASP.Models.Accounts
             IsWarned = isWarned;
         }
 
-        public User(DataRow dr)
-            : this((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), (bool)dr[7], (bool)dr[8], (bool)dr[9])
+        protected User(DataRow dr)
+            : this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToBoolean(dr[7]), Convert.ToBoolean(dr[8]), Convert.ToBoolean(dr[9]))
         {
 
         }
