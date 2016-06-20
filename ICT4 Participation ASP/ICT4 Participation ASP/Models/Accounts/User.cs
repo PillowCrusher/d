@@ -8,7 +8,7 @@ using System.Web;
 namespace ICT4_Participation_ASP.Models.Accounts
 {
     //een User erft van Account
-    public class User : Account
+    public abstract class User : Account
     {
         public List<HelpRequest> HelpRequestsen { get; protected set; }
 

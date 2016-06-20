@@ -47,8 +47,9 @@ namespace ICT4_Participation_ASP.WebForms
             if (string.Equals(e.CommandName, "Accept"))
             {
                 var ID = Convert.ToInt32(e.CommandArgument);
-                _currentHelpRequest = _currentVolunteer.HelpRequestsen.Find(x => x.ID == ID);
+                _currentHelpRequest = AllHelpRequests.Find(x => x.ID == ID);
                 Session["_currentHelpRequest"] = _currentHelpRequest;
+                _volunteerHandler.AcceptHelpRequest(_currentVolunteer.ID, _currentHelpRequest.ID);
             }
         }
     }
