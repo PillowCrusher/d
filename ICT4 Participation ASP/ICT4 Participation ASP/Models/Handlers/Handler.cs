@@ -122,28 +122,41 @@ namespace ICT4_Participation_ASP.Models.Handlers
             Db.ExecuteSqlProcedure(objects, DatabaseQueries.Query[QueryId.InsertVolunteer]);
         }
 
-        public void GetChatMessages()
-        {
-            
-        }
-
-        private List<User> GetUsersFromHelprequest(int id)
+        public List<ChatMessage> GetChatMessages(int helprequestId)
         {
             List<object> parameters = new List<object>();
 
-            parameters.Add(id);
+            parameters.Add(helprequestId);
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetChatMessagesFromHelprequest]);
+            
+            List<ChatMessage> chatMessages = new List<ChatMessage>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                chatMessages.Add(new ChatMessage(dr));
+        }
+
+            return chatMessages;
+        }
+
+        public List<Volunteer> GetUsersFromHelprequest(int helprequestId)
+        {
+            List<object> parameters = new List<object>();
+
+            parameters.Add(helprequestId);
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetVolunteersHelprequest]);
 
 
-            List<User> acceptedUsers = new List<User>();
-            
+            List<Volunteer> acceptedVolunteers = new List<Volunteer>();
+
             foreach (DataRow dr in dt.Rows)
             {
-                acceptedUsers.Add(new Volunteer(dr));
+                acceptedVolunteers.Add(new Volunteer(dr));
             }
 
-            return acceptedUsers;
+            return acceptedVolunteers;
         } 
 
         ///// <summary>

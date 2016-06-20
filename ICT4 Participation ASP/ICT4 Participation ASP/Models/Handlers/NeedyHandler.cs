@@ -62,12 +62,16 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AddChatMessage(HelpRequest helpRequest, Needy needy, string message, DateTime time)
         {
-            helpRequest.AddChatMessages(new ChatMessage(needy, message, time));
+            helpRequest.AddChatMessages(new ChatMessage(needy.ID, needy.Name, helpRequest.ID, time, message));
+
             List<object> objects = new List<object>();
+
             objects.Add(needy.ID);
+            objects.Add(needy.Name);
             objects.Add(helpRequest.ID);
             objects.Add(time);
             objects.Add(message);
+
             Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.InsertChatMessage]);
         }
     }
