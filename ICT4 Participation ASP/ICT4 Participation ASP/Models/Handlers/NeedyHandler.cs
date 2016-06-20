@@ -90,7 +90,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             {
                 hr = new HelpRequest(dr);
                 List<object> objects = new List<object>();
-                parameters.Add(hr.ID);
+                objects.Add(hr.ID);
                 DataTable dt2 = Db.ExecuteReadQuery(objects, DatabaseQueries.Query[QueryId.GetPendingVolunteers]);
 
                 foreach (DataRow dr2 in dt2.Rows)

@@ -55,21 +55,26 @@ namespace ICT4_Participation_ASP.WebForms
             if (string.Equals(e.CommandName, "Accept"))
             {
                 var dataItem = (ListViewDataItem)e.Item;
-                var ID = Convert.ToInt32(e.CommandArgument);
-                var HelpRequest_Index = _volunteers.FindIndex(a => a.ID == ID);
+                var Volunteer_ID = Convert.ToInt32(e.CommandArgument);
+                var HelpRequest_ID = _listData.Find(a => a.UserID == Volunteer_ID).HelpRequestID;
                 //int HelpRequest_ID = _helpRequests[HelpRequest_Index];
-                Volunteer volunteer = _volunteers.Find(x => x.ID == ID);
-                HelpRequest helprequest = _helpRequests[HelpRequest_Index];
+                
+                HelpRequest helprequest = _helpRequests.Find(x => x.ID == HelpRequest_ID);
+                Volunteer volunteer = helprequest.Pending.Find(x => x.ID == Volunteer_ID);
                 _needyHandler.AcceptVolunteer(volunteer, helprequest);
+                Response.Redirect(Request.RawUrl);
             }
             if (string.Equals(e.CommandName, "Decline"))
             {
                 var dataItem = (ListViewDataItem)e.Item;
-                var ID = Convert.ToInt32(e.CommandArgument);
-                var HelpRequest_ID = _volunteers.FindIndex(a => a.ID == ID);
-                Volunteer volunteer = _volunteers.Find(x => x.ID == ID);
+                var Volunteer_ID = Convert.ToInt32(e.CommandArgument);
+                var HelpRequest_ID = _listData.Find(a => a.UserID == Volunteer_ID).HelpRequestID;
+                //int HelpRequest_ID = _helpRequests[HelpRequest_Index];
+
                 HelpRequest helprequest = _helpRequests.Find(x => x.ID == HelpRequest_ID);
+                Volunteer volunteer = helprequest.Pending.Find(x => x.ID == Volunteer_ID);
                 _needyHandler.DeclineVolunteer(volunteer, helprequest);
+                Response.Redirect(Request.RawUrl);
             }
         }
     }
