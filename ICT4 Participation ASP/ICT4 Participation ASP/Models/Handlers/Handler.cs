@@ -79,7 +79,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         /// <param name="Barcode"></param>
         public Needy LoginBar(List<object> parameters)
         {
-            if(parameters.Count != 1) throw new Exception("Er zijn meer dan 1 accounts gevonden, neem contact op met de systeem beheerder.");
+            if (parameters.Count != 1) throw new Exception("Er zijn meer dan 1 accounts gevonden, neem contact op met de systeem beheerder.");
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserLoginByBarcode]);
 
@@ -101,10 +101,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 }
             }
 
-            return (Needy) loggedAccount;
+            return (Needy)loggedAccount;
         }
 
-        public void AddVolunteer(string username, string email, string name, DateTime birthdate, string address, string city,string phonenumber, string photo,string vog, int haslicense, int hascar, string password)
+        public void AddVolunteer(string username, string email, string name, DateTime birthdate, string address, string city, string phonenumber, string photo, string vog, int haslicense, int hascar, string password)
         {
             List<object> objects = new List<object>();
             objects.Add(username);
@@ -129,13 +129,13 @@ namespace ICT4_Participation_ASP.Models.Handlers
             parameters.Add(helprequestId);
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetChatMessagesFromHelprequest]);
-            
+
             List<ChatMessage> chatMessages = new List<ChatMessage>();
 
             foreach (DataRow dr in dt.Rows)
             {
                 chatMessages.Add(new ChatMessage(dr));
-        }
+            }
 
             return chatMessages;
         }
@@ -157,7 +157,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
 
             return acceptedVolunteers;
-        } 
+        }
 
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid

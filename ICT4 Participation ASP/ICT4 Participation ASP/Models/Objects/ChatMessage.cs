@@ -31,7 +31,7 @@ namespace ICT4_Participation_ASP.Models.Objects
         }
 
         public ChatMessage(DataRow dr) 
-            : this(Convert.ToInt32(dr["ID"]), dr["SenderName"].ToString(), Convert.ToInt32(dr["HelprequestID"]), Convert.ToDateTime(dr["Time"]), dr["Message"].ToString())
+            : this(Convert.ToInt32(dr["UserID"]), dr["SenderName"].ToString(), Convert.ToInt32(dr["HelprequestID"]), Convert.ToDateTime(dr["Time"]), dr["Message"].ToString())
         {
             
         }
