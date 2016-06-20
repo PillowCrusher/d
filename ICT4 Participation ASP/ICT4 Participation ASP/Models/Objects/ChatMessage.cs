@@ -6,19 +6,32 @@ namespace ICT4_Participation_ASP.Models.Objects
 {
     public class ChatMessage
     {
-        public User Sender { get; protected set; }
-        public string Message { get; protected set; }
+        public int Id { get; protected set; }
+        public String SenderName { get; protected set; }
+        public int HelprequestId { get; protected set; }
         public DateTime Time { get; protected set; }
-        public string TotalString { get { return Time.Date.ToString("d") + " " + Time.Hour + ":" + Time.Minute + " | " + Sender.Name + ": " + Message; } }
+        public string Message { get; protected set; }
 
-        public ChatMessage(User sender, string message, DateTime time)
+        public string TotalString
         {
-            Sender = sender;
-            Message = message;
-            Time = time;
+            get
+            {
+                return Time.Date.ToString("d") + " " + Time.Hour + ":" + Time.Minute + " | " + SenderName + ": " +
+                       Message;
+            }
         }
 
-      /*  public ChatMessage(DataRow dr) : this(new User(dr), dr[1].ToString(), Convert.ToDateTime(dr[2]))
+        public ChatMessage(int id, string senderName, int helprequestId, DateTime time, string message)
+        {
+            Id = id;
+            SenderName = senderName;
+            HelprequestId = helprequestId;
+            Time = time;
+            Message = message;
+        }
+
+        public ChatMessage(DataRow dr) 
+            : this(Convert.ToInt32(dr["ID"]), dr["SenderName"].ToString(), Convert.ToInt32(dr["HelprequestID"]), Convert.ToDateTime(dr["Time"]), dr["Message"].ToString())
         {
             
         }*/
@@ -29,7 +42,7 @@ namespace ICT4_Participation_ASP.Models.Objects
             if (obj is ChatMessage)
             {
                 ChatMessage other = ((ChatMessage)obj);
-                return this.Sender == other.Sender
+                return this.SenderName == other.SenderName
                     && this.Message == other.Message
                     && this.Time == other.Time;
             }

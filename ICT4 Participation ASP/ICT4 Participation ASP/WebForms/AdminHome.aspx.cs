@@ -26,6 +26,10 @@ namespace ICT4_Participation_ASP
             }
 
 
+            foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
+            {
+                ListBox1.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString()));
+            }
         }
 
         protected void ListBox1_OnSelectedIndexChanged(object sender, EventArgs e)
