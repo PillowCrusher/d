@@ -97,9 +97,21 @@ namespace ICT4_Participation_ASP.Models.Handlers
             return acceptedList;
         }
 
-        public void AcceptVolunteer(Needy user, Volunteer volunteer)
+        public void AcceptVolunteer(Volunteer volunteer, HelpRequest helpRequest)
         {
-
+            helpRequest.AcceptVolunteer(volunteer);
+            List<object> parameters = new List<object>();
+            parameters.Add(helpRequest.ID);
+            parameters.Add(volunteer.ID);
+            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
+        }
+        public void DeclineVolunteer(Volunteer volunteer, HelpRequest helpRequest)
+        {
+            helpRequest.DeclineVolunteer(volunteer);
+            List<object> parameters = new List<object>();
+            parameters.Add(helpRequest.ID);
+            parameters.Add(volunteer.ID);
+            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
         }
     }
 }
