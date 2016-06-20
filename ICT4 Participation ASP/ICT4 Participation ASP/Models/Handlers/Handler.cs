@@ -122,6 +122,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
             Db.ExecuteSqlProcedure(objects, DatabaseQueries.Query[QueryId.InsertVolunteer]);
         }
 
+        public void GetChatMessages()
+        {
+            
+        }
+
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
         ///// </summary>
