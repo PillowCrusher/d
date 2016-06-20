@@ -48,15 +48,19 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 var dataItem = (ListViewDataItem)e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
+                var HelpRequest_ID = _volunteers.FindIndex(a => a.ID == ID);
                 Volunteer volunteer = _volunteers.Find(x => x.ID == ID);
-                _needyHandler.AcceptVolunteer(_currentNeedy, volunteer);
+                HelpRequest helprequest = _helpRequests.Find(x => x.ID == HelpRequest_ID);
+                _needyHandler.AcceptVolunteer(volunteer, helprequest);
             }
             if (string.Equals(e.CommandName, "Decline"))
             {
                 var dataItem = (ListViewDataItem)e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
-                //_currentVolunteer = _volunteers.Find(x => x.ID == ID);
-                //Session["_currentHelpRequest"] = _currentHelpRequest;
+                var HelpRequest_ID = _volunteers.FindIndex(a => a.ID == ID);
+                Volunteer volunteer = _volunteers.Find(x => x.ID == ID);
+                HelpRequest helprequest = _helpRequests.Find(x => x.ID == HelpRequest_ID);
+                _needyHandler.DeclineVolunteer(volunteer, helprequest);
             }
         }
 
