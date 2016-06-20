@@ -96,6 +96,7 @@
     <Content Include="WebForms\LoginStandard.aspx" />
     <Content Include="WebForms\NeedyHelpRequest.aspx" />
     <Content Include="WebForms\NeedyHome.aspx" />
+    <Content Include="WebForms\NeedyPendingVolunteers.aspx" />
     <Content Include="WebForms\NeedyReview.aspx" />
     <Content Include="WebForms\ProfileVolunteer.aspx" />
     <Content Include="WebForms\RegisterNeedy.aspx" />
@@ -106,6 +107,7 @@
     <Content Include="obj\Debug\ICT4 Participation ASP.csprojResolveAssemblyReference.cache" />
     <Content Include="WebForms\VolunteerHome.aspx" />
     <Content Include="WebForms\VolunteerReviews.aspx" />
+    <Content Include="WebForms\VolunteerViewAllHelprequests.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -201,6 +203,13 @@
     <Compile Include="WebForms\NeedyHome.aspx.designer.cs">
       <DependentUpon>NeedyHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\NeedyPendingVolunteers.aspx.cs">
+      <DependentUpon>NeedyPendingVolunteers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\NeedyPendingVolunteers.aspx.designer.cs">
+      <DependentUpon>NeedyPendingVolunteers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForms\NeedyReview.aspx.cs">
       <DependentUpon>NeedyReview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,6 +258,13 @@
     </Compile>
     <Compile Include="WebForms\VolunteerReviews.aspx.designer.cs">
       <DependentUpon>VolunteerReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\VolunteerViewAllHelprequests.aspx.cs">
+      <DependentUpon>VolunteerViewAllHelprequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\VolunteerViewAllHelprequests.aspx.designer.cs">
+      <DependentUpon>VolunteerViewAllHelprequests.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
