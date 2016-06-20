@@ -56,10 +56,10 @@ namespace ICT4_Participation_ASP.Models.Objects
         }
 
         public HelpRequest(DataRow dr): 
-            this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),
-                Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), (TransportationType)Enum.Parse(typeof(TransportationType),dr[6].ToString()), 
-                Convert.ToDateTime(dr[7]), Convert.ToDateTime(dr[8]), Convert.ToInt32(dr[9]),
-                Convert.ToBoolean(dr[10]), new List<Skill>())
+            this(Convert.ToInt32(dr["ID"]), dr["TITLE"].ToString(), dr["DESCRIPTION"].ToString(), dr["LOCATION"].ToString(),
+                Convert.ToInt32(dr["TRAVELTIME"]), Convert.ToBoolean(dr["URGENT"]), (TransportationType)Enum.Parse(typeof(TransportationType),dr["TRANSPORTTYPE"].ToString()), 
+                Convert.ToDateTime(dr["STARTDATE"]), Convert.ToDateTime(dr["ENDDATE"]), Convert.ToInt32(dr["VOLUNTEERSNUMBER"]),
+                Convert.ToBoolean(dr["INTERVIEW"]), new List<Skill>())
         {
             Reviews = new List<Review>();
             ChatMessages = new List<ChatMessage>();
