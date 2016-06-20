@@ -9,6 +9,7 @@ namespace ICT4_Participation_ASP.Models.Database
 
         static DatabaseQueries()
         {
+
             //GET
             Query[QueryId.GetAllHelpRequests] =
                 "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
@@ -153,7 +154,8 @@ namespace ICT4_Participation_ASP.Models.Database
             //:deregistrationdate, :id
             Query[QueryId.UnsubscribeUser] = "UPDATE \"User\" set Deregistrationdate = :p where ID = :pp";
 
-
+            //:helprequestid
+            Query[QueryId.CompleteHelpRequest] = "UPDATE \"Helprequest\" SET Completed = 1 WHERE ID = :p";
 
             //DELETE
             //:id

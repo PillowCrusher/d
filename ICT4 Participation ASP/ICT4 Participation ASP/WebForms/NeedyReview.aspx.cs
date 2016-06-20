@@ -68,12 +68,15 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void btnAfsluiten_Click(object sender, EventArgs e)
         {
-
+            if (_currentHelpRequest != null)
+            {
+                _needyHandler.CompleteHelpreqeust(_currentHelpRequest);
+            }
         }
 
         protected void VrijwilligerListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

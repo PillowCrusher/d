@@ -34,7 +34,7 @@ namespace ICT4_Participation_ASP.Models.Objects
             : this(Convert.ToInt32(dr["ID"]), dr["SenderName"].ToString(), Convert.ToInt32(dr["HelprequestID"]), Convert.ToDateTime(dr["Time"]), dr["Message"].ToString())
         {
             
-        }*/
+        }
             
 
         public override bool Equals(object obj)
