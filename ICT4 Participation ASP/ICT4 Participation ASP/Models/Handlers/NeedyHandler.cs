@@ -44,20 +44,18 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
-        public List<HelpRequest> GetHelprequests(Needy user)
+        public void GetHelprequests(Needy user)
         {           
             List<object> parameters = new List<object>();
             parameters.Add(user.ID);
 
             DataTable dt =  Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserHelpRequests]);
             
-            List<HelpRequest> requestses = new List<HelpRequest>();
             foreach (DataRow dr in dt.Rows)
             {
                 HelpRequest request = new HelpRequest(dr);
                 user.AddHelpRequest(request);
             }
-            return requestses;
         }
 
         public void AddReview(HelpRequest helpRequest, Volunteer volunteer, string message)
