@@ -59,12 +59,20 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AcceptHelpRequest(int userId, int helprequestId)
         {
-            List<object> parameters = new List<object>();
+            try
+            {
+                List<object> parameters = new List<object>();
 
-            parameters.Add(userId);
-            parameters.Add(helprequestId);
+                parameters.Add(userId);
+                parameters.Add(helprequestId);
 
-            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertUserHelprequest]);
+                Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertUserHelprequest]);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Je hebt al geaccepteerd op deze Helprequest. " + Environment.NewLine + 
+                    "Original exception: " + ex.Message);
+            }
         }
 
         public void Unsubscribe(DateTime time, Volunteer volunteer)

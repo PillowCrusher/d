@@ -31,19 +31,22 @@ namespace ICT4_Participation_ASP.WebForms
                     _volunteerHandler.GetAcceptedHelprequests(_currentVolunteer);
                 }
 
-                inputMessage.Visible = false;
-                btnSendMessage.Visible = false;
+                
             }
             else
             {
                 Response.Redirect("LoginStandard.aspx");
             }
+
             if (!IsPostBack)
             {
-                //populate members of list
-                lvList.DataSource = _currentVolunteer.HelpRequestsen;
-                lvList.DataBind();
+                inputMessage.Visible = false;
+                btnSendMessage.Visible = false;
             }
+
+            //populate members of list
+            lvList.DataSource = _currentVolunteer.HelpRequestsen;
+            lvList.DataBind();
         }
 
         private void Page_Error(object sender, EventArgs e)
