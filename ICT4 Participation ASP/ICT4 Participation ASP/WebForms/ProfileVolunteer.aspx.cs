@@ -82,5 +82,12 @@ namespace ICT4_Participation_ASP.WebForms
             //vaardigheden
 
         }
+
+        protected void btnUnsubscribe_Click(object sender, EventArgs e)
+        {
+            _volunteerHandler.Unsubscribe(DateTime.Now, _currentVolunteer);
+            Session["LoggedUser"] = null;
+            Response.Redirect("LoginStandard.aspx");
+        }
     }
 }

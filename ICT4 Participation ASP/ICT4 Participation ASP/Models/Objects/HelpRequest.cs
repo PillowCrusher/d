@@ -85,11 +85,11 @@ namespace ICT4_Participation_ASP.Models.Objects
             ChatMessages.Add(chatMessage);
         }
 
-        public void AddVolunteer(Volunteer volunteer)
+        public void AcceptVolunteer(Volunteer volunteer)
         {
-            if (Pending.Contains(volunteer) == false && Declined.Contains(volunteer) == false && Accepted.Contains(volunteer) == false)
+            if (Accepted.Contains(volunteer) == false && Declined.Contains(volunteer) == false)
             {
-                Pending.Add(volunteer);
+                Accepted.Add(volunteer);
             }
             else
             {

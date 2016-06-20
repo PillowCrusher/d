@@ -62,16 +62,19 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AddReview(HelpRequest helpRequest, Volunteer volunteer, string message)
         {
+
             helpRequest.AddReview(new Review(volunteer, message));
             List<object> parameters = new List<object>();
             parameters.Add(helpRequest.ID);
             parameters.Add(volunteer.ID);
             parameters.Add(message);
             Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertReview]);
+
         }
 
         public void CompleteHelpreqeust(HelpRequest helpRequest)
         {
+            
             List<object> parameters = new List<object>();
             parameters.Add(helpRequest.ID);
             Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.CompleteHelpRequest]);

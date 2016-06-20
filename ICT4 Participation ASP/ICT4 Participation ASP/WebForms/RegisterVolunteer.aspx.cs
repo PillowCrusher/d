@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP.WebForms
@@ -35,7 +36,8 @@ namespace ICT4_Participation_ASP.WebForms
 
             if (password == inputPasswordConfirm.Text)
             {
-                Handler.AddVolunteer(username, email, name, birthdate, address, city, phonenumber, photo, vog, Convert.ToInt32(haslicense), Convert.ToInt32(hascar), password);   
+                Handler.AddVolunteer(username, email, name, birthdate, address, city, phonenumber, photo, vog, Convert.ToInt32(haslicense), Convert.ToInt32(hascar), password);
+                Response.Redirect("LoginStandard.aspx");
             }
             else
             {
