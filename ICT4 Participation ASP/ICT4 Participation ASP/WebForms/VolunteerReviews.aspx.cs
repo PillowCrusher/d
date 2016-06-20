@@ -18,28 +18,32 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
-            }
-            if (Session["LoggedUser"] is Volunteer)
-            {
-                _currentVolunteer = (Volunteer) Session["LoggedUser"];
-                _volunteerHandler = new VolunteerHandler();
-                _volunteerHandler.GetReviews(_currentVolunteer);
-                DdlReview.Items.Clear();
-                foreach (Review r in _currentVolunteer.Reviews)
-                {
-                    DdlReview.Items.Add(r.Message);
-                }
-            }
-            else
-            {
-                Response.Redirect("LoginStandard.aspx");
-            }
+            _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
+            _currentVolunteer = (Volunteer)Session["LoggedUser"];
+            _volunteerHandler = new VolunteerHandler();
+
             if (!IsPostBack)
             {
-                DdlReview.Text = _volunteerHandler.Message;
+                if (IsPostBack)
+                {
+                }
+                if (Session["LoggedUser"] is Volunteer)
+                {
+                    _volunteerHandler.GetReviews(_currentVolunteer);
+                    DdlReview.Items.Clear();
+                    foreach (Review r in _currentVolunteer.Reviews)
+                    {
+                        DdlReview.Items.Add(r.Message);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("LoginStandard.aspx");
+                }
+                if (!IsPostBack)
+                {
+                    DdlReview.Text = _volunteerHandler.Message;
+                }
             }
         }
 
@@ -49,7 +53,7 @@ namespace ICT4_Participation_ASP.WebForms
         {
             foreach (Review r in _currentVolunteer.Reviews)
             {
-                if (r.Message == _volunteerHandler.Message)
+                if (r.Message == DdlReview.SelectedValue)
                 {
                     if (r.Comment != "" || r.Comment != null)
                     {
@@ -74,7 +78,7 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void DdlReview_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _volunteerHandler.SetMessag(DdlReview.SelectedItem.ToString());
+            _volunteerHandler.SetMessag(DdlReview.SelectedValue);
         }
     }
 }

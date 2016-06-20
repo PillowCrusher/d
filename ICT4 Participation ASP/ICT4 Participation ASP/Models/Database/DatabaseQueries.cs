@@ -127,7 +127,7 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.GetChatMessagesFromHelprequest] = "SELECT * FROM \"ChatMessage\" c WHERE c.HELPREQUESTID = :p";
 
             //:id
-            Query[QueryId.GetAllReviewsVolunteer] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :p";
+            Query[QueryId.GetAllReviewsVolunteer] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :p AND COMMENTS IS NULL";
 
             //:id
             Query[QueryId.GetVolunteersHelprequest] =
