@@ -35,9 +35,9 @@
 
                 <ItemTemplate>
                     <li class="list-group-item">
-                        <span ID="VolunteerName" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Name") %> 
-                            <asp:LinkButton runat="server" ID="AcceptVolunteer" Text="Accept" CommandName="Accept" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /> /
-                            <asp:LinkButton runat="server" ID="DeclineVolunteer" Text="Decline" CommandName="Decline" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' />
+                        <span ID="VolunteerName" runat="server" >Naam: <%#DataBinder.Eval(Container.DataItem, "Name") %> <br /> Hulpvraag: <%#DataBinder.Eval(Container.DataItem, "Titel") %> <br />
+                            <asp:LinkButton runat="server" ID="AcceptVolunteer" Text="Accept" CommandName="Accept" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "UserID") %>' /> /
+                            <asp:LinkButton runat="server" ID="DeclineVolunteer" Text="Decline" CommandName="Decline" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "UserID") %>' />
                         </span>
                     </li>
                 </ItemTemplate>
