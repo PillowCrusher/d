@@ -35,7 +35,7 @@
             <asp:TextBox runat="server" ID="inputEndTime" TextMode="Time" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="form-group">
-            <p>Aantal nodige vrijwiliigers: <asp:TextBox ID="inputAantalVrijwilliger" TextMode="Number" runat="server"></asp:TextBox></p>
+            <p>Aantal nodige vrijwiligers: <asp:TextBox ID="inputAantalVrijwilliger" TextMode="Number" runat="server"></asp:TextBox></p>
 
             <label for="inputKennisMaken" class="sr-only checkbox-inline">Kennis maken</label>
             <asp:CheckBox runat="server" ID="cbMeeting" CssClass="checkbox-inline" Text="Kennis maken"/>

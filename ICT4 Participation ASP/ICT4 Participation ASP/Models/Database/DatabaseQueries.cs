@@ -12,7 +12,7 @@ namespace ICT4_Participation_ASP.Models.Database
 
             //GET
             Query[QueryId.GetAllHelpRequests] =
-                "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
+                "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " +
                 "FROM \"Needy\" n " +
                 " JOIN \"Helprequest\" h" +
                 " ON h.NeedyID = n.ID" +
@@ -47,6 +47,7 @@ namespace ICT4_Participation_ASP.Models.Database
             //:barcode
             Query[QueryId.GetUserLoginByBarcode] = "SELECT * FROM TABLE(LogInBar(:p))";
 
+            Query[QueryId.GetUsers] = "SELECT * FROM \"User\" u LEFT JOIN \"Account\" a ON u.ID = a.ID";
             //:username, :password
             //Query[QueryId.GetUserLogin] =
             //    "select * " +

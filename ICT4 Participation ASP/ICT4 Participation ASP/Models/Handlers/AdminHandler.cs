@@ -11,10 +11,14 @@ using ICT4_Participation_ASP.Models.Objects;
 namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class AdminHandler : Handler
+
     {
+        public List<Volunteer> Volunteers { get; set; }
+        public List<User> Users { get; set; }
         public AdminHandler()
         {
-            
+            Volunteers = new List<Volunteer>();
+            Users = new List<User>();
         }
 
         public void AddNeedy(string username, string email, string name, string address, string city, string phonenumber, int ov, int drivinglicense, int car, string barcode, string password)
@@ -41,36 +45,55 @@ namespace ICT4_Participation_ASP.Models.Handlers
             Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.DeleteHelpRequest]);
         }
 
-        public void BlockUser(Volunteer v)
+        public void BlockUser(string id)
         {
-            List<object> objects = new List<object>();
-            objects.Add(v.ID);
-            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.BlockUser]);
+            Volunteer v = null;
+            foreach (Volunteer volunteer in Volunteers)
+            {
+                if (volunteer.ID.ToString() == id)
+                {
+                    v = volunteer;
+                }
+            }
+            if (v != null)
+            {
+                List<object> objects = new List<object>();
+                objects.Add(v.ID);
+                Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.BlockUser]);
+            }
         }
 
-        public void WarnUser(User u)
+        public void WarnUser(string id)
         {
-            List<object> objects = new List<object>();
-            objects.Add(u.ID);
-            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.WarnUser]);
+            User u = null;
+            foreach (User user in Users)
+            {
+                if (user.ID.ToString() == id)
+                {
+                    u = user;
+                }
+            }
+            if (u != null)
+            {
+                List<object> objects = new List<object>();
+                objects.Add(u.ID);
+                Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.WarnUser]);
+            }  
         }
 
-        public List<Volunteer> FillAccepted()
+        public List<User> FillAccepted()
         {
             List<object> parameters = new List<object>();
 
 
-            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAcceptedVolunteers]);
-
-
-            List<Volunteer> acceptedVolunteers = new List<Volunteer>();
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUsers]);
 
             foreach (DataRow dr in dt.Rows)
             {
-                acceptedVolunteers.Add(new Volunteer(dr));
+                Users.Add(new User(dr));
             }
 
-            return acceptedVolunteers;
+            return Users;
         }
 
         public List<Volunteer> FillUnaccepted()
@@ -87,6 +110,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             foreach (DataRow dr in dt.Rows)
             {
                 acceptedVolunteers.Add(new Volunteer(dr));
+                Volunteers.Add(new Volunteer(dr));
             }
 
             return acceptedVolunteers;

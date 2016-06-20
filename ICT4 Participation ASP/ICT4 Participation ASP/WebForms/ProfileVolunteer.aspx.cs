@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using ICT4_Participation_ASP.Models.Accounts;
 using ICT4_Participation_ASP.Models.Handlers;
 using ICT4_Participation_ASP.Models.Objects;
@@ -81,6 +82,13 @@ namespace ICT4_Participation_ASP.WebForms
             //vog
             //vaardigheden
 
+        }
+
+        protected void btnUnsubscribe_Click(object sender, EventArgs e)
+        {
+            _volunteerHandler.Unsubscribe(DateTime.Now, _currentVolunteer);
+            Session["LoggedUser"] = null;
+            Response.Redirect("LoginStandard.aspx");
         }
     }
 }

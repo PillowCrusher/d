@@ -62,8 +62,14 @@ namespace ICT4_Participation_ASP.WebForms
                     volunteer = v;   
                 }
             }
-            _needyHandler.AddReview(_currentHelpRequest, volunteer, inputReview.Text);
-
+            if (_currentHelpRequest.Reviews.Find(x => x.Volunteer == volunteer) == null)
+            {
+                _needyHandler.AddReview(_currentHelpRequest, volunteer, inputReview.Text);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
+            }
         }
 
         protected void btnAfsluiten_Click(object sender, EventArgs e)
@@ -71,6 +77,8 @@ namespace ICT4_Participation_ASP.WebForms
             if (_currentHelpRequest != null)
             {
                 _needyHandler.CompleteHelpreqeust(_currentHelpRequest);
+
+                Response.Redirect("NeedyHome.aspx");
             }
         }
 

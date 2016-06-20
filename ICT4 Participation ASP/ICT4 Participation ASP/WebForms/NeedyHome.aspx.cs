@@ -30,6 +30,7 @@ namespace ICT4_Participation_ASP.WebForms
                 }
                 inputMessage.Visible = false;
                 btnSendMessage.Visible = false;
+                LinkReview.Visible = false;
             }
             else
             {
@@ -58,6 +59,7 @@ namespace ICT4_Participation_ASP.WebForms
                 Session["_currentHelpRequest"] = _currentHelpRequest;
                 inputMessage.Visible = true;
                 btnSendMessage.Visible = true;
+                LinkReview.Visible = true;
                 _currentHelpRequest.GetPreviousChatMessages();
                 RefreshChatMessages();
             }
