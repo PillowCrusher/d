@@ -77,7 +77,7 @@ namespace ICT4_Participation_ASP.WebForms
             if (_currentHelpRequest != null)
             {
                 _needyHandler.CompleteHelpreqeust(_currentHelpRequest);
-
+                _currentNeedy.CompleteHelprequest(_currentHelpRequest);
                 Response.Redirect("NeedyHome.aspx");
             }
         }

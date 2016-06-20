@@ -90,5 +90,26 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
+        public void GetReviews(Volunteer volunteer)
+        {
+            try
+            {
+                List<object> parameters = new List<Object>();
+                parameters.Add(volunteer.ID);
+                DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllReviewsVolunteer]);
+                List<Review> reviews = new List<Review>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    reviews.Add(new Review(volunteer, dr["Message"].ToString(), dr["Comments"].ToString()));
+                }
+                volunteer.AddReview(reviews);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
