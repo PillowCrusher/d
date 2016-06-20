@@ -129,7 +129,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         private List<User> GetUsersFromHelprequest(int id)
         {
-            
+           
         } 
 
         ///// <summary>
