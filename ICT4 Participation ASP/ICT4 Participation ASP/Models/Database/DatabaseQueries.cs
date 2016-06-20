@@ -86,6 +86,14 @@ namespace ICT4_Participation_ASP.Models.Database
             //:username
             //Query[QueryId.GetAccountID] = "SELECT ID from \"Account\" where Username = :p";
 
+            //:helprequestID
+            Query[QueryId.GetAcceptedUsers] = 
+                "SELECT u.ID, u.Name, u.Adres, u.City, u.Phonenumber, u.HasDrivinglicence, u.HasCar, u.DeregistrationDate, u.IsWarned " +
+                "FROM \"User\" u " +
+                "JOIN \"UserHelprequest\" uh " +
+                "ON u.ID = uh.UserID WHERE uh.HelprequestID = :p " +
+                "AND uh.Status = Accepted";
+
             Query[QueryId.GetAcceptedVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 1";
 
             Query[QueryId.GetVOGVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 0";

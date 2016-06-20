@@ -127,6 +127,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
             
         }
 
+        private List<User> GetUsersFromHelprequest(int id)
+        {
+            
+        } 
+
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
         ///// </summary>
