@@ -36,7 +36,7 @@ namespace ICT4_Participation_ASP.Models.Accounts
         }
 
         public Account(DataRow dr)
-            : this((int)dr[0], dr[1].ToString(), dr[2].ToString())
+            : this((int)dr["ID"], dr["Username"].ToString(), dr["email"].ToString())
         {
 
         }

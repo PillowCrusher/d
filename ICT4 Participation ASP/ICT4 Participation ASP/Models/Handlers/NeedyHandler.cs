@@ -44,20 +44,18 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
-        public List<HelpRequest> GetHelprequests(Needy user)
+        public void GetHelprequests(Needy user)
         {           
             List<object> parameters = new List<object>();
             parameters.Add(user.ID);
 
             DataTable dt =  Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserHelpRequests]);
             
-            List<HelpRequest> requestses = new List<HelpRequest>();
             foreach (DataRow dr in dt.Rows)
             {
                 HelpRequest request = new HelpRequest(dr);
                 user.AddHelpRequest(request);
             }
-            return requestses;
         }
 
         public void AddReview(HelpRequest helpRequest, Volunteer volunteer, string message)
@@ -99,9 +97,21 @@ namespace ICT4_Participation_ASP.Models.Handlers
             return acceptedList;
         }
 
-        public void AcceptVolunteer(Needy user, Volunteer volunteer)
+        public void AcceptVolunteer(Volunteer volunteer, HelpRequest helpRequest)
         {
-
+            helpRequest.AcceptVolunteer(volunteer);
+            List<object> parameters = new List<object>();
+            parameters.Add(helpRequest.ID);
+            parameters.Add(volunteer.ID);
+            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
+        }
+        public void DeclineVolunteer(Volunteer volunteer, HelpRequest helpRequest)
+        {
+            helpRequest.DeclineVolunteer(volunteer);
+            List<object> parameters = new List<object>();
+            parameters.Add(helpRequest.ID);
+            parameters.Add(volunteer.ID);
+            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
         }
     }
 }

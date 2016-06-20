@@ -56,10 +56,10 @@ namespace ICT4_Participation_ASP.Models.Objects
         }
 
         public HelpRequest(DataRow dr): 
-            this(Convert.ToInt32(dr["ID"]), dr["TITLE"].ToString(), dr["DESCRIPTION"].ToString(), dr["LOCATION"].ToString(),
-                Convert.ToInt32(dr["TRAVELTIME"]), Convert.ToBoolean(dr["URGENT"]), (TransportationType)Enum.Parse(typeof(TransportationType),dr["TRANSPORTTYPE"].ToString()), 
-                Convert.ToDateTime(dr["STARTDATE"]), Convert.ToDateTime(dr["ENDDATE"]), Convert.ToInt32(dr["VOLUNTEERSNUMBER"]),
-                Convert.ToBoolean(dr["INTERVIEW"]), new List<Skill>())
+            this(Convert.ToInt32(dr["ID"]), dr["Title"].ToString(), dr["Description"].ToString(), dr["Location"].ToString(),
+                Convert.ToInt32(dr["TravelTime"]), Convert.ToBoolean(dr["Urgent"]), (TransportationType)Enum.Parse(typeof(TransportationType),dr["TransportType"].ToString()), 
+                Convert.ToDateTime(dr["StartDate"]), Convert.ToDateTime(dr["EndDate"]), Convert.ToInt32(dr["VolunteersNumber"]),
+                Convert.ToBoolean(dr["Interview"]), new List<Skill>())
         {
             Reviews = new List<Review>();
             ChatMessages = new List<ChatMessage>();
@@ -102,6 +102,18 @@ namespace ICT4_Participation_ASP.Models.Objects
             ChatMessages.AddRange(handler.GetChatMessages(ID));
         }
 
+        public void AcceptVolunteer(Volunteer volunteer)
+        {
+            Volunteer v = Pending.Find(x => x.ID == volunteer.ID);
+            Accepted.Add(v);
+            Pending.Remove(v);
+        }
+        public void DeclineVolunteer(Volunteer volunteer)
+        {
+            Volunteer v = Pending.Find(x => x.ID == volunteer.ID);
+            Declined.Add(v);
+            Pending.Remove(v);
+        }
         public override bool Equals(object obj)
         {
             if (obj is HelpRequest)
