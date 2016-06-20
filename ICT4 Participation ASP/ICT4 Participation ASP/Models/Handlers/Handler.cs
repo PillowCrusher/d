@@ -129,13 +129,13 @@ namespace ICT4_Participation_ASP.Models.Handlers
             parameters.Add(helprequestId);
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetChatMessagesFromHelprequest]);
-
+            
             List<ChatMessage> chatMessages = new List<ChatMessage>();
 
             foreach (DataRow dr in dt.Rows)
             {
                 chatMessages.Add(new ChatMessage(dr));
-            }
+        }
 
             return chatMessages;
         }
