@@ -17,16 +17,16 @@
     <br />
     <div class="row" style="margin: 0px;">
         <div class="col-sm-4">
-            <asp:ListBox ID="ListBox1" Width="100%" runat="server" Rows="25" Font-Size="18" OnSelectedIndexChanged="ListBox1_OnSelectedIndexChanged"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" Width="100%" runat="server" Rows="25" Font-Size="18"></asp:ListBox>
         </div>
         <div class="col-sm-4">
-            <asp:ListBox ID="ListBox2" Width="100%" runat="server" Rows="25" Font-Size="18" OnSelectedIndexChanged="ListBox2_OnSelectedIndexChanged"></asp:ListBox>
+            <asp:ListBox ID="ListBox2" Width="100%" runat="server" Rows="25" Font-Size="18"></asp:ListBox>
         </div>
         <div class="col-sm-2">
-            <asp:ListBox ID="ListBox3" Width="100%" runat="server" Rows="10" Font-Size="18" OnSelectedIndexChanged="ListBox3_OnSelectedIndexChanged"></asp:ListBox>
+            <asp:ListBox ID="ListBox3" Width="100%" runat="server" Rows="10" Font-Size="18"></asp:ListBox>
         </div>
         <div class="col-sm-2">
-            <asp:ListBox ID="ListBox4" Width="100%" runat="server" Rows="10" Font-Size="18" OnSelectedIndexChanged="ListBox4_OnSelectedIndexChanged"></asp:ListBox>
+            <asp:ListBox ID="ListBox4" Width="100%" runat="server" Rows="10" Font-Size="18"></asp:ListBox>
         </div>
         <asp:TextBox ID="TextBox1" runat="server" Width="33%" Height="40%" Rows="13" TextMode="MultiLine" Font-Size="18"></asp:TextBox>
         <div>
