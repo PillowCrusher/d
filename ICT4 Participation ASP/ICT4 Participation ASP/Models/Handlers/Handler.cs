@@ -122,9 +122,17 @@ namespace ICT4_Participation_ASP.Models.Handlers
             Db.ExecuteSqlProcedure(objects, DatabaseQueries.Query[QueryId.InsertVolunteer]);
         }
 
-        public void GetChatMessages()
+        public void GetChatMessages(HelpRequest helpRequest)
         {
-            
+            List<object> parameters = new List<object>();
+            parameters.Add(helpRequest.ID);
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetChatMessagesFromHelprequest]);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ChatMessage message = new ChatMessage(dr);
+                helpRequest.AddChatMessages(message);
+            }
         }
 
         ///// <summary>

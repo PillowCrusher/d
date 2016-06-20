@@ -5,21 +5,18 @@ namespace ICT4_Participation_ASP.Models.Objects
 {
     public class Review
     {
-        public int HelpRequestId { get; protected set; }
         public Volunteer Volunteer { get; protected set; }
         public string Message { get; protected set; }
         public string Comment { get; protected set; }
 
-        public Review(int helpRequestId, Volunteer volunteer, string message)
+        public Review(Volunteer volunteer, string message)
         {
-            HelpRequestId = helpRequestId;
             Volunteer = volunteer;
             Message = message;
         }
 
-        public Review(int helpRequestId, Volunteer volunteer, string message, string comment)
+        public Review(Volunteer volunteer, string message, string comment)
         {
-            HelpRequestId = helpRequestId;
             Volunteer = volunteer;
             Message = message;
             Comment = comment;
@@ -42,8 +39,8 @@ namespace ICT4_Participation_ASP.Models.Objects
             if (obj is Review)
             {
                 Review other = ((Review) obj);
-                return this.HelpRequestId == other.HelpRequestId
-                       && this.Volunteer == other.Volunteer;
+                return  this.Volunteer == other.Volunteer &&
+                    this.Message == other.Message;
             }
             else
             {
@@ -53,7 +50,7 @@ namespace ICT4_Participation_ASP.Models.Objects
 
         public override string ToString()
         {
-            return "Helprequest: " + HelpRequestId;
+            return "Vrijwilliger : " + Volunteer.Name+" beoordeling: "+Message;
         }
 
         public override int GetHashCode()

@@ -94,7 +94,7 @@ namespace ICT4_Participation_ASP.Models.Database
 
             //:helprequestid
             Query[QueryId.GetChatMessagesFromHelprequest] =
-                "SELECT * FROM \"ChatMessage\" c " +
+                "SELECT c.* FROM \"ChatMessage\" c " +
                 "left join \"Account\" a " +
                 "on c.USERID = a.ID " +
                 "left join \"User\" u " +
