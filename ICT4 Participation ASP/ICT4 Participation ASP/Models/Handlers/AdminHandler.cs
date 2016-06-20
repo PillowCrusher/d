@@ -90,7 +90,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             foreach (DataRow dr in dt.Rows)
             {
-                Users.Add(new User(dr));
+                //Users.Add(new User(dr));
             }
 
             return Users;

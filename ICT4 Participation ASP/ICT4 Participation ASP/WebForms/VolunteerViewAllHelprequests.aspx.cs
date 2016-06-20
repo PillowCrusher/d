@@ -44,12 +44,20 @@ namespace ICT4_Participation_ASP.WebForms
         }
         protected void HelpRequestsListView_OnItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            if (string.Equals(e.CommandName, "Accept"))
+            try
             {
-                var ID = Convert.ToInt32(e.CommandArgument);
-                _currentHelpRequest = AllHelpRequests.Find(x => x.ID == ID);
-                Session["_currentHelpRequest"] = _currentHelpRequest;
-                _volunteerHandler.AcceptHelpRequest(_currentVolunteer.ID, _currentHelpRequest.ID);
+                if (string.Equals(e.CommandName, "Accept"))
+                {
+                    var ID = Convert.ToInt32(e.CommandArgument);
+                    _currentHelpRequest = AllHelpRequests.Find(x => x.ID == ID);
+                    Session["_currentHelpRequest"] = _currentHelpRequest;
+                    _volunteerHandler.AcceptHelpRequest(_currentVolunteer.ID, _currentHelpRequest.ID);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('Je hebt al gesolliciteerd op deze Helprequest');</script>");
             }
         }
     }
