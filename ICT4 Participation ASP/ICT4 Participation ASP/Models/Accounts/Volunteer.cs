@@ -67,7 +67,7 @@ namespace ICT4_Participation_ASP.Models.Accounts
         }
 
         public Volunteer(DataRow dr)
-            : this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToBoolean(dr[7]), Convert.ToBoolean(dr[8]), Convert.ToDateTime(dr[9]), dr[10].ToString(), dr[11].ToString(), Convert.ToBoolean(dr[12]), Convert.ToBoolean(dr[13]))
+            : this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[3].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), Convert.ToBoolean(dr[10]), Convert.ToBoolean(dr[11]), Convert.ToDateTime(dr[15]), dr[16].ToString(), dr[17].ToString(), Convert.ToBoolean(dr[18]), Convert.ToBoolean(dr[19]))
         {
             Agenda = new List<Available>();
             Reviews = new List<Review>();

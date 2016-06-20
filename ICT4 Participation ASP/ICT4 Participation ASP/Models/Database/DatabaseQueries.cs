@@ -89,7 +89,7 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.GetAcceptedVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 1";
 
             Query[QueryId.GetVOGVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 0";
-
+            Query[QueryId.GetPendingVolunteers] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"UserHelprequest\" uh on u.ID = uh.USERID left join \"Helprequest\" h on uh.HelpRequestID = h.ID where uh.STATUS = 'Pending' AND h.NEEDYID = :p";
             Query[QueryId.GetAllReviews] = "SELECT * FROM \"Review\"";
 
             //:helprequestid

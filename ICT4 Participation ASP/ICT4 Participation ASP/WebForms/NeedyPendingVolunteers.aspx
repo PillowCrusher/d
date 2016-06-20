@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="NeedyHome.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.NeedyHome" EnableEventValidation="true" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="NeedyPendingVolunteers.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.NeedyPendingVolunteers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
    
@@ -23,37 +23,34 @@
                     </li>
         </ul>
     </div>
-            <div class="container col-sm-3">
+            <div class="container col-sm-4">
         <div class="list-group">
             <asp:ListView ID="lvList" runat="server" EmptyData="No data found!" OnItemCommand="EmployeesListView_OnItemCommand">
                 <LayoutTemplate>
-                    <!-- <div id="containerDiv" runat="server" class="list-group"> -->
-                            <h3>Helprequests</h3>
+                            <h3>Volunteers</h3>
                     <ul class="list-group">
                         <asp:PlaceHolder id="itemPlaceholder" runat="server"></asp:PlaceHolder>
                     </ul>
-                    <!-- </div> -->
                 </LayoutTemplate>
 
                 <ItemTemplate>
                     <li class="list-group-item">
-                        <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> <asp:LinkButton runat="server" ID="SelectEmployeeButton" Text="Open Chat" CommandName="AddToChat" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /></span>
+                        <span ID="VolunteerName" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Name") %> 
+                            <asp:LinkButton runat="server" ID="AcceptVolunteer" Text="Accept" CommandName="Accept" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /> /
+                            <asp:LinkButton runat="server" ID="DeclineVolunteer" Text="Decline" CommandName="Decline" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' />
+                        </span>
                     </li>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    <h3>Hulpvragen</h3>
+                    <h3>Volunteers</h3>
                     <p>
-                        Helprequests kunnen niet worden gevonden.
+                        Volunteers kunnen niet worden gevonden.
                     </p>
                 </EmptyDataTemplate>
             </asp:ListView>
         </div>
     </div>
-            <div class="container col-sm-6">
-                <h3>Chat</h3>
-                <asp:TextBox runat="server" ID="inputChat" CssClass="form-control" TextMode="MultiLine" Height="200" ReadOnly="True"></asp:TextBox>
-                <asp:TextBox runat="server" ID="inputMessage" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                <asp:Button runat="server" ID="btnSendMessage" OnClick="btnSendMessage_OnClick" CssClass="btn btn-block" Text="Versturen" />
-            </div>
+            
         </div>
     </asp:Content>
+

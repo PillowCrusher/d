@@ -13,7 +13,7 @@
                         <a href="VolunteerReviews.aspx">Mijn Beoordelingen</a>
                     </li>
                     <li role="presentation">
-                        <a href="#">???</a>
+                        <a href="VolunteerViewAllHelprequests.aspx">Alle hulpvragen</a>
                     </li>
                     <li role="presentation">
                         <a href="#">???</a>

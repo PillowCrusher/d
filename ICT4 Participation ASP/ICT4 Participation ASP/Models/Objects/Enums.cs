@@ -26,6 +26,7 @@
         GetAllReviewsVolunteer,
         GetVolunteersHelprequest,
         GetAcceptedHelpRequests,
+        GetPendingVolunteers,
         WarnUser,
         BlockUser,
         CompleteHelpRequest,
