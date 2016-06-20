@@ -88,16 +88,12 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUsers]);
 
-
-            List<User> acceptedUsers = new List<User>();
-
             foreach (DataRow dr in dt.Rows)
             {
-                acceptedUsers.Add(new Volunteer(dr));
-                Volunteers.Add(new Volunteer(dr));
+                Users.Add(new User(dr));
             }
 
-            return acceptedUsers;
+            return Users;
         }
 
         public List<Volunteer> FillUnaccepted()

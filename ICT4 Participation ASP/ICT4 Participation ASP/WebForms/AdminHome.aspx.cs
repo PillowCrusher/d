@@ -15,6 +15,8 @@ namespace ICT4_Participation_ASP
         private AdminHandler _currentAdminHandler;
         protected void Page_Load(object sender, EventArgs e)
         {
+            ListBox1.Items.Clear();
+            ListBox2.Items.Clear();
             if (Session["LoggedUser"] is Admin)
             {
                 _currentAdmin = (Admin)Session["LoggedUser"];
