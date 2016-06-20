@@ -10,7 +10,7 @@
                         <a href="NeedyHelpRequest.aspx">Hulpvraag maken</a>
                     </li>
                     <li role="presentation">
-                        <a href="NeedyReview.aspx">Beoordelingen</a>
+                        <asp:LinkButton ID="LinkReview" runat="server" OnClick="LinkReview_Click">Beoordelingen</asp:LinkButton>
                     </li>
                     <li role="presentation">
                         <a href="#">???</a>

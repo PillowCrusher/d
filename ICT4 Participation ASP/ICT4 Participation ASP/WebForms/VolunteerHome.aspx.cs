@@ -29,6 +29,8 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 _currentVolunteer = (Volunteer)Session["LoggedUser"];
                 _volunteerHandler = new VolunteerHandler();
+                inputMessage.Visible = false;
+                btnSendMessage.Visible = false;
             }
             else
             {
@@ -57,6 +59,8 @@ namespace ICT4_Participation_ASP.WebForms
 
                 
                 Session["_currentHelpRequest"] = _currentHelpRequest;
+                inputMessage.Visible = true;
+                btnSendMessage.Visible = true;
                 _currentHelpRequest.GetPreviousChatMessages();
                 RefreshChatMessages();
             }
@@ -65,7 +69,7 @@ namespace ICT4_Participation_ASP.WebForms
         protected void btnSendMessage_OnClick(object sender, EventArgs e)
         {
             var message = inputMessage.Text;
-            _volunteerHandler.AddChatMessages(new ChatMessage(_currentVolunteer.ID, _currentVolunteer.Name, _currentHelpRequest.ID, DateTime.Now, message));
+            _volunteerHandler.AddChatMessage(_currentHelpRequest, _currentVolunteer, message, DateTime.Now);
             inputMessage.Text = String.Empty;
             Session["_acceptedHelpRequests"] = _acceptedHelpRequests;
             RefreshChatMessages();
