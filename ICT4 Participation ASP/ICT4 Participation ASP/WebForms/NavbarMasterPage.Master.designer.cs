@@ -13,6 +13,15 @@ namespace ICT4_Participation_ASP.WebForms {
     public partial class NavbarMasterPage {
         
         /// <summary>
+        /// HomeButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton HomeButton;
+        
+        /// <summary>
         /// LinkNeedyRegister control.
         /// </summary>
         /// <remarks>
