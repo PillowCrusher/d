@@ -10,9 +10,6 @@
                         <a href="NeedyHelpRequest.aspx">Hulpvraag maken</a>
                     </li>
                     <li role="presentation">
-                        <a href="NeedyReview.aspx">Beoordelingen</a>
-                    </li>
-                    <li role="presentation">
                         <a href="NeedyPendingVolunteers.aspx">Hulpverzoeken</a>
                     </li>
                     <li role="presentation">

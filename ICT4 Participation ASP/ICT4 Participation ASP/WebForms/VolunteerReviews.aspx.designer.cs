@@ -22,13 +22,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.Label ReviewLabel;
         
         /// <summary>
-        /// ReviewsListBox control.
+        /// DdlReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ReviewsListBox;
+        protected global::System.Web.UI.WebControls.DropDownList DdlReview;
         
         /// <summary>
         /// inputComment control.

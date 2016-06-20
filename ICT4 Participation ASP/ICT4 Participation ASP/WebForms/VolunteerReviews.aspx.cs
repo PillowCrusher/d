@@ -27,9 +27,10 @@ namespace ICT4_Participation_ASP.WebForms
                 _currentVolunteer = (Volunteer) Session["LoggedUser"];
                 _volunteerHandler = new VolunteerHandler();
                 _volunteerHandler.GetReviews(_currentVolunteer);
+                DdlReview.Items.Clear();
                 foreach (Review r in _currentVolunteer.Reviews)
                 {
-                    ReviewsListBox.Items.Add(r.Message);
+                    DdlReview.Items.Add(r.Message);
                 }
             }
             else
@@ -44,12 +45,15 @@ namespace ICT4_Participation_ASP.WebForms
         {
             foreach (Review r in _currentVolunteer.Reviews)
             {
-                if (r.Message == ReviewsListBox.SelectedValue)
+                if (r.Message == DdlReview.Text)
                 {
-                    if (r.Comment == null)
+                    if (r.Comment != "" || r.Comment != null)
                     {
                         var comment = inputComment.Text;
                         _volunteerHandler.PlaceComment(r, _currentVolunteer, comment);
+                        inputComment.Text = String.Empty;
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('U hebt gereageerd op deze beoordeling');</script>");
+                        Page_Load(null, null);
                     }
                     else
                     {
@@ -57,11 +61,6 @@ namespace ICT4_Participation_ASP.WebForms
                     }
                 }               
             }
-        }
-
-        protected void ReviewsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Page_Error(object sender, EventArgs e)

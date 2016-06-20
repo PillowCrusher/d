@@ -105,9 +105,9 @@ namespace ICT4_Participation_ASP.Models.Accounts
 
         public override bool Equals(object obj)
         {
-            if (obj is HelpRequest)
+            if (obj is Volunteer)
             {
-                HelpRequest other = ((HelpRequest)obj);
+                Volunteer other = ((Volunteer)obj);
                 return this.ID == other.ID;
             }
             else

@@ -31,6 +31,7 @@ namespace ICT4_Participation_ASP.WebForms
                 _listData = new List<ItemData>();
                 _helpRequests = _needyHandler.GetPendingVolunteers(_currentNeedy);
 
+
                 foreach (var hr in _helpRequests)
                 {
                     foreach (Volunteer v in hr.Pending)

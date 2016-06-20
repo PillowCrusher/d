@@ -88,8 +88,16 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void LinkReview_Click(object sender, EventArgs e)
         {
-            Session["_currentHelpRequest"] = _currentHelpRequest;
-            Response.Redirect("NeedyReview.aspx");
+            _needyHandler.GetAcceptedVolunteers(_currentNeedy, _currentHelpRequest);
+            if (_currentHelpRequest.Accepted.Count != 0)
+            {
+                Session["_currentHelpRequest"] = _currentHelpRequest;
+                Response.Redirect("NeedyReview.aspx");
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('U heeft geen vrijwilligers voor deze hulpvraag om te beoordelen');</script>");
+            }
         }
     }
 }
