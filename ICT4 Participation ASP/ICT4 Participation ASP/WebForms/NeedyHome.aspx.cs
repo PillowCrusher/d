@@ -77,7 +77,7 @@ namespace ICT4_Participation_ASP.WebForms
             inputChat.Text = String.Empty;
             foreach (var c in _currentHelpRequest.ChatMessages)
             {
-                inputChat.Text += Environment.NewLine + c.Sender.Name + ": " + c.Message;
+                inputChat.Text += Environment.NewLine + c.SenderName + ": " + c.Message;
             }
         }
 

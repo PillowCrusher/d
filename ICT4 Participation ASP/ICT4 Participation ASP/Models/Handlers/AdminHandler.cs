@@ -91,5 +91,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             return acceptedVolunteers;
         }
+
     }
 }
