@@ -101,13 +101,7 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.GetAllReviews] = "SELECT * FROM \"Review\"";
 
             //:helprequestid
-            Query[QueryId.GetChatMessagesFromHelprequest] =
-                "SELECT * FROM \"ChatMessage\" c " +
-                "left join \"Account\" a " +
-                "on c.USERID = a.ID " +
-                "left join \"User\" u " +
-                "on a.ID = u.ID " +
-                "WHERE c.HELPREQUESTID = :p";
+            Query[QueryId.GetChatMessagesFromHelprequest] = "SELECT * FROM \"ChatMessage\" c WHERE c.HELPREQUESTID = :p";
 
             //:id
             Query[QueryId.GetAllReviewsVolunteer] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :p";
