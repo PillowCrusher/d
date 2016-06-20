@@ -33,19 +33,25 @@ namespace ICT4_Participation_ASP.Models.Handlers
             Db.ExecuteSqlProcedure(objects, DatabaseQueries.Query[QueryId.InsertNeedy]);
         }
 
-        public bool DeleteHelprequest()
+        public void DeleteHelprequest(HelpRequest hr)
         {
-            throw new NotImplementedException();
+            List<object> objects = new List<object>();
+            objects.Add(hr.ID);
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.DeleteHelpRequest]);
         }
 
-        public bool BlockUser()
+        public void BlockUser(Volunteer v)
         {
-            throw new NotImplementedException();
+            List<object> objects = new List<object>();
+            objects.Add(v.ID);
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.BlockUser]);
         }
 
-        public bool WarnUser()
+        public void WarnUser(User u)
         {
-            throw new NotImplementedException();
+            List<object> objects = new List<object>();
+            objects.Add(u.ID);
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.WarnUser]);
         }
 
         public List<Volunteer> FillVolunteerList()
