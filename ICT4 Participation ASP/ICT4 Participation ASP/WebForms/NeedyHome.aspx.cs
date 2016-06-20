@@ -62,8 +62,8 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void btnSendMessage_OnClick(object sender, EventArgs e)
         {
-            var message = inputMessage.Text;
-            _currentHelpRequest.AddChatMessages(new ChatMessage(_currentNeedy, message, DateTime.Now));
+            string message = inputMessage.Text;
+            _needyHandler.AddChatMessage(_currentHelpRequest, _currentNeedy, message, DateTime.Now);
             inputMessage.Text = String.Empty;
             RefreshChatMessages();
         }

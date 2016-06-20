@@ -15,11 +15,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AddHelprequest(Needy user, string titel, string description, string location, int traveltime,  int urgent, string Transportation, DateTime startTime, DateTime endTime, int ammount, int meeting)//string skills)
         {
-            // Todo 
-            // Helprequest moet uniek zijn door bijvoorbeeld titel of combinatie van attributen
-            // dan ophalen en toevoegen aan de lijst in de Needy
-            //user.AddHelpRequest();
-
             List<object> objects = new List<object>();
             objects.Add(user.ID);
             objects.Add(titel);
@@ -63,6 +58,17 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 user.AddHelpRequest(request);
             }
             return requestses;
+        }
+
+        public void AddChatMessage(HelpRequest helpRequest, Needy needy, string message, DateTime time)
+        {
+            helpRequest.AddChatMessages(new ChatMessage(needy, message, time));
+            List<object> objects = new List<object>();
+            objects.Add(needy.ID);
+            objects.Add(helpRequest.ID);
+            objects.Add(time);
+            objects.Add(message);
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.InsertChatMessage]);
         }
     }
 }
