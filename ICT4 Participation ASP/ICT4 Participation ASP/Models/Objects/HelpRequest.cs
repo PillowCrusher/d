@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using ICT4_Participation_ASP.Models.Accounts;
@@ -10,7 +11,9 @@ namespace ICT4_Participation_ASP.Models.Objects
     {
         public List<Review> Reviews { get; protected set; }
         public List<ChatMessage> ChatMessages { get; protected set; }
-        public List<Volunteer> Volunteers { get; protected set; }
+        public List<Volunteer> Pending { get; protected set; }
+        public List<Volunteer> Accepted { get; protected set; }
+        public List<Volunteer> Declined { get; protected set; }
 
         public int ID { get; protected set; }
         public string Titel { get; protected set; }
@@ -23,10 +26,9 @@ namespace ICT4_Participation_ASP.Models.Objects
         public DateTime EndDate { get; protected set; }
         public int VolunteersNumber { get; protected set; }
         public bool Interview { get; protected set; }
-        public bool Completed { get; protected set; }
         public List<Skill> Skills { get; protected set; }
 
-        public HelpRequest(int id, string titel, string description, string location, int travelTime, bool urgent, TransportationType transportationType, DateTime startDate, DateTime endDate, int volunteersNumbers, bool interview, bool completed, List<Skill> skills)
+        public HelpRequest(int id, string titel, string description, string location, int travelTime, bool urgent, TransportationType transportationType, DateTime startDate, DateTime endDate, int volunteersNumbers, bool interview, List<Skill> skills)
         {
             ID = id;
             Titel = titel;
@@ -39,12 +41,26 @@ namespace ICT4_Participation_ASP.Models.Objects
             EndDate = endDate;
             VolunteersNumber = volunteersNumbers;
             Interview = interview;
-            Completed = completed;
             Skills = skills;
 
             Reviews = new List<Review>();
             ChatMessages = new List<ChatMessage>();
-            Volunteers = new List<Volunteer>();
+            Pending = new List<Volunteer>();
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
+        }
+
+        public HelpRequest(DataRow dr): 
+            this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),
+                Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), (TransportationType)Enum.Parse(typeof(TransportationType),dr[6].ToString()), 
+                Convert.ToDateTime(dr[7]), Convert.ToDateTime(dr[8]), Convert.ToInt32(dr[9]),
+                Convert.ToBoolean(dr[10]), new List<Skill>())
+        {
+            Reviews = new List<Review>();
+            ChatMessages = new List<ChatMessage>();
+            Pending = new List<Volunteer>();
+            Accepted = new List<Volunteer>();
+            Declined = new List<Volunteer>();
         }
 
         public void AddReview(Review review)
@@ -66,9 +82,9 @@ namespace ICT4_Participation_ASP.Models.Objects
 
         public void AddVolunteer(Volunteer volunteer)
         {
-            if (Volunteers.Contains(volunteer) == false)
+            if (Pending.Contains(volunteer) == false && Declined.Contains(volunteer) == false && Accepted.Contains(volunteer) == false)
             {
-                Volunteers.Add(volunteer);
+                Pending.Add(volunteer);
             }
             else
             {

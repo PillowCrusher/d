@@ -67,6 +67,33 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputLocation;
         
         /// <summary>
+        /// inputRijsTijd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputRijsTijd;
+        
+        /// <summary>
+        /// cbUrgent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbUrgent;
+        
+        /// <summary>
+        /// DdlTransport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlTransport;
+        
+        /// <summary>
         /// inputStartDateValidator control.
         /// </summary>
         /// <remarks>
@@ -139,22 +166,13 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.TextBox inputEndTime;
         
         /// <summary>
-        /// cbDrivingLicence control.
+        /// inputAantalVrijwilliger control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbDrivingLicence;
-        
-        /// <summary>
-        /// cbUrgent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbUrgent;
+        protected global::System.Web.UI.WebControls.TextBox inputAantalVrijwilliger;
         
         /// <summary>
         /// cbMeeting control.

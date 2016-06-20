@@ -10,6 +10,15 @@
         <asp:RequiredFieldValidator ID="LocationFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputLocation" ErrorMessage="Je moet een locatie invullen" ForeColor="Red" ></asp:RequiredFieldValidator>
         <asp:TextBox runat="server" ID="inputLocation" placeholder="Lokatie" CssClass="form-control"></asp:TextBox>
         <p></p>
+
+        <div>
+          <p>Benodigde reistijd:  <asp:TextBox ID="inputRijsTijd" runat="server" TextMode="Number"></asp:TextBox></p>
+        </div>
+        <div>
+        <label for="inputUrgent" class="sr-only checkbox-inline">Urgent</label>
+            <asp:CheckBox runat="server" ID="cbUrgent" CssClass="checkbox-inline" Text="Urgent"/>
+        </div>
+        <p>Nodig vervoertype: <asp:DropDownList ID="DdlTransport" runat="server"></asp:DropDownList></p>
         
         <div class="form-group">
             <p>Start datum en tijd</p>
@@ -26,10 +35,8 @@
             <asp:TextBox runat="server" ID="inputEndTime" TextMode="Time" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="inputRijbewijs" class="sr-only checkbox-inline">Rijbewijs</label>
-            <asp:CheckBox runat="server" ID="cbDrivingLicence" CssClass="checkbox-inline" Text="Rijbewijs"/>
-            <label for="inputUrgent" class="sr-only checkbox-inline">Urgent</label>
-            <asp:CheckBox runat="server" ID="cbUrgent" CssClass="checkbox-inline" Text="Urgent"/>
+            <p>Aantal nodige vrijwiliigers: <asp:TextBox ID="inputAantalVrijwilliger" TextMode="Number" runat="server"></asp:TextBox></p>
+
             <label for="inputKennisMaken" class="sr-only checkbox-inline">Kennis maken</label>
             <asp:CheckBox runat="server" ID="cbMeeting" CssClass="checkbox-inline" Text="Kennis maken"/>
         </div>

@@ -1,32 +1,33 @@
 ﻿using System;
+using ICT4_Participation_ASP.Models.Accounts;
 
 namespace ICT4_Participation_ASP.Models.Objects
 {
     public class Review
     {
         public int HelpRequestId { get; protected set; }
-        public int VolunteerId { get; protected set; }
+        public Volunteer Volunteer { get; protected set; }
         public string Message { get; protected set; }
         public string Comment { get; protected set; }
 
-        public Review(int helpRequestId, int volunteerId, string message)
+        public Review(int helpRequestId, Volunteer volunteer, string message)
         {
             HelpRequestId = helpRequestId;
-            VolunteerId = volunteerId;
+            Volunteer = volunteer;
             Message = message;
         }
 
-        public Review(int helpRequestId, int volunteerId, string message, string comment)
+        public Review(int helpRequestId, Volunteer volunteer, string message, string comment)
         {
             HelpRequestId = helpRequestId;
-            VolunteerId = volunteerId;
+            Volunteer = volunteer;
             Message = message;
             Comment = comment;
         }
 
-        public void AddComment(int volunteerId, string comment)
+        public void AddComment(Volunteer volunteer, string comment)
         {
-            if (VolunteerId == volunteerId)
+            if (Volunteer == volunteer)
             {
                 Comment = comment;
             }
@@ -42,7 +43,7 @@ namespace ICT4_Participation_ASP.Models.Objects
             {
                 Review other = ((Review) obj);
                 return this.HelpRequestId == other.HelpRequestId
-                       && this.VolunteerId == other.VolunteerId;
+                       && this.Volunteer == other.Volunteer;
             }
             else
             {

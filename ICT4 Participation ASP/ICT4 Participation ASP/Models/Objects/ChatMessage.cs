@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using ICT4_Participation_ASP.Models.Accounts;
 
 namespace ICT4_Participation_ASP.Models.Objects
@@ -16,6 +17,12 @@ namespace ICT4_Participation_ASP.Models.Objects
             Message = message;
             Time = time;
         }
+
+        public ChatMessage(DataRow dr) : this(new User(dr), dr[1].ToString(), Convert.ToDateTime(dr[2]))
+        {
+            
+        }
+            
 
         public override bool Equals(object obj)
         {

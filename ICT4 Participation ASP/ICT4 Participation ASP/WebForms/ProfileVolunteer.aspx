@@ -8,7 +8,7 @@
         <p>Naam: <asp:Label ID="NameLabel" runat="server" Text="Label"></asp:Label></p>
         
         <asp:RequiredFieldValidator ID="AdresRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputAdres" ErrorMessage="Je moet een adres invullen" ForeColor="Red" ></asp:RequiredFieldValidator>
-        <p>Address: <asp:TextBox ID="inputAdres" class="form-control" placeholder="Address"  runat="server"></asp:TextBox></p>        
+        <p>Adres: <asp:TextBox ID="inputAdres" class="form-control" placeholder="Address"  runat="server"></asp:TextBox></p>        
         <asp:RequiredFieldValidator ID="CityRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputCity" ErrorMessage="Je moet een woonplaats invullen" ForeColor="Red" ></asp:RequiredFieldValidator>
         <p>Woonplaats: <asp:TextBox ID="inputCity" class="form-control" placeholder="Woonplaats" runat="server"></asp:TextBox></p> 
         <asp:RequiredFieldValidator ID="PhonenumberRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputPhonenumber" ErrorMessage="Je moet een telefoonnummer invullen" ForeColor="Red" ></asp:RequiredFieldValidator>
