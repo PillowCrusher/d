@@ -60,6 +60,7 @@ namespace ICT4_Participation_ASP.WebForms
                 Session["_currentHelpRequest"] = _currentHelpRequest;
                 inputMessage.Visible = true;
                 btnSendMessage.Visible = true;
+                _currentHelpRequest.GetPreviousChatMessages();
                 RefreshChatMessages();
             }
         }

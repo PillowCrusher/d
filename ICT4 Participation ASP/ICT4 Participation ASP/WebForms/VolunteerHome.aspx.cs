@@ -56,9 +56,12 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _acceptedHelpRequests.Find(x => x.ID == ID);
+
+                
                 Session["_currentHelpRequest"] = _currentHelpRequest;
                 inputMessage.Visible = true;
                 btnSendMessage.Visible = true;
+                _currentHelpRequest.GetPreviousChatMessages();
                 RefreshChatMessages();
             }
         }
@@ -77,7 +80,7 @@ namespace ICT4_Participation_ASP.WebForms
             inputChat.Text = String.Empty;
             foreach (var c in _currentHelpRequest.ChatMessages)
             {
-                inputChat.Text += Environment.NewLine + c.TotalString;
+                inputChat.Text += c.TotalString + Environment.NewLine;
             }
         }
     }
