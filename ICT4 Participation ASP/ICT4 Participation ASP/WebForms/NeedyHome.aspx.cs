@@ -55,7 +55,6 @@ namespace ICT4_Participation_ASP.WebForms
         {
             if (string.Equals(e.CommandName, "AddToChat"))
             {
-                inputChat.Text = string.Empty;
                 var dataItem = (ListViewDataItem)e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _currentNeedy.HelpRequestsen.Find(x => x.ID == ID);
@@ -72,7 +71,6 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void btnSendMessage_OnClick(object sender, EventArgs e)
         {
-            inputChat.Text = string.Empty;
             string message = inputMessage.Text;
             _needyHandler.AddChatMessage(_currentHelpRequest, _currentNeedy, message, DateTime.Now);
             inputMessage.Text = String.Empty;
