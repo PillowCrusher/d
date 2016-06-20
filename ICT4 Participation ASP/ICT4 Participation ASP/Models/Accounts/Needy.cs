@@ -9,8 +9,6 @@ namespace ICT4_Participation_ASP.Models.Accounts
 {
     public class Needy : User
     {
-        public List<HelpRequest> HelpRequestsen { get; protected set; }
-
         /// <summary>
         /// Geeft aan of de hulpbehoevende gebruik kan maken van het openbaar verveor
         /// </summary>
@@ -41,26 +39,12 @@ namespace ICT4_Participation_ASP.Models.Accounts
         {
             Barcode = barcode;
             OVPosible = publicTransport;
-
-            HelpRequestsen = new List<HelpRequest>();
         }
 
         public Needy(DataRow dr)
             : this(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), Convert.ToBoolean(dr[7]), Convert.ToBoolean(dr[8]), Convert.ToBoolean(dr[9]), dr[10].ToString(), Convert.ToBoolean(dr[11]))
         {
-            HelpRequestsen = new List<HelpRequest>();
-        }
 
-        public void AddHelpRequest(HelpRequest helpRequest)
-        {
-            if (HelpRequestsen.Contains(helpRequest) == false)
-            {
-                HelpRequestsen.Add(helpRequest);
-            }
-            else
-            {
-                throw new ArgumentException("Deze helprequest bestaat al");
-            }
         }
     }
 

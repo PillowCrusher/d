@@ -174,6 +174,8 @@ namespace ICT4_Participation_ASP.Models.Handlers
             return acceptedVolunteers;
         }
 
+
+
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
         ///// </summary>
