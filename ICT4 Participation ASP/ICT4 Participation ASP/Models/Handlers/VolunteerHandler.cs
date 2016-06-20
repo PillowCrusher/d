@@ -56,5 +56,15 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
             return requestses;
         }
+
+        public void AcceptHelpRequest(int userId, int helprequestId)
+        {
+            List<object> parameters = new List<object>();
+
+            parameters.Add(userId);
+            parameters.Add(helprequestId);
+
+            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertUserHelprequest]);
+        }
     }
 }
