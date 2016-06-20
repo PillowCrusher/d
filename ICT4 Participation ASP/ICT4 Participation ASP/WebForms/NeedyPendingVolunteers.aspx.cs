@@ -16,6 +16,7 @@ namespace ICT4_Participation_ASP.WebForms
         private NeedyHandler _needyHandler;
         private List<Volunteer> _volunteers;
         private List<HelpRequest> _helpRequests;
+        private List<ItemData> _listData;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,9 +28,16 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 _currentNeedy = (Needy)Session["LoggedUser"];
                 _needyHandler = new NeedyHandler();
-                List<object> everything = _needyHandler.GetPendingVolunteers(_currentNeedy);
-                _volunteers = (List<Volunteer>)everything[0];
-                _helpRequests = (List<HelpRequest>) everything[1];
+                _listData = new List<ItemData>();
+                _helpRequests = _needyHandler.GetPendingVolunteers(_currentNeedy);
+
+                foreach (var hr in _helpRequests)
+                {
+                    foreach (Volunteer v in hr.Pending)
+                    {
+                        _listData.Add(new ItemData(v.Name, hr.Titel, v.ID, hr.ID));
+                    }
+                }
             }
             else
             {
@@ -38,7 +46,7 @@ namespace ICT4_Participation_ASP.WebForms
             if (!IsPostBack)
             {
                 //populate members of list
-                lvList.DataSource = _volunteers;
+                lvList.DataSource = _listData;
                 lvList.DataBind();
             }
         }
@@ -48,9 +56,10 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 var dataItem = (ListViewDataItem)e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
-                var HelpRequest_ID = _volunteers.FindIndex(a => a.ID == ID);
+                var HelpRequest_Index = _volunteers.FindIndex(a => a.ID == ID);
+                //int HelpRequest_ID = _helpRequests[HelpRequest_Index];
                 Volunteer volunteer = _volunteers.Find(x => x.ID == ID);
-                HelpRequest helprequest = _helpRequests.Find(x => x.ID == HelpRequest_ID);
+                HelpRequest helprequest = _helpRequests[HelpRequest_Index];
                 _needyHandler.AcceptVolunteer(volunteer, helprequest);
             }
             if (string.Equals(e.CommandName, "Decline"))
@@ -63,6 +72,20 @@ namespace ICT4_Participation_ASP.WebForms
                 _needyHandler.DeclineVolunteer(volunteer, helprequest);
             }
         }
+    }
+    public class ItemData
+    {
+        public string Name { get; set; }
+        public string Titel { get; set; }
+        public int UserID { get; set; }
+        public int HelpRequestID { get; set; }
 
+        public ItemData(string name, string titel, int userid, int helprequestid)
+        {
+            Name = name;
+            Titel = titel;
+            UserID = userid;
+            HelpRequestID = helprequestid;
+        }
     }
 }

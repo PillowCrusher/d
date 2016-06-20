@@ -28,9 +28,13 @@ namespace ICT4_Participation_ASP
             }
 
 
-            foreach (User user in _currentAdminHandler.FillAccepted())
+            foreach (User user in _currentAdminHandler.FillUsers())
             {
-                ListBox1.Items.Add(new ListItem(user.Name, user.ID.ToString()));
+                ListBox1.Items.Add(new ListItem("Needy :"+ user.Name, user.ID.ToString()));
+            }
+            foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
+            {
+                ListBox1.Items.Add(new ListItem("Volunteer :"+volunteer.Name,volunteer.ID.ToString()));
             }
             foreach (Volunteer volunteer in _currentAdminHandler.FillUnaccepted())
             {

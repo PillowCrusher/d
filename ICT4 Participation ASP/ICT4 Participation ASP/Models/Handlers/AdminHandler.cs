@@ -81,7 +81,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }  
         }
 
-        public List<User> FillAccepted()
+        public List<User> FillUsers()
         {
             List<object> parameters = new List<object>();
 
@@ -94,6 +94,26 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
 
             return Users;
+        }
+
+        public List<Volunteer> FillAccepted()
+        {
+
+            List<object> parameters = new List<object>();
+
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAcceptedVolunteers]);
+
+
+            List<Volunteer> acceptedVolunteers = new List<Volunteer>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                acceptedVolunteers.Add(new Volunteer(dr));
+                Volunteers.Add(new Volunteer(dr));
+            }
+
+            return acceptedVolunteers;
         }
 
         public List<Volunteer> FillUnaccepted()
