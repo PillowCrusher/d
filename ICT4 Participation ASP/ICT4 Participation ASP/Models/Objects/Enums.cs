@@ -51,6 +51,7 @@
         InsertAdmin,
         InsertChatMessage,
         InsertUserHelprequest,
-        InsertReport
+        InsertReport,
+        GetUsers
     }
 }

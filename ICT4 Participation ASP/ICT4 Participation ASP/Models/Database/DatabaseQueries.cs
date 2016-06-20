@@ -47,6 +47,7 @@ namespace ICT4_Participation_ASP.Models.Database
             //:barcode
             Query[QueryId.GetUserLoginByBarcode] = "SELECT * FROM TABLE(LogInBar(:p))";
 
+            Query[QueryId.GetUsers] = "SELECT * FROM \"USER\"";
             //:username, :password
             //Query[QueryId.GetUserLogin] =
             //    "select * " +

@@ -26,9 +26,9 @@ namespace ICT4_Participation_ASP
             }
 
 
-            foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
+            foreach (User user in _currentAdminHandler.FillAccepted())
             {
-                ListBox1.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString()));
+                ListBox1.Items.Add(new ListItem(user.Name, user.ID.ToString()));
             }
             foreach (Volunteer volunteer in _currentAdminHandler.FillUnaccepted())
             {
@@ -39,12 +39,12 @@ namespace ICT4_Participation_ASP
 
         protected void Button1_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentAdminHandler.BlockUser(ListBox1.SelectedValue);
         }
 
         protected void Button2_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentAdminHandler.WarnUser(ListBox1.SelectedValue);
         }
 
         protected void Button4_OnClick(object sender, EventArgs e)
