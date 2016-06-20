@@ -86,11 +86,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
             List<object> parameters = new List<object>();
 
 
-            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUsers]);
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetNeedy]);
 
             foreach (DataRow dr in dt.Rows)
             {
-               // Users.Add(new User(dr));
+                Users.Add(new Needy(dr));
             }
 
             return Users;
