@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,15 +49,41 @@ namespace ICT4_Participation_ASP.Models.Handlers
             throw new NotImplementedException();
         }
 
-        public List<Volunteer> FillVolunteerList()
+        public List<Volunteer> FillAccepted()
         {
-            return null;
+            List<object> parameters = new List<object>();
+
+
+            DataTable dt = Db.ExecuteReadQuery(parameters,DatabaseQueries.Query[QueryId.GetAcceptedVolunteers]);
+
+
+            List<Volunteer> acceptedVolunteers = new List<Volunteer>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                acceptedVolunteers.Add(new Volunteer(dr));
+            }
+
+            return acceptedVolunteers;
         }
 
         public List<Volunteer> FillUnaccepted()
         {
 
-            return null;
+            List<object> parameters = new List<object>();
+
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetVOGVolunteers]);
+
+
+            List<Volunteer> acceptedVolunteers = new List<Volunteer>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                acceptedVolunteers.Add(new Volunteer(dr));
+            }
+
+            return acceptedVolunteers;
         }
     }
 }
