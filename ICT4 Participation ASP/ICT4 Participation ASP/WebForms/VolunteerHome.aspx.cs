@@ -29,6 +29,8 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 _currentVolunteer = (Volunteer)Session["LoggedUser"];
                 _volunteerHandler = new VolunteerHandler();
+                inputMessage.Visible = false;
+                btnSendMessage.Visible = false;
             }
             else
             {
@@ -52,10 +54,13 @@ namespace ICT4_Participation_ASP.WebForms
         {
             if (string.Equals(e.CommandName, "AddToChat"))
             {
+                var dataItem = (ListViewDataItem)e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _acceptedHelpRequests.Find(x => x.ID == ID);
                 Session["_currentHelpRequest"] = _currentHelpRequest;
-                
+                inputMessage.Visible = true;
+                btnSendMessage.Visible = true;
+                _currentHelpRequest.GetPreviousChatMessages();
                 RefreshChatMessages();
             }
         }
@@ -63,7 +68,7 @@ namespace ICT4_Participation_ASP.WebForms
         protected void btnSendMessage_OnClick(object sender, EventArgs e)
         {
             var message = inputMessage.Text;
-            _currentHelpRequest.AddChatMessages(new ChatMessage(_currentVolunteer, message, DateTime.Now));
+            _volunteerHandler.AddChatMessage(_currentHelpRequest, _currentVolunteer, message, DateTime.Now);
             inputMessage.Text = String.Empty;
             Session["_acceptedHelpRequests"] = _acceptedHelpRequests;
             RefreshChatMessages();
@@ -74,7 +79,7 @@ namespace ICT4_Participation_ASP.WebForms
             inputChat.Text = String.Empty;
             foreach (var c in _currentHelpRequest.ChatMessages)
             {
-                inputChat.Text += Environment.NewLine + c.Sender.Name + ": " + c.Message;
+                inputChat.Text += c.TotalString + Environment.NewLine;
             }
         }
     }

@@ -15,14 +15,20 @@ namespace ICT4_Participation_ASP
         private AdminHandler _currentAdminHandler;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LoggedUser"] is Admin||Session["LoggedUser"]==null)
+            if (Session["LoggedUser"] is Admin)
             {
-                _currentAdmin = (Admin) Session["LoggedUser"];
+                _currentAdmin = (Admin)Session["LoggedUser"];
                 _currentAdminHandler = new AdminHandler();
             }
             else
             {
                 Response.Redirect("~/WebForms/LoginStandard.aspx");
+            }
+
+
+            foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
+            {
+                ListBox1.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString()));
             }
         }
 
@@ -57,6 +63,11 @@ namespace ICT4_Participation_ASP
         }
 
         protected void Button3_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void ListBox4_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }

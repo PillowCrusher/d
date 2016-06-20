@@ -9,6 +9,7 @@ namespace ICT4_Participation_ASP.Models.Database
 
         static DatabaseQueries()
         {
+
             //GET
             Query[QueryId.GetAllHelpRequests] =
                 "SELECT h.ID, u.NAME, h.TITLE, h.DESCRIPTION, h.LOCATION, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.INTERVIEW, h.COMPLETED " +
@@ -86,6 +87,14 @@ namespace ICT4_Participation_ASP.Models.Database
             //:username
             //Query[QueryId.GetAccountID] = "SELECT ID from \"Account\" where Username = :p";
 
+            //:helprequestID
+            //Query[QueryId.GetAcceptedUsers] = 
+            //    "SELECT u.ID, u.Name, u.Adres, u.City, u.Phonenumber, u.HasDrivinglicence, u.HasCar, u.DeregistrationDate, u.IsWarned " +
+            //    "FROM \"User\" u " +
+            //    "JOIN \"UserHelprequest\" uh " +
+            //    "ON u.ID = uh.UserID WHERE uh.HelprequestID = :p " +
+            //    "AND uh.Status = Accepted";
+
             Query[QueryId.GetAcceptedVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 1";
 
             Query[QueryId.GetVOGVolunteers] = "select * from \"Volunteer\" v left join \"User\" u on v.ID = u.ID left join \"Account\" a on a.ID = u.ID WHERE ACCEPTED = 0";
@@ -93,27 +102,18 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.GetAllReviews] = "SELECT * FROM \"Review\"";
 
             //:helprequestid
-            Query[QueryId.GetChatMessagesFromHelprequest] =
-                "SELECT * FROM \"ChatMessage\" c " +
-                "left join \"Account\" a " +
-                "on c.USERID = a.ID " +
-                "left join \"User\" u " +
-                "on a.ID = u.ID " +
-                "WHERE c.HELPREQUESTID = :p";
+            Query[QueryId.GetChatMessagesFromHelprequest] = "SELECT * FROM \"ChatMessage\" c WHERE c.HELPREQUESTID = :p";
 
             //:id
             Query[QueryId.GetAllReviewsVolunteer] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :p";
 
             //:id
             Query[QueryId.GetVolunteersHelprequest] =
-                "select * " +
-                "from \"UserHelprequest\" h, \"Volunteer\" v " +
-                "left join \"User\" u " +
-                "on v.ID = u.ID " +
-                "left join \"Account\" a " +
-                "on a.ID = u.ID " +
-                "WHERE h.USERID = a.id " +
-                "AND h.HELPREQUESTID = :p";
+                "SELECT u.ID, u.Name, u.Adres, u.City, u.Phonenumber, u.HasDrivinglicence, u.HasCar, u.DeregistrationDate, u.IsWarned " +
+                "FROM \"User\" u " +
+                "JOIN \"UserHelprequest\" uh " +
+                "ON u.ID = uh.UserID WHERE uh.HelprequestID = :p " +
+                "AND uh.Status = Accepted";
 
             //:userid
             Query[QueryId.GetAcceptedHelpRequests] = "SELECT HELPREQUESTID FROM \"UserHelprequest\" WHERE USERID = :p AND STATUS = 'Accepted'";
@@ -154,7 +154,8 @@ namespace ICT4_Participation_ASP.Models.Database
             //:deregistrationdate, :id
             Query[QueryId.UnsubscribeUser] = "UPDATE \"User\" set Deregistrationdate = :p where ID = :pp";
 
-
+            //:helprequestid
+            Query[QueryId.CompleteHelpRequest] = "UPDATE \"Helprequest\" SET Completed = 1 WHERE ID = :p";
 
             //DELETE
             //:id
@@ -191,7 +192,7 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.InsertAdmin] = "INSERT INTO \"Admin\" (ID, BARCODE) values (:p, :pp)";
 
             //:userid, :helprequestid, :time, :message
-            Query[QueryId.InsertChatMessage] = "INSERT INTO \"ChatMessage\" (UserID, HelpRequestID, Time, Message) values (:p, :pp, :ppp, :pppp)";
+            Query[QueryId.InsertChatMessage] = "INSERT INTO \"ChatMessage\" (UserID, SenderName, HelpRequestID, Time, Message) values (:p, :pp, :ppp, :pppp, :ppppp)";
 
             //:userid, :helprequestid
             Query[QueryId.InsertUserHelprequest] = "INSERT INTO \"UserHelprequest\" (UserID, HelpRequestID) values (:p, :pp)";

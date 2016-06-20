@@ -20,6 +20,7 @@
         GetAdminLogin,
         GetAccountID,
         GetAcceptedVolunteers,
+        GetAcceptedUsers,
         GetVOGVolunteers,
         GetAllReviews,
         GetChatMessagesFromHelprequest,

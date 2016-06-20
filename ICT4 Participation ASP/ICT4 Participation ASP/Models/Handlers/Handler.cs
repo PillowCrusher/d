@@ -79,7 +79,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         /// <param name="Barcode"></param>
         public Needy LoginBar(List<object> parameters)
         {
-            if(parameters.Count != 1) throw new Exception("Er zijn meer dan 1 accounts gevonden, neem contact op met de systeem beheerder.");
+            if (parameters.Count != 1) throw new Exception("Er zijn meer dan 1 accounts gevonden, neem contact op met de systeem beheerder.");
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserLoginByBarcode]);
 
@@ -101,10 +101,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 }
             }
 
-            return (Needy) loggedAccount;
+            return (Needy)loggedAccount;
         }
 
-        public void AddVolunteer(string username, string email, string name, DateTime birthdate, string address, string city,string phonenumber, string photo,string vog, int haslicense, int hascar, string password)
+        public void AddVolunteer(string username, string email, string name, DateTime birthdate, string address, string city, string phonenumber, string photo, string vog, int haslicense, int hascar, string password)
         {
             List<object> objects = new List<object>();
             objects.Add(username);
@@ -120,6 +120,58 @@ namespace ICT4_Participation_ASP.Models.Handlers
             objects.Add(photo);
             objects.Add(vog);
             Db.ExecuteSqlProcedure(objects, DatabaseQueries.Query[QueryId.InsertVolunteer]);
+        }
+
+        public void AddChatMessage(HelpRequest helpRequest, User user, string message, DateTime time)
+        {
+            helpRequest.AddChatMessages(new ChatMessage(user.ID, user.Name, helpRequest.ID, time, message));
+
+            List<object> objects = new List<object>();
+
+            objects.Add(user.ID);
+            objects.Add(user.Name);
+            objects.Add(helpRequest.ID);
+            objects.Add(time);
+            objects.Add(message);
+
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.InsertChatMessage]);
+        }
+
+        public List<ChatMessage> GetChatMessages(int helprequestId)
+        {
+            List<object> parameters = new List<object>();
+
+            parameters.Add(helprequestId);
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetChatMessagesFromHelprequest]);
+
+            List<ChatMessage> chatMessages = new List<ChatMessage>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                chatMessages.Add(new ChatMessage(dr));
+            }
+
+            return chatMessages;
+        }
+
+        public List<Volunteer> GetUsersFromHelprequest(int helprequestId)
+        {
+            List<object> parameters = new List<object>();
+
+            parameters.Add(helprequestId);
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetVolunteersHelprequest]);
+
+
+            List<Volunteer> acceptedVolunteers = new List<Volunteer>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                acceptedVolunteers.Add(new Volunteer(dr));
+            }
+
+            return acceptedVolunteers;
         }
 
         ///// <summary>

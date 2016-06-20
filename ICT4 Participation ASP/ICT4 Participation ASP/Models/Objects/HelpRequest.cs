@@ -4,11 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using ICT4_Participation_ASP.Models.Accounts;
+using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP.Models.Objects
 {
     public class HelpRequest
     {
+        private Handler handler;
+
         public List<Review> Reviews { get; protected set; }
         public List<ChatMessage> ChatMessages { get; protected set; }
         public List<Volunteer> Pending { get; protected set; }
@@ -48,6 +51,8 @@ namespace ICT4_Participation_ASP.Models.Objects
             Pending = new List<Volunteer>();
             Accepted = new List<Volunteer>();
             Declined = new List<Volunteer>();
+
+            handler = new Handler();
         }
 
         public HelpRequest(DataRow dr): 
@@ -90,6 +95,11 @@ namespace ICT4_Participation_ASP.Models.Objects
             {
                 throw new ArgumentException("Deze vrijwilliger bestaat al");
             }
+        }
+
+        public void GetPreviousChatMessages()
+        {
+            ChatMessages.AddRange(handler.GetChatMessages(ID));
         }
 
         public override bool Equals(object obj)
