@@ -52,6 +52,6 @@
         InsertChatMessage,
         InsertUserHelprequest,
         InsertReport,
-        GetUsers
+        GetNeedy
     }
 }

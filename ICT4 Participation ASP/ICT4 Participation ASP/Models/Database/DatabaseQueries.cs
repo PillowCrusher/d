@@ -47,7 +47,7 @@ namespace ICT4_Participation_ASP.Models.Database
             //:barcode
             Query[QueryId.GetUserLoginByBarcode] = "SELECT * FROM TABLE(LogInBar(:p))";
 
-            Query[QueryId.GetUsers] = "SELECT * FROM \"User\" u LEFT JOIN \"Account\" a ON u.ID = a.ID WHERE u.ID NOT IN(SELECT ID FROM \"Volunteer\") AND u.ID NOT IN(SELECT ID FROM \"Admin\")";
+            Query[QueryId.GetNeedy] = "SELECT * FROM \"Needy\" u LEFT JOIN \"Account\" a ON u.ID = a.ID LEFT JOIN \"User\" us ON us.ID = a.ID";
             //:username, :password
             //Query[QueryId.GetUserLogin] =
             //    "select * " +
