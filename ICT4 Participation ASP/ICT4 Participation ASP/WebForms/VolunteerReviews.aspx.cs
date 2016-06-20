@@ -37,6 +37,10 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 Response.Redirect("LoginStandard.aspx");
             }
+            if (!IsPostBack)
+            {
+                DdlReview.Text = _volunteerHandler.Message;
+            }
         }
 
 
@@ -45,7 +49,7 @@ namespace ICT4_Participation_ASP.WebForms
         {
             foreach (Review r in _currentVolunteer.Reviews)
             {
-                if (r.Message == DdlReview.Text)
+                if (r.Message == _volunteerHandler.Message)
                 {
                     if (r.Comment != "" || r.Comment != null)
                     {
@@ -66,6 +70,11 @@ namespace ICT4_Participation_ASP.WebForms
         private void Page_Error(object sender, EventArgs e)
         {
             Server.Transfer("ErrorPage.aspx?handler=Application_Error%20-%20Global.asax", true);
+        }
+
+        protected void DdlReview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _volunteerHandler.SetMessag(DdlReview.SelectedItem.ToString());
         }
     }
 }
