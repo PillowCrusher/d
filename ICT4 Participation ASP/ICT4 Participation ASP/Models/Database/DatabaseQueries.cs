@@ -113,10 +113,17 @@ namespace ICT4_Participation_ASP.Models.Database
                 "FROM \"User\" u " +
                 "JOIN \"UserHelprequest\" uh " +
                 "ON u.ID = uh.UserID WHERE uh.HelprequestID = :p " +
-                "AND uh.Status = Accepted";
+                "AND uh.Status = 'Accepted'";
 
             //:userid
-            Query[QueryId.GetAcceptedHelpRequests] = "SELECT HELPREQUESTID FROM \"UserHelprequest\" WHERE USERID = :p AND STATUS = 'Accepted'";
+            Query[QueryId.GetAcceptedHelpRequests] =
+                "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " +
+                "FROM \"Helprequest\" h " +
+                "JOIN \"UserHelprequest\" uh " +
+                "ON h.ID = uh.HelprequestID " +
+                "WHERE h.COMPLETED = 0 " +
+                "AND uh.UserID = :p " +
+                "AND uh.Status = 'Accepted'";
 
 
 
