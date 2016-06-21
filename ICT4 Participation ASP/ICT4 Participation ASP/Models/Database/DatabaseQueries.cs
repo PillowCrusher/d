@@ -96,7 +96,8 @@ namespace ICT4_Participation_ASP.Models.Database
             //    "ON u.ID = uh.UserID WHERE uh.HelprequestID = :p " +
             //    "AND uh.Status = Accepted";
 
-            Query[QueryId.GetAcceptedVolunteers] = "select a.ID, a.Username, a.Email, u.Name, u.Adres, u.city, u.phonenumber, u.hasdrivinglicence, u.hascar, u.iswarned, v.dateofbirth, v.photo, v.vog, v.isblocked " +
+            Query[QueryId.GetAcceptedVolunteers] = 
+                "select a.ID, a.Username, a.Email, u.Name, u.Adres, u.city, u.phonenumber, u.hasdrivinglicence, u.hascar, u.iswarned, v.dateofbirth, v.photo, v.vog, v.isblocked " +
                 "from \"Account\" a Join \"User\" u " +
                 "on a.ID = u.ID " +
                 "Join \"Volunteer\" v " +
@@ -104,8 +105,8 @@ namespace ICT4_Participation_ASP.Models.Database
                 "JOIN \"UserHelprequest\" uh " +
                 "on a.ID = uh.userID " +
                 "WHERE uh.Status = 'Accepted' " +
-                "AND uh.helprequestID = :p AND" +
-                "v.ISBLOCKED = 0";
+                "AND uh.helprequestID = :p " +
+                "AND v.ISBLOCKED = 0";
 
             Query[QueryId.GetAcceptedVolunteersNoHulprequest] = "select a.ID, a.Username, a.Email, u.Name, u.Adres, u.city, u.phonenumber, u.hasdrivinglicence, u.hascar, u.iswarned, v.dateofbirth, v.photo, v.vog, v.isblocked " +
                "from \"Account\" a Join \"User\" u " +

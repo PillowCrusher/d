@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ICT4_Participation_ASP {
+namespace ICT4_Participation_ASP.WebForms {
     
     
     public partial class AdminPage {

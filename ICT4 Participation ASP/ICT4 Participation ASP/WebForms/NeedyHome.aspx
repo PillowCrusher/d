@@ -27,12 +27,10 @@
         <div class="list-group">
             <asp:ListView ID="lvList" runat="server" EmptyData="No data found!" OnItemCommand="EmployeesListView_OnItemCommand">
                 <LayoutTemplate>
-                    <!-- <div id="containerDiv" runat="server" class="list-group"> -->
                             <h3>Helprequests</h3>
                     <ul class="list-group">
                         <asp:PlaceHolder id="itemPlaceholder" runat="server"></asp:PlaceHolder>
                     </ul>
-                    <!-- </div> -->
                 </LayoutTemplate>
 
                 <ItemTemplate>
