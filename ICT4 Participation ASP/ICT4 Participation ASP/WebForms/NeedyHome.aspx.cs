@@ -18,30 +18,32 @@ namespace ICT4_Participation_ASP.WebForms
         {
             if (IsPostBack)
             {
-                _currentHelpRequest = (HelpRequest) Session["_currentHelpRequest"];
+                _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
             }
             if (Session["LoggedUser"] is Needy)
             {
-                _currentNeedy = (Needy) Session["LoggedUser"];
+                _currentNeedy = (Needy)Session["LoggedUser"];
                 _needyHandler = new NeedyHandler();
                 if (_currentNeedy.HelpRequestsen.Count == 0)
                 {
                     _needyHandler.GetHelprequests(_currentNeedy);
                 }
-                inputMessage.Visible = false;
-                btnSendMessage.Visible = false;
-                LinkReview.Visible = false;
             }
             else
             {
                 Response.Redirect("LoginStandard.aspx");
             }
+
             if (!IsPostBack)
             {
-                //populate members of list
-                lvList.DataSource =_currentNeedy.HelpRequestsen;
-                lvList.DataBind();
+                inputMessage.Visible = false;
+                btnSendMessage.Visible = false;
+                LinkReview.Visible = false;
             }
+
+            //populate members of list
+            lvList.DataSource = _currentNeedy.HelpRequestsen;
+            lvList.DataBind();
         }
 
         private void Page_Error(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace ICT4_Participation_ASP.WebForms
         {
             if (string.Equals(e.CommandName, "AddToChat"))
             {
-                var dataItem = (ListViewDataItem) e.Item;
+                var dataItem = (ListViewDataItem)e.Item;
                 var ID = Convert.ToInt32(e.CommandArgument);
                 _currentHelpRequest = _currentNeedy.HelpRequestsen.Find(x => x.ID == ID);
                 Session["_currentHelpRequest"] = _currentHelpRequest;
@@ -86,8 +88,16 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void LinkReview_Click(object sender, EventArgs e)
         {
-            Session["_currentHelpRequest"] = _currentHelpRequest;
-            Response.Redirect("NeedyReview.aspx");
+            _needyHandler.GetAcceptedVolunteers(_currentNeedy, _currentHelpRequest);
+            if (_currentHelpRequest.Accepted.Count != 0)
+            {
+                Session["_currentHelpRequest"] = _currentHelpRequest;
+                Response.Redirect("NeedyReview.aspx");
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('U heeft geen vrijwilligers voor deze hulpvraag om te beoordelen');</script>");
+            }
         }
     }
 }

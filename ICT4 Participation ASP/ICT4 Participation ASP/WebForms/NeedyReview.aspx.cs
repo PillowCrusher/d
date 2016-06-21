@@ -36,6 +36,7 @@ namespace ICT4_Participation_ASP.WebForms
                 _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
                 if (_currentHelpRequest != null)
                 {
+                    VrijwilligerListBox.Items.Clear();
                     foreach (Volunteer v in _currentHelpRequest.Accepted)
                     {
                         ListItem dataItem = new ListItem();
@@ -62,14 +63,27 @@ namespace ICT4_Participation_ASP.WebForms
                     volunteer = v;   
                 }
             }
-            if (_currentHelpRequest.Reviews.Find(x => x.Volunteer == volunteer) == null)
+            try
             {
-                _needyHandler.AddReview(_currentHelpRequest, volunteer, inputReview.Text);
+                if (_currentHelpRequest.Reviews.Find(x => x.Volunteer == volunteer) == null)
+                {
+                    _needyHandler.AddReview(_currentHelpRequest, volunteer, inputReview.Text);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                        "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
+                if (ex.Message.Contains("unique constraint"))
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                        "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
+                }   
             }
+            inputReview.Text = string.Empty;
         }
 
         protected void btnAfsluiten_Click(object sender, EventArgs e)
@@ -77,14 +91,10 @@ namespace ICT4_Participation_ASP.WebForms
             if (_currentHelpRequest != null)
             {
                 _needyHandler.CompleteHelpreqeust(_currentHelpRequest);
-
+                _currentNeedy.CompleteHelprequest(_currentHelpRequest);
                 Response.Redirect("NeedyHome.aspx");
             }
         }
 
-        protected void VrijwilligerListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

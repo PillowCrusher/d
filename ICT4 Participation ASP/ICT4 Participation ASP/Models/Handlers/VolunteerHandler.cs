@@ -12,6 +12,8 @@ namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class VolunteerHandler : Handler
     {
+        public string Message { get; set; }
+
         public VolunteerHandler()
         {
 
@@ -59,12 +61,20 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AcceptHelpRequest(int userId, int helprequestId)
         {
-            List<object> parameters = new List<object>();
+            try
+            {
+                List<object> parameters = new List<object>();
 
-            parameters.Add(userId);
-            parameters.Add(helprequestId);
+                parameters.Add(userId);
+                parameters.Add(helprequestId);
 
-            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertUserHelprequest]);
+                Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertUserHelprequest]);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Je hebt al geaccepteerd op deze Helprequest. " + Environment.NewLine + 
+                    "Original exception: " + ex.Message);
+            }
         }
 
         public void Unsubscribe(DateTime time, Volunteer volunteer)
@@ -100,5 +110,31 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
+        public void GetReviews(Volunteer volunteer)
+        {
+            try
+            {
+                List<object> parameters = new List<Object>();
+                parameters.Add(volunteer.ID);
+                DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllReviewsVolunteer]);
+                List<Review> reviews = new List<Review>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    reviews.Add(new Review(volunteer, dr["Message"].ToString(), dr["Comments"].ToString()));
+                }
+                volunteer.AddReview(reviews);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void SetMessag(string message)
+        {
+            Message = message;
+        }
     }
 }

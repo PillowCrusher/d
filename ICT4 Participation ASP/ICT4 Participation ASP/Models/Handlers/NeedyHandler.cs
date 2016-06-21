@@ -60,14 +60,19 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AddReview(HelpRequest helpRequest, Volunteer volunteer, string message)
         {
-
-            helpRequest.AddReview(new Review(volunteer, message));
-            List<object> parameters = new List<object>();
-            parameters.Add(helpRequest.ID);
-            parameters.Add(volunteer.ID);
-            parameters.Add(message);
-            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertReview]);
-
+            try
+            {
+                helpRequest.AddReview(new Review(volunteer, message));
+                List<object> parameters = new List<object>();
+                parameters.Add(helpRequest.ID);
+                parameters.Add(volunteer.ID);
+                parameters.Add(message);
+                Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertReview]);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void CompleteHelpreqeust(HelpRequest helpRequest)
@@ -90,7 +95,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             {
                 hr = new HelpRequest(dr);
                 List<object> objects = new List<object>();
-                parameters.Add(hr.ID);
+                objects.Add(hr.ID);
                 DataTable dt2 = Db.ExecuteReadQuery(objects, DatabaseQueries.Query[QueryId.GetPendingVolunteers]);
 
                 foreach (DataRow dr2 in dt2.Rows)
@@ -101,6 +106,19 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
 
             return helpRequests;
+        }
+
+        public void GetAcceptedVolunteers(Needy user, HelpRequest helpRequest)
+        {
+            List<Volunteer> volunteers = new List<Volunteer>();
+                List<object> objects = new List<object>();
+                objects.Add(helpRequest.ID);
+                DataTable dt2 = Db.ExecuteReadQuery(objects, DatabaseQueries.Query[QueryId.GetAcceptedVolunteers]);
+
+                foreach (DataRow dr2 in dt2.Rows)
+                {
+                helpRequest.AcceptVolunteer(new Volunteer(dr2));
+                }
         }
 
         public void AcceptVolunteer(Volunteer volunteer, HelpRequest helpRequest)

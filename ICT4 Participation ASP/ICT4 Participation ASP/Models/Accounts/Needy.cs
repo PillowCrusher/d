@@ -9,6 +9,7 @@ namespace ICT4_Participation_ASP.Models.Accounts
 {
     public class Needy : User
     {
+
         /// <summary>
         /// Geeft aan of de hulpbehoevende gebruik kan maken van het openbaar verveor
         /// </summary>
@@ -45,6 +46,14 @@ namespace ICT4_Participation_ASP.Models.Accounts
             : this(Convert.ToInt32(dr["ID"]), dr["Username"].ToString(), dr["email"].ToString(), dr["name"].ToString(), dr["adres"].ToString(), dr["city"].ToString(), dr["phonenumber"].ToString(), Convert.ToBoolean(dr["OVPossible"]), Convert.ToBoolean(dr["hasDrivinglicence"]), Convert.ToBoolean(dr["HasCar"]), dr["Barcode"].ToString(), Convert.ToBoolean(dr["IsWarned"]))
         {
 
+        }
+
+        public void CompleteHelprequest(HelpRequest helpRequest)
+        {
+            if (HelpRequestsen.Contains(helpRequest))
+            {
+                HelpRequestsen.Remove(helpRequest);
+            }
         }
     }
 

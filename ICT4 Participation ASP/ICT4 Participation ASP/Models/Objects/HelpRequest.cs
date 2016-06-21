@@ -87,10 +87,10 @@ namespace ICT4_Participation_ASP.Models.Objects
 
         public void AcceptVolunteer(Volunteer volunteer)
         {
-
-            Volunteer v = Pending.Find(x => x.ID == volunteer.ID);
-            Accepted.Add(v);
-            Pending.Remove(v);
+            if (Accepted.Contains(volunteer) == false)
+            {
+                Accepted.Add(volunteer);
+            }
         }
 
         public void DeclineVolunteer(Volunteer volunteer)
