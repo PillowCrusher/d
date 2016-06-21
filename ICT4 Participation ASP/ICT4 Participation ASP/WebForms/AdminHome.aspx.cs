@@ -115,7 +115,7 @@ namespace ICT4_Participation_ASP
         {
             if (Response.Cookies["AdminList"]["Switch"] == "Helprequest")
             {
-                _currentAdminHandler.DeleteHelprequest(ListBox3.SelectedValue);
+                _currentAdminHandler.DeleteHelprequest(Response.Cookies["AdminList"]["Helprequest"]);
                 ListBox3.Items.Clear();
                 ListBox4.Items.Clear();
                 foreach (HelpRequest helpRequest in _currentAdminHandler.FillHelpRequests())
@@ -125,11 +125,11 @@ namespace ICT4_Participation_ASP
             }
             else
             {
-                _currentAdminHandler.DeleteReview(ListBox4.SelectedValue);
+                _currentAdminHandler.DeleteReview(Response.Cookies["AdminList"]["Review"]);
                 ListBox4.Items.Clear();
-                foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(ListBox3.SelectedValue))
+                foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(Response.Cookies["AdminList"]["Helprequest"]))
                 {
-                    ListBox4.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString() + " " + ListBox3.SelectedValue));
+                    ListBox4.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString() + " " + Response.Cookies["AdminList"]["Helprequest"]));
                 }
             }
         }
