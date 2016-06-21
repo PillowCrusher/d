@@ -52,6 +52,9 @@
         InsertChatMessage,
         InsertUserHelprequest,
         InsertReport,
-        GetNeedy
+        GetNeedy,
+        GetReviewsFromHelpRequest,
+        GetVolunteersHelprequested,
+        GetReviewFromHelpRequestUser
     }
 }

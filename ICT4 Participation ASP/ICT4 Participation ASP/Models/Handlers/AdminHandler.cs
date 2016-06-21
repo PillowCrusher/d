@@ -15,10 +15,14 @@ namespace ICT4_Participation_ASP.Models.Handlers
     {
         public List<Volunteer> Volunteers { get; set; }
         public List<User> Users { get; set; }
+        public List<HelpRequest> HelpRequests { get; set; }
+        public List<Review> Reviews { get; set; }
         public AdminHandler()
         {
             Volunteers = new List<Volunteer>();
             Users = new List<User>();
+            HelpRequests=new List<HelpRequest>();
+            Reviews = new List<Review>();
         }
 
         public void AddNeedy(string username, string email, string name, string address, string city, string phonenumber, int ov, int drivinglicense, int car, string barcode, string password)
@@ -47,26 +51,33 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void BlockUser(string id)
         {
-            Volunteer v = null;
-            foreach (Volunteer volunteer in Volunteers)
+            User u = null;
+            List<User> tempUsers = new List<User>();
+            tempUsers.AddRange(FillUsers());
+            tempUsers.AddRange(FillAccepted());
+            foreach (User user in tempUsers)
             {
-                if (volunteer.ID.ToString() == id)
+                if (user.ID.ToString() == id)
                 {
-                    v = volunteer;
+                    u = user;
                 }
             }
-            if (v != null)
+            if (u != null)
             {
                 List<object> objects = new List<object>();
-                objects.Add(v.ID);
+                objects.Add(u.ID);
                 Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.BlockUser]);
             }
+          
         }
 
         public void WarnUser(string id)
         {
             User u = null;
-            foreach (User user in Users)
+            List<User> tempUsers = new List<User>();
+            tempUsers.AddRange(FillUsers());
+            tempUsers.AddRange(FillAccepted());
+            foreach (User user in tempUsers)
             {
                 if (user.ID.ToString() == id)
                 {
@@ -79,6 +90,103 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 objects.Add(u.ID);
                 Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.WarnUser]);
             }  
+        }
+
+        public string DescriptionHelprequest(string ID)
+        {
+            foreach (HelpRequest help in FillHelpRequests())
+            {
+                if (help.ID.ToString() == ID)
+                {
+                    return help.Description;
+                }
+            }
+            return "";
+        }
+
+        //public string MessageReview(string ID)
+        //{
+        //    foreach (HelpRequest help in FillHelpRequests())
+        //    {
+        //        foreach (Review review in Reviews)
+        //        {
+        //            if(review.)
+        //        }
+        //    }
+        //}
+
+
+
+        public List<HelpRequest> FillHelpRequests()
+        {
+            List<object> parameters = new List<object>();
+
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllHelpRequests]);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                HelpRequests.Add(new HelpRequest(dr));
+            }
+
+            return HelpRequests;
+        }
+
+        public List<Review> FillReviews(string id)
+        {
+            List<object> parameters = new List<object>();
+            parameters.Add(id);
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetReviewsFromHelpRequest]);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["Comments"] == null)
+                {
+                    Reviews.Add(new Review(new Volunteer(dr),dr["Message"].ToString()));
+                }
+                else
+                {
+                    Reviews.Add(new Review(new Volunteer(dr), dr["Message"].ToString(),dr["Comments"].ToString()));
+                }
+            }
+
+            return Reviews;
+        }
+
+        public string MessageReview(string id)
+        {
+            string message = "";
+            List<object> parameters = new List<object>();
+            parameters.Add(id.Split(' ')[1]);
+            parameters.Add(id.Split(' ')[0]);
+            
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetReviewFromHelpRequestUser]);
+            message = dt.Rows[0]["MESSAGE"].ToString();
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                if (dataRow["COMMENTS"].ToString() != "")
+                {
+                    message += "           Reactie: " + dataRow["COMMENTS"].ToString();
+                }
+            }
+            return message;
+        }
+
+        public List<Volunteer> ReviewVolunteers(string id)
+        {
+            List<Volunteer> volunteers = new List<Volunteer>();
+            List<object> parameters = new List<object>();
+            parameters.Add(id);
+
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetVolunteersHelprequested]);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                volunteers.Add(new Volunteer(dr));
+            }
+            return volunteers;
         }
 
         public List<User> FillUsers()
@@ -135,6 +243,48 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             return acceptedVolunteers;
         }
+
+        public void ActivateVolunteer(string id)
+        {
+            Volunteer v = null;
+            foreach (Volunteer volunteer in FillUnaccepted())
+            {
+                if (volunteer.ID.ToString() == id)
+                {
+                    v = volunteer;
+                }
+            }
+            if (v != null)
+            {
+                List<object> objects = new List<object>();
+                objects.Add(v.ID);
+                Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
+            }
+        }
+
+        //public void Delete()
+        //{
+        //    if (list == "review")
+        //    {
+        //        Review r = null;
+                
+        //    }
+            
+        //    foreach (Volunteer volunteer in Volunteers)
+        //    {
+        //        if (volunteer.ID.ToString() == selectedValue2)
+        //        {
+        //            v = volunteer;
+        //        }
+        //    }
+        //    if (v != null)
+        //    {
+        //        List<object> objects = new List<object>();
+        //        objects.Add(v.ID);
+        //        Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
+        //    }
+        //}
+
 
     }
 }
