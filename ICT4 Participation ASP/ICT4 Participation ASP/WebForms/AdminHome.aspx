@@ -2,16 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
     <div class="container col-lg-4">
-        <asp:Label ID="Label4" runat="server" Text="Label" Font-Size="21px"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="Gebruikers" Font-Size="21px"></asp:Label>
     </div>
     <div class="container col-lg-4">
-        <asp:Label ID="Label5" runat="server" Text="Label" Font-Size="21px"></asp:Label>
+        <asp:Label ID="Label5" runat="server" Text="Niet geaccepteerde vrijwilligers" Font-Size="21px"></asp:Label>
     </div>
     <div class="container col-lg-2">
-        <asp:Label ID="Label6" runat="server" Text="Label" Font-Size="21px"></asp:Label>
+        <asp:Label ID="Label6" runat="server" Text="Hulprequests" Font-Size="21px"></asp:Label>
     </div>
     <div class="container col-lg-2">
-        <asp:Label ID="Label7" runat="server" Text="Label" Font-Size="21px"></asp:Label>
+        <asp:Label ID="Label7" runat="server" Text="Reviews" Font-Size="21px"></asp:Label>
     </div>
     <br />
     <br />

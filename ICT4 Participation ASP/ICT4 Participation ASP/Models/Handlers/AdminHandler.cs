@@ -42,11 +42,20 @@ namespace ICT4_Participation_ASP.Models.Handlers
             Db.ExecuteSqlProcedure(objects, DatabaseQueries.Query[QueryId.InsertNeedy]);
         }
 
-        public void DeleteHelprequest(HelpRequest hr)
+        public void DeleteHelprequest(string id)
         {
             List<object> objects = new List<object>();
-            objects.Add(hr.ID);
+            objects.Add(id);
             Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.DeleteHelpRequest]);
+        }
+
+        public void DeleteReview(string id)
+        {
+            List<object> parameters = new List<object>();
+            parameters.Add(id.Split(' ')[1]);
+            parameters.Add(id.Split(' ')[0]);
+
+            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.DeleteReviews]);
         }
 
         public void BlockUser(string id)
@@ -163,12 +172,15 @@ namespace ICT4_Participation_ASP.Models.Handlers
             
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetReviewFromHelpRequestUser]);
-            message = dt.Rows[0]["MESSAGE"].ToString();
-            foreach (DataRow dataRow in dt.Rows)
+            if (dt.Rows.Count != 0)
             {
-                if (dataRow["COMMENTS"].ToString() != "")
+                message = dt.Rows[dt.Rows.Count - 1]["MESSAGE"].ToString();
+                foreach (DataRow dataRow in dt.Rows)
                 {
-                    message += "           Reactie: " + dataRow["COMMENTS"].ToString();
+                    if (dataRow["COMMENTS"].ToString() != "")
+                    {
+                        message += "           Reactie: " + dataRow["COMMENTS"].ToString();
+                    }
                 }
             }
             return message;
@@ -204,13 +216,14 @@ namespace ICT4_Participation_ASP.Models.Handlers
             return Users;
         }
 
+
         public List<Volunteer> FillAccepted()
         {
 
             List<object> parameters = new List<object>();
 
 
-            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAcceptedVolunteers]);
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAcceptedVolunteersNoHulprequest]);
 
 
             List<Volunteer> acceptedVolunteers = new List<Volunteer>();

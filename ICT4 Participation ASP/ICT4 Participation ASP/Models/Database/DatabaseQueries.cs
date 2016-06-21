@@ -104,7 +104,18 @@ namespace ICT4_Participation_ASP.Models.Database
                 "JOIN \"UserHelprequest\" uh " +
                 "on a.ID = uh.userID " +
                 "WHERE uh.Status = 'Accepted' " +
-                "AND uh.helprequestID = :p";
+                "AND uh.helprequestID = :p AND" +
+                "v.ISBLOCKED = 0";
+
+            Query[QueryId.GetAcceptedVolunteersNoHulprequest] = "select a.ID, a.Username, a.Email, u.Name, u.Adres, u.city, u.phonenumber, u.hasdrivinglicence, u.hascar, u.iswarned, v.dateofbirth, v.photo, v.vog, v.isblocked " +
+               "from \"Account\" a Join \"User\" u " +
+               "on a.ID = u.ID " +
+               "Join \"Volunteer\" v " +
+               "on a.ID = v.ID " +
+               "JOIN \"UserHelprequest\" uh " +
+               "on a.ID = uh.userID " +
+               "WHERE uh.Status = 'Accepted' " +
+               "AND v.ISBLOCKED = 0";
 
 
             Query[QueryId.GetVOGVolunteers] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID  where v.ACCEPTED = 0";
@@ -130,7 +141,7 @@ namespace ICT4_Participation_ASP.Models.Database
             
             //:id
             Query[QueryId.GetVolunteersHelprequested] =
-               "SELECT * FROM \"User\" u LEFT JOIN \"UserHelprequest\" uh ON u.ID = uh.UserID LEFT JOIN \"Account\" a ON u.ID = a.ID LEFT JOIN \"Volunteer\" ur ON ur.ID = a.ID WHERE uh.HelprequestID = :id AND uh.Status = 'Accepted'";
+               "SELECT * FROM \"User\" u LEFT JOIN \"UserHelprequest\" uh ON u.ID = uh.UserID LEFT JOIN \"Account\" a ON u.ID = a.ID LEFT JOIN \"Volunteer\" ur ON ur.ID = a.ID WHERE uh.HelprequestID = :id AND uh.Status = 'Accepted' AND ur.ISBLOCKED = 0";
 
             //:userid
             Query[QueryId.GetAcceptedHelpRequests] =
@@ -192,7 +203,8 @@ namespace ICT4_Participation_ASP.Models.Database
             //:id
             Query[QueryId.DeleteHelpRequest] = "DELETE FROM \"Helprequest\" where ID = :p";
 
-
+            //:p, :pp
+            Query[QueryId.DeleteReviews] = "DELETE FROM \"Review\" WHERE HelprequestID = :p AND VolunteerID = :pp";
 
             //INSERT
             //:needyid, :title, :description, :location, :traveltime, :urgent, :transporttype, :startdate, :enddate, :volunteersnumber, :interview
@@ -224,8 +236,6 @@ namespace ICT4_Participation_ASP.Models.Database
 
             //:reporter, :reported, :reason
             Query[QueryId.InsertReport] = "INSERT INTO \"Report\" (Reporter, Reported, Reason) values (:p, :pp, :ppp)";
-
-
 
 
 

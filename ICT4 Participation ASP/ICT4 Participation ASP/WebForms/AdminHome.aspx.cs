@@ -74,6 +74,15 @@ namespace ICT4_Participation_ASP
         protected void Button1_OnClick(object sender, EventArgs e)
         {
             _currentAdminHandler.BlockUser(Request.Cookies["AdminList"]["User"]);
+            ListBox1.Items.Clear();
+            foreach (User user in _currentAdminHandler.FillUsers())
+            {
+                ListBox1.Items.Add(new ListItem("Needy :" + user.Name, user.ID.ToString()));
+            }
+            foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
+            {
+                ListBox1.Items.Add(new ListItem("Volunteer :" + volunteer.Name, volunteer.ID.ToString()));
+            }
         }
 
         protected void Button2_OnClick(object sender, EventArgs e)
@@ -82,13 +91,47 @@ namespace ICT4_Participation_ASP
         }
 
         protected void Button4_OnClick(object sender, EventArgs e)
-        {   
+        {
+
             _currentAdminHandler.ActivateVolunteer(Request.Cookies["AdminList"]["VOG"]);
+            ListBox1.Items.Clear();
+            ListBox2.Items.Clear();
+            foreach (Volunteer volunteer in _currentAdminHandler.FillUnaccepted())
+            {
+                ListBox2.Items.Add(new ListItem("Volunteer :" + volunteer.Name, volunteer.ID.ToString()));
+            }
+
+            foreach (User user in _currentAdminHandler.FillUsers())
+            {
+                ListBox1.Items.Add(new ListItem("Needy :" + user.Name, user.ID.ToString()));
+            }
+            foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
+            {
+                ListBox1.Items.Add(new ListItem("Volunteer :" + volunteer.Name, volunteer.ID.ToString()));
+            }
         }
 
         protected void Button3_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (Response.Cookies["AdminList"]["Switch"] == "Helprequest")
+            {
+                _currentAdminHandler.DeleteHelprequest(ListBox3.SelectedValue);
+                ListBox3.Items.Clear();
+                ListBox4.Items.Clear();
+                foreach (HelpRequest helpRequest in _currentAdminHandler.FillHelpRequests())
+                {
+                    ListBox3.Items.Add(new ListItem(helpRequest.Titel, helpRequest.ID.ToString()));
+                }
+            }
+            else
+            {
+                _currentAdminHandler.DeleteReview(ListBox4.SelectedValue);
+                ListBox4.Items.Clear();
+                foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(ListBox3.SelectedValue))
+                {
+                    ListBox4.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString() + " " + ListBox3.SelectedValue));
+                }
+            }
         }
 
 
