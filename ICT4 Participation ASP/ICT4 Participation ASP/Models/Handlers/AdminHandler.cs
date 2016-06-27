@@ -271,7 +271,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             {
                 List<object> objects = new List<object>();
                 objects.Add(v.ID);
-                Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
+                Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptVolunteer]);
             }
         }
 
@@ -294,7 +294,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
         //    {
         //        List<object> objects = new List<object>();
         //        objects.Add(v.ID);
-        //        Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptedVolunteer]);
+        //        Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptVolunteer]);
         //    }
         //}
 
