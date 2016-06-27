@@ -244,6 +244,14 @@ namespace ICT4_Participation_ASP.Models.Database
 
 
 
+            Query[QueryId.GetAllVolunteerHelpRequests] =
+                "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW  "+
+                "FROM \"Helprequest\" h "+
+                "JOIN \"UserHelprequest\" uh "+
+                "ON h.ID = uh.HELPREQUESTID "+
+                "JOIN \"Volunteer\" v "+
+                "ON uh.USERID = v.ID "+
+                "WHERE v.ID = :p";
 
 
             //NOG NAAR KIJKEN!!!!!!!!

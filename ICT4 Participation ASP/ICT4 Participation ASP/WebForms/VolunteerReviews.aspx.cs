@@ -18,8 +18,8 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
-            _currentVolunteer = (Volunteer)Session["LoggedUser"];
+            _currentHelpRequest = (HelpRequest) Session["_currentHelpRequest"];
+            _currentVolunteer = (Volunteer) Session["LoggedUser"];
             _volunteerHandler = new VolunteerHandler();
 
             if (!IsPostBack)
@@ -29,12 +29,19 @@ namespace ICT4_Participation_ASP.WebForms
                 }
                 if (Session["LoggedUser"] is Volunteer)
                 {
-                    _volunteerHandler.GetReviews(_currentVolunteer);
+                    _volunteerHandler.GetHelprequestReviews(_currentVolunteer);
                     DdlReview.Items.Clear();
-                    foreach (Review r in _currentVolunteer.Reviews)
+                    foreach (HelpRequest h in _currentVolunteer.HelpRequesten)
                     {
-                        DdlReview.Items.Add(r.Message);
+                        foreach (Review r in h.Reviews)
+                        {
+                            ListItem dataItem = new ListItem();
+                            dataItem.Value = r.Message;
+                            dataItem.Text = h.Titel + ": " + r.Message;
+                            DdlReview.Items.Add(dataItem);
+                        }
                     }
+                    DdlReview_SelectedIndexChanged(DdlReview, e);
                 }
                 else
                 {
@@ -51,23 +58,28 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void postComment_Click(object sender, EventArgs e)
         {
-            foreach (Review r in _currentVolunteer.Reviews)
+            foreach (HelpRequest h in _currentVolunteer.HelpRequesten)
             {
-                if (r.Message == DdlReview.SelectedValue)
+                foreach (Review r in h.Reviews)
                 {
-                    if (r.Comment != "" || r.Comment != null)
+                    if (r.Message == DdlReview.SelectedValue)
                     {
-                        var comment = inputComment.Text;
-                        _volunteerHandler.PlaceComment(r, _currentVolunteer, comment);
-                        inputComment.Text = String.Empty;
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('U hebt gereageerd op deze beoordeling');</script>");
-                        Page_Load(null, null);
+                        if (r.Comment != "" || r.Comment != null)
+                        {
+                            var comment = inputComment.Text;
+                            _volunteerHandler.PlaceComment(r, _currentVolunteer, comment);
+                            inputComment.Text = String.Empty;
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                                "<script>alert('U hebt gereageerd op deze beoordeling');</script>");
+                            DdlReview_SelectedIndexChanged(DdlReview, e);
+                        }
+                        else
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                                "<script>alert('U heeft al gereageerd op deze beoordeling');</script>");
+                        }
                     }
-                    else
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('U heeft al gereageerd op deze beoordeling');</script>");
-                    }
-                }               
+                }
             }
         }
 
@@ -79,6 +91,28 @@ namespace ICT4_Participation_ASP.WebForms
         protected void DdlReview_SelectedIndexChanged(object sender, EventArgs e)
         {
             _volunteerHandler.SetMessag(DdlReview.SelectedValue);
+            foreach (HelpRequest h in _currentVolunteer.HelpRequesten)
+            {
+                foreach (Review r in h.Reviews)
+                {
+                    if (r.Message == DdlReview.SelectedValue)
+                    {
+                        if (r.Comment == string.Empty)
+                        {
+                            inputComment.Text = string.Empty;
+                            inputComment.Enabled = true;
+                            postComment.Enabled = true;
+                        }
+                        else
+                        {
+                            inputComment.Enabled = false;
+                            inputComment.Text = r.Comment;
+                            postComment.Enabled = false;
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

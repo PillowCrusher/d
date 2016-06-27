@@ -110,20 +110,30 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
-        public void GetReviews(Volunteer volunteer)
+        public void GetHelprequestReviews(Volunteer volunteer)
         {
             try
             {
-                List<object> parameters = new List<Object>();
+                List<object> parameters = new List<object>();
                 parameters.Add(volunteer.ID);
-                DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllReviewsVolunteer]);
-                List<Review> reviews = new List<Review>();
+                DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllVolunteerHelpRequests]);
+
+                List<HelpRequest> helpRequests = new List<HelpRequest>();
                 foreach (DataRow dr in dt.Rows)
                 {
-                    reviews.Add(new Review(volunteer, dr["Message"].ToString(), dr["Comments"].ToString()));
-                }
-                volunteer.AddReview(reviews);
+                    HelpRequest hr = new HelpRequest(dr);
+                    parameters.Clear();
+                    parameters.Add(hr.ID);
+                    parameters.Add(volunteer.ID);
+                    DataTable dt2 = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetReviewFromHelpRequestUser]);
 
+                    foreach (DataRow dr2 in dt2.Rows)
+                    {
+                        hr.AddReview(new Review(volunteer, dr2["Message"].ToString(), dr2["Comments"].ToString()));
+                    }
+                    helpRequests.Add(hr);
+                }
+                volunteer.AddHelprequest(helpRequests);
             }
             catch (Exception ex)
             {

@@ -57,6 +57,8 @@
         GetVolunteersHelprequested,
         GetReviewFromHelpRequestUser,
         DeleteReviews,
-        GetAcceptedVolunteersNoHulprequest
+        GetAcceptedVolunteersNoHulprequest,
+        GetAllVolunteerHelpRequests,
+        GetAllVolunteerHelpRequestsReviews
     }
 }

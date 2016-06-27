@@ -10,7 +10,7 @@ namespace ICT4_Participation_ASP.Models.Accounts
     public class Volunteer : User
     {
         public List<Available> Agenda { get; protected set; }
-        public List<Review> Reviews { get; protected set; }
+        public List<HelpRequest> HelpRequesten { get; protected set; }
         public List<Skill> Skills { get; protected set; }
 
         /// <summary>
@@ -63,20 +63,20 @@ namespace ICT4_Participation_ASP.Models.Accounts
             IsBlocked = blocked;
 
             Agenda = new List<Available>();
-            Reviews = new List<Review>();
+            HelpRequesten = new List<HelpRequest>();
         }
 
         public Volunteer(DataRow dr)
             : this(Convert.ToInt32(dr["ID"]), dr["Username"].ToString(), dr["email"].ToString(), dr["name"].ToString(), dr["adres"].ToString(), dr["city"].ToString(), dr["phonenumber"].ToString(), Convert.ToBoolean(dr["HasDrivinglicence"]), Convert.ToBoolean(dr["HasCar"]), Convert.ToDateTime(dr["DateofBirth"]), dr["photo"].ToString(), dr["VOG"].ToString(), Convert.ToBoolean(dr["IsWarned"]), Convert.ToBoolean(dr["IsBlocked"]))
         {
             Agenda = new List<Available>();
-            Reviews = new List<Review>();
+            HelpRequesten = new List<HelpRequest>();
         }
 
-        public void AddReview(List<Review> reviews)
+        public void AddHelprequest(List<HelpRequest> helpRequesten)
         {
-            Reviews = null;
-            Reviews = reviews;
+            HelpRequesten = null;
+            HelpRequesten = helpRequesten;
         }
 
         public void AddSkill(Skill skill)
