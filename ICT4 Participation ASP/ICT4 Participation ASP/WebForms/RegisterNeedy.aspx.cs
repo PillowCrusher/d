@@ -42,9 +42,22 @@ namespace ICT4_Participation_ASP.WebForms
 
             if (password == passwordconfirm)
             {
-                ah.AddNeedy(username, email, name, address, city, phonenumber, Convert.ToInt32(ov), Convert.ToInt32(drivinglicense), Convert.ToInt32(car), barcode, password);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('Hulpbehoevende is toegevoegd');</script>");
+                try
+                {
+                    ah.AddNeedy(username, email, name, address, city, phonenumber, Convert.ToInt32(ov), Convert.ToInt32(drivinglicense), Convert.ToInt32(car), barcode, password);
+                }
+                catch (Exception ex)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", $"<script>alert('{ex.Message}');</script>");
+                    return;
+                }
+
+
                 Response.Redirect("AdminHome.aspx");
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('De wachtwoorden komen niet overeen');</script>");
             }
         }
     }

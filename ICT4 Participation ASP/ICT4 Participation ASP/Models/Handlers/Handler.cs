@@ -45,19 +45,19 @@ namespace ICT4_Participation_ASP.Models.Handlers
                     throw new Exception("Er zijn meer dan 1 Accounts gevonden.. Neem contact op met de beheerder");
                 }
 
-                string roll = dr["Roll"].ToString();
+                string role = dr["Role"].ToString();
 
-                if (roll == "ADMIN")
+                if (role == "ADMIN")
                 {
                     loggedAccount = new Admin(dr);
 
                 }
-                else if (roll == "NEEDY")
+                else if (role == "NEEDY")
                 {
                     loggedAccount = new Needy(dr);
 
                 }
-                else if (roll == "VOLUNTEER")
+                else if (role == "VOLUNTEER")
                 {
                     loggedAccount = new Volunteer(dr);
 

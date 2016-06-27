@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ay" Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="ICT4_Participation_ASP.AdminPage" %>
+﻿<%@ Page Title="ay" Language="C#" MasterPageFile="~/WebForms/NavbarMasterPage.master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="ICT4_Participation_ASP.WebForms.AdminPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Master" runat="server">
     <div class="container col-lg-4">
