@@ -69,7 +69,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
             if (dt.Rows.Count == 0)
             {
-                throw new Exception("Er is geen account gevonden met de deze gebruikersnaam en wachtwoord");
+                throw new Exception("Er is geen account gevonden met deze gebruikersnaam en wachtwoord");
             }
 
             return loggedAccount;
@@ -104,7 +104,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
                     throw ex;
                 }
             }
-
+            if (dt.Rows.Count == 0)
+            {
+                throw new Exception("Er is geen account gevonden met deze barcode");
+            }
             return (Needy)loggedAccount;
         }
 
