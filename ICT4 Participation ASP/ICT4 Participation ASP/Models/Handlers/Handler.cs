@@ -297,11 +297,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
         //    }
         //}
 
-        //public void AcceptedVolunteer(int ID)
+        //public void AcceptVolunteer(int ID)
         //{
         //    try
         //    {
-        //       Database.AcceptedVolunteer(ID);
+        //       Database.AcceptVolunteer(ID);
         //    }
         //    catch (Exception)
         //    {
