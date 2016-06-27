@@ -44,7 +44,7 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 {
                     throw new Exception("Er zijn meer dan 1 Accounts gevonden.. Neem contact op met de beheerder");
                 }
-
+                 
                 string role = dr["Role"].ToString();
 
                 if (role == "ADMIN")
@@ -66,6 +66,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 {
                     throw new Exception("Kan de gegevens niet ophalen, meld dit aan de beheerder");
                 }
+            }
+            if (dt.Rows.Count == 0)
+            {
+                throw new Exception("Er is geen account gevonden met deze gebruikersnaam en wachtwoord");
             }
 
             return loggedAccount;
@@ -100,7 +104,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
                     throw ex;
                 }
             }
-
+            if (dt.Rows.Count == 0)
+            {
+                throw new Exception("Er is geen account gevonden met deze barcode");
+            }
             return (Needy)loggedAccount;
         }
 
