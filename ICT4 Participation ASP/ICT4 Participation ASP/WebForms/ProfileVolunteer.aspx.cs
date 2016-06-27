@@ -63,8 +63,8 @@ namespace ICT4_Participation_ASP.WebForms
             parameters.Add(string.Empty);
 
             Session["LoggedUser"] = _volunteerHandler.Login(parameters);
-
-            Response.Redirect("VolunteerHome.aspx");
+            ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Je profiel is geupdate');window.open('VolunteerHome.aspx','_self');", true);
+           // Response.Redirect("VolunteerHome.aspx");
         }
 
         private void UpdateGui()
