@@ -11,7 +11,7 @@ namespace ICT4_Participation_ASP.WebForms
 {
     public partial class RegisterVolunteer : System.Web.UI.Page
     {
-        private  Handler Handler { get; set; }
+        private Handler Handler { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,14 +34,35 @@ namespace ICT4_Participation_ASP.WebForms
             bool haslicense = inputDrivingLincense.Checked;
             bool hascar = inputCar.Checked;
 
-            if (password == inputPasswordConfirm.Text)
+            try
             {
-                Handler.AddVolunteer(username, email, name, birthdate, address, city, phonenumber, photo, vog, Convert.ToInt32(haslicense), Convert.ToInt32(hascar), password);
-                Response.Redirect("LoginStandard.aspx");
+                if (password == inputPasswordConfirm.Text)
+                {
+                    Handler.AddVolunteer(username, email, name, birthdate, address, city, phonenumber, photo, vog,
+                        Convert.ToInt32(haslicense), Convert.ToInt32(hascar), password);
+                    Response.Redirect("LoginStandard.aspx");
+                }
+                else
+                {
+                    throw new Exception("Wachtwoorden komen niet overeen.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception("Wachtwoorden komen niet overeen.");
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "alert('" + Session["ErrorMessage"].ToString() + "');", true);
+
+                string error = ex.Message;
+                if (error.Contains("unique constraint"))
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Gebruikersnaam en/of email is al gebruikt.');", true);
+                }
+                else
+                {
+                    string[] lines = error.Split(new string[] { "\n" }, StringSplitOptions.None);
+
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('" + lines[0] + "');", true);
+                }
+
             }
         }
 
