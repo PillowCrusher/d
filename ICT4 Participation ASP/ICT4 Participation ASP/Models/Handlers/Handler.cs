@@ -44,20 +44,20 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 {
                     throw new Exception("Er zijn meer dan 1 Accounts gevonden.. Neem contact op met de beheerder");
                 }
+                 
+                string role = dr["Role"].ToString();
 
-                string roll = dr["Roll"].ToString();
-
-                if (roll == "ADMIN")
+                if (role == "ADMIN")
                 {
                     loggedAccount = new Admin(dr);
 
                 }
-                else if (roll == "NEEDY")
+                else if (role == "NEEDY")
                 {
                     loggedAccount = new Needy(dr);
 
                 }
-                else if (roll == "VOLUNTEER")
+                else if (role == "VOLUNTEER")
                 {
                     loggedAccount = new Volunteer(dr);
 
@@ -66,6 +66,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 {
                     throw new Exception("Kan de gegevens niet ophalen, meld dit aan de beheerder");
                 }
+            }
+            if (dt.Rows.Count == 0)
+            {
+                throw new Exception("Er is geen account gevonden met deze gebruikersnaam en wachtwoord");
             }
 
             return loggedAccount;
@@ -100,7 +104,10 @@ namespace ICT4_Participation_ASP.Models.Handlers
                     throw ex;
                 }
             }
-
+            if (dt.Rows.Count == 0)
+            {
+                throw new Exception("Er is geen account gevonden met deze barcode");
+            }
             return (Needy)loggedAccount;
         }
 
@@ -297,11 +304,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
         //    }
         //}
 
-        //public void AcceptedVolunteer(int ID)
+        //public void AcceptVolunteer(int ID)
         //{
         //    try
         //    {
-        //       Database.AcceptedVolunteer(ID);
+        //       Database.AcceptVolunteer(ID);
         //    }
         //    catch (Exception)
         //    {

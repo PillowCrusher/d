@@ -16,7 +16,6 @@ namespace ICT4_Participation_ASP.WebForms
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["LoggedUser"] = null;
-            
         }
 
         private void Page_Error(object sender, EventArgs e)
@@ -48,7 +47,14 @@ namespace ICT4_Participation_ASP.WebForms
             }
             catch (Exception ex)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script>alert('Er ging iets mis tijdens het inloggen, controleer of uw gebruikersnaam en wachtwoord kloppen.');</script>");
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "alert('" + Session["ErrorMessage"].ToString() + "');", true);
+
+                string test = ex.Message;
+
+                string[] lines = test.Split(new string[] { "\n" }, StringSplitOptions.None);
+
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + lines[0] + "');", true);
+
             }
 
 

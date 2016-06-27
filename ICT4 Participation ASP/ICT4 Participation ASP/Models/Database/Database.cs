@@ -403,7 +403,7 @@ namespace ICT4_Participation_ASP.Models.Database
         //    }
         //}
 
-        //public void AcceptedVolunteer(int ID)
+        //public void AcceptVolunteer(int ID)
         //{
         //    try
         //    {
@@ -411,7 +411,7 @@ namespace ICT4_Participation_ASP.Models.Database
         //        {
         //            new OracleParameter("id", ID)
         //        };
-        //        OracleDatabase.ExecuteNonQuery(DatabaseQueries.Query["AcceptedVolunteer"], updateParameter);
+        //        OracleDatabase.ExecuteNonQuery(DatabaseQueries.Query["AcceptVolunteer"], updateParameter);
         //    }
         //    catch (Exception)
         //    {

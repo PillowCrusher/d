@@ -27,12 +27,10 @@
         <div class="list-group">
             <asp:ListView ID="lvList" runat="server" OnItemCommand="HelpRequestsListView_OnItemCommand">
                 <LayoutTemplate>
-                    <!-- <div id="containerDiv" runat="server" class="list-group"> -->
                     <h1 class="h3">Helprequests</h1>
                     <ul class="list-group">
                         <asp:PlaceHolder id="itemPlaceholder" runat="server"></asp:PlaceHolder>
                     </ul>
-                    <!-- </div> -->
                 </LayoutTemplate>
 
                 <ItemTemplate>

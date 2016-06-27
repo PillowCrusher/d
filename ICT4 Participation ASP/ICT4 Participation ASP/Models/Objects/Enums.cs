@@ -33,7 +33,7 @@
         CompleteHelpRequest,
         HelpRequestAccept,
         HelpRequestDecline,
-        AcceptedVolunteer,
+        AcceptVolunteer,
         UpdateUser,
         UpdateVolunteer,
         UpdateCommentReview,
