@@ -104,7 +104,7 @@ namespace ICT4_Participation_ASP.Models.Database
                 "JOIN \"UserHelprequest\" uh " +
                 "on a.ID = uh.userID " +
                 "WHERE uh.Status = 'Accepted' " +
-                "AND uh.helprequestID = :p AND" +
+                "AND uh.helprequestID = :p AND " +
                 "v.ISBLOCKED = 0";
 
             Query[QueryId.GetAcceptedVolunteersNoHulprequest] = "select a.ID, a.Username, a.Email, u.Name, u.Adres, u.city, u.phonenumber, u.hasdrivinglicence, u.hascar, u.iswarned, v.dateofbirth, v.photo, v.vog, v.isblocked " +
