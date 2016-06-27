@@ -17,15 +17,21 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Needy = (Needy)Session["LoggedUser"];
-            NeedyHandler = new NeedyHandler();
-            DdlTransport.Items.Clear();
-            foreach (TransportationType r in Enum.GetValues(typeof(TransportationType)))
+            if (Session["LoggedUser"] is Needy)
             {
-                ListItem item = new ListItem(Enum.GetName(typeof(TransportationType), r), r.ToString());
-                DdlTransport.Items.Add(item);
+                Needy = (Needy) Session["LoggedUser"];
+                NeedyHandler = new NeedyHandler();
+                DdlTransport.Items.Clear();
+                foreach (TransportationType r in Enum.GetValues(typeof(TransportationType)))
+                {
+                    ListItem item = new ListItem(Enum.GetName(typeof(TransportationType), r), r.ToString());
+                    DdlTransport.Items.Add(item);
+                }
             }
-
+            else
+            {
+                Response.Redirect("LoginStandard.aspx");
+            }
         }
 
         protected void btnSendHelpRequest_Click(object sender, EventArgs e)
@@ -54,7 +60,7 @@ namespace ICT4_Participation_ASP.WebForms
             if (startTime < endTime && traveltime >= 0)
             {
                 NeedyHandler.AddHelprequest(Needy, titel, description, location, traveltime, Convert.ToInt32(urgent), transportation, startTime, endTime, ammount, Convert.ToInt32(meeting));
-                Response.Redirect("NeedyHome.aspx");
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Je hebt de helprequest "+titel+ " aangemaakt');window.open('NeedyHome.aspx','_self');", true);
             }
             else
             {

@@ -12,7 +12,7 @@
         <p></p>
 
         <div>
-          <p>Benodigde reistijd:  <asp:TextBox ID="inputRijsTijd" runat="server" TextMode="Number"></asp:TextBox></p>
+          <p>Benodigde reistijd:  <asp:TextBox ID="inputRijsTijd" runat="server" TextMode="Number"></asp:TextBox> min</p>
         </div>
         <div>
         <label for="inputUrgent" class="sr-only checkbox-inline">Urgent</label>
