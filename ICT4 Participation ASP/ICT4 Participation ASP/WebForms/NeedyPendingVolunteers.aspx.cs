@@ -63,6 +63,7 @@ namespace ICT4_Participation_ASP.WebForms
                 HelpRequest helprequest = _helpRequests.Find(x => x.ID == HelpRequest_ID);
                 Volunteer volunteer = helprequest.Pending.Find(x => x.ID == Volunteer_ID);
                 _needyHandler.AcceptVolunteer(volunteer, helprequest);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Je hebt de vrijwilliger "+volunteer.Name+" geacpeteerd voor de helprequest" + helprequest.Titel + "');", true);
                 Response.Redirect(Request.RawUrl);
             }
             if (string.Equals(e.CommandName, "Decline"))
@@ -75,6 +76,7 @@ namespace ICT4_Participation_ASP.WebForms
                 HelpRequest helprequest = _helpRequests.Find(x => x.ID == HelpRequest_ID);
                 Volunteer volunteer = helprequest.Pending.Find(x => x.ID == Volunteer_ID);
                 _needyHandler.DeclineVolunteer(volunteer, helprequest);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Je hebt de vrijwilliger " + volunteer.Name + " gewijgerd voor de helprequest" + helprequest.Titel + "');", true);
                 Response.Redirect(Request.RawUrl);
             }
         }

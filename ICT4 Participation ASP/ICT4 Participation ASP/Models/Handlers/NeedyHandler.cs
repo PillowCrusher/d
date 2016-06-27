@@ -90,10 +90,9 @@ namespace ICT4_Participation_ASP.Models.Handlers
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllHelpRequests]);
 
             List<HelpRequest> helpRequests = new List<HelpRequest>();
-            HelpRequest hr;
             foreach (DataRow dr in  dt.Rows)
             {
-                hr = new HelpRequest(dr);
+                HelpRequest hr = new HelpRequest(dr);
                 List<object> objects = new List<object>();
                 objects.Add(hr.ID);
                 DataTable dt2 = Db.ExecuteReadQuery(objects, DatabaseQueries.Query[QueryId.GetPendingVolunteers]);
@@ -123,11 +122,18 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
         public void AcceptVolunteer(Volunteer volunteer, HelpRequest helpRequest)
         {
-            helpRequest.AcceptVolunteer(volunteer);
-            List<object> parameters = new List<object>();
-            parameters.Add(helpRequest.ID);
-            parameters.Add(volunteer.ID);
-            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.HelpRequestAccept]);
+            try
+            {
+                helpRequest.AcceptVolunteer(volunteer);
+                List<object> parameters = new List<object>();
+                parameters.Add(helpRequest.ID);
+                parameters.Add(volunteer.ID);
+                Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.HelpRequestAccept]);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void DeclineVolunteer(Volunteer volunteer, HelpRequest helpRequest)

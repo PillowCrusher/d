@@ -52,6 +52,7 @@ namespace ICT4_Participation_ASP.WebForms
                     _currentHelpRequest = AllHelpRequests.Find(x => x.ID == ID);
                     Session["_currentHelpRequest"] = _currentHelpRequest;
                     _volunteerHandler.AcceptHelpRequest(_currentVolunteer.ID, _currentHelpRequest.ID);
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Je hebt je aangemeld voor de helprequest" + _currentHelpRequest.Titel + "');", true);
                 }
             }
             catch (Exception ex)
