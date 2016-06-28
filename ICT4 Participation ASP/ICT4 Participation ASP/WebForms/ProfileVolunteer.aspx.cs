@@ -97,19 +97,18 @@ namespace ICT4_Participation_ASP.WebForms
             inputDrivingLincense.Checked = _currentVolunteer.HasDrivingLincense;
             inputCar.Checked = _currentVolunteer.HasCar;
             birthdDateLabel.Text = _currentVolunteer.BirthDate.ToString("d");
-            //foto
-            //vog
             List<Skill> skills = _volunteerHandler.GetSkills();
-            List<Skill> mySkills = _volunteerHandler.GetVolunteerSkills(_currentVolunteer);
+            _currentVolunteer.AddSkill(_volunteerHandler.GetVolunteerSkills(_currentVolunteer));
             foreach (Skill s in skills)
             {
-                foreach (Skill m in mySkills)
+                foreach (Skill m in _currentVolunteer.Skills)
                 {
                     ListItem item = new ListItem();
                     item.Text = s.ToString();
                     if(s.Naam == m.Naam)
                     {
                         item.Selected = true;
+                        item.Enabled = false;
                     }
                     else
                     {
