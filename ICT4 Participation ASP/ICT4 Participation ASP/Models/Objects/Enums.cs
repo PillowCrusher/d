@@ -59,6 +59,11 @@
         DeleteReviews,
         GetAcceptedVolunteersNoHulprequest,
         GetAllVolunteerHelpRequests,
-        GetAllVolunteerHelpRequestsReviews
+        GetAllVolunteerHelpRequestsReviews,
+        GetSkills,
+        GetLastHelprequestID,
+        InsertHelprequestSkill,
+        InsertVolunteerSkill,
+        GetVolunteerSkills
     }
 }

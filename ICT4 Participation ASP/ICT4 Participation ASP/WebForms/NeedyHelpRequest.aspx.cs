@@ -12,7 +12,7 @@ namespace ICT4_Participation_ASP.WebForms
 {
     public partial class NeedyHelpRequest : System.Web.UI.Page
     {
-        private NeedyHandler NeedyHandler { get; set; }
+        private NeedyHandler _needyHandler { get; set; }
         private Needy Needy { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -20,12 +20,17 @@ namespace ICT4_Participation_ASP.WebForms
             if (Session["LoggedUser"] is Needy)
             {
                 Needy = (Needy) Session["LoggedUser"];
-                NeedyHandler = new NeedyHandler();
+                _needyHandler = new NeedyHandler();
                 DdlTransport.Items.Clear();
                 foreach (TransportationType r in Enum.GetValues(typeof(TransportationType)))
                 {
                     ListItem item = new ListItem(Enum.GetName(typeof(TransportationType), r), r.ToString());
                     DdlTransport.Items.Add(item);
+                }
+                List<Skill> skills = _needyHandler.GetSkills();
+                foreach (Skill s in skills)
+                {
+                    SkillCheckBoxList.Items.Add(s.ToString());
                 }
             }
             else
@@ -53,17 +58,24 @@ namespace ICT4_Participation_ASP.WebForms
             int ammount = Convert.ToInt32(inputAantalVrijwilliger.Text);
             bool urgent = cbUrgent.Checked;
             bool meeting = cbMeeting.Checked;
-            string skills = null;
+            List<Skill> skills = _needyHandler.GetSkills();
+            List<Skill> mySkills = new List<Skill>();
             foreach (ListItem item in SkillCheckBoxList.Items)
             {
                 if (item.Selected)
                 {
-                    skills+="$"+item.Value;
+                    foreach (Skill s in skills)
+                    {
+                        if (item.ToString() == s.ToString())
+                        {
+                            mySkills.Add(s);
+                        }
+                    }
                 }
             }
             if (startTime < endTime && traveltime >= 0)
             {
-                NeedyHandler.AddHelprequest(Needy, titel, description, location, traveltime, Convert.ToInt32(urgent), transportation, startTime, endTime, ammount, Convert.ToInt32(meeting));
+                _needyHandler.AddHelprequest(Needy, titel, description, location, traveltime, Convert.ToInt32(urgent), transportation, startTime, endTime, ammount, Convert.ToInt32(meeting), mySkills);
                 ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Je hebt de helprequest "+titel+ " aangemaakt');window.open('NeedyHome.aspx','_self');", true);
             }
             else

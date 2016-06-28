@@ -253,6 +253,18 @@ namespace ICT4_Participation_ASP.Models.Database
                 "ON uh.USERID = v.ID "+
                 "WHERE v.ID = :p";
 
+            Query[QueryId.GetSkills] = "SELECT * FROM \"Skill\"";
+
+            Query[QueryId.GetLastHelprequestID] = "SELECT MAX(id) FROM \"Helprequest\"";
+
+            Query[QueryId.InsertHelprequestSkill] =
+                "INSERT INTO \"RequiredSkills\"(HELPREQUESTID, SKILL) VALUES(:p, :pp)";
+
+            Query[QueryId.InsertVolunteerSkill] =
+                "INSERT INTO \"SkillSet\"(VOLUNTEERID, SKILL) VALUES(:p, :pp)";
+
+            Query[QueryId.GetVolunteerSkills] = "SELECT s.* FROM \"Skill\" s, \"SkillSet\" ss WHERE s.NAME = ss.SKILL AND ss.VOLUNTEERID = 3";
+
 
             //NOG NAAR KIJKEN!!!!!!!!
             //

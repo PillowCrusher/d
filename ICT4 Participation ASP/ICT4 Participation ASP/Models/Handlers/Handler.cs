@@ -60,7 +60,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 else if (role == "VOLUNTEER")
                 {
                     loggedAccount = new Volunteer(dr);
-
                 }
                 else
                 {
@@ -182,6 +181,20 @@ namespace ICT4_Participation_ASP.Models.Handlers
 
             return acceptedVolunteers;
         }
+
+        public List<Skill> GetSkills()
+        {
+            List<Skill> skills = new List<Skill>();
+
+            DataTable dt = Db.ExecuteReadQuery(null, DatabaseQueries.Query[QueryId.GetSkills]);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                skills.Add(new Skill(dr));
+            }
+            return skills;
+        }
+
 
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
