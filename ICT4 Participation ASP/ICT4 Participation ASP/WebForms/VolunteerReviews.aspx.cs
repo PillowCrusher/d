@@ -47,10 +47,6 @@ namespace ICT4_Participation_ASP.WebForms
                 {
                     Response.Redirect("LoginStandard.aspx");
                 }
-                if (!IsPostBack)
-                {
-                    DdlReview.Text = _volunteerHandler.Message;
-                }
             }
         }
 

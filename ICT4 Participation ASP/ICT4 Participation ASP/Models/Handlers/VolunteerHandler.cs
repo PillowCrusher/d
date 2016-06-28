@@ -12,8 +12,6 @@ namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class VolunteerHandler : Handler
     {
-        public string Message { get; set; }
-
         public VolunteerHandler()
         {
 
