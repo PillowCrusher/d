@@ -40,7 +40,11 @@ namespace ICT4_Participation_ASP.WebForms
             string titel = inputTitle.Text;
             string description = inputText.Text;
             string location = inputLocation.Text;
-            int traveltime = Convert.ToInt32(inputRijsTijd.Text);
+            int traveltime = 0;
+            if (inputRijsTijd.Text != string.Empty)
+            {
+               traveltime = Convert.ToInt32(inputRijsTijd.Text);
+            }
             string start = inputStartDate.Text +" "+ inputStartTime.Text;
             DateTime startTime = Convert.ToDateTime(start);
             string end = inputEndDate.Text +" "+ inputEndTime.Text;

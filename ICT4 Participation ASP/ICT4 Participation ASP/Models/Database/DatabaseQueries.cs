@@ -123,7 +123,7 @@ namespace ICT4_Participation_ASP.Models.Database
             " left join \"Volunteer\" v on u.ID = v.ID "+
             " left join \"UserHelprequest\" uh on u.ID = uh.USERID "+
             " left join \"Helprequest\" h on uh.HelpRequestID = h.ID "+
-            " where uh.STATUS = 'Pending' AND h.ID = :p";
+            " where uh.STATUS = 'Pending' AND u.DEREGISTRATIONDATE IS NULL AND h.ID = :p";
 
             Query[QueryId.GetAllReviews] = "SELECT * FROM \"Review\"";
 
