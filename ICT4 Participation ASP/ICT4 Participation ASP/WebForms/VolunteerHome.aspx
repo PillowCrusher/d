@@ -16,7 +16,7 @@
                         <a href="VolunteerViewAllHelprequests.aspx">Alle hulpvragen</a>
                     </li>
                     <li role="presentation">
-                        <a href="#">???</a>
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">LinkButton</asp:LinkButton>
                     </li>
                     <li role="presentation">
                         <a href="#">???</a>

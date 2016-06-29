@@ -71,9 +71,11 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
-        public List<HelpRequest> GetHelpRequests()
+        public List<HelpRequest> GetHelpRequests(Volunteer volunteer)
         {
-            DataTable dt = Db.ExecuteReadQuery(null, DatabaseQueries.Query[QueryId.GetAllHelpRequests]);
+            List<object> parameters = new List<object>();
+            parameters.Add(volunteer.ID);
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetFilteredHelpRequests]);
 
             List<HelpRequest> requestses = new List<HelpRequest>();
 

@@ -19,7 +19,11 @@
         <p>Geboortedatum: <asp:Label ID="birthdDateLabel" runat="server" Text="Label"></asp:Label></p>
         <asp:Label ID="labelPhoto" runat="server" Text="Foto"></asp:Label>
         <asp:FileUpload ID="inputPhoto" runat="server" />
-        <asp:Label ID="labelVOG" runat="server" Text="Verklaring omtrent gedrag"></asp:Label>
+            <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ControlToValidate="inputVog" display="Dynamic" ForeColor="Red"
+		ErrorMessage="Aleen maar Pdf Files mogen worden upgeload (.pdf)" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.pdf|.PDF)$" />
+        
+            <div>
+        <asp:Label ID="labelVOG" runat="server" Text="Verklaring omtrent gedrag"></asp:Label></div>
         <asp:FileUpload ID="inputVog" runat="server" />
         <asp:Label ID="vaardighedenLabel" runat="server" Text="Vaardigheden"></asp:Label><br/>
         <asp:Panel ID="checkBoxPanel" runat="server" CssClass="scrollingControlContainer scrollingCheckBoxList">

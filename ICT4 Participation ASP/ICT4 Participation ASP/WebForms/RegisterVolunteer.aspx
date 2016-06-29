@@ -63,9 +63,12 @@
        </div>
         
         <div>
-             <asp:Label ID="labelVOG" runat="server" Text="Verklaring omtrent gedrag"></asp:Label>
+            <div><asp:Label ID="labelVOG" runat="server" Text="Verklaring omtrent gedrag"></asp:Label></div>
+
         <asp:RequiredFieldValidator ID="VOGRequiredFieldValidator" runat="server" display="Dynamic" ControlToValidate="inputVog" ErrorMessage="Je moet een Verklaring omtrent gedrag toevoegen" ForeColor="Red" ></asp:RequiredFieldValidator>
-        <asp:FileUpload ID="inputVog" runat="server" />
+       <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ControlToValidate="inputVog" display="Dynamic" ForeColor="Red"
+		ErrorMessage="Aleen maar Pdf Files mogen worden upgeload (.pdf)" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.pdf|.PDF)$" />
+             <asp:FileUpload ID="inputVog" runat="server" />
        </div>
         
         <div>

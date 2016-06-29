@@ -29,7 +29,7 @@ namespace ICT4_Participation_ASP.WebForms
                 _currentVolunteer = (Volunteer)Session["LoggedUser"];
                 _volunteerHandler = new VolunteerHandler();
 
-                AllHelpRequests = _volunteerHandler.GetHelpRequests();
+                AllHelpRequests = _volunteerHandler.GetHelpRequests(_currentVolunteer);
             }
             else
             {
