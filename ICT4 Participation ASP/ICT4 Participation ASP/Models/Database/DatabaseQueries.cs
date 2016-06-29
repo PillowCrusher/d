@@ -41,6 +41,17 @@ namespace ICT4_Participation_ASP.Models.Database
             " AND h.ENDDATE = :pppp "+
             " AND h.COMPLETED = 0 ";
 
+            //
+            Query[QueryId.GetFilteredHelpRequests] = 
+            "SELECT h.ID, h.NEEDYID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " + 
+            "FROM \"Helprequest\" h " +
+            "WHERE ID NOT IN(SELECT HELPREQUESTID " +
+                            "FROM \"RequiredSkills\" rs " + 
+                            "WHERE SKILL NOT IN( SELECT ss.SKILL " +
+                                                "FROM \"SkillSet\" ss " +
+                                                "WHERE ss.VOLUNTEERID = :p)) " +
+            "AND h.completed = 0";
+
             //:Username, :Password, :Barcode
             Query[QueryId.GetUserLogin] = "LogIn";
 
