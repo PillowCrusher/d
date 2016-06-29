@@ -35,8 +35,28 @@
 
                     <ItemTemplate>
                         <li class="list-group-item">
-                            <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> 
-                                <asp:LinkButton runat="server" ID="AcceptHelpRequest" Text="Accept" CommandName="Accept" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /></span>
+                            <div>
+                            <p>Titel: <span ID="HelpRequestTitle" runat="server" ><%#DataBinder.Eval(Container.DataItem, "Titel") %> </p></div>
+                            <div>
+                            <p>Beschrijving: <span ID ="HelpRequestDescription" runat="server"><%#DataBinder.Eval(Container.DataItem, "Description") %> </span></p></div>
+                            <div>
+                            <p>Locatie: <span ID ="HelpRequestLocation" runat="server"><%#DataBinder.Eval(Container.DataItem, "Location") %> </span></p></div>
+                            <div>
+                            <p>Benodigde reistijd: <span ID ="HelpRequestTravelTime" runat="server"><%#DataBinder.Eval(Container.DataItem, "TravelTime") %> </span></p></div>
+                            <div>
+                            <p>Dringed: <span ID ="HelpRequestUrgent" runat="server"><%#DataBinder.Eval(Container.DataItem, "Urgent") %> </span></p></div>
+                            <div>
+                            <p>Vervoerstype: <span ID ="HelpRequestTransportation" runat="server"><%#DataBinder.Eval(Container.DataItem, "TransportationType") %> </span></p></div>
+                            <div>
+                            <p>Begin datum: <span ID ="HelpRequestStart" runat="server"><%#DataBinder.Eval(Container.DataItem, "StartDate") %> </span></p></div>
+                            <div>
+                            <p>Eind datum: <span ID ="HelpRequestEnd" runat="server"><%#DataBinder.Eval(Container.DataItem, "EndDate") %> </span></p></div>
+                            <div>
+                             <p>Benodigde vrijwilligers: <span ID ="Span1" runat="server"><%#DataBinder.Eval(Container.DataItem, "VolunteersNumber") %> </span></p></div>
+                            <div>                       
+                             <p>Kennismakings gesprek nodig: <span ID ="HelpRequestInterview" runat="server"><%#DataBinder.Eval(Container.DataItem, "Interview") %> </span></p></div>  
+
+                                <asp:LinkButton runat="server" ID="AcceptHelpRequest" Text="Inschrijven" CommandName="Accept" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ID") %>' /></span>
                         </li>
                     </ItemTemplate>
                     <EmptyDataTemplate>
