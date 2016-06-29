@@ -45,8 +45,7 @@ namespace ICT4_Participation_ASP.WebForms
             //_currentAdminHandler.SelectedValue1(Actors.SelectedValue);
             //_currentAdminHandler.SelectedValue2(VOG.SelectedValue);
             //_currentAdminHandler.SelectedValue3(Hulprequest.SelectedValue,"helprequest");
-            string abcd = Request.Cookies["AdminList"]["Switch"];
-            string abcde = Request.Cookies["AdminList"]["Helprequest"];
+
         }
 
         private void RefreshLists()
@@ -197,6 +196,11 @@ namespace ICT4_Participation_ASP.WebForms
                 Response.Cookies["AdminList"]["Review"] = "";
             }
             TextBox1.Text = Response.Cookies["AdminList"]["Textbox"];
+        }
+
+        protected void VOGBtn_Click(object sender, EventArgs e)
+        {
+            Response.Write(string.Format("<script>window.open('{0}','_blank');</script>", "Default.aspx"));
         }
     }
 }
