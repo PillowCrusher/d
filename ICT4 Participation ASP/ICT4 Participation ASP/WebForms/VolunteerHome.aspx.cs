@@ -30,9 +30,7 @@ namespace ICT4_Participation_ASP.WebForms
                 if (_currentVolunteer.HelpRequestsen.Count == 0)
                 {
                     _volunteerHandler.GetAcceptedHelprequests(_currentVolunteer);
-                }
-
-                
+                }                
             }
             else
             {
@@ -89,17 +87,5 @@ namespace ICT4_Participation_ASP.WebForms
             }
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            string FilePath = AppDomain.CurrentDomain.BaseDirectory+@"Content\LP Opdrachtomschrijving - 2016VJ.pdf";
-            WebClient User = new WebClient();
-            Byte[] FileBuffer = User.DownloadData(FilePath);
-            if (FileBuffer != null)
-            {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-length", FileBuffer.Length.ToString());
-                Response.BinaryWrite(FileBuffer);
-            }
-        }
     }
 }

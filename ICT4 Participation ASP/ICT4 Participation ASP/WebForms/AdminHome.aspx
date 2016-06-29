@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-4">
             <asp:ListBox ID="VOG" Width="100%" runat="server" Rows="23" OnSelectedIndexChanged="VOG_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
-         <asp:Button ID="VOGBtn" runat="server" Text="VOG bekijken" Font-Size="21" Width="40%" />
+         <asp:Button ID="VOGBtn" runat="server" Text="VOG bekijken" Font-Size="21" Width="40%" OnClick="VOGBtn_Click" />
         </div>
         <div class="col-sm-2">
             
