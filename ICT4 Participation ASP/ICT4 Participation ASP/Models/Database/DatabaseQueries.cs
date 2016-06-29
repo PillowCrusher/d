@@ -69,6 +69,12 @@ namespace ICT4_Participation_ASP.Models.Database
             //:barcode
             Query[QueryId.GetUserLoginByBarcode] = "SELECT * FROM TABLE(LogInBar(:p))";
 
+            //:Username
+            Query[QueryId.GetUserWarned] = "SELECT iswarned FROM \"User\" WHERE ID = (SELECT ID FROM \"Account\" WHERE username = :p)";
+
+            //:Username
+            Query[QueryId.ResetUserWarned] = "UPDATE \"User\" SET iswarned = 0 WHERE ID = (SELECT ID FROM \"Account\" WHERE username = :p)";
+
             Query[QueryId.GetNeedy] = "SELECT * FROM \"Needy\" u LEFT JOIN \"Account\" a ON u.ID = a.ID LEFT JOIN \"User\" us ON us.ID = a.ID";
             //:username, :password
             //Query[QueryId.GetUserLogin] =

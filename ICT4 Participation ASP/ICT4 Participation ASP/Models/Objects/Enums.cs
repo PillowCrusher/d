@@ -66,6 +66,8 @@
         InsertVolunteerSkill,
         GetAllHelpRequestsInc,
         GetVolunteerSkills,
-        GetFilteredHelpRequests
+        GetFilteredHelpRequests,
+        ResetUserWarned,
+        GetUserWarned
     }
 }

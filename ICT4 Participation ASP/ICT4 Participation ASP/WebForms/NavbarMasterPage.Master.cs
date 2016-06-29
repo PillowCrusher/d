@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ICT4_Participation_ASP.Models.Accounts;
+using ICT4_Participation_ASP.Models.Handlers;
 
 namespace ICT4_Participation_ASP.WebForms
 {
@@ -12,6 +13,7 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Handler h = new Handler();
             Account loggedAccount = (Account) Session["LoggedUser"];
             if (loggedAccount == null)
             {
@@ -28,6 +30,15 @@ namespace ICT4_Participation_ASP.WebForms
                 {
                     LinkNeedyRegister.Visible = true;
                 }
+                else
+                {
+                    if (h.GetUserWarned(loggedAccount.Username) == 1)
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Je hebt een waarschuwing gekregen. Neem voor verdere informatie contact op met de beheerder.');", true);
+                        h.ResetUserWarned(loggedAccount.Username);
+                    }
+                }
+                
             }
         }
 

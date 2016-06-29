@@ -195,6 +195,29 @@ namespace ICT4_Participation_ASP.Models.Handlers
             return skills;
         }
 
+        public int GetUserWarned(string username)
+        {
+            List<object> objects = new List<object>();
+            objects.Add(username);
+            DataTable dt = Db.ExecuteReadQuery(objects, DatabaseQueries.Query[QueryId.GetUserWarned]);
+
+            if (dt.Rows.Count == 1)
+            {
+                DataRow dr = dt.Rows[0];
+                return Convert.ToInt32(dr[0]);
+            }
+            else
+            {
+                throw new Exception("Error: Geen of meer dan één waarde gevonden.");
+            }
+        }
+
+        public void ResetUserWarned(string username)
+        {
+            List<object> objects = new List<object>();
+            objects.Add(username);
+            Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.ResetUserWarned]);
+        }
 
         ///// <summary>
         ///// methode waarmee een needy kan inloggen doormddel van een rfid
