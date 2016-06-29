@@ -20,9 +20,11 @@
             <asp:ListBox ID="Actors" Width="100%" runat="server" Rows="25" OnSelectedIndexChanged="Actors_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
         </div>
         <div class="col-sm-4">
-            <asp:ListBox ID="VOG" Width="100%" runat="server" Rows="25" OnSelectedIndexChanged="VOG_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
+            <asp:ListBox ID="VOG" Width="100%" runat="server" Rows="23" OnSelectedIndexChanged="VOG_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
+         <asp:Button ID="VOGBtn" runat="server" Text="VOG bekijken" Font-Size="21" Width="40%" />
         </div>
         <div class="col-sm-2">
+            
             <asp:ListBox ID="Hulprequest" Width="100%" runat="server" Rows="10" Font-Size="18" OnSelectedIndexChanged="Hulprequest_OnSelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
         </div>
         <div class="col-sm-2">
