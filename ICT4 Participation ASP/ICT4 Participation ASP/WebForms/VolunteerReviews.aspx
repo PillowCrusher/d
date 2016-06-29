@@ -6,9 +6,11 @@
         <asp:Label ID="ReviewLabel" runat="server" Text="Reviews"></asp:Label>
         </div>
         <div>
-         <p>Review:   <asp:DropDownList ID="DdlReview" runat="server" ></asp:DropDownList></p>
+         <p>Review:   <asp:DropDownList ID="DdlReview" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlReview_SelectedIndexChanged" ></asp:DropDownList></p>
         </div>
+        <div>
          <asp:TextBox ID="inputComment" runat="server" class="form-control" TextMode="MultiLine" placeholder="Plaats hier je reactie"></asp:TextBox>
-        <asp:Button ID="postComment" runat="server" Text="Plaats reactie" OnClick="postComment_Click"/>
+        </div>
+            <asp:Button ID="postComment" runat="server" Text="Plaats reactie" OnClick="postComment_Click"/>
     </div>
     </asp:Content>

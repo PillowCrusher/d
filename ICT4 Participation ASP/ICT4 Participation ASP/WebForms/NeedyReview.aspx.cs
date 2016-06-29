@@ -36,6 +36,7 @@ namespace ICT4_Participation_ASP.WebForms
                 _currentHelpRequest = (HelpRequest)Session["_currentHelpRequest"];
                 if (_currentHelpRequest != null)
                 {
+                    HelprequestLabel.Text = _currentHelpRequest.Titel;
                     VrijwilligerListBox.Items.Clear();
                     foreach (Volunteer v in _currentHelpRequest.Accepted)
                     {
@@ -54,36 +55,44 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void btnPlaats_Click(object sender, EventArgs e)
         {
-            int ID = Convert.ToInt32(VrijwilligerListBox.SelectedValue);
-            Volunteer volunteer = null;
-            foreach (Volunteer v in _currentHelpRequest.Accepted)
+            if (VrijwilligerListBox.SelectedValue != string.Empty)
             {
-                if (v.ID == ID)
+                int ID = Convert.ToInt32(VrijwilligerListBox.SelectedValue);
+                Volunteer volunteer = null;
+                foreach (Volunteer v in _currentHelpRequest.Accepted)
                 {
-                    volunteer = v;   
+                    if (v.ID == ID)
+                    {
+                        volunteer = v;
+                    }
                 }
+                try
+                {
+                    if (_currentHelpRequest.Reviews.Find(x => x.Volunteer == volunteer) == null)
+                    {
+                        _needyHandler.AddReview(_currentHelpRequest, volunteer, inputReview.Text);
+                    }
+                    else
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                            "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("unique constraint"))
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                            "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
+                    }
+                }
+                inputReview.Text = string.Empty;
             }
-            try
+            else
             {
-                if (_currentHelpRequest.Reviews.Find(x => x.Volunteer == volunteer) == null)
-                {
-                    _needyHandler.AddReview(_currentHelpRequest, volunteer, inputReview.Text);
-                }
-                else
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
-                        "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
-                }
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
+                            "<script>alert('Selecteer een vrijwilliger');</script>");
             }
-            catch (Exception ex)
-            {
-                if (ex.Message.Contains("unique constraint"))
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script",
-                        "<script>alert('U heeft deze vrijwilliger al beoordeelt');</script>");
-                }   
-            }
-            inputReview.Text = string.Empty;
         }
 
         protected void btnAfsluiten_Click(object sender, EventArgs e)

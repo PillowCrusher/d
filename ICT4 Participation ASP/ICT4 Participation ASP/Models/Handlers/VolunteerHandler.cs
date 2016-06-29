@@ -12,18 +12,43 @@ namespace ICT4_Participation_ASP.Models.Handlers
 {
     public class VolunteerHandler : Handler
     {
-        public string Message { get; set; }
-
         public VolunteerHandler()
         {
 
         }
 
-        public void UpdateProfileData(List<object> parameters)
+        public void UpdateProfileData(int id, string adres, string city, string phonenumber, bool drivinglicense, bool car, string photo, string vog, List<Skill> skills)
         {
             try
             {
+                List<object> parameters = new List<object>();
+                parameters.Add(id);
+                parameters.Add(adres);
+                parameters.Add(city);
+                parameters.Add(phonenumber);
+                parameters.Add(Convert.ToInt32(drivinglicense));
+                parameters.Add(Convert.ToInt32(car));
+                parameters.Add(photo);
+                parameters.Add(vog);
                 Db.ExecuteSqlProcedure(parameters, DatabaseQueries.Query[QueryId.UpdateVolunteer]);
+
+                if (skills.Count != 0)
+                {
+                    try
+                    {
+                        foreach (Skill skill in skills)
+                        {
+                            parameters.Clear();
+                            parameters.Add(id);
+                            parameters.Add(skill.Naam);
+                            Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertVolunteerSkill]);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -110,20 +135,30 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
-        public void GetReviews(Volunteer volunteer)
+        public void GetHelprequestReviews(Volunteer volunteer)
         {
             try
             {
-                List<object> parameters = new List<Object>();
+                List<object> parameters = new List<object>();
                 parameters.Add(volunteer.ID);
-                DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllReviewsVolunteer]);
-                List<Review> reviews = new List<Review>();
+                DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllVolunteerHelpRequests]);
+
+                List<HelpRequest> helpRequests = new List<HelpRequest>();
                 foreach (DataRow dr in dt.Rows)
                 {
-                    reviews.Add(new Review(volunteer, dr["Message"].ToString(), dr["Comments"].ToString()));
-                }
-                volunteer.AddReview(reviews);
+                    HelpRequest hr = new HelpRequest(dr);
+                    parameters.Clear();
+                    parameters.Add(hr.ID);
+                    parameters.Add(volunteer.ID);
+                    DataTable dt2 = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetReviewFromHelpRequestUser]);
 
+                    foreach (DataRow dr2 in dt2.Rows)
+                    {
+                        hr.AddReview(new Review(volunteer, dr2["Message"].ToString(), dr2["Comments"].ToString()));
+                    }
+                    helpRequests.Add(hr);
+                }
+                volunteer.AddHelprequest(helpRequests);
             }
             catch (Exception ex)
             {
@@ -132,9 +167,26 @@ namespace ICT4_Participation_ASP.Models.Handlers
             }
         }
 
-        public void SetMessag(string message)
+        public List<Skill> GetVolunteerSkills(Volunteer volunteer)
         {
-            Message = message;
+            try
+            {
+                List<object> parameters = new List<object>();
+                parameters.Add(volunteer.ID);
+                DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetVolunteerSkills]);
+
+                List<Skill> skills = new List<Skill>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    skills.Add(new Skill(dr));
+                }
+                return skills;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

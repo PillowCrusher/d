@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using ICT4_Participation_ASP.Models.Accounts;
 
 namespace ICT4_Participation_ASP.Models.Objects
@@ -21,6 +22,7 @@ namespace ICT4_Participation_ASP.Models.Objects
             Message = message;
             Comment = comment;
         }
+
 
         public void AddComment(Volunteer volunteer, string comment)
         {

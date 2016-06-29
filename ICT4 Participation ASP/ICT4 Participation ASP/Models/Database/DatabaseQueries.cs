@@ -118,7 +118,13 @@ namespace ICT4_Participation_ASP.Models.Database
 
 
             Query[QueryId.GetVOGVolunteers] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID  where v.ACCEPTED = 0";
-            Query[QueryId.GetPendingVolunteers] = "select * from \"Account\" a left join \"User\" u on a.ID = u.ID left join \"Volunteer\" v on u.ID = v.ID left join \"UserHelprequest\" uh on u.ID = uh.USERID left join \"Helprequest\" h on uh.HelpRequestID = h.ID where uh.STATUS = 'Pending' AND h.NEEDYID = :p";
+            Query[QueryId.GetPendingVolunteers] = "select * from \"Account\" a "+ 
+            " left join \"User\" u on a.ID = u.ID "+
+            " left join \"Volunteer\" v on u.ID = v.ID "+
+            " left join \"UserHelprequest\" uh on u.ID = uh.USERID "+
+            " left join \"Helprequest\" h on uh.HelpRequestID = h.ID "+
+            " where uh.STATUS = 'Pending' AND u.DEREGISTRATIONDATE IS NULL AND h.ID = :p";
+
             Query[QueryId.GetAllReviews] = "SELECT * FROM \"Review\"";
 
             //:helprequestid
@@ -238,6 +244,26 @@ namespace ICT4_Participation_ASP.Models.Database
 
 
 
+            Query[QueryId.GetAllVolunteerHelpRequests] =
+                "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW  "+
+                "FROM \"Helprequest\" h "+
+                "JOIN \"UserHelprequest\" uh "+
+                "ON h.ID = uh.HELPREQUESTID "+
+                "JOIN \"Volunteer\" v "+
+                "ON uh.USERID = v.ID "+
+                "WHERE v.ID = :p";
+
+            Query[QueryId.GetSkills] = "SELECT * FROM \"Skill\"";
+
+            Query[QueryId.GetLastHelprequestID] = "SELECT MAX(id) FROM \"Helprequest\"";
+
+            Query[QueryId.InsertHelprequestSkill] =
+                "INSERT INTO \"RequiredSkills\"(HELPREQUESTID, SKILL) VALUES(:p, :pp)";
+
+            Query[QueryId.InsertVolunteerSkill] =
+                "INSERT INTO \"SkillSet\"(VOLUNTEERID, SKILL) VALUES(:p, :pp)";
+
+            Query[QueryId.GetVolunteerSkills] = "SELECT s.* FROM \"Skill\" s, \"SkillSet\" ss WHERE s.NAME = ss.SKILL AND ss.VOLUNTEERID = 3";
 
 
             //NOG NAAR KIJKEN!!!!!!!!
