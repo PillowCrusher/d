@@ -17,25 +17,31 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LoggedUser"] is Needy)
+            _needyHandler = new NeedyHandler();
+            List<Skill> skills = _needyHandler.GetSkills();
+            if (!IsPostBack)
             {
-                Needy = (Needy) Session["LoggedUser"];
-                _needyHandler = new NeedyHandler();
-                DdlTransport.Items.Clear();
-                foreach (TransportationType r in Enum.GetValues(typeof(TransportationType)))
+                if (IsPostBack)
                 {
-                    ListItem item = new ListItem(Enum.GetName(typeof(TransportationType), r), r.ToString());
-                    DdlTransport.Items.Add(item);
                 }
-                List<Skill> skills = _needyHandler.GetSkills();
-                foreach (Skill s in skills)
+                if (Session["LoggedUser"] is Needy)
                 {
-                    SkillCheckBoxList.Items.Add(s.ToString());
+                    Needy = (Needy) Session["LoggedUser"];
+                    DdlTransport.Items.Clear();
+                    foreach (TransportationType r in Enum.GetValues(typeof(TransportationType)))
+                    {
+                        ListItem item = new ListItem(Enum.GetName(typeof(TransportationType), r), r.ToString());
+                        DdlTransport.Items.Add(item);
+                    }
+                    foreach (Skill s in skills)
+                    {
+                        SkillCheckBoxList.Items.Add(s.ToString());
+                    }
                 }
-            }
-            else
-            {
-                Response.Redirect("LoginStandard.aspx");
+                else
+                {
+                    Response.Redirect("LoginStandard.aspx");
+                }
             }
         }
 
@@ -54,7 +60,7 @@ namespace ICT4_Participation_ASP.WebForms
             DateTime startTime = Convert.ToDateTime(start);
             string end = inputEndDate.Text +" "+ inputEndTime.Text;
             DateTime endTime = Convert.ToDateTime(end);
-            string transportation = DdlTransport.Text;
+            string transportation = DdlTransport.SelectedValue.ToString();
             int ammount = Convert.ToInt32(inputAantalVrijwilliger.Text);
             bool urgent = cbUrgent.Checked;
             bool meeting = cbMeeting.Checked;
