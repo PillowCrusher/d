@@ -169,7 +169,8 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.GetVolunteersHelprequested] =
                 "SELECT *  FROM \"User\" u JOIN \"Account\" a ON u.ID = a.ID JOIN \"Volunteer\" ur ON ur.ID = a.ID " +
                 "WHERE ur.ISBLOCKED = 0 AND u.ID IN (SELECT uh.VolunteerID FROM \"Review\" uh " +
-                "WHERE uh.HelpRequestID IN(SELECT uhr.HelpRequestID  FROM \"UserHelprequest\" uhr WHERE uhr.Status = 'Accepted'))";
+                "WHERE uh.HelpRequestID IN(SELECT uhr.HelpRequestID  FROM \"UserHelprequest\" uhr WHERE uhr.Status = 'Accepted' " +
+                "AND uhr.HelprequestID = :p))";
             
             //:userid
             Query[QueryId.GetAcceptedHelpRequests] =

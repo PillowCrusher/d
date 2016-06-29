@@ -191,16 +191,16 @@ namespace ICT4_Participation_ASP.Models.Handlers
         public List<User> FillUsers()
         {
             List<object> parameters = new List<object>();
-
+            List<User> needyUsers = new List<User>();
 
             DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetNeedy]);
 
             foreach (DataRow dr in dt.Rows)
             {
-                Users.Add(new Needy(dr));
+                needyUsers.Add(new Needy(dr));
             }
 
-            return Users;
+            return needyUsers;
         }
 
 

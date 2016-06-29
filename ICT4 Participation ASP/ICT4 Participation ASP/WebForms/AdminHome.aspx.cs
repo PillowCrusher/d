@@ -77,7 +77,6 @@ namespace ICT4_Participation_ASP.WebForms
         protected void Button1_OnClick(object sender, EventArgs e)
         {
             _currentAdminHandler.BlockUser(Request.Cookies["AdminList"]["User"]);
-            Actors.Items.Clear();
             //foreach (User user in _currentAdminHandler.FillUsers())
             //{
             //    Actors.Items.Add(new ListItem("Needy: " + user.Name, user.ID.ToString()));

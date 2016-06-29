@@ -12,7 +12,7 @@ namespace ICT4_Participation_ASP.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"Content\LP Opdrachtomschrijving - 2016VJ.pdf";
+            string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"Content\voorbeeldVOG.pdf";
             WebClient client = new WebClient();
             Byte[] buffer = client.DownloadData(FilePath);
             if (buffer != null)

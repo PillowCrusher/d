@@ -109,6 +109,7 @@
     <Content Include="WebForms\VolunteerReviews.aspx" />
     <Content Include="WebForms\VolunteerViewAllHelprequests.aspx" />
     <Content Include="Content\LP Opdrachtomschrijving - 2016VJ.pdf" />
+    <Content Include="Content\voorbeeldVOG.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
