@@ -47,14 +47,18 @@ namespace ICT4_Participation_ASP.WebForms
             }
             catch (Exception ex)
             {
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "alert('" + Session["ErrorMessage"].ToString() + "');", true);
+                if (ex.Message.Contains("20001"))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Er is geen gebruiker met deze naam en wachtwoord gevonden" + "');", true);
+                }
+                else
+                {
+                    string test = ex.Message;
 
-                string test = ex.Message;
+                    string[] lines = test.Split(new string[] {"\n"}, StringSplitOptions.None);
 
-                string[] lines = test.Split(new string[] { "\n" }, StringSplitOptions.None);
-
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + lines[0] + "');", true);
-
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + lines[0] + "');", true);
+                }
             }
 
 

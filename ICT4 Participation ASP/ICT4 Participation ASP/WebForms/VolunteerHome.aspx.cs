@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -85,6 +86,19 @@ namespace ICT4_Participation_ASP.WebForms
             foreach (var c in _currentHelpRequest.ChatMessages)
             {
                 inputChat.Text += c.TotalString + Environment.NewLine;
+            }
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            string FilePath = AppDomain.CurrentDomain.BaseDirectory+@"Content\LP Opdrachtomschrijving - 2016VJ.pdf";
+            WebClient User = new WebClient();
+            Byte[] FileBuffer = User.DownloadData(FilePath);
+            if (FileBuffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                Response.BinaryWrite(FileBuffer);
             }
         }
     }

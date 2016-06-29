@@ -101,20 +101,16 @@ namespace ICT4_Participation_ASP.WebForms
             _currentVolunteer.AddSkill(_volunteerHandler.GetVolunteerSkills(_currentVolunteer));
             foreach (Skill s in skills)
             {
+                SkillCheckBoxList.Items.Add(s.ToString());
+            }
+            foreach (ListItem item in SkillCheckBoxList.Items)
+            {
                 foreach (Skill m in _currentVolunteer.Skills)
                 {
-                    ListItem item = new ListItem();
-                    item.Text = s.ToString();
-                    if(s.Naam == m.Naam)
+                    if (item.Value == m.Naam)
                     {
                         item.Selected = true;
-                        item.Enabled = false;
                     }
-                    else
-                    {
-                        item.Selected = false;
-                    }
-                    SkillCheckBoxList.Items.Add(item);
                 }
             }
         }
