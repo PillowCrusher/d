@@ -79,16 +79,10 @@ namespace ICT4_Participation_ASP.Models.Accounts
             HelpRequesten = helpRequesten;
         }
 
-        public void AddSkill(Skill skill)
+        public void AddSkill(List<Skill> skill)
         {
-            if (Skills.Contains(skill) == false)
-            {
-                Skills.Add(skill);
-            }
-            else
-            {
-                throw new ArgumentException("Deze vrijwilliger heeft deze vaardigheid al");
-            }
+            Skills = null;
+            Skills = skill;
         }
 
         public void AddAvailable(Available available)

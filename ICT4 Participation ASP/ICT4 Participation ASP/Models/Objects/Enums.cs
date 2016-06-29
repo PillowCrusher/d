@@ -60,6 +60,12 @@
         GetAcceptedVolunteersNoHulprequest,
         GetAllVolunteerHelpRequests,
         GetAllVolunteerHelpRequestsReviews,
+        GetSkills,
+        GetLastHelprequestID,
+        InsertHelprequestSkill,
+        InsertVolunteerSkill,
+        GetVolunteerSkills
+        GetAllVolunteerHelpRequestsReviews,
         GetFilteredHelpRequests
     }
 }

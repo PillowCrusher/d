@@ -134,7 +134,7 @@ namespace ICT4_Participation_ASP.Models.Database
             " left join \"Volunteer\" v on u.ID = v.ID "+
             " left join \"UserHelprequest\" uh on u.ID = uh.USERID "+
             " left join \"Helprequest\" h on uh.HelpRequestID = h.ID "+
-            " where uh.STATUS = 'Pending' AND h.ID = :p";
+            " where uh.STATUS = 'Pending' AND u.DEREGISTRATIONDATE IS NULL AND h.ID = :p";
 
             Query[QueryId.GetAllReviews] = "SELECT * FROM \"Review\"";
 
@@ -263,6 +263,18 @@ namespace ICT4_Participation_ASP.Models.Database
                 "JOIN \"Volunteer\" v "+
                 "ON uh.USERID = v.ID "+
                 "WHERE v.ID = :p";
+
+            Query[QueryId.GetSkills] = "SELECT * FROM \"Skill\"";
+
+            Query[QueryId.GetLastHelprequestID] = "SELECT MAX(id) FROM \"Helprequest\"";
+
+            Query[QueryId.InsertHelprequestSkill] =
+                "INSERT INTO \"RequiredSkills\"(HELPREQUESTID, SKILL) VALUES(:p, :pp)";
+
+            Query[QueryId.InsertVolunteerSkill] =
+                "INSERT INTO \"SkillSet\"(VOLUNTEERID, SKILL) VALUES(:p, :pp)";
+
+            Query[QueryId.GetVolunteerSkills] = "SELECT s.* FROM \"Skill\" s, \"SkillSet\" ss WHERE s.NAME = ss.SKILL AND ss.VOLUNTEERID = 3";
 
 
             //NOG NAAR KIJKEN!!!!!!!!

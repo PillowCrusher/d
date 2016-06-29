@@ -38,12 +38,13 @@ namespace ICT4_Participation_ASP.WebForms
                 
                 RefreshLists();
             }
-           
+
             //ListBox3.SelectedIndex = 0;
             //ListBox4.SelectedIndex = 0;
             //_currentAdminHandler.SelectedValue1(ListBox1.SelectedValue);
             //_currentAdminHandler.SelectedValue2(ListBox2.SelectedValue);
             //_currentAdminHandler.SelectedValue3(ListBox3.SelectedValue,"helprequest");
+            string abcd = Request.Cookies["AdminList"]["Switch"];
         }
 
         private void RefreshLists()
@@ -116,9 +117,10 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Button3_OnClick(object sender, EventArgs e)
         {
-            if (Response.Cookies["AdminList"]["Switch"] == "Helprequest")
+            string abc = Request.Cookies["AdminList"]["Switch"];
+            if (Request.Cookies["AdminList"]["Switch"] == "Helprequest")
             {
-                _currentAdminHandler.DeleteHelprequest(Response.Cookies["AdminList"]["Helprequest"]);
+                _currentAdminHandler.DeleteHelprequest(Request.Cookies["AdminList"]["Helprequest"]);
                 ListBox3.Items.Clear();
                 ListBox4.Items.Clear();
                 foreach (HelpRequest helpRequest in _currentAdminHandler.FillHelpRequests())
@@ -128,9 +130,10 @@ namespace ICT4_Participation_ASP.WebForms
             }
             else
             {
-                _currentAdminHandler.DeleteReview(Response.Cookies["AdminList"]["Review"]);
+                string ab = Request.Cookies["AdminList"]["Review"].ToString();
+                _currentAdminHandler.DeleteReview(Request.Cookies["AdminList"]["Review"].ToString());
                 ListBox4.Items.Clear();
-                foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(Response.Cookies["AdminList"]["Helprequest"]))
+                foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(Request.Cookies["AdminList"]["Helprequest"]))
                 {
                     ListBox4.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString() + " " + Response.Cookies["AdminList"]["Helprequest"]));
                 }
@@ -164,13 +167,13 @@ namespace ICT4_Participation_ASP.WebForms
         }
 
         protected void ListBox3_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+        {            
             if (ListBox3.SelectedValue != null)
             {
                 ListBox4.Items.Clear();
                 Response.Cookies["AdminList"]["Helprequest"] = ListBox3.SelectedValue;
                 Response.Cookies["AdminList"]["Switch"] = "Helprequest";
+                string abc = Response.Cookies["AdminList"]["Switch"];
                 Response.Cookies["AdminList"]["Textbox"] =
                     _currentAdminHandler.DescriptionHelprequest(ListBox3.SelectedValue);
                 foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(ListBox3.SelectedValue))
@@ -182,6 +185,7 @@ namespace ICT4_Participation_ASP.WebForms
             {
                 Response.Cookies["AdminList"]["Helprequest"] = "";
             }
+            string abcd = Response.Cookies["AdminList"]["Switch"];
             TextBox1.Text = Response.Cookies["AdminList"]["Textbox"];
         }
 

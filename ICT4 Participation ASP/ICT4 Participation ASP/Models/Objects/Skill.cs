@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,8 @@ namespace ICT4_Participation_ASP.Models.Objects
         {
             this.Naam = naam;
         }
+
+        public Skill(DataRow dr) : this(dr["NAME"].ToString()) { }
 
         public override bool Equals(object obj)
         {
@@ -30,6 +33,11 @@ namespace ICT4_Participation_ASP.Models.Objects
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Naam;
         }
     }
 }

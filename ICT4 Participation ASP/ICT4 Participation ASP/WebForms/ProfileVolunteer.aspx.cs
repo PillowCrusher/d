@@ -41,22 +41,42 @@ namespace ICT4_Participation_ASP.WebForms
                 throw new Exception("Vul je wachtwoord in om door te gaan!");
             }
 
+            List<Skill> skills = _volunteerHandler.GetSkills();
+            List<Skill> mySkills = new List<Skill>();
+            foreach (ListItem item in SkillCheckBoxList.Items)
+            {
+                if (item.Selected)
+                {
+                    foreach (Skill s in skills)
+                    {
+                        if (item.ToString() == s.ToString())
+                        {
+                            mySkills.Add(s);
+                        }
+                    }
+                }
+            }
+            string photo = null;
+            if (inputPhoto.HasFile == false)
+            {
+                photo = _currentVolunteer.Photo;
+            }
+            else
+            {
+                photo = inputPhoto.FileName;
+            }
+            string vog = null;
+            if (inputVog.HasFile == false)
+            {
+                vog = _currentVolunteer.VOG;
+            }
+            else
+            {
+                vog = inputVog.FileName;
+            }
+            _volunteerHandler.UpdateProfileData(_currentVolunteer.ID, inputAdres.Text, inputCity.Text, inputPhonenumber.Text, inputDrivingLincense.Checked, inputCar.Checked, photo, vog, mySkills);
+
             List<object> parameters = new List<object>();
-
-            parameters.Add(_currentVolunteer.ID);
-            parameters.Add(inputAdres.Text);
-            parameters.Add(inputCity.Text);
-            parameters.Add(inputPhonenumber.Text);
-            parameters.Add(Convert.ToInt32(inputDrivingLincense.Checked));
-            parameters.Add(Convert.ToInt32(inputCar.Checked));
-
-            parameters.Add(inputPhoto.HasFile ? inputPhoto.FileName : _currentVolunteer.Photo);
-
-            parameters.Add(inputVog.HasFile ? inputVog.FileName : _currentVolunteer.VOG);
-
-            _volunteerHandler.UpdateProfileData(parameters);
-
-            parameters.Clear();
 
             parameters.Add(_currentVolunteer.Username);
             parameters.Add(inputPassword.Text);
@@ -77,10 +97,26 @@ namespace ICT4_Participation_ASP.WebForms
             inputDrivingLincense.Checked = _currentVolunteer.HasDrivingLincense;
             inputCar.Checked = _currentVolunteer.HasCar;
             birthdDateLabel.Text = _currentVolunteer.BirthDate.ToString("d");
-            //foto
-            //vog
-            //vaardigheden
-
+            List<Skill> skills = _volunteerHandler.GetSkills();
+            _currentVolunteer.AddSkill(_volunteerHandler.GetVolunteerSkills(_currentVolunteer));
+            foreach (Skill s in skills)
+            {
+                foreach (Skill m in _currentVolunteer.Skills)
+                {
+                    ListItem item = new ListItem();
+                    item.Text = s.ToString();
+                    if(s.Naam == m.Naam)
+                    {
+                        item.Selected = true;
+                        item.Enabled = false;
+                    }
+                    else
+                    {
+                        item.Selected = false;
+                    }
+                    SkillCheckBoxList.Items.Add(item);
+                }
+            }
         }
 
         protected void btnUnsubscribe_Click(object sender, EventArgs e)

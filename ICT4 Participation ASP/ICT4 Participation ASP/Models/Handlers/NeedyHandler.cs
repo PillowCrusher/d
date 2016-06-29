@@ -13,7 +13,9 @@ namespace ICT4_Participation_ASP.Models.Handlers
     public class NeedyHandler : Handler
     {
 
-        public void AddHelprequest(Needy user, string titel, string description, string location, int traveltime,  int urgent, string Transportation, DateTime startTime, DateTime endTime, int ammount, int meeting)//string skills)
+        public void AddHelprequest(Needy user, string titel, string description, string location, int traveltime,
+            int urgent, string Transportation, DateTime startTime, DateTime endTime, int ammount, int meeting,
+            List<Skill> skills)
         {
             List<object> parameters = new List<object>();
             parameters.Add(user.ID);
@@ -30,16 +32,41 @@ namespace ICT4_Participation_ASP.Models.Handlers
             // parameters.Add(skills);
             Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertHelprequest]);
 
+            DataTable dt = Db.ExecuteReadQuery(null, DatabaseQueries.Query[QueryId.GetLastHelprequestID]);
+            int helprequestId = 0;
+            foreach (DataRow dr in dt.Rows)
+            {
+                helprequestId = Convert.ToInt32(dr[0].ToString());
+            }
+
+            if (skills.Count != 0)
+            {
+                try
+                {
+                    foreach (Skill skill in skills)
+                    {
+                        parameters.Clear();
+                        parameters.Add(helprequestId);
+                        parameters.Add(skill.Naam);
+                        Db.ExecuteNonQuery(parameters, DatabaseQueries.Query[QueryId.InsertHelprequestSkill]);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
             parameters.Clear();
             parameters.Add(user.ID);
             parameters.Add(titel);
             parameters.Add(startTime);
             parameters.Add(endTime);
-            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserHelpRequest]);
+            DataTable dt2 = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetUserHelpRequest]);
 
-            foreach (DataRow dr in dt.Rows)
+            foreach (DataRow dr2 in dt2.Rows)
             {
-                HelpRequest request = new HelpRequest(dr);
+                HelpRequest request = new HelpRequest(dr2);
                 user.AddHelpRequest(request);
             }
         }

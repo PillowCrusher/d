@@ -47,10 +47,6 @@ namespace ICT4_Participation_ASP.WebForms
                 {
                     Response.Redirect("LoginStandard.aspx");
                 }
-                if (!IsPostBack)
-                {
-                    DdlReview.Text = _volunteerHandler.Message;
-                }
             }
         }
 
@@ -90,7 +86,6 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void DdlReview_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _volunteerHandler.SetMessag(DdlReview.SelectedValue);
             foreach (HelpRequest h in _currentVolunteer.HelpRequesten)
             {
                 foreach (Review r in h.Reviews)
