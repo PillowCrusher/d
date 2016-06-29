@@ -113,25 +113,12 @@ namespace ICT4_Participation_ASP.Models.Handlers
             return "";
         }
 
-        //public string MessageReview(string ID)
-        //{
-        //    foreach (HelpRequest help in FillHelpRequests())
-        //    {
-        //        foreach (Review review in Reviews)
-        //        {
-        //            if(review.)
-        //        }
-        //    }
-        //}
-
-
-
         public List<HelpRequest> FillHelpRequests()
         {
             List<object> parameters = new List<object>();
 
 
-            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllHelpRequests]);
+            DataTable dt = Db.ExecuteReadQuery(parameters, DatabaseQueries.Query[QueryId.GetAllHelpRequestsInc]);
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -274,30 +261,5 @@ namespace ICT4_Participation_ASP.Models.Handlers
                 Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptVolunteer]);
             }
         }
-
-        //public void Delete()
-        //{
-        //    if (list == "review")
-        //    {
-        //        Review r = null;
-                
-        //    }
-            
-        //    foreach (Volunteer volunteer in Volunteers)
-        //    {
-        //        if (volunteer.ID.ToString() == selectedValue2)
-        //        {
-        //            v = volunteer;
-        //        }
-        //    }
-        //    if (v != null)
-        //    {
-        //        List<object> objects = new List<object>();
-        //        objects.Add(v.ID);
-        //        Db.ExecuteNonQuery(objects, DatabaseQueries.Query[QueryId.AcceptVolunteer]);
-        //    }
-        //}
-
-
     }
 }

@@ -17,16 +17,16 @@
     <br />
     <div class="row" style="margin: 0px;">
         <div class="col-sm-4">
-            <asp:ListBox ID="ListBox1" Width="100%" runat="server" Rows="25" OnSelectedIndexChanged="ListBox1_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
+            <asp:ListBox ID="Actors" Width="100%" runat="server" Rows="25" OnSelectedIndexChanged="Actors_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
         </div>
         <div class="col-sm-4">
-            <asp:ListBox ID="ListBox2" Width="100%" runat="server" Rows="25" OnSelectedIndexChanged="ListBox2_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
+            <asp:ListBox ID="VOG" Width="100%" runat="server" Rows="25" OnSelectedIndexChanged="VOG_OnSelectedIndexChanged" AutoPostBack="True" Font-Size="18"></asp:ListBox>
         </div>
         <div class="col-sm-2">
-            <asp:ListBox ID="ListBox3" Width="100%" runat="server" Rows="10" Font-Size="18" OnSelectedIndexChanged="ListBox3_OnSelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
+            <asp:ListBox ID="Hulprequest" Width="100%" runat="server" Rows="10" Font-Size="18" OnSelectedIndexChanged="Hulprequest_OnSelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
         </div>
         <div class="col-sm-2">
-            <asp:ListBox ID="ListBox4" Width="100%" runat="server" Rows="10" Font-Size="12" OnSelectedIndexChanged="ListBox4_OnSelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
+            <asp:ListBox ID="Review" Width="100%" runat="server" Rows="10" Font-Size="12" OnSelectedIndexChanged="Review_OnSelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
         </div>
         <asp:TextBox ID="TextBox1" runat="server" Width="33%" Height="40%" Rows="13" TextMode="MultiLine" Font-Size="18"></asp:TextBox>
         <div>

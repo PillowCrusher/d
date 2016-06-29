@@ -49,40 +49,40 @@ namespace ICT4_Participation_ASP.WebForms {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// ListBox1 control.
+        /// Actors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
+        protected global::System.Web.UI.WebControls.ListBox Actors;
         
         /// <summary>
-        /// ListBox2 control.
+        /// VOG control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox2;
+        protected global::System.Web.UI.WebControls.ListBox VOG;
         
         /// <summary>
-        /// ListBox3 control.
+        /// Hulprequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox3;
+        protected global::System.Web.UI.WebControls.ListBox Hulprequest;
         
         /// <summary>
-        /// ListBox4 control.
+        /// Review control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox4;
+        protected global::System.Web.UI.WebControls.ListBox Review;
         
         /// <summary>
         /// TextBox1 control.

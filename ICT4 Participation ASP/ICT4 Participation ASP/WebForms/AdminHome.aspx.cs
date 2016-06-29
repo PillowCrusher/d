@@ -35,40 +35,42 @@ namespace ICT4_Participation_ASP.WebForms
                 cookie.Values.Add("Review", "");
                 cookie.Values.Add("Textbox","");
                 cookie.Values.Add("Switch","Helprequest");
-                
+                //Helprequest
+
                 RefreshLists();
             }
 
-            //ListBox3.SelectedIndex = 0;
-            //ListBox4.SelectedIndex = 0;
-            //_currentAdminHandler.SelectedValue1(ListBox1.SelectedValue);
-            //_currentAdminHandler.SelectedValue2(ListBox2.SelectedValue);
-            //_currentAdminHandler.SelectedValue3(ListBox3.SelectedValue,"helprequest");
+            //Hulprequest.SelectedIndex = 0;
+            //Review.SelectedIndex = 0;
+            //_currentAdminHandler.SelectedValue1(Actors.SelectedValue);
+            //_currentAdminHandler.SelectedValue2(VOG.SelectedValue);
+            //_currentAdminHandler.SelectedValue3(Hulprequest.SelectedValue,"helprequest");
             string abcd = Request.Cookies["AdminList"]["Switch"];
+            string abcde = Request.Cookies["AdminList"]["Helprequest"];
         }
 
         private void RefreshLists()
         {
-            ListBox1.Items.Clear();
-            ListBox2.Items.Clear();
-            ListBox3.Items.Clear();
-            ListBox4.Items.Clear();
+            Actors.Items.Clear();
+            VOG.Items.Clear();
+            Hulprequest.Items.Clear();
+            Review.Items.Clear();
 
             foreach (User user in _currentAdminHandler.FillUsers())
             {
-                ListBox1.Items.Add(new ListItem("Needy: " + user.Name, user.ID.ToString()));
+                Actors.Items.Add(new ListItem("Needy: " + user.Name, user.ID.ToString()));
             }
             foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
             {
-                ListBox1.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
+                Actors.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
             }
             foreach (Volunteer volunteer in _currentAdminHandler.FillUnaccepted())
             {
-                ListBox2.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
+                VOG.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
             }
             foreach (HelpRequest helpRequest in _currentAdminHandler.FillHelpRequests())
             {
-                ListBox3.Items.Add(new ListItem(helpRequest.Titel, helpRequest.ID.ToString()));
+                Hulprequest.Items.Add(new ListItem(helpRequest.Titel, helpRequest.ID.ToString()));
             }
         }
 
@@ -76,14 +78,14 @@ namespace ICT4_Participation_ASP.WebForms
         protected void Button1_OnClick(object sender, EventArgs e)
         {
             _currentAdminHandler.BlockUser(Request.Cookies["AdminList"]["User"]);
-            ListBox1.Items.Clear();
+            Actors.Items.Clear();
             //foreach (User user in _currentAdminHandler.FillUsers())
             //{
-            //    ListBox1.Items.Add(new ListItem("Needy: " + user.Name, user.ID.ToString()));
+            //    Actors.Items.Add(new ListItem("Needy: " + user.Name, user.ID.ToString()));
             //}
             //foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
             //{
-            //    ListBox1.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
+            //    Actors.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
             //}
             RefreshLists();
         }
@@ -97,21 +99,8 @@ namespace ICT4_Participation_ASP.WebForms
         {
 
             _currentAdminHandler.ActivateVolunteer(Request.Cookies["AdminList"]["VOG"]);
-            ListBox1.Items.Clear();
-            ListBox2.Items.Clear();
-            //foreach (Volunteer volunteer in _currentAdminHandler.FillUnaccepted())
-            //{
-            //    ListBox2.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
-            //}
-
-            //foreach (User user in _currentAdminHandler.FillUsers())
-            //{
-            //    ListBox1.Items.Add(new ListItem("Needy: " + user.Name, user.ID.ToString()));
-            //}
-            //foreach (Volunteer volunteer in _currentAdminHandler.FillAccepted())
-            //{
-            //    ListBox1.Items.Add(new ListItem("Volunteer: " + volunteer.Name, volunteer.ID.ToString()));
-            //}
+            Actors.Items.Clear();
+            VOG.Items.Clear();
             RefreshLists();
         }
 
@@ -121,31 +110,32 @@ namespace ICT4_Participation_ASP.WebForms
             if (Request.Cookies["AdminList"]["Switch"] == "Helprequest")
             {
                 _currentAdminHandler.DeleteHelprequest(Request.Cookies["AdminList"]["Helprequest"]);
-                ListBox3.Items.Clear();
-                ListBox4.Items.Clear();
+                Hulprequest.Items.Clear();
+                Review.Items.Clear();
                 foreach (HelpRequest helpRequest in _currentAdminHandler.FillHelpRequests())
                 {
-                    ListBox3.Items.Add(new ListItem(helpRequest.Titel, helpRequest.ID.ToString()));
+                    Hulprequest.Items.Add(new ListItem(helpRequest.Titel, helpRequest.ID.ToString()));
                 }
             }
             else
             {
+                string ac = Request.Cookies["AdminList"]["Helprequest"];
                 string ab = Request.Cookies["AdminList"]["Review"].ToString();
                 _currentAdminHandler.DeleteReview(Request.Cookies["AdminList"]["Review"].ToString());
-                ListBox4.Items.Clear();
+                Review.Items.Clear();
                 foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(Request.Cookies["AdminList"]["Helprequest"]))
                 {
-                    ListBox4.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString() + " " + Response.Cookies["AdminList"]["Helprequest"]));
+                    Review.Items.Add(new ListItem(volunteer.Name, volunteer.ID.ToString() + " " + Response.Cookies["AdminList"]["Helprequest"]));
                 }
             }
         }
 
 
-        protected void ListBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        protected void Actors_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ListBox1.SelectedValue != null)
+            if (Actors.SelectedValue != null)
             {
-                Response.Cookies["AdminList"]["User"] = ListBox1.SelectedValue;
+                Response.Cookies["AdminList"]["User"] = Actors.SelectedValue;
             }
             else
             {
@@ -154,11 +144,11 @@ namespace ICT4_Participation_ASP.WebForms
           
         }
 
-        protected void ListBox2_OnSelectedIndexChanged(object sender, EventArgs e)
+        protected void VOG_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ListBox2.SelectedValue != null)
+            if (VOG.SelectedValue != null)
             {
-                Response.Cookies["AdminList"]["VOG"] = ListBox2.SelectedValue;
+                Response.Cookies["AdminList"]["VOG"] = VOG.SelectedValue;
             }
             else
             {
@@ -166,19 +156,21 @@ namespace ICT4_Participation_ASP.WebForms
             }
         }
 
-        protected void ListBox3_OnSelectedIndexChanged(object sender, EventArgs e)
+        protected void Hulprequest_OnSelectedIndexChanged(object sender, EventArgs e)
         {            
-            if (ListBox3.SelectedValue != null)
+            if (Hulprequest.SelectedValue != null)
             {
-                ListBox4.Items.Clear();
-                Response.Cookies["AdminList"]["Helprequest"] = ListBox3.SelectedValue;
+                Review.Items.Clear();
+                Response.Cookies["AdminList"]["Helprequest"] = Hulprequest.SelectedValue;
+                string abcde = Hulprequest.SelectedValue;
+                string asdf = Request.Cookies["AdminList"]["Helprequest"];
                 Response.Cookies["AdminList"]["Switch"] = "Helprequest";
                 string abc = Response.Cookies["AdminList"]["Switch"];
                 Response.Cookies["AdminList"]["Textbox"] =
-                    _currentAdminHandler.DescriptionHelprequest(ListBox3.SelectedValue);
-                foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(ListBox3.SelectedValue))
+                    _currentAdminHandler.DescriptionHelprequest(Hulprequest.SelectedValue);
+                foreach (Volunteer volunteer in _currentAdminHandler.ReviewVolunteers(Hulprequest.SelectedValue))
                 {
-                    ListBox4.Items.Add(new ListItem(volunteer.Name,volunteer.ID.ToString()+" "+ListBox3.SelectedValue));
+                    Review.Items.Add(new ListItem(volunteer.Name,volunteer.ID.ToString()+" "+Hulprequest.SelectedValue));
                 }
             }
             else
@@ -189,14 +181,14 @@ namespace ICT4_Participation_ASP.WebForms
             TextBox1.Text = Response.Cookies["AdminList"]["Textbox"];
         }
 
-        protected void ListBox4_OnSelectedIndexChanged(object sender, EventArgs e)
+        protected void Review_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ListBox4.SelectedValue != null)
+            if (Review.SelectedValue != null)
             {
-                Response.Cookies["AdminList"]["Review"] = ListBox3.SelectedValue;
+                Response.Cookies["AdminList"]["Review"] = Review.SelectedValue;
                 Response.Cookies["AdminList"]["Switch"] = "Review";
                 Response.Cookies["AdminList"]["Textbox"] =
-    _currentAdminHandler.MessageReview(ListBox4.SelectedValue);
+    _currentAdminHandler.MessageReview(Review.SelectedValue);
                
 
             }

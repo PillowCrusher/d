@@ -20,6 +20,14 @@ namespace ICT4_Participation_ASP.Models.Database
                 " ON u.ID = n.ID " +
                 " WHERE h.COMPLETED = 0";
 
+            Query[QueryId.GetAllHelpRequestsInc] =
+                "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " +
+                "FROM \"Needy\" n " +
+                " JOIN \"Helprequest\" h" +
+                " ON h.NeedyID = n.ID" +
+                " JOIN \"User\" u" +
+                " ON u.ID = n.ID ";
+
             //:needyid
             Query[QueryId.GetUserHelpRequests] =
                 "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " +
@@ -143,11 +151,14 @@ namespace ICT4_Participation_ASP.Models.Database
                 "JOIN \"UserHelprequest\" uh " +
                 "ON u.ID = uh.UserID WHERE uh.HelprequestID = :p " +
                 "AND uh.Status = 'Accepted'";
+
+            //:i
             
             //:id
             Query[QueryId.GetVolunteersHelprequested] =
-               "SELECT * FROM \"User\" u LEFT JOIN \"UserHelprequest\" uh ON u.ID = uh.UserID LEFT JOIN \"Account\" a ON u.ID = a.ID LEFT JOIN \"Volunteer\" ur ON ur.ID = a.ID WHERE uh.HelprequestID = :id AND uh.Status = 'Accepted' AND ur.ISBLOCKED = 0";
-
+                "SELECT *  FROM \"User\" u JOIN \"Account\" a ON u.ID = a.ID JOIN \"Volunteer\" ur ON ur.ID = a.ID " +
+                "WHERE ur.ISBLOCKED = 0 AND u.ID IN (SELECT uh.VolunteerID FROM \"Review\" uh " +
+                "WHERE uh.HelpRequestID IN(SELECT uhr.HelpRequestID  FROM \"UserHelprequest\" uhr WHERE uhr.Status = 'Accepted'))";
             //:userid
             Query[QueryId.GetAcceptedHelpRequests] =
                 "SELECT h.ID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " +

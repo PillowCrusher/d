@@ -64,6 +64,7 @@
         GetLastHelprequestID,
         InsertHelprequestSkill,
         InsertVolunteerSkill,
-        GetVolunteerSkills
+        GetVolunteerSkills,
+        GetAllHelpRequestsInc
     }
 }
