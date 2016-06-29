@@ -35,7 +35,8 @@ namespace ICT4_Participation_ASP.Models.Database
                 " JOIN \"Helprequest\" h " +
                 " ON h.NeedyID = n.ID " +
                 " WHERE n.ID = :p " +
-                " AND h.COMPLETED = 0 ";
+                " AND h.COMPLETED = 0 " +
+                " ORDER BY h.ID";
 
             //:needyid, :title, :startdate, :enddate
             Query[QueryId.GetUserHelpRequest] =
@@ -150,7 +151,7 @@ namespace ICT4_Participation_ASP.Models.Database
             Query[QueryId.GetReviewsFromHelpRequest] = "SELECT * FROM \"Review\" r LEFT JOIN \"Volunteer\" v ON r.VolunteerID = v.ID  LEFT JOIN \"Account\" a ON v.ID = a.ID LEFT JOIN \"User\" u ON u.ID = a.ID WHERE HELPREQUESTID = :helprequestid";
 
             //:helprequestid
-            Query[QueryId.GetChatMessagesFromHelprequest] = "SELECT * FROM \"ChatMessage\" c WHERE c.HELPREQUESTID = :p";
+            Query[QueryId.GetChatMessagesFromHelprequest] = "SELECT * FROM \"ChatMessage\" c WHERE c.HELPREQUESTID = :p ORDER BY TIME";
 
             //:id
             Query[QueryId.GetAllReviewsVolunteer] = "SELECT * FROM \"Review\" WHERE VOLUNTEERID = :p AND COMMENTS IS NULL";
