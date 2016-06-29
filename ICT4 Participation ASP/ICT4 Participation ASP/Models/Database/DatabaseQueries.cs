@@ -48,7 +48,8 @@ namespace ICT4_Participation_ASP.Models.Database
             " AND h.TITLE = :pp "+
             " AND h.STARTDATE = :ppp "+
             " AND h.ENDDATE = :pppp "+
-            " AND h.COMPLETED = 0 ";
+            " AND h.COMPLETED = 0 " +
+            " ORDER BY h.ID";
 
             //
             Query[QueryId.GetFilteredHelpRequests] = 
@@ -59,7 +60,8 @@ namespace ICT4_Participation_ASP.Models.Database
                             "WHERE SKILL NOT IN( SELECT ss.SKILL " +
                                                 "FROM \"SkillSet\" ss " +
                                                 "WHERE ss.VOLUNTEERID = :p)) " +
-            "AND h.completed = 0";
+            "AND h.completed = 0" +
+            " ORDER BY h.ID";
 
             //:Username, :Password, :Barcode
             Query[QueryId.GetUserLogin] = "LogIn";
