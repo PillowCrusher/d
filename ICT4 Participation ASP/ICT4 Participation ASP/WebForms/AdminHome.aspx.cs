@@ -104,6 +104,7 @@ namespace ICT4_Participation_ASP.WebForms
 
         protected void Button3_OnClick(object sender, EventArgs e)
         {
+            TextBox1.Text = "";
             string abc = Request.Cookies["AdminList"]["Switch"];
             if (Request.Cookies["AdminList"]["Switch"] == "Helprequest")
             {
