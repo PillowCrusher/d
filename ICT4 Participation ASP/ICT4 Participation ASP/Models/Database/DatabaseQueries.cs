@@ -51,7 +51,7 @@ namespace ICT4_Participation_ASP.Models.Database
             " AND h.COMPLETED = 0 " +
             " ORDER BY h.ID";
 
-            //
+            //:VolunteerID
             Query[QueryId.GetFilteredHelpRequests] = 
             "SELECT h.ID, h.NEEDYID, h.TITLE, h.DESCRIPTION, h.LOCATION, h.TRAVELTIME, h.URGENT, h.TRANSPORTTYPE, h.STARTDATE, h.ENDDATE, h.VOLUNTEERSNUMBER, h.INTERVIEW " + 
             "FROM \"Helprequest\" h " +
@@ -60,8 +60,8 @@ namespace ICT4_Participation_ASP.Models.Database
                             "WHERE SKILL NOT IN( SELECT ss.SKILL " +
                                                 "FROM \"SkillSet\" ss " +
                                                 "WHERE ss.VOLUNTEERID = :p)) " +
-            "AND h.completed = 0" +
-            " ORDER BY h.ID";
+            "AND h.completed = 0 " +
+            "ORDER BY h.STARTDATE";
 
             //:Username, :Password, :Barcode
             Query[QueryId.GetUserLogin] = "LogIn";
